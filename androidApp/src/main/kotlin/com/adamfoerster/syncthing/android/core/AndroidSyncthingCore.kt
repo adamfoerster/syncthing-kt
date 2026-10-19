@@ -117,8 +117,9 @@ class AndroidSyncthingCore(
             put("HOME", Environment.getExternalStorageDirectory().absolutePath)
             put("STHOMEDIR", home.absolutePath)
             put("STNOUPGRADE", "1")
+            // Run the core directly, without its monitor process: the app supervises it instead.
+            // (v2 no longer creates a default folder, so STNODEFAULTFOLDER isn't needed.)
             put("STMONITORED", "1")
-            put("STNODEFAULTFOLDER", "1")
             put("SQLITE_TMPDIR", context.cacheDir.absolutePath)
         }
 
