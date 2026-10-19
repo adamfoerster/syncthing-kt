@@ -21,7 +21,9 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runInterruptible
 import kotlinx.coroutines.withTimeoutOrNull
+import org.json.JSONObject
 import java.io.File
+import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.concurrent.TimeUnit
@@ -87,14 +89,24 @@ class AndroidSyncthingCore(
 
     private fun shutdown() {
         stopping = true
-        // SIGTERM: the core flushes its database and exits cleanly.
-        process?.destroy()
-        scope.launch {
-            delay(STOP_GRACE_MS)
-            process?.destroyForcibly()
-        }
         context.stopService(Intent(context, SyncthingService::class.java))
-        if (process == null) _state.value = CoreState.Stopped
+        val running = process
+        if (running == null) {
+            _state.value = CoreState.Stopped
+            return
+        }
+        scope.launch(Dispatchers.IO) {
+            // Ask the core to exit so it flushes its database. destroy() is only the fallback: it also
+            // closes the core's output pipe, and the core then dies of SIGPIPE while logging its shutdown.
+            val asked = try {
+                request("POST", "/rest/system/shutdown")
+                true
+            } catch (e: Exception) {
+                false
+            }
+            if (!asked) running.destroy()
+            if (!running.waitFor(STOP_GRACE_MS, TimeUnit.MILLISECONDS)) running.destroyForcibly()
+        }
     }
 
     /** Called by [SyncthingService] once it is in the foreground. */
@@ -125,26 +137,54 @@ class AndroidSyncthingCore(
 
         val multicast = (context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager)
             .createMulticastLock("syncthing").apply { setReferenceCounted(false) }
+        multicast.acquire()
+        try {
+            // There's no monitor process to restart the core when it asks for it (POST /rest/system/restart
+            // exits with EXIT_RESTART), so do that here.
+            while (true) {
+                val exitCode = runOnce(builder) ?: return
+                if (stopping || exitCode != EXIT_RESTART) {
+                    _state.value = if (stopping) {
+                        CoreState.Stopped
+                    } else {
+                        val tail = synchronized(recentOutput) { recentOutput.takeLast(3).joinToString("\n") }
+                        CoreState.Failed(context.getString(R.string.core_exit, exitCode) + if (tail.isNotEmpty()) "\n$tail" else "")
+                    }
+                    return
+                }
+                Log.i(TAG, "core asked for a restart")
+                _state.value = CoreState.Starting
+            }
+        } finally {
+            multicast.release()
+            context.stopService(Intent(context, SyncthingService::class.java))
+        }
+    }
+
+    /** Runs the core until it exits; returns its exit code, or null if it could not be started. */
+    private suspend fun runOnce(builder: ProcessBuilder): Int? {
         val started = try {
             builder.start()
         } catch (e: Exception) {
             Log.e(TAG, "could not start core", e)
             _state.value = CoreState.Failed(e.message ?: e.toString())
-            context.stopService(Intent(context, SyncthingService::class.java))
-            return
+            return null
         }
         process = started
-        multicast.acquire()
 
         val output = scope.launch(Dispatchers.IO) {
-            started.inputStream.bufferedReader().useLines { lines ->
-                lines.forEach { line ->
-                    Log.i(TAG, line)
-                    synchronized(recentOutput) {
-                        recentOutput.addLast(line)
-                        if (recentOutput.size > OUTPUT_LINES) recentOutput.removeFirst()
+            try {
+                started.inputStream.bufferedReader().useLines { lines ->
+                    lines.forEach { line ->
+                        Log.i(TAG, line)
+                        synchronized(recentOutput) {
+                            recentOutput.addLast(line)
+                            if (recentOutput.size > OUTPUT_LINES) recentOutput.removeFirst()
+                        }
                     }
                 }
+            } catch (e: IOException) {
+                // destroy() closes the stream under the reader when stopping.
             }
         }
         val health = scope.launch(Dispatchers.IO) { awaitHealthy() }
@@ -152,16 +192,8 @@ class AndroidSyncthingCore(
         val exitCode = runInterruptible { started.waitFor() }
         health.cancel()
         output.join()
-        multicast.release()
         process = null
-
-        _state.value = if (stopping) {
-            CoreState.Stopped
-        } else {
-            val tail = synchronized(recentOutput) { recentOutput.takeLast(3).joinToString("\n") }
-            CoreState.Failed(context.getString(R.string.core_exit, exitCode) + if (tail.isNotEmpty()) "\n$tail" else "")
-        }
-        context.stopService(Intent(context, SyncthingService::class.java))
+        return exitCode
     }
 
     private suspend fun awaitHealthy() {
@@ -173,9 +205,50 @@ class AndroidSyncthingCore(
             false
         } == true
         if (healthy) {
+            if (!config.deviceNamed) nameDeviceAfterModel()
             _state.value = CoreState.Running
         } else if (process != null && !stopping) {
             _state.value = CoreState.Failed(context.getString(R.string.core_start_timeout))
+        }
+    }
+
+    /**
+     * The core names a new device after the hostname, which is always "localhost" on Android.
+     * Use the phone's model instead, once; a name the user already chose is kept.
+     */
+    private fun nameDeviceAfterModel() {
+        try {
+            val myId = JSONObject(request("GET", "/rest/system/status")).getString("myID")
+            val path = "/rest/config/devices/$myId"
+            val device = JSONObject(request("GET", path))
+            if (device.optString("name").let { it.isBlank() || it == ANDROID_HOSTNAME }) {
+                device.put("name", Build.MODEL)
+                request("PUT", path, device.toString())
+            }
+            config.deviceNamed = true
+        } catch (e: Exception) {
+            // Not worth failing the start over; tried again next time.
+            Log.w(TAG, "could not set the device name", e)
+        }
+    }
+
+    private fun request(method: String, path: String, body: String? = null): String {
+        val connection = URL(config.baseUrl + path).openConnection() as HttpURLConnection
+        try {
+            connection.requestMethod = method
+            connection.connectTimeout = 2_000
+            connection.readTimeout = 5_000
+            connection.setRequestProperty("X-API-Key", config.apiKey)
+            if (body != null) {
+                connection.doOutput = true
+                connection.setRequestProperty("Content-Type", "application/json")
+                connection.outputStream.use { it.write(body.toByteArray()) }
+            }
+            val code = connection.responseCode
+            if (code !in 200..299) throw IOException("$method $path: HTTP $code")
+            return connection.inputStream.bufferedReader().use { it.readText() }
+        } finally {
+            connection.disconnect()
         }
     }
 
@@ -196,6 +269,10 @@ class AndroidSyncthingCore(
         const val TAG = "SyncthingCore"
         const val BINARY_NAME = "libsyncthing.so"
         const val OUTPUT_LINES = 50
+        const val ANDROID_HOSTNAME = "localhost"
+
+        /** The core's exit code when it wants to be started again (svcutil.ExitRestart). */
+        const val EXIT_RESTART = 3
         val START_TIMEOUT_MS = TimeUnit.SECONDS.toMillis(90)
         val STOP_GRACE_MS = TimeUnit.SECONDS.toMillis(10)
     }

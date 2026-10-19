@@ -25,6 +25,11 @@ class CoreConfig(context: Context) {
         get() = prefs.getBoolean(KEY_STOPPED, false)
         set(value) = prefs.edit { putBoolean(KEY_STOPPED, value) }
 
+    /** True once this device got the phone's model as its name (see AndroidSyncthingCore). */
+    var deviceNamed: Boolean
+        get() = prefs.getBoolean(KEY_DEVICE_NAMED, false)
+        set(value) = prefs.edit { putBoolean(KEY_DEVICE_NAMED, value) }
+
     private fun randomKey(): String {
         val alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         val random = SecureRandom()
@@ -45,5 +50,6 @@ class CoreConfig(context: Context) {
         const val KEY_API = "apiKey"
         const val KEY_PORT = "port"
         const val KEY_STOPPED = "stoppedByUser"
+        const val KEY_DEVICE_NAMED = "deviceNamed"
     }
 }
