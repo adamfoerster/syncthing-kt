@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Compose draws everything; the window only needs the dark grid background to avoid a white flash. -->
+    <style name="Theme.Syncthing" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/ng_bg</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <color name="ng_bg">#FF080A0F</color>
+    <color name="ng_cyan">#FF00F0FF</color>
+</resources>

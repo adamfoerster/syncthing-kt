@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_phone">Este celular</string>
+    <string name="unknown_device">Aparelho desconhecido</string>
+
+    <string name="status_connected">Conectado</string>
+    <string name="status_syncing">Sincronizando</string>
+    <string name="status_offline">Sem conexão</string>
+    <string name="status_paused">Pausado</string>
+
+    <string name="time_just_now">agora mesmo</string>
+    <string name="time_minutes_ago">há %1$d min</string>
+    <string name="time_hours_ago">há %1$d h</string>
+    <string name="time_days_ago">há %1$d dias</string>
+    <string name="time_today_at">Hoje, %1$s</string>
+    <string name="time_yesterday_at">Ontem, %1$s</string>
+    <string name="weekday_monday">segunda, %1$s</string>
+    <string name="weekday_tuesday">terça, %1$s</string>
+    <string name="weekday_wednesday">quarta, %1$s</string>
+    <string name="weekday_thursday">quinta, %1$s</string>
+    <string name="weekday_friday">sexta, %1$s</string>
+    <string name="weekday_saturday">sábado, %1$s</string>
+    <string name="weekday_sunday">domingo, %1$s</string>
+
+    <string name="core_starting_title">Iniciando o Syncthing…</string>
+    <string name="core_starting_body">Leva alguns segundos na primeira vez.</string>
+    <string name="core_stopped_title">Sincronização parada</string>
+    <string name="core_stopped_body">Nada é enviado nem recebido enquanto o Syncthing estiver parado.</string>
+    <string name="core_start">Iniciar</string>
+    <string name="core_permission_title">Libere o acesso aos arquivos</string>
+    <string name="core_permission_body">O Syncthing precisa acessar todos os arquivos para sincronizar suas pastas e resolver conflitos.</string>
+    <string name="core_grant_access">Liberar acesso</string>
+    <string name="core_binary_missing_title">Núcleo do Syncthing ausente</string>
+    <string name="core_binary_missing_body">Esta versão do app foi gerada sem o binário do Syncthing. Compile com ./gradlew :syncthing-native:buildNative e gere o app de novo.</string>
+    <string name="core_failed_title">O Syncthing parou com um erro</string>
+
+    <string name="error_core_unavailable">O Syncthing ainda não está rodando. Tente de novo em instantes.</string>
+    <string name="error_unauthorized">O Syncthing recusou o acesso. Reinicie o app.</string>
+    <string name="error_bad_request">O Syncthing não aceitou esse pedido. Confira os dados.</string>
+    <string name="error_server">O Syncthing encontrou um erro. Tente de novo.</string>
+    <string name="error_unknown">Algo deu errado. Tente de novo.</string>
+    <string name="error_not_found">O arquivo não existe mais.</string>
+    <string name="error_permission">Sem permissão para acessar o arquivo. Libere o acesso a todos os arquivos.</string>
+    <string name="error_file_changed">O arquivo mudou enquanto você decidia. Abra o conflito de novo para ver a versão atual.</string>
+    <string name="error_io">Não foi possível ler ou gravar o arquivo.</string>
+</resources>

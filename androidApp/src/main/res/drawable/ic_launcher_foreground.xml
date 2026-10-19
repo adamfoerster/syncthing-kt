@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Three linked nodes in the Neon Grid style (not the Syncthing trademark logo). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M54,40 L38,66 M54,40 L70,66 M38,66 L70,66"
+        android:strokeWidth="3"
+        android:strokeColor="#FF00F0FF"
+        android:strokeLineCap="square" />
+    <path
+        android:fillColor="#FF00F0FF"
+        android:pathData="M47,33h11l3,3v11h-14z" />
+    <path
+        android:fillColor="#FF00F0FF"
+        android:pathData="M31,59h11l3,3v11h-14z" />
+    <path
+        android:fillColor="#FFFCEE0A"
+        android:pathData="M63,59h11l3,3v11h-14z" />
+</vector>

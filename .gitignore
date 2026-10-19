@@ -1,0 +1,15 @@
+*.iml
+.kotlin/
+.gradle/
+**/build/
+!src/**/build/
+local.properties
+.idea/
+.DS_Store
+captures
+.externalNativeBuild
+.cxx
+
+# Syncthing core: compiled by :syncthing-native, never committed
+androidApp/src/main/jniLibs/
+syncthing-native/go/
