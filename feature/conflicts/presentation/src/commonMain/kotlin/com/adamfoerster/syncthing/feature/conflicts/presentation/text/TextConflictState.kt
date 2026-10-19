@@ -1,5 +1,6 @@
 package com.adamfoerster.syncthing.feature.conflicts.presentation.text
 
+import com.adamfoerster.syncthing.core.designsystem.components.Tone
 import com.adamfoerster.syncthing.core.presentation.UiText
 import com.adamfoerster.syncthing.feature.conflicts.presentation.common.VersionUi
 
@@ -32,6 +33,17 @@ enum class TextView { COMPARE, RESULT }
 
 /** Which version a passage keeps. [BOTH] keeps the first version's lines, then the second's. */
 enum class Pick { FIRST, SECOND, BOTH }
+
+/**
+ * Color of the buttons that choose this option: the green/blue of the side they keep, so the two versions
+ * stay distinguishable even when both show the same author (e.g. two unknown devices).
+ */
+val Pick.tone: Tone
+    get() = when (this) {
+        Pick.FIRST -> Tone.Ok
+        Pick.SECOND -> Tone.Info
+        Pick.BOTH -> Tone.Accent
+    }
 
 sealed interface DiffBlockUi {
     /** Unchanged lines; long runs are folded to a few lines around the hunks. */

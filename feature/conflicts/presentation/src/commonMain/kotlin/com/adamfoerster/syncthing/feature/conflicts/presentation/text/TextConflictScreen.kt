@@ -52,6 +52,8 @@ import com.adamfoerster.syncthing.core.designsystem.components.NgSegmentedRow
 import com.adamfoerster.syncthing.core.designsystem.components.NgTopBar
 import com.adamfoerster.syncthing.core.designsystem.components.PanelTone
 import com.adamfoerster.syncthing.core.designsystem.components.Tone
+import com.adamfoerster.syncthing.core.designsystem.components.background
+import com.adamfoerster.syncthing.core.designsystem.components.foreground
 import com.adamfoerster.syncthing.core.designsystem.icons.NgIcons
 import com.adamfoerster.syncthing.core.designsystem.theme.NgTheme
 import com.adamfoerster.syncthing.core.designsystem.theme.SyncthingTheme
@@ -220,6 +222,7 @@ private fun ProgressPanel(
                     text = allFrom(first),
                     onClick = { onAction(TextConflictAction.OnPickAll(Pick.FIRST)) },
                     style = NgButtonStyle.Tertiary,
+                    tone = Pick.FIRST.tone,
                     minHeight = 44.dp,
                     contentPadding = PaddingValues(horizontal = 8.dp),
                     fontSize = 12.sp,
@@ -229,6 +232,7 @@ private fun ProgressPanel(
                     text = allFrom(second),
                     onClick = { onAction(TextConflictAction.OnPickAll(Pick.SECOND)) },
                     style = NgButtonStyle.Tertiary,
+                    tone = Pick.SECOND.tone,
                     minHeight = 44.dp,
                     contentPadding = PaddingValues(horizontal = 8.dp),
                     fontSize = 12.sp,
@@ -332,9 +336,14 @@ private fun HunkBlock(
             )
         }
         NgSegmentedRow(Modifier.padding(horizontal = 12.dp)) {
-            NgSegment(first.author.asString(), hunk.pick == Pick.FIRST, { onAction(TextConflictAction.OnPick(hunk.hunkIndex, Pick.FIRST)) })
-            NgSegment(second.author.asString(), hunk.pick == Pick.SECOND, { onAction(TextConflictAction.OnPick(hunk.hunkIndex, Pick.SECOND)) })
-            NgSegment(stringResource(Res.string.text_pick_both), hunk.pick == Pick.BOTH, { onAction(TextConflictAction.OnPick(hunk.hunkIndex, Pick.BOTH)) })
+            Pick.entries.forEach { pick ->
+                val label = when (pick) {
+                    Pick.FIRST -> first.author.asString()
+                    Pick.SECOND -> second.author.asString()
+                    Pick.BOTH -> stringResource(Res.string.text_pick_both)
+                }
+                NgSegment(label, hunk.pick == pick, { onAction(TextConflictAction.OnPick(hunk.hunkIndex, pick)) }, tone = pick.tone)
+            }
         }
         HunkSide(first, hunk.firstLines, isFirst = true, dimmed = dimFirst)
         HunkSide(second, hunk.secondLines, isFirst = false, dimmed = dimSecond)
@@ -344,8 +353,10 @@ private fun HunkBlock(
 @Composable
 private fun HunkSide(version: VersionUi, lines: List<HunkLineUi>, isFirst: Boolean, dimmed: Boolean) {
     val c = NgTheme.colors
-    val fg = if (isFirst) c.ok else c.info
-    val headerBg = if (isFirst) c.okSub else c.infoSub
+    // Same tone as the buttons that pick this side.
+    val tone = if (isFirst) Pick.FIRST.tone else Pick.SECOND.tone
+    val fg = tone.foreground(c)
+    val headerBg = tone.background(c)
     val lineBg = if (isFirst) c.oursLine else c.theirsLine
     val highlightBg = if (isFirst) c.oursHighlight else c.theirsHighlight
     Column(Modifier.alpha(if (dimmed) 0.45f else 1f)) {

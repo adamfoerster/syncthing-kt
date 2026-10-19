@@ -27,7 +27,10 @@ import com.adamfoerster.syncthing.core.designsystem.theme.NgTheme
 
 enum class NgButtonStyle { Primary, Secondary, Danger, Tertiary }
 
-/** `.btn` and its `.pri`, `.dng`, `.ter` variants. */
+/**
+ * `.btn` and its `.pri`, `.dng`, `.ter` variants. [tone] colors the [NgButtonStyle.Tertiary] label, for
+ * buttons that act on content shown in that color.
+ */
 @Composable
 fun NgButton(
     text: String,
@@ -39,13 +42,14 @@ fun NgButton(
     minHeight: Dp = 48.dp,
     contentPadding: PaddingValues = PaddingValues(horizontal = 20.dp),
     fontSize: TextUnit = TextUnit.Unspecified,
+    tone: Tone = Tone.Accent,
 ) {
     val c = NgTheme.colors
     val (border, fill, content) = when {
         !enabled -> Triple(c.line, c.disabledBg, c.disabledText)
         style == NgButtonStyle.Primary -> Triple(c.cyan, c.cyan, c.bg)
         style == NgButtonStyle.Danger -> Triple(c.err, c.bg, c.err)
-        style == NgButtonStyle.Tertiary -> Triple(Color.Transparent, Color.Transparent, c.cyan)
+        style == NgButtonStyle.Tertiary -> Triple(Color.Transparent, Color.Transparent, tone.foreground(c))
         else -> Triple(c.lineStrong, c.bg, c.text)
     }
     Row(

@@ -37,7 +37,8 @@ O app varre as pastas (de novo sempre que o índice de uma pasta muda), identifi
 (`/rest/db/file` para a atual, o ID curto no nome para a cópia) e classifica:
 
 - **Texto** (UTF-8, até 2 MB): diff por linhas; cada trecho diferente é resolvido com
-  "este celular", "o outro aparelho" ou "as duas". Há visão de resultado final e **edição à mão**
+  "este celular", "o outro aparelho" ou "as duas"; cada botão tem a cor do trecho que escolhe
+  (verde para a primeira versão, azul para a segunda). Há visão de resultado final e **edição à mão**
   a partir do texto com marcadores `<<<<<<<`/`=======`/`>>>>>>>`, como no GitHub; só conclui sem marcadores.
 - **Binário / imagem**: escolher uma versão ou manter as duas (`nome (cópia).ext`), com prévia para imagens.
 

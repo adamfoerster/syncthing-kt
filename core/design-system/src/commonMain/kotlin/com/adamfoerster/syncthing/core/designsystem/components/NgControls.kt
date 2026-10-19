@@ -52,27 +52,32 @@ fun NgProgressBar(
     }
 }
 
-/** `.seg`: toggle segment; selected shows the check and accent colors. */
+/**
+ * `.seg`: toggle segment; selected shows the check and the [tone] colors. A [tone] other than
+ * [Tone.Accent] also tints the unselected label, tying the segment to content shown in that color.
+ */
 @Composable
 fun RowScope.NgSegment(
     text: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    tone: Tone = Tone.Accent,
 ) {
     val c = NgTheme.colors
+    val accent = tone.foreground(c)
     Row(
         modifier = modifier
             .weight(1f)
             .defaultMinSize(minHeight = 48.dp)
-            .background(if (selected) c.cyanSub else c.panel)
-            .border(1.dp, if (selected) c.cyan else c.lineStrong)
+            .background(if (selected) tone.background(c) else c.panel)
+            .border(1.dp, if (selected) accent else c.lineStrong)
             .selectable(selected = selected, role = Role.Tab, onClick = onClick)
             .padding(horizontal = 6.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        val fg = if (selected) c.cyan else c.text
+        val fg = if (selected || tone != Tone.Accent) accent else c.text
         if (selected) Icon(NgIcons.Check, null, tint = fg, modifier = Modifier.size(14.dp))
         Text(text, style = NgTheme.type.segment, color = fg, textAlign = TextAlign.Center)
     }

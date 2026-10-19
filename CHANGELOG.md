@@ -8,6 +8,13 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-19
+
+### Corrigido
+- Na resolução de conflitos de texto, os botões de escolha agora têm a cor do trecho que representam: verde para
+  a primeira versão e azul para a segunda. Antes, quando os dois lados vinham de aparelhos desconhecidos, os
+  botões tinham o mesmo nome e a mesma cor e não dava para saber qual escolhia qual trecho.
+
 ## [1.0.1] - 2026-10-19
 
 ### Corrigido
