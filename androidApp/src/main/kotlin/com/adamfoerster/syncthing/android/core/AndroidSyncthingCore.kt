@@ -252,6 +252,8 @@ class AndroidSyncthingCore(
         }
     }
 
+    private var lastHealthError: String? = null
+
     private fun isHealthy(): Boolean = try {
         val connection = URL("${config.baseUrl}/rest/noauth/health").openConnection() as HttpURLConnection
         connection.connectTimeout = 1_000
@@ -262,6 +264,13 @@ class AndroidSyncthingCore(
             connection.disconnect()
         }
     } catch (e: Exception) {
+        // "Connection refused" is expected while the core boots; anything else (e.g. a cleartext
+        // policy rejection) would otherwise only surface as a vague timeout. Log each new cause once.
+        val cause = e.toString()
+        if (cause != lastHealthError) {
+            lastHealthError = cause
+            Log.w(TAG, "health check failed: $cause")
+        }
         false
     }
 

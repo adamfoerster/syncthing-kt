@@ -52,6 +52,9 @@ android {
     }
 }
 
+// Every build checks that the version was bumped together with CHANGELOG.md.
+tasks.named("preBuild") { dependsOn(":verifyVersion") }
+
 dependencies {
     implementation(projects.app)
     implementation(projects.core.data)
@@ -63,4 +66,7 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.koin.android)
     implementation(libs.zxing.android.embedded)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.assertk)
 }

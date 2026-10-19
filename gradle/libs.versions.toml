@@ -24,6 +24,7 @@ zxing-embedded = "4.3.0"
 
 assertk = "0.28.1"
 turbine = "1.2.0"
+junit = "4.13.2"
 
 [libraries]
 # Build logic (convention plugins compile against these)
@@ -81,6 +82,7 @@ zxing-android-embedded = { module = "com.journeyapps:zxing-android-embedded", ve
 # Testing
 assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
+junit = { module = "junit:junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

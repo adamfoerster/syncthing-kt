@@ -77,6 +77,14 @@ adb shell run-as com.adamfoerster.syncthing.debug touch files/demo
 ./gradlew testAndroidHostTest
 ```
 
+## Versionamento e contribuição
+
+Versão atual: **1.0.1** (`app.version` em `gradle.properties`, SemVer). Histórico em [CHANGELOG.md](CHANGELOG.md).
+
+Cada alteração precisa de testes, um bump de versão, uma entrada no CHANGELOG e a documentação atualizada;
+as regras completas estão em [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (que roda antes de todo
+build do app) falha se a versão e o CHANGELOG não baterem.
+
 ## Licenças
 
 Fontes Chakra Petch e IBM Plex sob SIL OFL 1.1 (`licenses/`). O processo de build do núcleo segue o
