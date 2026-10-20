@@ -19,6 +19,11 @@
     <string name="devices_menu_resume">Συνέχιση</string>
     <string name="devices_menu_remove">Αφαίρεση συσκευής</string>
     <string name="devices_menu_close">Κλείσιμο</string>
+    <string name="devices_menu_rename">Μετονομασία</string>
+    <string name="devices_rename_title">Μετονομασία συσκευής</string>
+    <string name="devices_rename_label">Όνομα</string>
+    <string name="devices_rename_hint">Αλλάζει μόνο πώς εμφανίζεται εδώ η συσκευή. Η άλλη συσκευή κρατά το δικό της όνομα.</string>
+    <string name="devices_rename_save">Αποθήκευση</string>
     <string name="devices_remove_confirm_title">Αφαίρεση του %1$s;</string>
     <string name="devices_remove_confirm_body">Δεν θα λαμβάνει πλέον τους φακέλους σας. Τα αρχεία που υπάρχουν ήδη σε αυτήν δεν διαγράφονται.</string>
     <string name="devices_remove_confirm">Αφαίρεση</string>

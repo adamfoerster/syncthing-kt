@@ -19,6 +19,11 @@
     <string name="devices_menu_resume">Riprendi</string>
     <string name="devices_menu_remove">Rimuovi dispositivo</string>
     <string name="devices_menu_close">Chiudi</string>
+    <string name="devices_menu_rename">Rinomina</string>
+    <string name="devices_rename_title">Rinomina dispositivo</string>
+    <string name="devices_rename_label">Nome</string>
+    <string name="devices_rename_hint">Cambia solo come questo dispositivo appare qui. L’altro dispositivo mantiene il proprio nome.</string>
+    <string name="devices_rename_save">Salva</string>
     <string name="devices_remove_confirm_title">Rimuovere %1$s?</string>
     <string name="devices_remove_confirm_body">Smetterà di ricevere le tue cartelle. I file già presenti non vengono eliminati.</string>
     <string name="devices_remove_confirm">Rimuovi</string>

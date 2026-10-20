@@ -35,7 +35,7 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:home` | Home: status and device map |
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
-| `feature:devices` | Devices, approving pending ones, 3-step flow with QR |
+| `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR |
 | `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |

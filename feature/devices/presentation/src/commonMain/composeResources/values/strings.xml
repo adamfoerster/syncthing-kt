@@ -19,6 +19,11 @@
     <string name="devices_menu_resume">Resume</string>
     <string name="devices_menu_remove">Remove device</string>
     <string name="devices_menu_close">Close</string>
+    <string name="devices_menu_rename">Rename</string>
+    <string name="devices_rename_title">Rename device</string>
+    <string name="devices_rename_label">Name</string>
+    <string name="devices_rename_hint">Only changes how this device appears here. The other device keeps its own name.</string>
+    <string name="devices_rename_save">Save</string>
     <string name="devices_remove_confirm_title">Remove %1$s?</string>
     <string name="devices_remove_confirm_body">It will stop receiving your folders. Files already on it are not deleted.</string>
     <string name="devices_remove_confirm">Remove</string>

@@ -18,6 +18,10 @@ interface SyncthingRepository {
     suspend fun addDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote>
     suspend fun removeDevice(id: DeviceId): EmptyResult<DataError.Remote>
     suspend fun setDevicePaused(id: DeviceId, paused: Boolean): EmptyResult<DataError.Remote>
+
+    /** Changes the display name of an already added device; a blank [name] is rejected by the caller, not here. */
+    suspend fun renameDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote>
+
     suspend fun dismissPendingDevice(id: DeviceId): EmptyResult<DataError.Remote>
 
     suspend fun addFolder(

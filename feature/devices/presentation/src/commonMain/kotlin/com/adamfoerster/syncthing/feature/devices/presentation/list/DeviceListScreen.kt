@@ -23,6 +23,7 @@ import com.adamfoerster.syncthing.core.designsystem.components.NgIconButton
 import com.adamfoerster.syncthing.core.designsystem.components.NgPanel
 import com.adamfoerster.syncthing.core.designsystem.components.NgScreen
 import com.adamfoerster.syncthing.core.designsystem.components.NgStatusLabel
+import com.adamfoerster.syncthing.core.designsystem.components.NgTextField
 import com.adamfoerster.syncthing.core.designsystem.components.NgTopBar
 import com.adamfoerster.syncthing.core.designsystem.components.PanelTone
 import com.adamfoerster.syncthing.core.designsystem.icons.NgIcons
@@ -44,12 +45,17 @@ import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_menu_close
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_menu_pause
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_menu_remove
+import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_menu_rename
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_menu_resume
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_no_folders
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_open
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_pending_body
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_pending_title
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_reject
+import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_rename_hint
+import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_rename_label
+import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_rename_save
+import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_rename_title
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_remove_confirm
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_remove_confirm_body
 import com.adamfoerster.syncthing.feature.devices.presentation.resources.devices_remove_confirm_title
@@ -181,6 +187,7 @@ fun DeviceListScreen(
     }
 
     state.menuFor?.let { device -> DeviceMenu(device, onAction) }
+    state.rename?.let { rename -> RenameDialog(rename, onAction) }
     state.confirmRemove?.let { device ->
         AlertDialog(
             onDismissRequest = { onAction(DeviceListAction.OnDismissMenu) },
@@ -216,6 +223,12 @@ private fun DeviceMenu(device: DeviceUi, onAction: (DeviceListAction) -> Unit) {
                     icon = if (paused) NgIcons.Play else NgIcons.Pause,
                 )
                 NgButton(
+                    stringResource(Res.string.devices_menu_rename),
+                    { onAction(DeviceListAction.OnRenameRequest(device)) },
+                    Modifier.fillMaxWidth(),
+                    icon = NgIcons.Edit,
+                )
+                NgButton(
                     stringResource(Res.string.devices_menu_remove),
                     { onAction(DeviceListAction.OnRemoveRequest(device)) },
                     Modifier.fillMaxWidth(),
@@ -225,6 +238,36 @@ private fun DeviceMenu(device: DeviceUi, onAction: (DeviceListAction) -> Unit) {
             }
         },
         confirmButton = {
+            NgButton(stringResource(Res.string.devices_menu_close), { onAction(DeviceListAction.OnDismissMenu) }, style = NgButtonStyle.Tertiary)
+        },
+    )
+}
+
+@Composable
+private fun RenameDialog(rename: RenameUi, onAction: (DeviceListAction) -> Unit) {
+    val c = NgTheme.colors
+    AlertDialog(
+        onDismissRequest = { onAction(DeviceListAction.OnDismissMenu) },
+        shape = NgShapes.panel,
+        containerColor = c.panel,
+        title = { Text(stringResource(Res.string.devices_rename_title), style = NgTheme.type.h2) },
+        text = {
+            NgTextField(
+                value = rename.input,
+                onValueChange = { onAction(DeviceListAction.OnRenameInputChange(it)) },
+                label = stringResource(Res.string.devices_rename_label),
+                supportingText = stringResource(Res.string.devices_rename_hint),
+            )
+        },
+        confirmButton = {
+            NgButton(
+                stringResource(Res.string.devices_rename_save),
+                { onAction(DeviceListAction.OnRenameConfirm) },
+                style = NgButtonStyle.Primary,
+                enabled = rename.canSave,
+            )
+        },
+        dismissButton = {
             NgButton(stringResource(Res.string.devices_menu_close), { onAction(DeviceListAction.OnDismissMenu) }, style = NgButtonStyle.Tertiary)
         },
     )

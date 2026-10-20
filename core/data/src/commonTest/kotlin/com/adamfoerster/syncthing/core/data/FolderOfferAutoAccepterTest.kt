@@ -61,6 +61,7 @@ class FolderOfferAutoAccepterTest {
         override suspend fun setFolderPaused(folderId: String, paused: Boolean): EmptyResult<DataError.Remote> = TODO()
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> = TODO()
         override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> = TODO()
+        override suspend fun renameDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote> = TODO()
         override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> = TODO()
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> = TODO()
         override suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> = TODO()

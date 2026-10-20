@@ -35,7 +35,7 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:home` | Início: status e mapa de aparelhos |
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
-| `feature:devices` | Aparelhos, aprovação de pendentes, fluxo de 3 passos com QR |
+| `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR |
 | `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |

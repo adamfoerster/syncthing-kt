@@ -157,6 +157,9 @@ class KtorSyncthingRepository(
     override suspend fun setDevicePaused(id: DeviceId, paused: Boolean): EmptyResult<DataError.Remote> =
         api.patchDevice(id.value, buildJsonObject { put("paused", paused) }).refreshOnSuccess()
 
+    override suspend fun renameDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote> =
+        api.patchDevice(id.value, buildJsonObject { put("name", name) }).refreshOnSuccess()
+
     override suspend fun dismissPendingDevice(id: DeviceId): EmptyResult<DataError.Remote> =
         api.dismissPendingDevice(id.value).refreshOnSuccess()
 

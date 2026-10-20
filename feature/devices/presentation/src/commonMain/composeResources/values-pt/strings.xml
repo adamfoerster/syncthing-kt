@@ -19,6 +19,11 @@
     <string name="devices_menu_resume">Retomar</string>
     <string name="devices_menu_remove">Remover aparelho</string>
     <string name="devices_menu_close">Fechar</string>
+    <string name="devices_menu_rename">Renomear</string>
+    <string name="devices_rename_title">Renomear aparelho</string>
+    <string name="devices_rename_label">Nome</string>
+    <string name="devices_rename_hint">Muda só como o aparelho aparece aqui. O outro aparelho mantém o próprio nome.</string>
+    <string name="devices_rename_save">Salvar</string>
     <string name="devices_remove_confirm_title">Remover %1$s?</string>
     <string name="devices_remove_confirm_body">Ele deixa de receber suas pastas. Os arquivos que já estão nele não são apagados.</string>
     <string name="devices_remove_confirm">Remover</string>

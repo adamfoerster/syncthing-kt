@@ -152,6 +152,10 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
         }
         return ok
     }
+    override suspend fun renameDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote> {
+        overview.update { o -> o?.copy(devices = o.devices.map { if (it.id == id) it.copy(name = name) else it }) }
+        return ok
+    }
     override suspend fun dismissPendingDevice(id: DeviceId) = ok
     override suspend fun addFolder(id: String, label: String, path: String, type: FolderType, devices: List<DeviceId>): EmptyResult<DataError.Remote> {
         overview.update { o -> o?.copy(folders = o.folders + folder(id, label, path, devices, 0, 0)) }

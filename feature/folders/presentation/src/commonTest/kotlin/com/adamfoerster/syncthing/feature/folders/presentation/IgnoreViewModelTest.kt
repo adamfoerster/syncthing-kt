@@ -203,6 +203,7 @@ class IgnoreViewModelTest {
         override suspend fun setFolderPaused(folderId: String, paused: Boolean) = unused()
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId) = unused()
         override suspend fun setMyName(name: String) = unused()
+        override suspend fun renameDevice(id: DeviceId, name: String) = unused()
         override suspend fun scan(folderId: String, subPath: String?) = unused()
         override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> = unused()
 

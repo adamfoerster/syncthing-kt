@@ -8,6 +8,12 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-10-20
+
+### Adicionado
+- Renomear aparelho: ao tocar em um aparelho já adicionado na aba Aparelhos, o menu ganhou **Renomear**. O novo nome
+  vale só neste celular (o outro aparelho mantém o próprio nome) e não pode ficar em branco.
+
 ## [1.4.0] - 2026-10-20
 
 ### Adicionado

@@ -19,6 +19,11 @@
     <string name="devices_menu_resume">Fortsetzen</string>
     <string name="devices_menu_remove">Gerät entfernen</string>
     <string name="devices_menu_close">Schließen</string>
+    <string name="devices_menu_rename">Umbenennen</string>
+    <string name="devices_rename_title">Gerät umbenennen</string>
+    <string name="devices_rename_label">Name</string>
+    <string name="devices_rename_hint">Ändert nur, wie dieses Gerät hier erscheint. Das andere Gerät behält seinen eigenen Namen.</string>
+    <string name="devices_rename_save">Speichern</string>
     <string name="devices_remove_confirm_title">%1$s entfernen?</string>
     <string name="devices_remove_confirm_body">Es erhält Ihre Ordner nicht mehr. Dateien, die bereits darauf sind, werden nicht gelöscht.</string>
     <string name="devices_remove_confirm">Entfernen</string>

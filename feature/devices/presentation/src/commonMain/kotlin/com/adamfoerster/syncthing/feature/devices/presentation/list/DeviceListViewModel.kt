@@ -36,6 +36,8 @@ data class DeviceListState(
     val pending: List<PendingDeviceUi> = emptyList(),
     val menuFor: DeviceUi? = null,
     val confirmRemove: DeviceUi? = null,
+    /** Device being renamed and the name typed so far; null when the rename dialog is closed. */
+    val rename: RenameUi? = null,
     val error: UiText? = null,
 )
 
@@ -48,6 +50,10 @@ data class DeviceUi(
     val folders: List<String>,
 )
 
+data class RenameUi(val device: DeviceUi, val input: String) {
+    val canSave: Boolean get() = input.isNotBlank()
+}
+
 data class PendingDeviceUi(val id: String, val shortId: String, val name: String, val address: String)
 
 sealed interface DeviceListAction {
@@ -57,12 +63,20 @@ sealed interface DeviceListAction {
     data class OnDeviceClick(val device: DeviceUi) : DeviceListAction
     data object OnDismissMenu : DeviceListAction
     data class OnTogglePause(val device: DeviceUi) : DeviceListAction
+    data class OnRenameRequest(val device: DeviceUi) : DeviceListAction
+    data class OnRenameInputChange(val value: String) : DeviceListAction
+    data object OnRenameConfirm : DeviceListAction
     data class OnRemoveRequest(val device: DeviceUi) : DeviceListAction
     data object OnRemoveConfirm : DeviceListAction
     data object OnStartCore : DeviceListAction
 }
 
-private data class Dialogs(val menuFor: DeviceUi? = null, val confirmRemove: DeviceUi? = null, val error: UiText? = null)
+private data class Dialogs(
+    val menuFor: DeviceUi? = null,
+    val confirmRemove: DeviceUi? = null,
+    val rename: RenameUi? = null,
+    val error: UiText? = null,
+)
 
 class DeviceListViewModel(
     private val repository: SyncthingRepository,
@@ -81,6 +95,7 @@ class DeviceListViewModel(
             pending = overview.pendingDevices.map { PendingDeviceUi(it.id.value, it.id.short, it.name.ifBlank { it.id.short }, it.address) },
             menuFor = d.menuFor,
             confirmRemove = d.confirmRemove,
+            rename = d.rename,
             error = d.error,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), DeviceListState())
@@ -93,6 +108,15 @@ class DeviceListViewModel(
             is DeviceListAction.OnTogglePause -> {
                 dialogs.value = Dialogs()
                 launchCall { repository.setDevicePaused(DeviceId(action.device.id), action.device.status != DeviceStatus.PAUSED) }
+            }
+            is DeviceListAction.OnRenameRequest -> dialogs.value = Dialogs(rename = RenameUi(action.device, action.device.name))
+            is DeviceListAction.OnRenameInputChange -> dialogs.update { d -> d.copy(rename = d.rename?.copy(input = action.value)) }
+            DeviceListAction.OnRenameConfirm -> {
+                val rename = dialogs.value.rename ?: return
+                val name = rename.input.trim()
+                if (name.isEmpty()) return
+                dialogs.value = Dialogs()
+                if (name != rename.device.name) launchCall { repository.renameDevice(DeviceId(rename.device.id), name) }
             }
             is DeviceListAction.OnRemoveRequest -> dialogs.value = Dialogs(confirmRemove = action.device)
             DeviceListAction.OnRemoveConfirm -> {
