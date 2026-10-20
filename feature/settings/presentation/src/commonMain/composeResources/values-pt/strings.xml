@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">Quando um aparelho que você já adicionou oferece uma pasta que você já compartilha com outro aparelho, ele entra nessa pasta sem perguntar. Ofertas de pastas novas continuam pedindo sua resposta.</string>
     <string name="settings_auto_accept_on">Ligado</string>
     <string name="settings_auto_accept_off">Desligado</string>
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_body">Substitui o modo claro ou escuro do celular. “Aparelho” volta a seguir o sistema.</string>
+    <string name="settings_theme_system">Aparelho</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Escuro</string>
     <string name="settings_language_title">Idioma</string>
     <string name="settings_language_body">Substitui o idioma do celular. “Idioma do aparelho” volta a seguir o sistema.</string>
     <string name="settings_language_system">Idioma do aparelho</string>

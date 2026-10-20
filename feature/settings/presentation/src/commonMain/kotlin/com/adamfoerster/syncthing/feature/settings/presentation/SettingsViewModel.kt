@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.adamfoerster.syncthing.core.domain.model.CoreState
 import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
 import com.adamfoerster.syncthing.core.domain.preferences.AppLanguages
+import com.adamfoerster.syncthing.core.domain.preferences.ThemeMode
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingCore
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingRepository
 import com.adamfoerster.syncthing.core.domain.util.Result
@@ -30,6 +31,7 @@ data class SettingsState(
     /** Chosen language tag, or null to follow the device. */
     val languageTag: String? = null,
     val languages: List<String> = AppLanguages.supported,
+    val themeMode: ThemeMode = ThemeMode.System,
     val error: UiText? = null,
 ) {
     val name: String get() = nameInput ?: savedName
@@ -41,6 +43,7 @@ sealed interface SettingsAction {
     data object OnSaveName : SettingsAction
     data class OnAutoAcceptChange(val enabled: Boolean) : SettingsAction
     data class OnLanguageChange(val tag: String?) : SettingsAction
+    data class OnThemeChange(val mode: ThemeMode) : SettingsAction
     data object OnStart : SettingsAction
     data object OnStop : SettingsAction
     data object OnRestart : SettingsAction
@@ -59,8 +62,8 @@ class SettingsViewModel(
     val state: StateFlow<SettingsState> = combine(
         combine(core.state, repository.overview, edit, ::Triple),
         preferences.autoAcceptKnownFolders,
-        preferences.languageTag,
-    ) { (coreState, overview, e), autoAccept, languageTag ->
+        combine(preferences.languageTag, preferences.themeMode, ::Pair),
+    ) { (coreState, overview, e), autoAccept, (languageTag, themeMode) ->
         SettingsState(
             coreState = coreState,
             myId = overview?.myId?.value.orEmpty(),
@@ -72,6 +75,7 @@ class SettingsViewModel(
             error = e.error,
             autoAcceptKnownFolders = autoAccept,
             languageTag = languageTag,
+            themeMode = themeMode,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SettingsState())
 
@@ -81,6 +85,7 @@ class SettingsViewModel(
             SettingsAction.OnSaveName -> saveName()
             is SettingsAction.OnAutoAcceptChange -> preferences.setAutoAcceptKnownFolders(action.enabled)
             is SettingsAction.OnLanguageChange -> preferences.setLanguageTag(AppLanguages.sanitize(action.tag))
+            is SettingsAction.OnThemeChange -> preferences.setThemeMode(action.mode)
             SettingsAction.OnStart -> core.start()
             SettingsAction.OnStop -> core.stop()
             SettingsAction.OnRestart -> core.restart()

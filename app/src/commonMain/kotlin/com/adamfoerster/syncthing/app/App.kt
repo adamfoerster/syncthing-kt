@@ -50,8 +50,8 @@ import org.koin.compose.koinInject
 private val tabRoutes = listOf(HomeRoute, FoldersRoute, DevicesRoute, SettingsRoute)
 
 @Composable
-fun App(platformActions: PlatformActions) {
-    SyncthingTheme {
+fun App(platformActions: PlatformActions, darkTheme: Boolean) {
+    SyncthingTheme(darkTheme) {
         CompositionLocalProvider(LocalPlatformActions provides platformActions) {
             AppNavHost()
         }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import com.adamfoerster.syncthing.core.domain.preferences.AppLanguages
 import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
+import com.adamfoerster.syncthing.core.domain.preferences.ThemeMode
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import java.util.Locale
@@ -15,8 +16,11 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
     private val _autoAccept = MutableStateFlow(prefs.getBoolean(KEY_AUTO_ACCEPT, AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS))
     private val _languageTag = MutableStateFlow(storedLanguageTag(context))
 
+    private val _themeMode = MutableStateFlow(ThemeMode.fromStored(prefs.getString(KEY_THEME, null)))
+
     override val autoAcceptKnownFolders: StateFlow<Boolean> = _autoAccept
     override val languageTag: StateFlow<String?> = _languageTag
+    override val themeMode: StateFlow<ThemeMode> = _themeMode
 
     override fun setAutoAcceptKnownFolders(enabled: Boolean) {
         prefs.edit().putBoolean(KEY_AUTO_ACCEPT, enabled).apply()
@@ -28,8 +32,14 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
         _languageTag.value = tag
     }
 
+    override fun setThemeMode(mode: ThemeMode) {
+        prefs.edit().putString(KEY_THEME, mode.name).apply()
+        _themeMode.value = mode
+    }
+
     companion object {
         private const val FILE = "app_preferences"
+        private const val KEY_THEME = "theme_mode"
         private const val KEY_AUTO_ACCEPT = "auto_accept_known_folders"
         private const val KEY_LANGUAGE = "language_tag"
 

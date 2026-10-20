@@ -13,7 +13,11 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import com.adamfoerster.syncthing.android.core.AndroidSyncthingCore
 import com.adamfoerster.syncthing.app.App
 import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
@@ -69,10 +73,6 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT),
-            navigationBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT),
-        )
         super.onCreate(savedInstanceState)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && savedInstanceState == null) {
             notifications.launch(Manifest.permission.POST_NOTIFICATIONS)
@@ -81,7 +81,16 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(Unit) {
                 preferences.languageTag.collect { if (it != appliedLanguage) recreate() }
             }
-            App(platformActions)
+            val themeMode by preferences.themeMode.collectAsState()
+            val darkTheme = themeMode.isDark(systemDark = isSystemInDarkTheme())
+            // The bar icons must contrast with the palette, which the in-app choice may flip against the device's.
+            DisposableEffect(darkTheme) {
+                val transparent = android.graphics.Color.TRANSPARENT
+                val style = if (darkTheme) SystemBarStyle.dark(transparent) else SystemBarStyle.light(transparent, transparent)
+                enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
+                onDispose { }
+            }
+            App(platformActions, darkTheme)
         }
     }
 

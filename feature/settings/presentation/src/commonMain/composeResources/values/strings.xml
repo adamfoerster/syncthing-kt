@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">When a device you already added offers a folder you already share with another device, add it to that folder without asking. Offers for new folders still ask you first.</string>
     <string name="settings_auto_accept_on">On</string>
     <string name="settings_auto_accept_off">Off</string>
+    <string name="settings_theme_title">Theme</string>
+    <string name="settings_theme_body">Overrides the light or dark mode of your phone. “Device” follows the system again.</string>
+    <string name="settings_theme_system">Device</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
     <string name="settings_language_title">Language</string>
     <string name="settings_language_body">Overrides the language of your phone. “Device language” follows the system again.</string>
     <string name="settings_language_system">Device language</string>

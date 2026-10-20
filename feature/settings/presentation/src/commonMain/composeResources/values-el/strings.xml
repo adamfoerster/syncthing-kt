@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">Όταν μια συσκευή που έχετε ήδη προσθέσει προσφέρει έναν φάκελο που μοιράζεστε ήδη με άλλη συσκευή, προστίθεται σε αυτόν χωρίς ερώτηση. Οι προσφορές νέων φακέλων εξακολουθούν να ζητούν την απάντησή σας.</string>
     <string name="settings_auto_accept_on">Ενεργό</string>
     <string name="settings_auto_accept_off">Ανενεργό</string>
+    <string name="settings_theme_title">Θέμα</string>
+    <string name="settings_theme_body">Αντικαθιστά τη φωτεινή ή σκοτεινή λειτουργία του τηλεφώνου. Το «Συσκευή» ακολουθεί ξανά το σύστημα.</string>
+    <string name="settings_theme_system">Συσκευή</string>
+    <string name="settings_theme_light">Φωτεινό</string>
+    <string name="settings_theme_dark">Σκοτεινό</string>
     <string name="settings_language_title">Γλώσσα</string>
     <string name="settings_language_body">Αντικαθιστά τη γλώσσα του τηλεφώνου. Το «Γλώσσα συσκευής» ακολουθεί ξανά το σύστημα.</string>
     <string name="settings_language_system">Γλώσσα συσκευής</string>

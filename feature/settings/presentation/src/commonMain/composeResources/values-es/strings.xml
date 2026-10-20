@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">Cuando un dispositivo que ya añadiste ofrece una carpeta que ya compartes con otro dispositivo, se añade a esa carpeta sin preguntar. Las ofertas de carpetas nuevas siguen pidiendo tu respuesta.</string>
     <string name="settings_auto_accept_on">Activado</string>
     <string name="settings_auto_accept_off">Desactivado</string>
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_body">Sustituye el modo claro u oscuro del teléfono. “Dispositivo” vuelve a seguir el sistema.</string>
+    <string name="settings_theme_system">Dispositivo</string>
+    <string name="settings_theme_light">Claro</string>
+    <string name="settings_theme_dark">Oscuro</string>
     <string name="settings_language_title">Idioma</string>
     <string name="settings_language_body">Sustituye el idioma del teléfono. “Idioma del dispositivo” vuelve a seguir el sistema.</string>
     <string name="settings_language_system">Idioma del dispositivo</string>

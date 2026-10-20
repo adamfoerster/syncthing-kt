@@ -1,9 +1,11 @@
 package com.adamfoerster.syncthing.core.designsystem.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
@@ -16,12 +18,14 @@ object NgTheme {
         @Composable @ReadOnlyComposable get() = LocalNgTypography.current
 }
 
+/** [darkTheme] picks the palette; previews and callers that do not care follow the device. */
 @Composable
-fun SyncthingTheme(content: @Composable () -> Unit) {
-    val colors = NgColors()
+fun SyncthingTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+    val colors = if (darkTheme) NgColors.Dark else NgColors.Light
     val typography = rememberNgTypography()
     // Material components (dialogs, text fields, snackbars) pick up the same palette.
-    val scheme = darkColorScheme(
+    val base = if (darkTheme) darkColorScheme() else lightColorScheme()
+    val scheme = base.copy(
         primary = colors.cyan,
         onPrimary = colors.bg,
         secondary = colors.info,

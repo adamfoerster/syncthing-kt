@@ -29,6 +29,7 @@ import com.adamfoerster.syncthing.core.designsystem.icons.NgIcons
 import com.adamfoerster.syncthing.core.designsystem.theme.NgTheme
 import com.adamfoerster.syncthing.core.designsystem.theme.SyncthingTheme
 import com.adamfoerster.syncthing.core.domain.model.CoreState
+import com.adamfoerster.syncthing.core.domain.preferences.ThemeMode
 import com.adamfoerster.syncthing.core.presentation.CoreStatusCallout
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.Res
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_auto_accept_body
@@ -61,6 +62,11 @@ import com.adamfoerster.syncthing.feature.settings.presentation.resources.settin
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_stop
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_sync
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_this_device
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_theme_body
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_theme_dark
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_theme_light
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_theme_system
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_theme_title
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_title
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_version
 import org.jetbrains.compose.resources.StringResource
@@ -169,6 +175,20 @@ fun SettingsScreen(
         }
 
         NgPanel(Modifier.fillMaxWidth()) {
+            NgSectionLabel(stringResource(Res.string.settings_theme_title))
+            Text(stringResource(Res.string.settings_theme_body), style = NgTheme.type.body, color = c.text2)
+            NgSegmentedRow {
+                ThemeMode.entries.forEach { mode ->
+                    NgSegment(
+                        stringResource(themeName(mode)),
+                        selected = state.themeMode == mode,
+                        onClick = { onAction(SettingsAction.OnThemeChange(mode)) },
+                    )
+                }
+            }
+        }
+
+        NgPanel(Modifier.fillMaxWidth()) {
             NgSectionLabel(stringResource(Res.string.settings_language_title))
             Text(stringResource(Res.string.settings_language_body), style = NgTheme.type.body, color = c.text2)
             NgSegmentedRow {
@@ -196,6 +216,12 @@ fun SettingsScreen(
             body = stringResource(Res.string.settings_history_body),
         )
     }
+}
+
+private fun themeName(mode: ThemeMode): StringResource = when (mode) {
+    ThemeMode.System -> Res.string.settings_theme_system
+    ThemeMode.Light -> Res.string.settings_theme_light
+    ThemeMode.Dark -> Res.string.settings_theme_dark
 }
 
 /** Each language is listed by its own name, so it stays findable when the interface is in a language you cannot read. */

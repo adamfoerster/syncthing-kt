@@ -8,6 +8,18 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-10-20
+
+### Adicionado
+- Modo claro: o app ganhou uma paleta clara, com os mesmos acentos neon escurecidos para ficarem legíveis sobre fundo
+  branco. Por padrão ele segue o modo claro ou escuro do celular e muda na hora quando o sistema muda.
+- Tema em **Ajustes → Tema**: escolha **Claro** ou **Escuro** para ignorar o modo do celular, ou **Aparelho** para
+  voltar a segui-lo. As barras de status e de navegação acompanham a escolha.
+
+### Alterado
+- Quem usa o celular no modo claro passa a ver o app claro (antes ele era sempre escuro). Para manter o visual
+  anterior, escolha **Escuro** em Ajustes → Tema.
+
 ## [1.3.0] - 2026-10-19
 
 ### Adicionado

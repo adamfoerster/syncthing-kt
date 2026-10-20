@@ -11,6 +11,7 @@ import com.adamfoerster.syncthing.core.domain.model.FileInfo
 import com.adamfoerster.syncthing.core.domain.model.FolderType
 import com.adamfoerster.syncthing.core.domain.model.SyncOverview
 import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
+import com.adamfoerster.syncthing.core.domain.preferences.ThemeMode
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingCore
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingRepository
 import com.adamfoerster.syncthing.core.domain.util.DataError
@@ -74,11 +75,26 @@ class SettingsViewModelTest {
         assertThat(viewModel.state.value.languageTag).isNull()
     }
 
+    @Test
+    fun themeStartsFollowingTheDeviceAndCanBeOverridden() = runTest {
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
+        assertThat(viewModel.state.value.themeMode).isEqualTo(ThemeMode.System)
+
+        viewModel.onAction(SettingsAction.OnThemeChange(ThemeMode.Light))
+        assertThat(preferences.themeMode.value).isEqualTo(ThemeMode.Light)
+        assertThat(viewModel.state.value.themeMode).isEqualTo(ThemeMode.Light)
+
+        viewModel.onAction(SettingsAction.OnThemeChange(ThemeMode.System))
+        assertThat(viewModel.state.value.themeMode).isEqualTo(ThemeMode.System)
+    }
+
     private class FakePreferences : AppPreferences {
         override val autoAcceptKnownFolders = MutableStateFlow(AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS)
         override val languageTag = MutableStateFlow<String?>(null)
         override fun setAutoAcceptKnownFolders(enabled: Boolean) { autoAcceptKnownFolders.value = enabled }
+        override val themeMode = MutableStateFlow(ThemeMode.System)
         override fun setLanguageTag(tag: String?) { languageTag.value = tag }
+        override fun setThemeMode(mode: ThemeMode) { themeMode.value = mode }
     }
 
     private class FakeCore : SyncthingCore {

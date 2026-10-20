@@ -16,6 +16,7 @@ import com.adamfoerster.syncthing.core.domain.model.FolderType
 import com.adamfoerster.syncthing.core.domain.model.PendingFolder
 import com.adamfoerster.syncthing.core.domain.model.SyncOverview
 import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
+import com.adamfoerster.syncthing.core.domain.preferences.ThemeMode
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingRepository
 import com.adamfoerster.syncthing.core.domain.util.DataError
 import com.adamfoerster.syncthing.core.domain.util.EmptyResult
@@ -70,7 +71,9 @@ class FolderOfferAutoAccepterTest {
         override val autoAcceptKnownFolders = MutableStateFlow(enabled)
         override val languageTag = MutableStateFlow<String?>(null)
         override fun setAutoAcceptKnownFolders(enabled: Boolean) { autoAcceptKnownFolders.value = enabled }
+        override val themeMode = MutableStateFlow(ThemeMode.System)
         override fun setLanguageTag(tag: String?) { languageTag.value = tag }
+        override fun setThemeMode(mode: ThemeMode) { themeMode.value = mode }
     }
 
     private fun TestScope.accepter(repository: FakeRepository, preferences: AppPreferences) =

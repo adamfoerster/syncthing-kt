@@ -56,13 +56,14 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
   (`/rest/db/ignores`); a lógica pura (`IgnoreRules`, `IgnorePreset`) fica em `core:domain` e a tela em `feature:folders`.
   Modo simples e avançado editam o mesmo texto; o Syncthing usa glob, não regex.
 - Preferências do app (`AppPreferences` em `core:domain`, SharedPreferences no `androidApp`): aceite automático de
-  ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`) e idioma que sobrescreve o do
+  ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`), `ThemeMode` (sistema/claro/escuro; `SyncthingTheme(darkTheme)` escolhe `NgColors.Light` ou `NgColors.Dark`, resolvido no `MainActivity`) e idioma que sobrescreve o do
   aparelho (aplicado em `MainActivity.attachBaseContext`).
 - Conflitos: detecção e resolução são operações de arquivo (Okio) em `feature:conflicts:data`; nada é apagado,
   versões substituídas vão para `.stversions/`. Preserve essa garantia.
 
 ## Interface
 
+- O app tem tema claro e escuro (`NgColors.Light`/`Dark`): só use cores via `NgTheme.colors`, nunca fixas, e confira as duas paletas.
 - Use os componentes de `core:design-system` (`NgPanel`, `NgButton`, `NgBadge`, `NgScreen`, `NgTopBar`…) e os
   tokens de `NgTheme`; não use cores, fontes ou formas soltas. Ícones vêm de `NgIcons`.
 - Todo texto visível em `composeResources/values/strings.xml` do módulo (plurais com `<plurals>`). `values/` é o inglês

@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">Quando un dispositivo che hai già aggiunto offre una cartella che condividi già con un altro dispositivo, viene aggiunto a quella cartella senza chiedere. Le offerte di cartelle nuove continuano a chiederti conferma.</string>
     <string name="settings_auto_accept_on">Attivo</string>
     <string name="settings_auto_accept_off">Disattivo</string>
+    <string name="settings_theme_title">Tema</string>
+    <string name="settings_theme_body">Sostituisce la modalità chiara o scura del telefono. “Dispositivo” torna a seguire il sistema.</string>
+    <string name="settings_theme_system">Dispositivo</string>
+    <string name="settings_theme_light">Chiaro</string>
+    <string name="settings_theme_dark">Scuro</string>
     <string name="settings_language_title">Lingua</string>
     <string name="settings_language_body">Sostituisce la lingua del telefono. “Lingua del dispositivo” torna a seguire il sistema.</string>
     <string name="settings_language_system">Lingua del dispositivo</string>

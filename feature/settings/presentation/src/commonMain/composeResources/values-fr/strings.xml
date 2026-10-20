@@ -22,6 +22,11 @@
     <string name="settings_auto_accept_body">Quand un appareil déjà ajouté propose un dossier que vous partagez déjà avec un autre appareil, il est ajouté à ce dossier sans demander. Les propositions de nouveaux dossiers demandent toujours votre réponse.</string>
     <string name="settings_auto_accept_on">Activé</string>
     <string name="settings_auto_accept_off">Désactivé</string>
+    <string name="settings_theme_title">Thème</string>
+    <string name="settings_theme_body">Remplace le mode clair ou sombre du téléphone. « Appareil » suit de nouveau le système.</string>
+    <string name="settings_theme_system">Appareil</string>
+    <string name="settings_theme_light">Clair</string>
+    <string name="settings_theme_dark">Sombre</string>
     <string name="settings_language_title">Langue</string>
     <string name="settings_language_body">Remplace la langue du téléphone. « Langue de l’appareil » suit de nouveau le système.</string>
     <string name="settings_language_system">Langue de l’appareil</string>

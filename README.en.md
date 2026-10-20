@@ -36,7 +36,7 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
 | `feature:devices` | Devices, approving pending ones, 3-step flow with QR |
-| `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, language) |
+| `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |
 | `androidApp` | Activity, service, core process manager, QR scanner (ZXing) |
@@ -87,6 +87,14 @@ devices or Send Only/Receive Only folders still ask you. The option is under **S
 default; off, everything asks again). The pure rule is `knownFolderOffers` in `core:domain`; `FolderOfferAutoAccepter`
 in `core:data` applies it and is started by `SyncthingApplication`. Preferences live in `AppPreferences`
 (`core:domain`), stored in SharedPreferences.
+
+## Light and dark theme
+
+The app has two palettes, `NgColors.Dark` and `NgColors.Light` (the light one darkens the neon accents so they have
+contrast on a white background). It follows the device mode by default; **Settings → Theme** forces **Light** or
+**Dark** (**Device** follows the system again). The choice is `ThemeMode` in `AppPreferences`; `MainActivity` resolves
+light/dark with `ThemeMode.isDark`, styles the system bars and passes the result to `App` → `SyncthingTheme`.
+Components only use colors from `NgTheme.colors`, so every screen works in both themes.
 
 ## Languages
 

@@ -36,7 +36,7 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
 | `feature:devices` | Aparelhos, aprovação de pendentes, fluxo de 3 passos com QR |
-| `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, idioma) |
+| `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |
 | `androidApp` | Activity, serviço, gerenciador do processo do núcleo, scanner QR (ZXing) |
@@ -87,6 +87,14 @@ aparelhos desconhecidos ou de pastas Somente enviar/receber continuam pedindo su
 **Ajustes → Pastas conhecidas** (ligada por padrão; desligada, tudo volta a perguntar). A regra pura é
 `knownFolderOffers` em `core:domain`; quem a aplica é o `FolderOfferAutoAccepter` em `core:data`, iniciado pelo
 `SyncthingApplication`. As preferências ficam em `AppPreferences` (`core:domain`), guardadas em SharedPreferences.
+
+## Tema claro e escuro
+
+O app tem duas paletas, `NgColors.Dark` e `NgColors.Light` (o claro escurece os acentos neon para ter contraste sobre
+fundo branco). Por padrão segue o modo do aparelho; em **Ajustes → Tema** dá para forçar **Claro** ou **Escuro**
+(**Aparelho** volta a seguir o sistema). A escolha é o `ThemeMode` de `AppPreferences`; o `MainActivity` resolve
+claro/escuro com `ThemeMode.isDark`, ajusta as barras do sistema e passa o resultado para `App` → `SyncthingTheme`.
+Componentes só usam cores de `NgTheme.colors`, então qualquer tela já funciona nos dois temas.
 
 ## Idiomas
 
