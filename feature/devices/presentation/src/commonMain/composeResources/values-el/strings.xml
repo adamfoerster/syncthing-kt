@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="devices_title">Συσκευές</string>
+    <string name="devices_add">Προσθήκη συσκευής</string>
+    <string name="devices_this_phone_sub">Ο κωδικός σας για άλλες συσκευές</string>
+    <string name="devices_show_qr">Εμφάνιση QR</string>
+    <string name="devices_line_connected">Συνδεδεμένη τώρα</string>
+    <string name="devices_line_syncing">Ανταλλαγή αρχείων</string>
+    <string name="devices_line_offline_since">Εκτός σύνδεσης από %1$s</string>
+    <string name="devices_line_never">Δεν έχει συνδεθεί ακόμη</string>
+    <string name="devices_line_paused">Σε παύση από εσάς</string>
+    <string name="devices_no_folders">Κανένας κοινόχρηστος φάκελος</string>
+    <string name="devices_empty">Δεν υπάρχουν άλλες συσκευές ακόμη. Προσθέστε τον υπολογιστή σας ή άλλο τηλέφωνο.</string>
+    <string name="devices_pending_title">Η συσκευή %1$s θέλει να συνδεθεί</string>
+    <string name="devices_pending_body">Κωδικός %1$s · %2$s</string>
+    <string name="devices_approve">Έγκριση</string>
+    <string name="devices_reject">Απόρριψη</string>
+    <string name="devices_menu_pause">Παύση</string>
+    <string name="devices_menu_resume">Συνέχιση</string>
+    <string name="devices_menu_remove">Αφαίρεση συσκευής</string>
+    <string name="devices_menu_close">Κλείσιμο</string>
+    <string name="devices_remove_confirm_title">Αφαίρεση του %1$s;</string>
+    <string name="devices_remove_confirm_body">Δεν θα λαμβάνει πλέον τους φακέλους σας. Τα αρχεία που υπάρχουν ήδη σε αυτήν δεν διαγράφονται.</string>
+    <string name="devices_remove_confirm">Αφαίρεση</string>
+    <string name="devices_open">Επιλογές για %1$s</string>
+
+    <string name="add_title">Προσθήκη συσκευής</string>
+    <string name="add_steps">Βήματα</string>
+    <string name="add_step_show">Εμφάνιση κωδικού</string>
+    <string name="add_step_approve">Έγκριση</string>
+    <string name="add_step_folders">Φάκελοι</string>
+    <string name="add_show_title">Δείξτε αυτόν τον κωδικό στην άλλη συσκευή</string>
+    <string name="add_show_body">Στην άλλη συσκευή, ανοίξτε το Syncthing και επιλέξτε «Προσθήκη συσκευής». Έπειτα στρέψτε την κάμερα στον παρακάτω κωδικό.</string>
+    <string name="add_qr_description">Κωδικός QR με το αναγνωριστικό αυτού του τηλεφώνου</string>
+    <string name="add_text_code">Κωδικός κειμένου</string>
+    <string name="add_copy">Αντιγραφή αναγνωριστικού</string>
+    <string name="add_wait_hint">Αφού διαβαστεί ο κωδικός, θα πρέπει να εγκρίνετε εδώ τη νέα συσκευή. Θα σας ειδοποιήσουμε όταν εμφανιστεί.</string>
+    <string name="add_scan">Σάρωση του κωδικού της άλλης συσκευής</string>
+    <string name="add_manual">Χειροκίνητη πληκτρολόγηση κωδικού</string>
+    <string name="add_scan_invalid">Αυτό το QR δεν περιέχει κωδικό συσκευής Syncthing.</string>
+    <string name="add_approve_title">Ελέγξτε τη νέα συσκευή</string>
+    <string name="add_device_id">Αναγνωριστικό συσκευής</string>
+    <string name="add_device_id_hint">Είναι 8 ομάδες των 7 γραμμάτων και αριθμών. Οι παύλες και τα κενά είναι προαιρετικά.</string>
+    <string name="add_device_id_invalid">Ο κωδικός είναι ελλιπής ή μη έγκυρος.</string>
+    <string name="add_device_name">Όνομα</string>
+    <string name="add_device_name_placeholder">π.χ. Φορητός της Άνας</string>
+    <string name="add_confirm_device">Προσθήκη συσκευής</string>
+    <string name="add_folders_title">Τι θέλετε να μοιραστείτε με το %1$s;</string>
+    <string name="add_folders_body">Επιλέξτε τους φακέλους που θα λαμβάνει. Μπορείτε να τους αλλάξετε αργότερα.</string>
+    <string name="add_folders_none">Δεν έχετε φακέλους ακόμη. Δημιουργήστε έναν στην καρτέλα Φάκελοι.</string>
+    <string name="add_finish">Ολοκλήρωση</string>
+    <string name="add_skip">Παράλειψη προς το παρόν</string>
+</resources>

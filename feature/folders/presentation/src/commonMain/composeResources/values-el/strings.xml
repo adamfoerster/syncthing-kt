@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folders_title">Φάκελοι</string>
+    <string name="folders_add">Προσθήκη φακέλου</string>
+    <string name="folders_badge_up_to_date">Ενημερωμένο</string>
+    <plurals name="folders_badge_conflicts">
+        <item quantity="one">%1$d σύγκρουση</item>
+        <item quantity="other">%1$d συγκρούσεις</item>
+    </plurals>
+    <string name="folders_badge_syncing">Συγχρονισμός</string>
+    <string name="folders_badge_scanning">Σάρωση</string>
+    <string name="folders_badge_waiting">Σε αναμονή</string>
+    <string name="folders_badge_error">Σφάλμα</string>
+    <string name="folders_badge_paused">Σε παύση</string>
+    <string name="folders_badge_local">Μόνο εδώ</string>
+    <string name="folders_progress">%1$s · απομένουν %2$s</string>
+    <plurals name="folders_with_devices">
+        <item quantity="one">Με %1$d συσκευή</item>
+        <item quantity="other">Με %1$d συσκευές</item>
+    </plurals>
+    <string name="folders_device_offline">Η συσκευή %1$s είναι εκτός σύνδεσης</string>
+    <string name="folders_devices_offline">Οι συσκευές είναι εκτός σύνδεσης</string>
+    <string name="folders_not_shared">Δεν κοινοποιείται ακόμη σε καμία συσκευή</string>
+    <string name="folders_empty_title">Κανένας φάκελος</string>
+    <string name="folders_empty_body">Επιλέξτε έναν φάκελο του τηλεφώνου για να παραμένει ίδιος στις άλλες συσκευές σας.</string>
+    <string name="folders_offer_title">Η συσκευή %1$s θέλει να μοιραστεί το «%2$s»</string>
+    <string name="folders_offer_accept">Αποδοχή</string>
+    <string name="folders_offer_dismiss">Απόρριψη</string>
+    <string name="folders_open">Άνοιγμα του %1$s</string>
+
+    <string name="add_folder_title">Προσθήκη φακέλου</string>
+    <string name="add_folder_accept_title">Αποδοχή φακέλου</string>
+    <string name="add_folder_label">Όνομα</string>
+    <string name="add_folder_label_placeholder">π.χ. Φωτογραφίες κάμερας</string>
+    <string name="add_folder_path">Τοποθεσία στο τηλέφωνο</string>
+    <string name="add_folder_path_hint">Ο φάκελος δημιουργείται αν δεν υπάρχει ήδη.</string>
+    <string name="add_folder_devices">Κοινή χρήση με</string>
+    <string name="add_folder_no_devices">Προσθέστε πρώτα μια συσκευή για να μπορείτε να μοιραστείτε.</string>
+    <string name="add_folder_save">Αποθήκευση φακέλου</string>
+    <string name="add_folder_invalid">Δώστε στον φάκελο ένα όνομα και μια τοποθεσία.</string>
+
+    <string name="ignore_title">Αγνοημένα αρχεία</string>
+    <string name="ignore_for_folder">Φάκελος «%1$s»</string>
+    <string name="ignore_intro">Επιλέξτε τι δεν πρέπει να συγχρονίζει αυτός ο φάκελος. Τα αρχεία που έχουν ήδη συγχρονιστεί μένουν εκεί που είναι· απλώς παύουν να συγχρονίζονται. Οι κανόνες αυτοί ισχύουν μόνο σε αυτή τη συσκευή.</string>
+    <string name="ignore_loading">Φόρτωση κανόνων…</string>
+    <string name="ignore_retry">Δοκιμή ξανά</string>
+    <string name="ignore_quick">Γρήγορες επιλογές</string>
+    <string name="ignore_preset_temporary_title">Προσωρινά αρχεία</string>
+    <string name="ignore_preset_temporary_body">Αρχεία όπως .tmp και .temp, που δημιουργούν τα προγράμματα ενώ δουλεύουν.</string>
+    <string name="ignore_preset_system_title">Υπολείμματα υπολογιστή</string>
+    <string name="ignore_preset_system_body">Thumbs.db, .DS_Store και desktop.ini, που δημιουργούν τα Windows και το Mac.</string>
+    <string name="ignore_preset_android_title">Μικρογραφίες και κάδος του Android</string>
+    <string name="ignore_preset_android_body">Ο φάκελος .thumbnails και τα αρχεία του κάδου του Android (.trashed-…).</string>
+    <string name="ignore_preset_programming_title">Φάκελοι προγραμματισμού</string>
+    <string name="ignore_preset_programming_body">node_modules, .gradle και __pycache__, που μπορούν να ξαναδημιουργηθούν.</string>
+    <string name="ignore_add_section">Προσθέστε δικό σας</string>
+    <string name="ignore_add_label">Αρχείο, φάκελος ή τύπος</string>
+    <string name="ignore_add_placeholder">Π.χ. Λήψεις ή *.mp3</string>
+    <string name="ignore_add_hint">Γράψτε το όνομα ενός αρχείου ή φακέλου. Για να αγνοήσετε όλα τα αρχεία ενός τύπου, γράψτε * και την επέκταση, όπως *.mp3.</string>
+    <string name="ignore_add_button">Προσθήκη</string>
+    <string name="ignore_error_empty">Γράψτε πρώτα τι θα αγνοηθεί.</string>
+    <string name="ignore_list_section">Αγνοούνται τώρα</string>
+    <string name="ignore_list_empty">Τίποτα δεν αγνοείται. Όλα σε αυτόν τον φάκελο συγχρονίζονται.</string>
+    <string name="ignore_kind_file_type">Όλα τα αρχεία .%1$s</string>
+    <string name="ignore_kind_name">Αρχείο ή φάκελος με αυτό το όνομα</string>
+    <string name="ignore_kind_advanced">Προχωρημένος κανόνας</string>
+    <string name="ignore_remove">Να μην αγνοείται πια το %1$s</string>
+    <string name="ignore_advanced_button">Προχωρημένη λειτουργία</string>
+    <string name="ignore_simple_button">Απλή λειτουργία</string>
+    <string name="ignore_advanced_intro">Ένας κανόνας ανά γραμμή, ακριβώς όπως σε ένα αρχείο .stignore. Το Syncthing χρησιμοποιεί μοτίβα με χαρακτήρες μπαλαντέρ, όχι κανονικές εκφράσεις. Ισχύει ο πρώτος κανόνας που ταιριάζει με ένα αρχείο.</string>
+    <string name="ignore_advanced_editor">Κανόνες</string>
+    <string name="ignore_help_title">Σύντομος οδηγός μοτίβων</string>
+    <string name="ignore_help_star">Οποιοιδήποτε χαρακτήρες σε ένα όνομα: όλα τα αρχεία .log, σε οποιονδήποτε φάκελο.</string>
+    <string name="ignore_help_doublestar">Περνά και μέσα από υποφακέλους: ένας φάκελος «cache» σε οποιοδήποτε βάθος.</string>
+    <string name="ignore_help_question">Ακριβώς ένας χαρακτήρας.</string>
+    <string name="ignore_help_braces">Οποιαδήποτε από τις επιλογές της λίστας.</string>
+    <string name="ignore_help_root">Ένα / στην αρχή ισχύει μόνο στη ρίζα του φακέλου.</string>
+    <string name="ignore_help_not">Εξαίρεση: να μην αγνοηθεί αυτό. Τοποθετήστε την πάνω από τον κανόνα που ακυρώνει.</string>
+    <string name="ignore_help_case">Αγνοεί κεφαλαία και πεζά.</string>
+    <string name="ignore_help_delete">Επιτρέπει τη διαγραφή ενός φακέλου ακόμη κι αν έχουν μείνει μέσα μόνο αγνοημένα αρχεία.</string>
+    <string name="ignore_help_comment">Ένα σχόλιο· το Syncthing το προσπερνά.</string>
+    <string name="ignore_save">Αποθήκευση κανόνων</string>
+    <string name="ignore_unsaved">Έχετε αλλαγές που δεν έχουν αποθηκευτεί ακόμη.</string>
+</resources>

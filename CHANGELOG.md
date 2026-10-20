@@ -8,6 +8,49 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-10-19
+
+### Adicionado
+- Pastas conhecidas: quando um aparelho que você já adicionou oferece uma pasta que você já sincroniza com outro
+  aparelho, ele entra nessa pasta sem pedir de novo, e um aviso rápido conta o que aconteceu. Ofertas de pastas novas,
+  de aparelhos desconhecidos ou de pastas Somente enviar/receber continuam pedindo sua resposta. Dá para desligar em
+  **Ajustes → Pastas conhecidas** (vem ligado).
+- Idioma do app: em **Ajustes → Idioma** você escolhe um dos sete idiomas do app, independente do idioma do celular, ou
+  volta para **Idioma do aparelho**.
+
+## [1.2.0] - 2026-10-19
+
+### Adicionado
+- Arquivos ignorados: cada pasta da aba Pastas ganhou o botão **Arquivos ignorados**, que escolhe o que a pasta não
+  deve sincronizar. No modo simples dá para ligar escolhas rápidas (arquivos temporários, sobras do Windows e do Mac,
+  miniaturas e lixeira do Android, pastas de programação), digitar o nome de um arquivo, de uma pasta ou de um tipo
+  (como `*.mp3`) e remover qualquer item da lista. O **modo avançado** abre o texto das regras (uma por linha, como no
+  `.stignore`) com um guia da sintaxe: curingas, exceções com `!`, `(?i)`, `(?d)` e comentários. O Syncthing usa
+  padrões com curingas, não expressões regulares. Os arquivos que já foram sincronizados continuam onde estão, e as
+  regras valem só neste aparelho.
+- Texto da tela de ignorados traduzido para os sete idiomas do app.
+
+## [1.1.1] - 2026-10-19
+
+### Adicionado
+- README em inglês (`README.en.md`), com link a partir do README em português.
+- Screenshots em inglês para a Play Store em `store-screenshots/en/` (1080×2160), geradas no modo demo.
+
+### Alterado
+- Os dados do modo demo (debug) agora estão em inglês: aparelhos, pastas e arquivos de conflito.
+
+## [1.1.0] - 2026-10-19
+
+### Adicionado
+- O app agora está traduzido para português, inglês, espanhol, italiano, alemão, francês e grego. Ele usa o idioma do
+  aparelho; se o idioma não for um desses, o app aparece em inglês. No Android 13 ou mais novo, também dá para escolher
+  o idioma só do app nas configurações do sistema.
+
+### Alterado
+- Tamanhos de arquivo usam o separador decimal do idioma (4,2 GB em português, 4.2 GB em inglês) e datas antigas
+  seguem a ordem do idioma (dia/mês ou mês/dia).
+- O inglês passou a ser o idioma padrão dos textos; o português do Brasil continua completo.
+
 ## [1.0.2] - 2026-10-19
 
 ### Corrigido

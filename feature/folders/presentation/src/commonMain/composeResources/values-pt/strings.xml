@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folders_title">Pastas</string>
+    <string name="folders_add">Adicionar pasta</string>
+    <string name="folders_badge_up_to_date">Em dia</string>
+    <plurals name="folders_badge_conflicts">
+        <item quantity="one">%1$d conflito</item>
+        <item quantity="other">%1$d conflitos</item>
+    </plurals>
+    <string name="folders_badge_syncing">Sincronizando</string>
+    <string name="folders_badge_scanning">Verificando</string>
+    <string name="folders_badge_waiting">Aguardando</string>
+    <string name="folders_badge_error">Erro</string>
+    <string name="folders_badge_paused">Pausada</string>
+    <string name="folders_badge_local">Só aqui</string>
+    <string name="folders_progress">%1$s · faltam %2$s</string>
+    <plurals name="folders_with_devices">
+        <item quantity="one">Com %1$d aparelho</item>
+        <item quantity="other">Com %1$d aparelhos</item>
+    </plurals>
+    <string name="folders_device_offline">%1$s está sem conexão</string>
+    <string name="folders_devices_offline">Os aparelhos estão sem conexão</string>
+    <string name="folders_not_shared">Ainda não está compartilhada com nenhum aparelho</string>
+    <string name="folders_empty_title">Nenhuma pasta</string>
+    <string name="folders_empty_body">Escolha uma pasta do celular para manter igual nos seus outros aparelhos.</string>
+    <string name="folders_offer_title">%1$s quer compartilhar “%2$s”</string>
+    <string name="folders_offer_accept">Aceitar</string>
+    <string name="folders_offer_dismiss">Recusar</string>
+    <string name="folders_open">Abrir %1$s</string>
+
+    <string name="add_folder_title">Adicionar pasta</string>
+    <string name="add_folder_accept_title">Aceitar pasta</string>
+    <string name="add_folder_label">Nome</string>
+    <string name="add_folder_label_placeholder">Ex.: Fotos da câmera</string>
+    <string name="add_folder_path">Local no celular</string>
+    <string name="add_folder_path_hint">A pasta é criada se ainda não existir.</string>
+    <string name="add_folder_devices">Compartilhar com</string>
+    <string name="add_folder_no_devices">Adicione um aparelho primeiro para poder compartilhar.</string>
+    <string name="add_folder_save">Salvar pasta</string>
+    <string name="add_folder_invalid">Dê um nome e um local para a pasta.</string>
+
+    <string name="ignore_title">Arquivos ignorados</string>
+    <string name="ignore_for_folder">Pasta “%1$s”</string>
+    <string name="ignore_intro">Escolha o que esta pasta não deve sincronizar. Os arquivos que já foram sincronizados continuam onde estão; só deixam de ser sincronizados. Estas regras valem apenas neste aparelho.</string>
+    <string name="ignore_loading">Carregando regras…</string>
+    <string name="ignore_retry">Tentar de novo</string>
+    <string name="ignore_quick">Escolhas rápidas</string>
+    <string name="ignore_preset_temporary_title">Arquivos temporários</string>
+    <string name="ignore_preset_temporary_body">Arquivos como .tmp e .temp, que os programas criam enquanto trabalham.</string>
+    <string name="ignore_preset_system_title">Sobras do computador</string>
+    <string name="ignore_preset_system_body">Thumbs.db, .DS_Store e desktop.ini, que o Windows e o Mac criam.</string>
+    <string name="ignore_preset_android_title">Miniaturas e lixeira do Android</string>
+    <string name="ignore_preset_android_body">A pasta .thumbnails e os arquivos da lixeira do Android (.trashed-…).</string>
+    <string name="ignore_preset_programming_title">Pastas de programação</string>
+    <string name="ignore_preset_programming_body">node_modules, .gradle e __pycache__, que podem ser recriadas.</string>
+    <string name="ignore_add_section">Adicionar o seu</string>
+    <string name="ignore_add_label">Arquivo, pasta ou tipo</string>
+    <string name="ignore_add_placeholder">Ex.: Downloads ou *.mp3</string>
+    <string name="ignore_add_hint">Digite o nome de um arquivo ou pasta. Para ignorar todos os arquivos de um tipo, escreva * e a extensão, como *.mp3.</string>
+    <string name="ignore_add_button">Adicionar</string>
+    <string name="ignore_error_empty">Digite primeiro o que ignorar.</string>
+    <string name="ignore_list_section">Ignorado agora</string>
+    <string name="ignore_list_empty">Nada é ignorado. Tudo nesta pasta é sincronizado.</string>
+    <string name="ignore_kind_file_type">Todos os arquivos .%1$s</string>
+    <string name="ignore_kind_name">Arquivo ou pasta com este nome</string>
+    <string name="ignore_kind_advanced">Regra avançada</string>
+    <string name="ignore_remove">Parar de ignorar %1$s</string>
+    <string name="ignore_advanced_button">Modo avançado</string>
+    <string name="ignore_simple_button">Modo simples</string>
+    <string name="ignore_advanced_intro">Uma regra por linha, exatamente como em um arquivo .stignore. O Syncthing usa padrões com curingas, não expressões regulares. Vale a primeira regra que combinar com o arquivo.</string>
+    <string name="ignore_advanced_editor">Regras</string>
+    <string name="ignore_help_title">Guia rápido de padrões</string>
+    <string name="ignore_help_star">Quaisquer caracteres em um nome: todos os arquivos .log, em qualquer pasta.</string>
+    <string name="ignore_help_doublestar">Também atravessa subpastas: uma pasta “cache” em qualquer nível.</string>
+    <string name="ignore_help_question">Exatamente um caractere.</string>
+    <string name="ignore_help_braces">Qualquer uma das opções listadas.</string>
+    <string name="ignore_help_root">Uma / no início vale só na raiz da pasta.</string>
+    <string name="ignore_help_not">Exceção: não ignorar isto. Coloque acima da regra que ela anula.</string>
+    <string name="ignore_help_case">Ignora maiúsculas e minúsculas.</string>
+    <string name="ignore_help_delete">Permite apagar uma pasta mesmo que só restem arquivos ignorados nela.</string>
+    <string name="ignore_help_comment">Um comentário; o Syncthing o pula.</string>
+    <string name="ignore_save">Salvar regras</string>
+    <string name="ignore_unsaved">Você tem alterações que ainda não foram salvas.</string>
+</resources>

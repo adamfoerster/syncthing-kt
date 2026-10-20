@@ -36,7 +36,8 @@ object NgIcons {
     val Play = icon("Play", "M7 4l13 8-13 8z")
     val Copy = icon("Copy", "M8 8h12v12H8zM4 16V4h12")
     val Power = icon("Power", "M12 3v9M6.3 6.3a8 8 0 1 0 11.4 0")
-    val Restart = icon("Restart", "M4 4v6h6M20 12a8 8 0 1 1-2.3-5.7L20 9")
+    val Block = icon("Block", "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM5.6 5.6l12.8 12.8")
+    val Restart = icon("Restart","M4 4v6h6M20 12a8 8 0 1 1-2.3-5.7L20 9")
 
     /** Status glyphs (`.st`): square = connected, diamond = syncing, triangle = offline. */
     val StatusSquare = icon("StatusSquare", "M4 4h16v16H4z")

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_phone">Αυτό το τηλέφωνο</string>
+    <string name="unknown_device">Άγνωστη συσκευή</string>
+
+    <string name="status_connected">Συνδεδεμένη</string>
+    <string name="status_syncing">Συγχρονισμός</string>
+    <string name="status_offline">Εκτός σύνδεσης</string>
+    <string name="status_paused">Σε παύση</string>
+
+    <string name="time_just_now">μόλις τώρα</string>
+    <string name="time_minutes_ago">πριν από %1$d λεπτά</string>
+    <string name="time_hours_ago">πριν από %1$d ώρες</string>
+    <string name="time_days_ago">πριν από %1$d ημέρες</string>
+    <string name="time_today_at">Σήμερα, %1$s</string>
+    <string name="time_yesterday_at">Χθες, %1$s</string>
+    <string name="time_date_at">%1$s/%2$s, %3$s</string>
+    <string name="weekday_monday">Δευτέρα, %1$s</string>
+    <string name="weekday_tuesday">Τρίτη, %1$s</string>
+    <string name="weekday_wednesday">Τετάρτη, %1$s</string>
+    <string name="weekday_thursday">Πέμπτη, %1$s</string>
+    <string name="weekday_friday">Παρασκευή, %1$s</string>
+    <string name="weekday_saturday">Σάββατο, %1$s</string>
+    <string name="weekday_sunday">Κυριακή, %1$s</string>
+
+    <string name="core_starting_title">Εκκίνηση του Syncthing…</string>
+    <string name="core_starting_body">Την πρώτη φορά χρειάζονται λίγα δευτερόλεπτα.</string>
+    <string name="core_stopped_title">Ο συγχρονισμός σταμάτησε</string>
+    <string name="core_stopped_body">Δεν στέλνεται ούτε λαμβάνεται τίποτα όσο το Syncthing είναι σταματημένο.</string>
+    <string name="core_start">Έναρξη</string>
+    <string name="core_permission_title">Επιτρέψτε την πρόσβαση στα αρχεία</string>
+    <string name="core_permission_body">Το Syncthing χρειάζεται πρόσβαση σε όλα τα αρχεία για να συγχρονίζει τους φακέλους σας και να επιλύει συγκρούσεις.</string>
+    <string name="core_grant_access">Παραχώρηση πρόσβασης</string>
+    <string name="core_binary_missing_title">Λείπει ο πυρήνας του Syncthing</string>
+    <string name="core_binary_missing_body">Αυτή η έκδοση της εφαρμογής δημιουργήθηκε χωρίς το δυαδικό αρχείο του Syncthing. Κάντε μεταγλώττιση με ./gradlew :syncthing-native:buildNative και δημιουργήστε ξανά την εφαρμογή.</string>
+    <string name="core_failed_title">Το Syncthing σταμάτησε με σφάλμα</string>
+
+    <string name="error_core_unavailable">Το Syncthing δεν εκτελείται ακόμη. Δοκιμάστε ξανά σε λίγο.</string>
+    <string name="error_unauthorized">Το Syncthing απέρριψε την πρόσβαση. Επανεκκινήστε την εφαρμογή.</string>
+    <string name="error_bad_request">Το Syncthing δεν δέχτηκε το αίτημα. Ελέγξτε τα στοιχεία.</string>
+    <string name="error_server">Το Syncthing αντιμετώπισε σφάλμα. Δοκιμάστε ξανά.</string>
+    <string name="error_unknown">Κάτι πήγε στραβά. Δοκιμάστε ξανά.</string>
+    <string name="error_not_found">Το αρχείο δεν υπάρχει πλέον.</string>
+    <string name="error_permission">Δεν υπάρχει άδεια πρόσβασης στο αρχείο. Επιτρέψτε την πρόσβαση σε όλα τα αρχεία.</string>
+    <string name="error_file_changed">Το αρχείο άλλαξε ενώ αποφασίζατε. Ανοίξτε ξανά τη σύγκρουση για να δείτε την τρέχουσα έκδοση.</string>
+    <string name="error_io">Δεν ήταν δυνατή η ανάγνωση ή η εγγραφή του αρχείου.</string>
+</resources>

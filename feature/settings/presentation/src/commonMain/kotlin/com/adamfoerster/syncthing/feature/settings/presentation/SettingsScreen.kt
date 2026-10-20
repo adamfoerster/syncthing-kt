@@ -19,6 +19,8 @@ import com.adamfoerster.syncthing.core.designsystem.components.NgCallout
 import com.adamfoerster.syncthing.core.designsystem.components.NgPanel
 import com.adamfoerster.syncthing.core.designsystem.components.NgScreen
 import com.adamfoerster.syncthing.core.designsystem.components.NgSectionLabel
+import com.adamfoerster.syncthing.core.designsystem.components.NgSegment
+import com.adamfoerster.syncthing.core.designsystem.components.NgSegmentedRow
 import com.adamfoerster.syncthing.core.designsystem.components.NgStatusLabel
 import com.adamfoerster.syncthing.core.designsystem.components.NgTextField
 import com.adamfoerster.syncthing.core.designsystem.components.NgTopBar
@@ -29,7 +31,21 @@ import com.adamfoerster.syncthing.core.designsystem.theme.SyncthingTheme
 import com.adamfoerster.syncthing.core.domain.model.CoreState
 import com.adamfoerster.syncthing.core.presentation.CoreStatusCallout
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.Res
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_auto_accept_body
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_auto_accept_off
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_auto_accept_on
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_auto_accept_title
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_copy_id
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_body
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_de
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_el
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_en
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_es
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_fr
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_it
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_pt
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_title
+import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_language_system
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_device_id
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_history_body
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_history_title
@@ -47,6 +63,7 @@ import com.adamfoerster.syncthing.feature.settings.presentation.resources.settin
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_this_device
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_title
 import com.adamfoerster.syncthing.feature.settings.presentation.resources.settings_version
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import org.koin.compose.viewmodel.koinViewModel
@@ -134,11 +151,62 @@ fun SettingsScreen(
             }
         }
 
+        NgPanel(Modifier.fillMaxWidth()) {
+            NgSectionLabel(stringResource(Res.string.settings_auto_accept_title))
+            Text(stringResource(Res.string.settings_auto_accept_body), style = NgTheme.type.body, color = c.text2)
+            NgSegmentedRow {
+                NgSegment(
+                    stringResource(Res.string.settings_auto_accept_on),
+                    selected = state.autoAcceptKnownFolders,
+                    onClick = { onAction(SettingsAction.OnAutoAcceptChange(true)) },
+                )
+                NgSegment(
+                    stringResource(Res.string.settings_auto_accept_off),
+                    selected = !state.autoAcceptKnownFolders,
+                    onClick = { onAction(SettingsAction.OnAutoAcceptChange(false)) },
+                )
+            }
+        }
+
+        NgPanel(Modifier.fillMaxWidth()) {
+            NgSectionLabel(stringResource(Res.string.settings_language_title))
+            Text(stringResource(Res.string.settings_language_body), style = NgTheme.type.body, color = c.text2)
+            NgSegmentedRow {
+                NgSegment(
+                    stringResource(Res.string.settings_language_system),
+                    selected = state.languageTag == null,
+                    onClick = { onAction(SettingsAction.OnLanguageChange(null)) },
+                )
+            }
+            state.languages.chunked(2).forEach { row ->
+                NgSegmentedRow {
+                    row.forEach { tag ->
+                        NgSegment(
+                            stringResource(languageName(tag)),
+                            selected = state.languageTag == tag,
+                            onClick = { onAction(SettingsAction.OnLanguageChange(tag)) },
+                        )
+                    }
+                }
+            }
+        }
+
         NgCallout(
             title = stringResource(Res.string.settings_history_title),
             body = stringResource(Res.string.settings_history_body),
         )
     }
+}
+
+/** Each language is listed by its own name, so it stays findable when the interface is in a language you cannot read. */
+private fun languageName(tag: String): StringResource = when (tag) {
+    "pt" -> Res.string.settings_language_pt
+    "es" -> Res.string.settings_language_es
+    "it" -> Res.string.settings_language_it
+    "de" -> Res.string.settings_language_de
+    "fr" -> Res.string.settings_language_fr
+    "el" -> Res.string.settings_language_el
+    else -> Res.string.settings_language_en
 }
 
 @Preview

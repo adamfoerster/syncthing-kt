@@ -48,6 +48,7 @@ import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_open
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_progress
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_title
+import com.adamfoerster.syncthing.feature.folders.presentation.resources.ignore_title
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -59,6 +60,7 @@ fun FolderListRoot(
     onOpenConflicts: () -> Unit,
     onOpenSharing: () -> Unit,
     onAddFolder: () -> Unit,
+    onOpenIgnores: (folderId: String) -> Unit,
     onAcceptOffer: (folderId: String, label: String, deviceId: String) -> Unit,
     viewModel: FolderListViewModel = koinViewModel(),
 ) {
@@ -70,6 +72,7 @@ fun FolderListRoot(
             when (action) {
                 is FolderListAction.OnFolderClick -> if (action.hasConflicts) onOpenConflicts() else onOpenSharing()
                 FolderListAction.OnAddClick -> onAddFolder()
+                is FolderListAction.OnIgnoreClick -> onOpenIgnores(action.id)
                 is FolderListAction.OnAcceptOffer -> onAcceptOffer(action.offer.folderId, action.offer.label, action.offer.deviceId)
                 else -> viewModel.onAction(action)
             }
@@ -169,6 +172,13 @@ fun FolderListScreen(
                     if (folder.deviceInitials.isNotEmpty()) NgAvatarStack(folder.deviceInitials.take(4))
                     Text(folder.devicesLine.asString(), style = NgTheme.type.sub, color = c.text2)
                 }
+                NgButton(
+                    stringResource(Res.string.ignore_title),
+                    onClick = { onAction(FolderListAction.OnIgnoreClick(folder.id)) },
+                    icon = NgIcons.Block,
+                    minHeight = 40.dp,
+                    modifier = Modifier.fillMaxWidth(),
+                )
             }
         }
     }

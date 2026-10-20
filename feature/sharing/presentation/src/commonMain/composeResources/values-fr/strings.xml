@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Partage</string>
+    <string name="sharing_intro">Touchez un appareil pour voir quels dossiers il reçoit.</string>
+    <string name="sharing_map_description">Carte du partage</string>
+    <string name="sharing_devices">Appareils</string>
+    <string name="sharing_folders">Dossiers</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d appareil</item>
+        <item quantity="other">%1$d appareils</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d dossier</item>
+        <item quantity="other">%1$d dossiers</item>
+    </plurals>
+    <string name="sharing_note_connected">Reçoit et envoie des modifications en ce moment.</string>
+    <string name="sharing_note_syncing">Échange des fichiers en ce moment.</string>
+    <string name="sharing_note_offline_since">Hors ligne depuis %1$s. Les modifications seront envoyées à son retour.</string>
+    <string name="sharing_note_offline">Hors ligne. Les modifications seront envoyées à son retour.</string>
+    <string name="sharing_note_paused">En pause : rien n’est échangé avec lui tant que vous ne reprenez pas.</string>
+    <string name="sharing_no_folders">Aucun dossier partagé avec cet appareil.</string>
+    <string name="sharing_empty">Il n’y a encore aucun appareil ni dossier à afficher.</string>
+</resources>

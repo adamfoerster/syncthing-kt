@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Compartilhamento</string>
+    <string name="sharing_intro">Toque em um aparelho para ver quais pastas ele recebe.</string>
+    <string name="sharing_map_description">Mapa de compartilhamento</string>
+    <string name="sharing_devices">Aparelhos</string>
+    <string name="sharing_folders">Pastas</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d aparelho</item>
+        <item quantity="other">%1$d aparelhos</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d pasta</item>
+        <item quantity="other">%1$d pastas</item>
+    </plurals>
+    <string name="sharing_note_connected">Recebe e envia mudanças agora mesmo.</string>
+    <string name="sharing_note_syncing">Está trocando arquivos neste momento.</string>
+    <string name="sharing_note_offline_since">Sem conexão desde %1$s. As mudanças serão enviadas quando ele voltar.</string>
+    <string name="sharing_note_offline">Sem conexão. As mudanças serão enviadas quando ele voltar.</string>
+    <string name="sharing_note_paused">Pausado: nada é trocado com ele até você retomar.</string>
+    <string name="sharing_no_folders">Nenhuma pasta compartilhada com este aparelho.</string>
+    <string name="sharing_empty">Ainda não há aparelhos nem pastas para mostrar.</string>
+</resources>

@@ -192,5 +192,8 @@ class FileSystemConflictRepositoryTest {
         override suspend fun setFolderPaused(folderId: String, paused: Boolean) = unsupported
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId) = unsupported
         override suspend fun setMyName(name: String) = unsupported
+        override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> =
+            Result.Failure(DataError.Remote.UNKNOWN)
+        override suspend fun setIgnorePatterns(folderId: String, lines: List<String>) = unsupported
     }
 }

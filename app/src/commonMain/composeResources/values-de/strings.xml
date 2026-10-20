@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tab_home">Start</string>
+    <string name="tab_folders">Ordner</string>
+    <string name="tab_devices">Geräte</string>
+    <string name="tab_settings">Einstellungen</string>
+</resources>

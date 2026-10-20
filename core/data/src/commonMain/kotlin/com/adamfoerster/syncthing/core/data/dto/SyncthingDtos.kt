@@ -43,6 +43,18 @@ data class DeviceConfigDto(
     val paused: Boolean = false,
 )
 
+/** Reply of `GET /rest/db/ignores`; `ignore` is null when the folder has no `.stignore`. */
+@Serializable
+data class IgnoresDto(
+    val ignore: List<String>? = null,
+)
+
+/** Body for `POST /rest/db/ignores`. */
+@Serializable
+data class SetIgnoresDto(
+    val ignore: List<String>,
+)
+
 /** Body for `POST /rest/config/devices`; omitted fields are taken from the core's defaults. */
 @Serializable
 data class NewDeviceDto(

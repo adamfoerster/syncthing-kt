@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ρυθμίσεις</string>
+    <string name="settings_this_device">Αυτή η συσκευή</string>
+    <string name="settings_name">Όνομα που βλέπουν οι άλλες συσκευές</string>
+    <string name="settings_save_name">Αποθήκευση ονόματος</string>
+    <string name="settings_name_saved">Το όνομα αποθηκεύτηκε.</string>
+    <string name="settings_device_id">Αναγνωριστικό συσκευής</string>
+    <string name="settings_copy_id">Αντιγραφή αναγνωριστικού</string>
+    <string name="settings_sync">Συγχρονισμός</string>
+    <string name="settings_state_running">Εκτελείται</string>
+    <string name="settings_state_stopped">Σταματημένος</string>
+    <string name="settings_state_starting">Εκκίνηση</string>
+    <string name="settings_state_error">Σφάλμα</string>
+    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_stop">Διακοπή</string>
+    <string name="settings_start">Έναρξη</string>
+    <string name="settings_restart">Επανεκκίνηση</string>
+    <string name="settings_history_title">Αποθηκευμένες εκδόσεις</string>
+    <string name="settings_history_body">Όταν επιλύετε μια σύγκρουση, η έκδοση που απορρίπτεται φυλάσσεται στο .stversions μέσα στον ίδιο τον φάκελο. Το Syncthing δεν συγχρονίζει ποτέ αυτόν τον κατάλογο.</string>
+    <string name="settings_auto_accept_title">Γνωστοί φάκελοι</string>
+    <string name="settings_auto_accept_body">Όταν μια συσκευή που έχετε ήδη προσθέσει προσφέρει έναν φάκελο που μοιράζεστε ήδη με άλλη συσκευή, προστίθεται σε αυτόν χωρίς ερώτηση. Οι προσφορές νέων φακέλων εξακολουθούν να ζητούν την απάντησή σας.</string>
+    <string name="settings_auto_accept_on">Ενεργό</string>
+    <string name="settings_auto_accept_off">Ανενεργό</string>
+    <string name="settings_language_title">Γλώσσα</string>
+    <string name="settings_language_body">Αντικαθιστά τη γλώσσα του τηλεφώνου. Το «Γλώσσα συσκευής» ακολουθεί ξανά το σύστημα.</string>
+    <string name="settings_language_system">Γλώσσα συσκευής</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_el">Ελληνικά</string>
+</resources>

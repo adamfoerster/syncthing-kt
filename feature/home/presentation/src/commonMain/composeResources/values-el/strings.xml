@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Αρχική</string>
+    <string name="home_badge_attention">Προσοχή</string>
+    <string name="home_badge_up_to_date">Ενημερωμένο</string>
+    <string name="home_badge_syncing">Συγχρονισμός</string>
+    <string name="home_badge_stopped">Σταματημένο</string>
+    <plurals name="home_conflicts_title">
+        <item quantity="one">%1$d αρχείο χρειάζεται εσάς</item>
+        <item quantity="other">%1$d αρχεία χρειάζονται εσάς</item>
+    </plurals>
+    <string name="home_conflicts_body">Τροποποιήθηκαν ταυτόχρονα σε δύο συσκευές. Δεν διαγράφηκε τίποτα: επιλέξτε ποια έκδοση θα κρατήσετε.</string>
+    <string name="home_resolve_now">Επίλυση τώρα</string>
+    <string name="home_last_sync">Τελευταίος συγχρονισμός: %1$s</string>
+    <string name="home_last_sync_never">Δεν έχει συγχρονιστεί τίποτα ακόμη</string>
+    <string name="home_ok_title">Όλα ενημερωμένα</string>
+    <string name="home_ok_body">Τα αρχεία σας είναι ίδια σε όλες τις συνδεδεμένες συσκευές.</string>
+    <string name="home_syncing_title">Συγχρονισμός · %1$s</string>
+    <string name="home_syncing_body">Ορισμένα αρχεία είναι ακόμη καθ’ οδόν. Μπορείτε να συνεχίσετε να χρησιμοποιείτε το τηλέφωνό σας.</string>
+    <string name="home_no_devices_title">Δεν υπάρχουν συσκευές ακόμη</string>
+    <string name="home_no_devices_body">Προσθέστε τον υπολογιστή σας ή άλλο τηλέφωνο για να ξεκινήσει ο συγχρονισμός.</string>
+    <string name="home_add_device">Προσθήκη συσκευής</string>
+    <plurals name="home_pending_devices">
+        <item quantity="one">%1$d συσκευή θέλει να συνδεθεί</item>
+        <item quantity="other">%1$d συσκευές θέλουν να συνδεθούν</item>
+    </plurals>
+    <plurals name="home_pending_folders">
+        <item quantity="one">Σας προσφέρθηκε %1$d φάκελος</item>
+        <item quantity="other">Σας προσφέρθηκαν %1$d φάκελοι</item>
+    </plurals>
+    <string name="home_review">Έλεγχος</string>
+    <string name="home_your_devices">Οι συσκευές σας</string>
+    <plurals name="home_connected_count">
+        <item quantity="one">%1$d συνδεδεμένη</item>
+        <item quantity="other">%1$d συνδεδεμένες</item>
+    </plurals>
+    <string name="home_more_devices">+%1$d</string>
+    <string name="home_show_sharing">Δείτε ποιος μοιράζεται τι</string>
+</resources>

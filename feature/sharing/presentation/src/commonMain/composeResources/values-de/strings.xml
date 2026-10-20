@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Freigabe</string>
+    <string name="sharing_intro">Tippen Sie auf ein Gerät, um zu sehen, welche Ordner es erhält.</string>
+    <string name="sharing_map_description">Freigabe-Übersicht</string>
+    <string name="sharing_devices">Geräte</string>
+    <string name="sharing_folders">Ordner</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d Gerät</item>
+        <item quantity="other">%1$d Geräte</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d Ordner</item>
+        <item quantity="other">%1$d Ordner</item>
+    </plurals>
+    <string name="sharing_note_connected">Empfängt und sendet gerade Änderungen.</string>
+    <string name="sharing_note_syncing">Tauscht gerade Dateien aus.</string>
+    <string name="sharing_note_offline_since">Offline seit %1$s. Änderungen werden gesendet, sobald es wieder online ist.</string>
+    <string name="sharing_note_offline">Offline. Änderungen werden gesendet, sobald es wieder online ist.</string>
+    <string name="sharing_note_paused">Pausiert: Es wird nichts ausgetauscht, bis Sie fortsetzen.</string>
+    <string name="sharing_no_folders">Keine Ordner mit diesem Gerät geteilt.</string>
+    <string name="sharing_empty">Es gibt noch keine Geräte oder Ordner zum Anzeigen.</string>
+</resources>

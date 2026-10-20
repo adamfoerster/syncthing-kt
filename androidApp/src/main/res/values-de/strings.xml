@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Syncthing</string>
+    <string name="notification_channel">Synchronisierung</string>
+    <string name="notification_running">Ihre Geräte werden synchronisiert</string>
+    <string name="notification_running_body">Tippen, um Syncthing zu öffnen.</string>
+    <string name="scan_prompt">Richten Sie die Kamera auf den QR-Code des anderen Geräts</string>
+    <string name="core_exit">Syncthing wurde beendet (Code %1$d).</string>
+    <string name="core_start_timeout">Syncthing hat nicht rechtzeitig geantwortet.</string>
+    <string name="folder_auto_accepted">%1$s wurde zu „%2$s“ hinzugefügt.</string>
+</resources>

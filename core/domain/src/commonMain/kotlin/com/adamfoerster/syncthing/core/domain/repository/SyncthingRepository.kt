@@ -37,5 +37,11 @@ interface SyncthingRepository {
     /** Asks the core to rescan [subPath] (or the whole folder) right away. */
     suspend fun scan(folderId: String, subPath: String? = null): EmptyResult<DataError.Remote>
 
+    /** The folder's ignore rules (its `.stignore`), one entry per line; empty when there are none. */
+    suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote>
+
+    /** Replaces the folder's ignore rules; the core rescans on its own to apply them. */
+    suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote>
+
     suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote>
 }

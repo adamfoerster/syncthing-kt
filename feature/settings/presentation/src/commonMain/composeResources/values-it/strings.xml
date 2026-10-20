@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Impostazioni</string>
+    <string name="settings_this_device">Questo dispositivo</string>
+    <string name="settings_name">Nome visto dagli altri dispositivi</string>
+    <string name="settings_save_name">Salva nome</string>
+    <string name="settings_name_saved">Nome salvato.</string>
+    <string name="settings_device_id">Codice del dispositivo</string>
+    <string name="settings_copy_id">Copia codice</string>
+    <string name="settings_sync">Sincronizzazione</string>
+    <string name="settings_state_running">In esecuzione</string>
+    <string name="settings_state_stopped">Ferma</string>
+    <string name="settings_state_starting">Avvio</string>
+    <string name="settings_state_error">Con errore</string>
+    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_stop">Ferma</string>
+    <string name="settings_start">Avvia</string>
+    <string name="settings_restart">Riavvia</string>
+    <string name="settings_history_title">Versioni salvate</string>
+    <string name="settings_history_body">Quando risolvi un conflitto, la versione scartata viene conservata in .stversions all’interno della cartella stessa. Syncthing non sincronizza mai quella directory.</string>
+    <string name="settings_auto_accept_title">Cartelle già note</string>
+    <string name="settings_auto_accept_body">Quando un dispositivo che hai già aggiunto offre una cartella che condividi già con un altro dispositivo, viene aggiunto a quella cartella senza chiedere. Le offerte di cartelle nuove continuano a chiederti conferma.</string>
+    <string name="settings_auto_accept_on">Attivo</string>
+    <string name="settings_auto_accept_off">Disattivo</string>
+    <string name="settings_language_title">Lingua</string>
+    <string name="settings_language_body">Sostituisce la lingua del telefono. “Lingua del dispositivo” torna a seguire il sistema.</string>
+    <string name="settings_language_system">Lingua del dispositivo</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_el">Ελληνικά</string>
+</resources>

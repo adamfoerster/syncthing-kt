@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Condivisione</string>
+    <string name="sharing_intro">Tocca un dispositivo per vedere quali cartelle riceve.</string>
+    <string name="sharing_map_description">Mappa della condivisione</string>
+    <string name="sharing_devices">Dispositivi</string>
+    <string name="sharing_folders">Cartelle</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d dispositivo</item>
+        <item quantity="other">%1$d dispositivi</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d cartella</item>
+        <item quantity="other">%1$d cartelle</item>
+    </plurals>
+    <string name="sharing_note_connected">Riceve e invia modifiche in questo momento.</string>
+    <string name="sharing_note_syncing">Sta scambiando file in questo momento.</string>
+    <string name="sharing_note_offline_since">Non connesso da %1$s. Le modifiche verranno inviate quando tornerà online.</string>
+    <string name="sharing_note_offline">Non connesso. Le modifiche verranno inviate quando tornerà online.</string>
+    <string name="sharing_note_paused">In pausa: non viene scambiato nulla finché non riprendi.</string>
+    <string name="sharing_no_folders">Nessuna cartella condivisa con questo dispositivo.</string>
+    <string name="sharing_empty">Non ci sono ancora dispositivi né cartelle da mostrare.</string>
+</resources>

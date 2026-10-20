@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Inicio</string>
+    <string name="home_badge_attention">Atención</string>
+    <string name="home_badge_up_to_date">Al día</string>
+    <string name="home_badge_syncing">Sincronizando</string>
+    <string name="home_badge_stopped">Detenido</string>
+    <plurals name="home_conflicts_title">
+        <item quantity="one">%1$d archivo te necesita</item>
+        <item quantity="other">%1$d archivos te necesitan</item>
+    </plurals>
+    <string name="home_conflicts_body">Se modificaron en dos dispositivos a la vez. No se borró nada: elige qué versión conservar.</string>
+    <string name="home_resolve_now">Resolver ahora</string>
+    <string name="home_last_sync">Última sincronización: %1$s</string>
+    <string name="home_last_sync_never">Aún no se ha sincronizado nada</string>
+    <string name="home_ok_title">Todo al día</string>
+    <string name="home_ok_body">Tus archivos son iguales en todos los dispositivos conectados.</string>
+    <string name="home_syncing_title">Sincronizando · %1$s</string>
+    <string name="home_syncing_body">Algunos archivos aún están en camino. Puedes seguir usando el teléfono.</string>
+    <string name="home_no_devices_title">Aún no hay dispositivos</string>
+    <string name="home_no_devices_body">Añade tu computadora u otro teléfono para empezar a sincronizar.</string>
+    <string name="home_add_device">Añadir dispositivo</string>
+    <plurals name="home_pending_devices">
+        <item quantity="one">%1$d dispositivo quiere conectarse</item>
+        <item quantity="other">%1$d dispositivos quieren conectarse</item>
+    </plurals>
+    <plurals name="home_pending_folders">
+        <item quantity="one">Se te ofreció %1$d carpeta</item>
+        <item quantity="other">Se te ofrecieron %1$d carpetas</item>
+    </plurals>
+    <string name="home_review">Revisar</string>
+    <string name="home_your_devices">Tus dispositivos</string>
+    <plurals name="home_connected_count">
+        <item quantity="one">%1$d conectado</item>
+        <item quantity="other">%1$d conectados</item>
+    </plurals>
+    <string name="home_more_devices">+%1$d</string>
+    <string name="home_show_sharing">Ver quién comparte qué</string>
+</resources>

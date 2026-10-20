@@ -25,6 +25,10 @@ data class AddFolderRoute(
     val offeredBy: String? = null,
 )
 
+/** The ignored-files editor of one folder. */
+@Serializable
+data class IgnoreRoute(val folderId: String)
+
 /** Set when approving a device that asked to connect. */
 @Serializable
 data class AddDeviceRoute(

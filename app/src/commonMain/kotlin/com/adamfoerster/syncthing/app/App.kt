@@ -18,6 +18,7 @@ import com.adamfoerster.syncthing.app.navigation.AddFolderRoute
 import com.adamfoerster.syncthing.app.navigation.DevicesRoute
 import com.adamfoerster.syncthing.app.navigation.FoldersRoute
 import com.adamfoerster.syncthing.app.navigation.HomeRoute
+import com.adamfoerster.syncthing.app.navigation.IgnoreRoute
 import com.adamfoerster.syncthing.app.navigation.SettingsRoute
 import com.adamfoerster.syncthing.app.navigation.SharingRoute
 import com.adamfoerster.syncthing.app.resources.Res
@@ -38,6 +39,7 @@ import com.adamfoerster.syncthing.feature.devices.presentation.add.AddDeviceRoot
 import com.adamfoerster.syncthing.feature.devices.presentation.list.DeviceListRoot
 import com.adamfoerster.syncthing.feature.folders.presentation.add.AddFolderRoot
 import com.adamfoerster.syncthing.feature.folders.presentation.add.FolderOffer
+import com.adamfoerster.syncthing.feature.folders.presentation.ignore.IgnoreRoot
 import com.adamfoerster.syncthing.feature.folders.presentation.list.FolderListRoot
 import com.adamfoerster.syncthing.feature.home.presentation.HomeRoot
 import com.adamfoerster.syncthing.feature.settings.presentation.SettingsRoot
@@ -83,6 +85,7 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
                 onOpenConflicts = { navController.navigate(ConflictsGraph) },
                 onOpenSharing = { navController.navigate(SharingRoute) },
                 onAddFolder = { navController.navigate(AddFolderRoute()) },
+                onOpenIgnores = { folderId -> navController.navigate(IgnoreRoute(folderId)) },
                 onAcceptOffer = { id, label, device -> navController.navigate(AddFolderRoute(id, label, device)) },
             )
         }
@@ -105,6 +108,9 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
                 null
             }
             AddFolderRoot(offer = offer, onDone = { navController.navigateUp() })
+        }
+        composable<IgnoreRoute> { entry ->
+            IgnoreRoot(folderId = entry.toRoute<IgnoreRoute>().folderId, onDone = { navController.navigateUp() })
         }
         composable<AddDeviceRoute> { entry ->
             val route = entry.toRoute<AddDeviceRoute>()

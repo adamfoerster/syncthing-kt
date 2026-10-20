@@ -1,6 +1,7 @@
 package com.adamfoerster.syncthing.android
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -12,8 +13,10 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.runtime.LaunchedEffect
 import com.adamfoerster.syncthing.android.core.AndroidSyncthingCore
 import com.adamfoerster.syncthing.app.App
+import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
 import com.adamfoerster.syncthing.core.presentation.PlatformActions
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
@@ -22,6 +25,10 @@ import org.koin.android.ext.android.inject
 class MainActivity : ComponentActivity() {
 
     private val core: AndroidSyncthingCore by inject()
+    private val preferences: AppPreferences by inject()
+
+    /** Language this instance was built with; a different choice in Settings recreates the activity. */
+    private var appliedLanguage: String? = null
 
     private var pendingScan: ((String?) -> Unit)? = null
     private val scanner = registerForActivityResult(ScanContract()) { result ->
@@ -56,6 +63,11 @@ class MainActivity : ComponentActivity() {
         override val defaultFolderRoot: String = Environment.getExternalStorageDirectory().absolutePath
     }
 
+    override fun attachBaseContext(newBase: Context) {
+        appliedLanguage = AndroidAppPreferences.storedLanguageTag(newBase)
+        super.attachBaseContext(LocaleSupport.wrap(newBase, appliedLanguage))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge(
             statusBarStyle = SystemBarStyle.dark(android.graphics.Color.TRANSPARENT),
@@ -65,7 +77,12 @@ class MainActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && savedInstanceState == null) {
             notifications.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
-        setContent { App(platformActions) }
+        setContent {
+            LaunchedEffect(Unit) {
+                preferences.languageTag.collect { if (it != appliedLanguage) recreate() }
+            }
+            App(platformActions)
+        }
     }
 
     override fun onResume() {

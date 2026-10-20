@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="conflicts_title">Conflits</string>
+    <plurals name="conflicts_pending_badge">
+        <item quantity="one">%1$d en attente</item>
+        <item quantity="other">%1$d en attente</item>
+    </plurals>
+    <string name="conflicts_what_title">Qu’est-ce qu’un conflit ?</string>
+    <string name="conflicts_what_body">Le même fichier a été modifié sur deux appareils avant la synchronisation. Les deux versions sont conservées jusqu’à ce que vous choisissiez.</string>
+    <string name="conflicts_folder_label">Dossier %1$s</string>
+    <plurals name="conflicts_hunks">
+        <item quantity="one">%1$d passage différent</item>
+        <item quantity="other">%1$d passages différents</item>
+    </plurals>
+    <string name="conflicts_same_content">Contenu identique dans les deux versions</string>
+    <string name="conflicts_kind_image">Image : choisissez l’une des versions</string>
+    <string name="conflicts_kind_binary">Fichier : choisissez l’une des versions</string>
+    <string name="conflicts_footer">Aucun fichier ne sera supprimé sans votre choix.</string>
+    <string name="conflicts_empty_title">Aucun conflit</string>
+    <string name="conflicts_empty_body">Lorsque le même fichier change sur deux appareils en même temps, il apparaît ici pour que vous décidiez.</string>
+    <string name="conflicts_scanning">Recherche de conflits…</string>
+    <string name="conflicts_chip">%1$s · %2$s</string>
+    <string name="conflicts_open">Ouvrir le conflit de %1$s</string>
+
+    <!-- Shared resolver -->
+    <string name="resolver_folder">Dossier %1$s</string>
+    <string name="resolver_done_title">Conflit résolu</string>
+    <string name="resolver_back_to_list">Retour aux conflits</string>
+    <string name="resolver_not_found">Ce conflit a déjà été résolu ou le fichier a été supprimé.</string>
+    <string name="resolver_loading">Chargement des deux versions…</string>
+
+    <!-- Text resolver -->
+    <string name="text_summary">%1$d passages sur %2$d résolus</string>
+    <string name="text_summary_same">Les versions ont le même contenu</string>
+    <string name="text_badge_ready">Prêt</string>
+    <string name="text_badge_pending">En attente</string>
+    <string name="text_all_from">Tout de %1$s</string>
+    <string name="text_all_mine">Tout de mon téléphone</string>
+    <string name="text_view_compare">Comparer</string>
+    <string name="text_view_result">Résultat final</string>
+    <string name="text_hunk_title">Passage %1$d sur %2$d</string>
+    <string name="text_hunk_resolved">Résolu</string>
+    <string name="text_hunk_undecided">Sans décision</string>
+    <string name="text_pick_both">Les deux</string>
+    <string name="text_pick_group">Choix pour le passage %1$d</string>
+    <string name="text_side_header">%1$s · %2$s</string>
+    <string name="text_empty_side">(rien dans ce passage)</string>
+    <string name="text_same_lines">⋯ %1$d lignes identiques · afficher</string>
+    <string name="text_result_pending">— décidez du passage %1$d —</string>
+    <string name="text_edit_manually">Modifier à la main</string>
+    <string name="text_edit_hint">Modifiez le texte comme vous voulez. Supprimez les marqueurs &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ======= et &gt;&gt;&gt;&gt;&gt;&gt;&gt; pour terminer.</string>
+    <string name="text_edit_discard">Annuler la modification</string>
+    <string name="text_edit_active">Vous avez modifié le résultat à la main. Les choix par passage ne s’appliquent plus.</string>
+    <string name="text_helper_pending">Choisissez une option dans chaque passage pour continuer.</string>
+    <string name="text_helper_ready">Vérifiez le résultat final avant de confirmer.</string>
+    <string name="text_helper_markers">Il reste des marqueurs de conflit dans le texte modifié.</string>
+    <string name="text_finish">Marquer comme résolu</string>
+    <string name="text_done_body">%1$s a été mis à jour et sera envoyé aux autres appareils. Les deux versions précédentes sont conservées dans l’historique des versions.</string>
+
+    <!-- Binary resolver -->
+    <string name="binary_intro_image">Cette image a été modifiée sur deux appareils. Comparez les versions et choisissez quoi faire.</string>
+    <string name="binary_intro_file">Ce fichier a été modifié sur deux appareils. Ce n’est pas du texte, donc les modifications ne peuvent pas être fusionnées : choisissez la version à conserver.</string>
+    <string name="binary_preview_unavailable">Pas d’aperçu</string>
+    <string name="binary_question">Que voulez-vous conserver ?</string>
+    <string name="binary_keep_one">Garder celle de %1$s</string>
+    <string name="binary_keep_one_hint">La version de %1$s sera conservée dans l’historique des versions.</string>
+    <string name="binary_keep_mine">Garder celle de mon téléphone</string>
+    <string name="binary_keep_mine_hint">La version du téléphone sera conservée dans l’historique des versions.</string>
+    <string name="binary_done_mine">La version du téléphone a été conservée et sera envoyée aux autres appareils.</string>
+    <string name="binary_keep_both">Garder les deux</string>
+    <string name="binary_keep_both_hint">La seconde s’appellera « %1$s ».</string>
+    <string name="binary_copy_suffix">copie</string>
+    <string name="binary_helper_pending">Choisissez une option pour continuer.</string>
+    <string name="binary_helper_ready">La version écartée reste dans l’historique des versions.</string>
+    <string name="binary_confirm">Confirmer le choix</string>
+    <string name="binary_done_one">La version de %1$s a été conservée et sera envoyée aux autres appareils.</string>
+    <string name="binary_done_both">Les deux versions ont été conservées : %1$s et %2$s.</string>
+</resources>

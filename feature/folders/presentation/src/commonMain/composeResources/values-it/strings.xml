@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folders_title">Cartelle</string>
+    <string name="folders_add">Aggiungi cartella</string>
+    <string name="folders_badge_up_to_date">Aggiornato</string>
+    <plurals name="folders_badge_conflicts">
+        <item quantity="one">%1$d conflitto</item>
+        <item quantity="other">%1$d conflitti</item>
+    </plurals>
+    <string name="folders_badge_syncing">Sincronizzazione</string>
+    <string name="folders_badge_scanning">Scansione</string>
+    <string name="folders_badge_waiting">In attesa</string>
+    <string name="folders_badge_error">Errore</string>
+    <string name="folders_badge_paused">In pausa</string>
+    <string name="folders_badge_local">Solo qui</string>
+    <string name="folders_progress">%1$s · mancano %2$s</string>
+    <plurals name="folders_with_devices">
+        <item quantity="one">Con %1$d dispositivo</item>
+        <item quantity="other">Con %1$d dispositivi</item>
+    </plurals>
+    <string name="folders_device_offline">%1$s non è connesso</string>
+    <string name="folders_devices_offline">I dispositivi non sono connessi</string>
+    <string name="folders_not_shared">Non ancora condivisa con alcun dispositivo</string>
+    <string name="folders_empty_title">Nessuna cartella</string>
+    <string name="folders_empty_body">Scegli una cartella del telefono da mantenere identica sugli altri dispositivi.</string>
+    <string name="folders_offer_title">%1$s vuole condividere “%2$s”</string>
+    <string name="folders_offer_accept">Accetta</string>
+    <string name="folders_offer_dismiss">Rifiuta</string>
+    <string name="folders_open">Apri %1$s</string>
+
+    <string name="add_folder_title">Aggiungi cartella</string>
+    <string name="add_folder_accept_title">Accetta cartella</string>
+    <string name="add_folder_label">Nome</string>
+    <string name="add_folder_label_placeholder">Es.: Foto della fotocamera</string>
+    <string name="add_folder_path">Posizione sul telefono</string>
+    <string name="add_folder_path_hint">La cartella viene creata se non esiste ancora.</string>
+    <string name="add_folder_devices">Condividi con</string>
+    <string name="add_folder_no_devices">Aggiungi prima un dispositivo per poter condividere.</string>
+    <string name="add_folder_save">Salva cartella</string>
+    <string name="add_folder_invalid">Dai alla cartella un nome e una posizione.</string>
+
+    <string name="ignore_title">File ignorati</string>
+    <string name="ignore_for_folder">Cartella “%1$s”</string>
+    <string name="ignore_intro">Scegli cosa questa cartella non deve sincronizzare. I file già sincronizzati restano dove sono; semplicemente non vengono più sincronizzati. Queste regole valgono solo su questo dispositivo.</string>
+    <string name="ignore_loading">Caricamento delle regole…</string>
+    <string name="ignore_retry">Riprova</string>
+    <string name="ignore_quick">Scelte rapide</string>
+    <string name="ignore_preset_temporary_title">File temporanei</string>
+    <string name="ignore_preset_temporary_body">File come .tmp e .temp, che i programmi creano mentre lavorano.</string>
+    <string name="ignore_preset_system_title">Residui del computer</string>
+    <string name="ignore_preset_system_body">Thumbs.db, .DS_Store e desktop.ini, creati da Windows e Mac.</string>
+    <string name="ignore_preset_android_title">Miniature e cestino di Android</string>
+    <string name="ignore_preset_android_body">La cartella .thumbnails e i file del cestino di Android (.trashed-…).</string>
+    <string name="ignore_preset_programming_title">Cartelle di programmazione</string>
+    <string name="ignore_preset_programming_body">node_modules, .gradle e __pycache__, che si possono ricreare.</string>
+    <string name="ignore_add_section">Aggiungi il tuo</string>
+    <string name="ignore_add_label">File, cartella o tipo</string>
+    <string name="ignore_add_placeholder">Es.: Download o *.mp3</string>
+    <string name="ignore_add_hint">Scrivi il nome di un file o di una cartella. Per ignorare tutti i file di un tipo, scrivi * e l’estensione, come *.mp3.</string>
+    <string name="ignore_add_button">Aggiungi</string>
+    <string name="ignore_error_empty">Scrivi prima cosa ignorare.</string>
+    <string name="ignore_list_section">Ignorato ora</string>
+    <string name="ignore_list_empty">Non viene ignorato nulla. Tutto in questa cartella viene sincronizzato.</string>
+    <string name="ignore_kind_file_type">Tutti i file .%1$s</string>
+    <string name="ignore_kind_name">File o cartella con questo nome</string>
+    <string name="ignore_kind_advanced">Regola avanzata</string>
+    <string name="ignore_remove">Smetti di ignorare %1$s</string>
+    <string name="ignore_advanced_button">Modalità avanzata</string>
+    <string name="ignore_simple_button">Modalità semplice</string>
+    <string name="ignore_advanced_intro">Una regola per riga, esattamente come in un file .stignore. Syncthing usa modelli con caratteri jolly, non espressioni regolari. Vale la prima regola che corrisponde al file.</string>
+    <string name="ignore_advanced_editor">Regole</string>
+    <string name="ignore_help_title">Guida rapida ai modelli</string>
+    <string name="ignore_help_star">Qualsiasi carattere in un nome: tutti i file .log, in qualsiasi cartella.</string>
+    <string name="ignore_help_doublestar">Attraversa anche le sottocartelle: una cartella “cache” a qualsiasi livello.</string>
+    <string name="ignore_help_question">Esattamente un carattere.</string>
+    <string name="ignore_help_braces">Una qualsiasi delle opzioni elencate.</string>
+    <string name="ignore_help_root">Una / iniziale vale solo nella radice della cartella.</string>
+    <string name="ignore_help_not">Eccezione: non ignorare questo. Mettila sopra la regola che annulla.</string>
+    <string name="ignore_help_case">Ignora maiuscole e minuscole.</string>
+    <string name="ignore_help_delete">Permette di eliminare una cartella anche se contiene solo file ignorati.</string>
+    <string name="ignore_help_comment">Un commento; Syncthing lo salta.</string>
+    <string name="ignore_save">Salva le regole</string>
+    <string name="ignore_unsaved">Hai modifiche non ancora salvate.</string>
+</resources>

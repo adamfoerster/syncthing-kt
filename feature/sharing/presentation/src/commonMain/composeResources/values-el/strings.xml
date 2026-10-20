@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Κοινή χρήση</string>
+    <string name="sharing_intro">Πατήστε μια συσκευή για να δείτε ποιους φακέλους λαμβάνει.</string>
+    <string name="sharing_map_description">Χάρτης κοινής χρήσης</string>
+    <string name="sharing_devices">Συσκευές</string>
+    <string name="sharing_folders">Φάκελοι</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d συσκευή</item>
+        <item quantity="other">%1$d συσκευές</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d φάκελος</item>
+        <item quantity="other">%1$d φάκελοι</item>
+    </plurals>
+    <string name="sharing_note_connected">Λαμβάνει και στέλνει αλλαγές αυτή τη στιγμή.</string>
+    <string name="sharing_note_syncing">Ανταλλάσσει αρχεία αυτή τη στιγμή.</string>
+    <string name="sharing_note_offline_since">Εκτός σύνδεσης από %1$s. Οι αλλαγές θα σταλούν όταν επανέλθει.</string>
+    <string name="sharing_note_offline">Εκτός σύνδεσης. Οι αλλαγές θα σταλούν όταν επανέλθει.</string>
+    <string name="sharing_note_paused">Σε παύση: δεν ανταλλάσσεται τίποτα μέχρι να συνεχίσετε.</string>
+    <string name="sharing_no_folders">Δεν κοινοποιείται κανένας φάκελος σε αυτήν τη συσκευή.</string>
+    <string name="sharing_empty">Δεν υπάρχουν ακόμη συσκευές ή φάκελοι για εμφάνιση.</string>
+</resources>

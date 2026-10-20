@@ -1,6 +1,7 @@
 package com.adamfoerster.syncthing.core.presentation
 
 import com.adamfoerster.syncthing.core.presentation.resources.Res
+import com.adamfoerster.syncthing.core.presentation.resources.time_date_at
 import com.adamfoerster.syncthing.core.presentation.resources.time_days_ago
 import com.adamfoerster.syncthing.core.presentation.resources.time_hours_ago
 import com.adamfoerster.syncthing.core.presentation.resources.time_just_now
@@ -23,8 +24,8 @@ import kotlin.time.Clock
 import kotlin.time.Duration.Companion.days
 import kotlin.time.Instant
 
-/** "4,2 GB", "312 MB" — decimal comma, as in the mockups. */
-fun formatBytes(bytes: Long): String {
+/** "4,2 GB" / "4.2 GB", "312 MB" — the decimal separator follows the device locale. */
+fun formatBytes(bytes: Long, decimalSeparator: Char = systemDecimalSeparator()): String {
     val units = listOf("B", "KB", "MB", "GB", "TB")
     var value = bytes.toDouble().coerceAtLeast(0.0)
     var unit = 0
@@ -36,7 +37,7 @@ fun formatBytes(bytes: Long): String {
         unit == 0 || value >= 100 -> value.roundToLong().toString()
         else -> {
             val tenths = (value * 10).roundToLong()
-            "${tenths / 10},${tenths % 10}"
+            "${tenths / 10}$decimalSeparator${tenths % 10}"
         }
     }
     return "$text ${units[unit]}"
@@ -53,7 +54,7 @@ fun Instant.formatClock(zone: TimeZone = TimeZone.currentSystemDefault()): Strin
     return "${t.hour.toString().padStart(2, '0')}:${t.minute.toString().padStart(2, '0')}"
 }
 
-/** "há 2 min", "há 3 h", "agora" */
+/** "2 min ago", "3 h ago", "just now" (localized). */
 fun Instant.toRelativeUiText(now: Instant = Clock.System.now()): UiText {
     val elapsed = now - this
     val minutes = elapsed.inWholeMinutes
@@ -65,7 +66,7 @@ fun Instant.toRelativeUiText(now: Instant = Clock.System.now()): UiText {
     }
 }
 
-/** "Hoje, 14:32" / "Ontem, 09:10" / "sábado, 18:00" / "12/10, 18:00" */
+/** "Today, 14:32" / "Yesterday, 09:10" / "Saturday, 18:00" / "12/10, 18:00" (localized; the date order follows the language). */
 fun Instant.toDayAndTimeUiText(now: Instant = Clock.System.now()): UiText {
     val zone = TimeZone.currentSystemDefault()
     val date = toLocal(zone).date
@@ -75,8 +76,11 @@ fun Instant.toDayAndTimeUiText(now: Instant = Clock.System.now()): UiText {
         date == today -> UiText.Resource(Res.string.time_today_at, clock)
         date == (now - 1.days).toLocal(zone).date -> UiText.Resource(Res.string.time_yesterday_at, clock)
         now - this < 7.days -> UiText.Resource(weekdays[date.dayOfWeek.ordinal], clock)
-        else -> UiText.DynamicString(
-            "${date.day.toString().padStart(2, '0')}/${date.month.ordinal.plus(1).toString().padStart(2, '0')}, $clock",
+        else -> UiText.Resource(
+            Res.string.time_date_at,
+            date.day.toString().padStart(2, '0'),
+            (date.month.ordinal + 1).toString().padStart(2, '0'),
+            clock,
         )
     }
 }

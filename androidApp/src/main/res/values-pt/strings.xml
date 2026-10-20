@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Syncthing</string>
+    <string name="notification_channel">Sincronização</string>
+    <string name="notification_running">Sincronizando seus aparelhos</string>
+    <string name="notification_running_body">Toque para abrir o Syncthing.</string>
+    <string name="scan_prompt">Aponte para o QR code do outro aparelho</string>
+    <string name="core_exit">O Syncthing encerrou (código %1$d).</string>
+    <string name="core_start_timeout">O Syncthing não respondeu a tempo.</string>
+    <string name="folder_auto_accepted">%1$s foi adicionado a “%2$s”.</string>
+</resources>

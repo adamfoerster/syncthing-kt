@@ -2,7 +2,7 @@
 
 Reimplementação do Syncthing Android em Kotlin Multiplatform + Compose Multiplatform. Android é o único
 target por enquanto, mas o código vai em `commonMain` sempre que não precisar de API do Android.
-A interface e os textos são em português do Brasil. Visão geral e instruções de build: [README.md](README.md).
+A interface é traduzida para pt, en, es, it, de, fr e el (inglês é o padrão para idiomas não suportados). Visão geral e instruções de build: [README.md](README.md).
 
 ## Regras obrigatórias a cada alteração
 
@@ -17,7 +17,7 @@ Toda alteração (feature, correção, refatoração com efeito visível) só es
    dados, configuração ou comportamento que o usuário perde). O `versionCode` é derivado dela.
 3. **CHANGELOG.md**: adicione a entrada `## [X.Y.Z] - AAAA-MM-DD` no topo (abaixo de `[Unreleased]`),
    com seções `Adicionado` / `Alterado` / `Corrigido` / `Removido`, escrita para quem usa o app.
-4. **Documentação**: atualize o README.md (e este arquivo, se mudar arquitetura, módulos, comandos ou regras)
+4. **Documentação**: atualize o README.md (e o `README.en.md`, a tradução em inglês) (e este arquivo, se mudar arquitetura, módulos, comandos ou regras)
    e os KDocs do código tocado.
 
 `./gradlew verifyVersion` falha se `app.version` não for a versão mais recente do CHANGELOG, e roda antes
@@ -52,6 +52,12 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
   fornece `SyncthingCore` e `SyncthingEndpoint`.
 - O núcleo Go roda como processo (`AndroidSyncthingCore`); o app só fala com ele pela REST API
   (`core:data/SyncthingApi`). Não leia nem escreva o `config.xml` diretamente.
+- Arquivos ignorados: regras do `.stignore` lidas e gravadas por `SyncthingRepository.ignorePatterns`/`setIgnorePatterns`
+  (`/rest/db/ignores`); a lógica pura (`IgnoreRules`, `IgnorePreset`) fica em `core:domain` e a tela em `feature:folders`.
+  Modo simples e avançado editam o mesmo texto; o Syncthing usa glob, não regex.
+- Preferências do app (`AppPreferences` em `core:domain`, SharedPreferences no `androidApp`): aceite automático de
+  ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`) e idioma que sobrescreve o do
+  aparelho (aplicado em `MainActivity.attachBaseContext`).
 - Conflitos: detecção e resolução são operações de arquivo (Okio) em `feature:conflicts:data`; nada é apagado,
   versões substituídas vão para `.stversions/`. Preserve essa garantia.
 
@@ -59,12 +65,15 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
 
 - Use os componentes de `core:design-system` (`NgPanel`, `NgButton`, `NgBadge`, `NgScreen`, `NgTopBar`…) e os
   tokens de `NgTheme`; não use cores, fontes ou formas soltas. Ícones vêm de `NgIcons`.
-- Todo texto visível em `composeResources/values/strings.xml` do módulo (plurais com `<plurals>`).
+- Todo texto visível em `composeResources/values/strings.xml` do módulo (plurais com `<plurals>`). `values/` é o inglês
+  (padrão); toda chave nova precisa de tradução em `values-pt`, `-es`, `-it`, `-de`, `-fr` e `-el` (o `TranslationsTest`
+  confere chaves e placeholders). Não escape apóstrofos: use ’ (U+2019). Datas/números/ordem de argumentos mudam por idioma,
+  então use `%1$s` posicional e nada de texto montado por concatenação.
 - Status nunca depende só de cor: use o glifo de forma (`NgStatusLabel`) junto.
 - Ao mudar uma tela, confira no emulador (modo demo serve) e compare com o mockup do redesign.
 
 ## Estilo
 
 - Siga o código ao redor: nomes, densidade de comentários (KDoc curto explicando o porquê), idioma.
-- Código e comentários em inglês; textos para o usuário em português.
+- Código e comentários em inglês; textos para o usuário em recursos traduzidos (nunca literais no código).
 - Nada de `!!` em código de produção; trate `null` explicitamente.

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="folders_title">Ordner</string>
+    <string name="folders_add">Ordner hinzufügen</string>
+    <string name="folders_badge_up_to_date">Aktuell</string>
+    <plurals name="folders_badge_conflicts">
+        <item quantity="one">%1$d Konflikt</item>
+        <item quantity="other">%1$d Konflikte</item>
+    </plurals>
+    <string name="folders_badge_syncing">Synchronisiert</string>
+    <string name="folders_badge_scanning">Wird geprüft</string>
+    <string name="folders_badge_waiting">Wartet</string>
+    <string name="folders_badge_error">Fehler</string>
+    <string name="folders_badge_paused">Pausiert</string>
+    <string name="folders_badge_local">Nur hier</string>
+    <string name="folders_progress">%1$s · noch %2$s</string>
+    <plurals name="folders_with_devices">
+        <item quantity="one">Mit %1$d Gerät</item>
+        <item quantity="other">Mit %1$d Geräten</item>
+    </plurals>
+    <string name="folders_device_offline">%1$s ist offline</string>
+    <string name="folders_devices_offline">Die Geräte sind offline</string>
+    <string name="folders_not_shared">Noch mit keinem Gerät geteilt</string>
+    <string name="folders_empty_title">Keine Ordner</string>
+    <string name="folders_empty_body">Wählen Sie einen Ordner auf Ihrem Telefon, den Sie auf Ihren anderen Geräten identisch halten möchten.</string>
+    <string name="folders_offer_title">%1$s möchte „%2$s“ teilen</string>
+    <string name="folders_offer_accept">Annehmen</string>
+    <string name="folders_offer_dismiss">Ablehnen</string>
+    <string name="folders_open">%1$s öffnen</string>
+
+    <string name="add_folder_title">Ordner hinzufügen</string>
+    <string name="add_folder_accept_title">Ordner annehmen</string>
+    <string name="add_folder_label">Name</string>
+    <string name="add_folder_label_placeholder">z. B. Kamerafotos</string>
+    <string name="add_folder_path">Speicherort auf dem Telefon</string>
+    <string name="add_folder_path_hint">Der Ordner wird erstellt, falls er noch nicht existiert.</string>
+    <string name="add_folder_devices">Teilen mit</string>
+    <string name="add_folder_no_devices">Fügen Sie zuerst ein Gerät hinzu, um teilen zu können.</string>
+    <string name="add_folder_save">Ordner speichern</string>
+    <string name="add_folder_invalid">Geben Sie dem Ordner einen Namen und einen Speicherort.</string>
+
+    <string name="ignore_title">Ignorierte Dateien</string>
+    <string name="ignore_for_folder">Ordner „%1$s“</string>
+    <string name="ignore_intro">Legen Sie fest, was dieser Ordner nicht synchronisieren soll. Bereits synchronisierte Dateien bleiben, wo sie sind; sie werden nur nicht mehr synchronisiert. Diese Regeln gelten nur auf diesem Gerät.</string>
+    <string name="ignore_loading">Regeln werden geladen…</string>
+    <string name="ignore_retry">Erneut versuchen</string>
+    <string name="ignore_quick">Schnellauswahl</string>
+    <string name="ignore_preset_temporary_title">Temporäre Dateien</string>
+    <string name="ignore_preset_temporary_body">Dateien wie .tmp und .temp, die Programme während der Arbeit anlegen.</string>
+    <string name="ignore_preset_system_title">Überbleibsel vom Computer</string>
+    <string name="ignore_preset_system_body">Thumbs.db, .DS_Store und desktop.ini, die Windows und Mac anlegen.</string>
+    <string name="ignore_preset_android_title">Android-Vorschaubilder und Papierkorb</string>
+    <string name="ignore_preset_android_body">Der Ordner .thumbnails und die Dateien im Android-Papierkorb (.trashed-…).</string>
+    <string name="ignore_preset_programming_title">Programmierordner</string>
+    <string name="ignore_preset_programming_body">node_modules, .gradle und __pycache__, die sich neu erzeugen lassen.</string>
+    <string name="ignore_add_section">Eigene hinzufügen</string>
+    <string name="ignore_add_label">Datei, Ordner oder Typ</string>
+    <string name="ignore_add_placeholder">Z. B. Downloads oder *.mp3</string>
+    <string name="ignore_add_hint">Geben Sie den Namen einer Datei oder eines Ordners ein. Um alle Dateien eines Typs zu ignorieren, schreiben Sie * und die Endung, etwa *.mp3.</string>
+    <string name="ignore_add_button">Hinzufügen</string>
+    <string name="ignore_error_empty">Geben Sie zuerst ein, was ignoriert werden soll.</string>
+    <string name="ignore_list_section">Derzeit ignoriert</string>
+    <string name="ignore_list_empty">Nichts wird ignoriert. Alles in diesem Ordner wird synchronisiert.</string>
+    <string name="ignore_kind_file_type">Alle .%1$s-Dateien</string>
+    <string name="ignore_kind_name">Datei oder Ordner mit diesem Namen</string>
+    <string name="ignore_kind_advanced">Erweiterte Regel</string>
+    <string name="ignore_remove">%1$s nicht mehr ignorieren</string>
+    <string name="ignore_advanced_button">Erweiterter Modus</string>
+    <string name="ignore_simple_button">Einfacher Modus</string>
+    <string name="ignore_advanced_intro">Eine Regel pro Zeile, genau wie in einer .stignore-Datei. Syncthing verwendet Platzhaltermuster, keine regulären Ausdrücke. Es gilt die erste Regel, die auf eine Datei passt.</string>
+    <string name="ignore_advanced_editor">Regeln</string>
+    <string name="ignore_help_title">Muster-Spickzettel</string>
+    <string name="ignore_help_star">Beliebige Zeichen in einem Namen: alle .log-Dateien in jedem Ordner.</string>
+    <string name="ignore_help_doublestar">Geht auch durch Unterordner: ein Ordner „cache“ in beliebiger Tiefe.</string>
+    <string name="ignore_help_question">Genau ein Zeichen.</string>
+    <string name="ignore_help_braces">Eine der aufgeführten Möglichkeiten.</string>
+    <string name="ignore_help_root">Ein / am Anfang gilt nur im Stammverzeichnis des Ordners.</string>
+    <string name="ignore_help_not">Ausnahme: dies nicht ignorieren. Über der Regel platzieren, die sie aufhebt.</string>
+    <string name="ignore_help_case">Ignoriert Groß- und Kleinschreibung.</string>
+    <string name="ignore_help_delete">Erlaubt das Löschen eines Ordners, auch wenn nur noch ignorierte Dateien darin liegen.</string>
+    <string name="ignore_help_comment">Ein Kommentar; Syncthing überspringt ihn.</string>
+    <string name="ignore_save">Regeln speichern</string>
+    <string name="ignore_unsaved">Es gibt noch nicht gespeicherte Änderungen.</string>
+</resources>

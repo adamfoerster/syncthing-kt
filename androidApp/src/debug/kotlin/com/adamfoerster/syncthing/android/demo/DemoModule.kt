@@ -35,57 +35,57 @@ val demoModule = module {
     single<SyncthingRepository> { DemoRepository(DemoData.documents(androidContext()).absolutePath) }
 }
 
-/** The mockups' scenario: three devices, four folders, two conflicts in "Documentos". */
+/** The mockups' scenario: three devices, four folders, two conflicts in "Documents". */
 object DemoData {
     val me = DeviceId("ESTEPHN-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA")
     val laptop = DeviceId("NOTEBKA-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB")
     val office = DeviceId("PCESCRT-CCCCCCC-CCCCCCC-CCCCCCC-CCCCCCC-CCCCCCC-CCCCCCC-CCCCCCC")
     val tablet = DeviceId("TABLETS-DDDDDDD-DDDDDDD-DDDDDDD-DDDDDDD-DDDDDDD-DDDDDDD-DDDDDDD")
 
-    fun documents(context: Context) = File(context.getExternalFilesDir(null), "Documentos")
+    fun documents(context: Context) = File(context.getExternalFilesDir(null), "Documents")
 
     fun seedFiles(context: Context) {
         val dir = documents(context).apply { mkdirs() }
         if (dir.listFiles()?.isNotEmpty() == true) return
-        File(dir, "lista-de-compras.txt").writeText(
+        File(dir, "shopping-list.txt").writeText(
             """
-            Lista de compras — sábado
+            Shopping list — Saturday
 
-            Frutas
-            - Maçã
+            Fruit
+            - Apple
             - Banana
 
-            - Leite integral (2 caixas)
-            - Pão de forma
+            - Whole milk (2 cartons)
+            - Sandwich bread
 
-            Limpeza
-            - Detergente
-            - Sabão em pó
+            Cleaning
+            - Dish soap
+            - Laundry powder
 
-            Lembrar: pagar a conta de luz
+            Remember: pay the electricity bill
             """.trimIndent() + "\n",
         )
-        File(dir, "lista-de-compras.sync-conflict-20261019-143500-${laptop.short}.txt").writeText(
+        File(dir, "shopping-list.sync-conflict-20261019-143500-${laptop.short}.txt").writeText(
             """
-            Lista de compras — sábado
+            Shopping list — Saturday
 
-            Frutas
-            - Maçã
+            Fruit
+            - Apple
             - Banana
 
-            - Leite desnatado (3 caixas)
-            - Pão integral
+            - Skim milk (3 cartons)
+            - Whole-wheat bread
 
-            Limpeza
-            - Detergente
-            - Sabão líquido
-            - Amaciante
+            Cleaning
+            - Dish soap
+            - Liquid detergent
+            - Fabric softener
 
-            Lembrar: pagar a conta de luz
+            Remember: pay the electricity bill
             """.trimIndent() + "\n",
         )
-        writeImage(File(dir, "convite.png"), 540, 675, Color.rgb(0, 140, 160), "A")
-        writeImage(File(dir, "convite.sync-conflict-20261019-144100-${office.short}.png"), 1080, 1350, Color.rgb(200, 40, 100), "B")
+        writeImage(File(dir, "invitation.png"), 540, 675, Color.rgb(0, 140, 160), "A")
+        writeImage(File(dir, "invitation.sync-conflict-20261019-144100-${office.short}.png"), 1080, 1350, Color.rgb(200, 40, 100), "B")
     }
 
     private fun writeImage(file: File, width: Int, height: Int, color: Int, label: String) {
@@ -111,18 +111,18 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
     override val overview = MutableStateFlow<SyncOverview?>(
         SyncOverview(
             myId = DemoData.me,
-            myName = "Pixel do Adam",
+            myName = "Adam’s Pixel",
             version = "v2.1.6 (demo)",
             devices = listOf(
-                Device(DemoData.laptop, "Notebook da Ana", false, DeviceStatus.CONNECTED, 100.0, now, listOf("fotos", "docs", "whats")),
-                Device(DemoData.office, "PC escritório", false, DeviceStatus.SYNCING, 64.0, now, listOf("fotos", "docs")),
-                Device(DemoData.tablet, "Tablet da sala", false, DeviceStatus.DISCONNECTED, null, now - 2.days, listOf("docs", "musica")),
+                Device(DemoData.laptop, "Ana’s Laptop", false, DeviceStatus.CONNECTED, 100.0, now, listOf("fotos", "docs", "whats")),
+                Device(DemoData.office, "Office PC", false, DeviceStatus.SYNCING, 64.0, now, listOf("fotos", "docs")),
+                Device(DemoData.tablet, "Living Room Tablet", false, DeviceStatus.DISCONNECTED, null, now - 2.days, listOf("docs", "musica")),
             ),
             folders = listOf(
-                folder("fotos", "Fotos da câmera", "/storage/emulated/0/DCIM", listOf(DemoData.laptop, DemoData.office), 4_500_000_000, 0),
-                folder("docs", "Documentos", documentsPath, listOf(DemoData.laptop, DemoData.office, DemoData.tablet), 327_000_000, 0),
-                folder("whats", "Backup do WhatsApp", "/storage/emulated/0/WhatsApp", listOf(DemoData.laptop), 1_180_000_000, 430_000_000),
-                folder("musica", "Músicas", "/storage/emulated/0/Music", listOf(DemoData.tablet), 20_000_000_000, 0),
+                folder("fotos", "Camera Photos", "/storage/emulated/0/DCIM", listOf(DemoData.laptop, DemoData.office), 4_500_000_000, 0),
+                folder("docs", "Documents", documentsPath, listOf(DemoData.laptop, DemoData.office, DemoData.tablet), 327_000_000, 0),
+                folder("whats", "WhatsApp Backup", "/storage/emulated/0/WhatsApp", listOf(DemoData.laptop), 1_180_000_000, 430_000_000),
+                folder("musica", "Music", "/storage/emulated/0/Music", listOf(DemoData.tablet), 20_000_000_000, 0),
             ),
             pendingDevices = emptyList(),
             pendingFolders = emptyList(),
@@ -158,13 +158,27 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
         return ok
     }
     override suspend fun setFolderDevices(folderId: String, devices: List<DeviceId>): EmptyResult<DataError.Remote> {
-        overview.update { o -> o?.copy(folders = o.folders.map { if (it.id == folderId) it.copy(deviceIds = devices) else it }) }
+        // Like the real core: an offer disappears once its device is in the folder.
+        overview.update { o ->
+            o?.copy(
+                folders = o.folders.map { if (it.id == folderId) it.copy(deviceIds = devices) else it },
+                pendingFolders = o.pendingFolders.filterNot { it.folderId == folderId && it.offeredBy in devices },
+            )
+        }
         return ok
     }
     override suspend fun setFolderPaused(folderId: String, paused: Boolean) = ok
     override suspend fun dismissPendingFolder(folderId: String, device: DeviceId) = ok
     override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> {
         overview.update { it?.copy(myName = name) }
+        return ok
+    }
+    private val ignores = mutableMapOf("docs" to listOf("*.tmp", ".DS_Store"))
+
+    override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> =
+        Result.Success(ignores[folderId].orEmpty())
+    override suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> {
+        ignores[folderId] = lines
         return ok
     }
     override suspend fun scan(folderId: String, subPath: String?) = ok

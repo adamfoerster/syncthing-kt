@@ -198,6 +198,12 @@ class KtorSyncthingRepository(
     override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> =
         api.scan(folderId, subPath)
 
+    override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> =
+        api.ignores(folderId).map { it.ignore.orEmpty() }
+
+    override suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> =
+        api.setIgnores(folderId, lines)
+
     override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> =
         api.file(folderId, path).map { it.toFileInfo(path) }
 

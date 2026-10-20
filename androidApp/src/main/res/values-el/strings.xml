@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Syncthing</string>
+    <string name="notification_channel">Συγχρονισμός</string>
+    <string name="notification_running">Συγχρονισμός των συσκευών σας</string>
+    <string name="notification_running_body">Πατήστε για να ανοίξετε το Syncthing.</string>
+    <string name="scan_prompt">Στρέψτε την κάμερα στον κωδικό QR της άλλης συσκευής</string>
+    <string name="core_exit">Το Syncthing τερματίστηκε (κωδικός %1$d).</string>
+    <string name="core_start_timeout">Το Syncthing δεν απάντησε εγκαίρως.</string>
+    <string name="folder_auto_accepted">Το %1$s προστέθηκε στο «%2$s».</string>
+</resources>

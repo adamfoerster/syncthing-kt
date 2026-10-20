@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="devices_title">Appareils</string>
+    <string name="devices_add">Ajouter un appareil</string>
+    <string name="devices_this_phone_sub">Votre code pour les autres appareils</string>
+    <string name="devices_show_qr">Afficher le QR</string>
+    <string name="devices_line_connected">Connecté maintenant</string>
+    <string name="devices_line_syncing">Échange de fichiers</string>
+    <string name="devices_line_offline_since">Hors ligne depuis %1$s</string>
+    <string name="devices_line_never">Ne s’est pas encore connecté</string>
+    <string name="devices_line_paused">Mis en pause par vous</string>
+    <string name="devices_no_folders">Aucun dossier partagé</string>
+    <string name="devices_empty">Aucun autre appareil pour l’instant. Ajoutez votre ordinateur ou un autre téléphone.</string>
+    <string name="devices_pending_title">%1$s veut se connecter</string>
+    <string name="devices_pending_body">Code %1$s · %2$s</string>
+    <string name="devices_approve">Approuver</string>
+    <string name="devices_reject">Refuser</string>
+    <string name="devices_menu_pause">Mettre en pause</string>
+    <string name="devices_menu_resume">Reprendre</string>
+    <string name="devices_menu_remove">Supprimer l’appareil</string>
+    <string name="devices_menu_close">Fermer</string>
+    <string name="devices_remove_confirm_title">Supprimer %1$s ?</string>
+    <string name="devices_remove_confirm_body">Il ne recevra plus vos dossiers. Les fichiers qu’il contient déjà ne sont pas supprimés.</string>
+    <string name="devices_remove_confirm">Supprimer</string>
+    <string name="devices_open">Options pour %1$s</string>
+
+    <string name="add_title">Ajouter un appareil</string>
+    <string name="add_steps">Étapes</string>
+    <string name="add_step_show">Afficher le code</string>
+    <string name="add_step_approve">Approuver</string>
+    <string name="add_step_folders">Dossiers</string>
+    <string name="add_show_title">Montrez ce code à l’autre appareil</string>
+    <string name="add_show_body">Sur l’autre appareil, ouvrez Syncthing et choisissez « Ajouter un appareil ». Puis pointez la caméra vers le code ci-dessous.</string>
+    <string name="add_qr_description">Code QR avec le code de ce téléphone</string>
+    <string name="add_text_code">Code texte</string>
+    <string name="add_copy">Copier le code</string>
+    <string name="add_wait_hint">Une fois le code lu, vous devrez approuver ici le nouvel appareil. Nous vous préviendrons quand il apparaîtra.</string>
+    <string name="add_scan">Scanner le code de l’autre appareil</string>
+    <string name="add_manual">Saisir le code manuellement</string>
+    <string name="add_scan_invalid">Ce QR ne contient pas de code d’appareil Syncthing.</string>
+    <string name="add_approve_title">Vérifiez le nouvel appareil</string>
+    <string name="add_device_id">Code de l’appareil</string>
+    <string name="add_device_id_hint">Il s’agit de 8 blocs de 7 lettres et chiffres. Les tirets et espaces sont facultatifs.</string>
+    <string name="add_device_id_invalid">Code incomplet ou invalide.</string>
+    <string name="add_device_name">Nom</string>
+    <string name="add_device_name_placeholder">Ex. : Ordinateur d’Ana</string>
+    <string name="add_confirm_device">Ajouter un appareil</string>
+    <string name="add_folders_title">Que voulez-vous partager avec %1$s ?</string>
+    <string name="add_folders_body">Choisissez les dossiers qu’il recevra. Vous pourrez changer cela plus tard.</string>
+    <string name="add_folders_none">Vous n’avez pas encore de dossiers. Créez-en un dans l’onglet Dossiers.</string>
+    <string name="add_finish">Terminer</string>
+    <string name="add_skip">Passer pour l’instant</string>
+</resources>

@@ -8,10 +8,12 @@ import com.adamfoerster.syncthing.core.data.dto.DeviceStatsDto
 import com.adamfoerster.syncthing.core.data.dto.EventDto
 import com.adamfoerster.syncthing.core.data.dto.FolderStatsDto
 import com.adamfoerster.syncthing.core.data.dto.FolderStatusDto
+import com.adamfoerster.syncthing.core.data.dto.IgnoresDto
 import com.adamfoerster.syncthing.core.data.dto.NewDeviceDto
 import com.adamfoerster.syncthing.core.data.dto.NewFolderDto
 import com.adamfoerster.syncthing.core.data.dto.PendingDeviceDto
 import com.adamfoerster.syncthing.core.data.dto.PendingFolderDto
+import com.adamfoerster.syncthing.core.data.dto.SetIgnoresDto
 import com.adamfoerster.syncthing.core.data.dto.SystemStatusDto
 import com.adamfoerster.syncthing.core.data.dto.SystemVersionDto
 import com.adamfoerster.syncthing.core.domain.util.DataError
@@ -85,6 +87,17 @@ class SyncthingApi(private val client: HttpClient) {
 
     suspend fun patchFolder(folderId: String, patch: JsonObject): EmptyResult<DataError.Remote> =
         safeCall { client.patch("rest/config/folders/${folderId.encodeURLPathPart()}") { setBody(patch) } }
+
+    suspend fun ignores(folderId: String): Result<IgnoresDto, DataError.Remote> =
+        safeCall { client.get("rest/db/ignores") { parameter("folder", folderId) } }
+
+    suspend fun setIgnores(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> =
+        safeCall {
+            client.post("rest/db/ignores") {
+                parameter("folder", folderId)
+                setBody(SetIgnoresDto(lines))
+            }
+        }
 
     suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> =
         safeCall {

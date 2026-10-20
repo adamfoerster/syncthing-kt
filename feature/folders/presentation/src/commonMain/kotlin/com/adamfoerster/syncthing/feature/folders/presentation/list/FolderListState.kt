@@ -39,6 +39,7 @@ data class FolderOfferUi(
 sealed interface FolderListAction {
     data class OnFolderClick(val id: String, val hasConflicts: Boolean) : FolderListAction
     data object OnAddClick : FolderListAction
+    data class OnIgnoreClick(val id: String) : FolderListAction
     data class OnAcceptOffer(val offer: FolderOfferUi) : FolderListAction
     data class OnDismissOffer(val offer: FolderOfferUi) : FolderListAction
     data object OnStartCore : FolderListAction

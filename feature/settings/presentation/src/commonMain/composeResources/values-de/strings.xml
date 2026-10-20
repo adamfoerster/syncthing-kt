@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_this_device">Dieses Gerät</string>
+    <string name="settings_name">Name, den andere Geräte sehen</string>
+    <string name="settings_save_name">Name speichern</string>
+    <string name="settings_name_saved">Name gespeichert.</string>
+    <string name="settings_device_id">Geräte-ID</string>
+    <string name="settings_copy_id">ID kopieren</string>
+    <string name="settings_sync">Synchronisierung</string>
+    <string name="settings_state_running">Läuft</string>
+    <string name="settings_state_stopped">Gestoppt</string>
+    <string name="settings_state_starting">Startet</string>
+    <string name="settings_state_error">Fehler</string>
+    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_stop">Stoppen</string>
+    <string name="settings_start">Starten</string>
+    <string name="settings_restart">Neu starten</string>
+    <string name="settings_history_title">Gespeicherte Versionen</string>
+    <string name="settings_history_body">Wenn Sie einen Konflikt lösen, wird die verworfene Version in .stversions im Ordner selbst aufbewahrt. Syncthing synchronisiert dieses Verzeichnis nie.</string>
+    <string name="settings_auto_accept_title">Bekannte Ordner</string>
+    <string name="settings_auto_accept_body">Bietet ein bereits hinzugefügtes Gerät einen Ordner an, den du schon mit einem anderen Gerät teilst, wird es ohne Nachfrage zu diesem Ordner hinzugefügt. Angebote für neue Ordner fragen weiterhin nach.</string>
+    <string name="settings_auto_accept_on">An</string>
+    <string name="settings_auto_accept_off">Aus</string>
+    <string name="settings_language_title">Sprache</string>
+    <string name="settings_language_body">Überschreibt die Sprache deines Telefons. „Gerätesprache“ folgt wieder dem System.</string>
+    <string name="settings_language_system">Gerätesprache</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_el">Ελληνικά</string>
+</resources>

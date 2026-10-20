@@ -22,6 +22,11 @@ android {
         versionName = appVersionName
     }
 
+    // Keep only the languages we translate; English is the default for every other device language.
+    androidResources {
+        localeFilters += listOf("en", "pt", "es", "it", "de", "fr", "el")
+    }
+
     buildFeatures {
         compose = true
     }

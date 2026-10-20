@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_this_device">Este dispositivo</string>
+    <string name="settings_name">Nombre que ven los otros dispositivos</string>
+    <string name="settings_save_name">Guardar nombre</string>
+    <string name="settings_name_saved">Nombre guardado.</string>
+    <string name="settings_device_id">Código del dispositivo</string>
+    <string name="settings_copy_id">Copiar código</string>
+    <string name="settings_sync">Sincronización</string>
+    <string name="settings_state_running">En ejecución</string>
+    <string name="settings_state_stopped">Detenida</string>
+    <string name="settings_state_starting">Iniciando</string>
+    <string name="settings_state_error">Con error</string>
+    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_stop">Detener</string>
+    <string name="settings_start">Iniciar</string>
+    <string name="settings_restart">Reiniciar</string>
+    <string name="settings_history_title">Versiones guardadas</string>
+    <string name="settings_history_body">Al resolver un conflicto, la versión descartada se guarda en .stversions dentro de la propia carpeta. Syncthing nunca sincroniza ese directorio.</string>
+    <string name="settings_auto_accept_title">Carpetas conocidas</string>
+    <string name="settings_auto_accept_body">Cuando un dispositivo que ya añadiste ofrece una carpeta que ya compartes con otro dispositivo, se añade a esa carpeta sin preguntar. Las ofertas de carpetas nuevas siguen pidiendo tu respuesta.</string>
+    <string name="settings_auto_accept_on">Activado</string>
+    <string name="settings_auto_accept_off">Desactivado</string>
+    <string name="settings_language_title">Idioma</string>
+    <string name="settings_language_body">Sustituye el idioma del teléfono. “Idioma del dispositivo” vuelve a seguir el sistema.</string>
+    <string name="settings_language_system">Idioma del dispositivo</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_el">Ελληνικά</string>
+</resources>

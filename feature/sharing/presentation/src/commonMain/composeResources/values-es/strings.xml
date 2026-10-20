@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sharing_title">Compartir</string>
+    <string name="sharing_intro">Toca un dispositivo para ver qué carpetas recibe.</string>
+    <string name="sharing_map_description">Mapa de uso compartido</string>
+    <string name="sharing_devices">Dispositivos</string>
+    <string name="sharing_folders">Carpetas</string>
+    <plurals name="sharing_device_count">
+        <item quantity="one">%1$d dispositivo</item>
+        <item quantity="other">%1$d dispositivos</item>
+    </plurals>
+    <plurals name="sharing_folder_count">
+        <item quantity="one">%1$d carpeta</item>
+        <item quantity="other">%1$d carpetas</item>
+    </plurals>
+    <string name="sharing_note_connected">Recibe y envía cambios ahora mismo.</string>
+    <string name="sharing_note_syncing">Está intercambiando archivos en este momento.</string>
+    <string name="sharing_note_offline_since">Sin conexión desde %1$s. Los cambios se enviarán cuando vuelva.</string>
+    <string name="sharing_note_offline">Sin conexión. Los cambios se enviarán cuando vuelva.</string>
+    <string name="sharing_note_paused">En pausa: no se intercambia nada con él hasta que lo reanudes.</string>
+    <string name="sharing_no_folders">No hay carpetas compartidas con este dispositivo.</string>
+    <string name="sharing_empty">Aún no hay dispositivos ni carpetas que mostrar.</string>
+</resources>

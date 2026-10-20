@@ -3,6 +3,8 @@ package com.adamfoerster.syncthing.feature.settings.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adamfoerster.syncthing.core.domain.model.CoreState
+import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
+import com.adamfoerster.syncthing.core.domain.preferences.AppLanguages
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingCore
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingRepository
 import com.adamfoerster.syncthing.core.domain.util.Result
@@ -24,6 +26,10 @@ data class SettingsState(
     val version: String = "",
     val isSaving: Boolean = false,
     val nameSaved: Boolean = false,
+    val autoAcceptKnownFolders: Boolean = AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS,
+    /** Chosen language tag, or null to follow the device. */
+    val languageTag: String? = null,
+    val languages: List<String> = AppLanguages.supported,
     val error: UiText? = null,
 ) {
     val name: String get() = nameInput ?: savedName
@@ -33,6 +39,8 @@ data class SettingsState(
 sealed interface SettingsAction {
     data class OnNameChange(val value: String) : SettingsAction
     data object OnSaveName : SettingsAction
+    data class OnAutoAcceptChange(val enabled: Boolean) : SettingsAction
+    data class OnLanguageChange(val tag: String?) : SettingsAction
     data object OnStart : SettingsAction
     data object OnStop : SettingsAction
     data object OnRestart : SettingsAction
@@ -43,11 +51,16 @@ private data class Edit(val nameInput: String? = null, val isSaving: Boolean = f
 class SettingsViewModel(
     private val repository: SyncthingRepository,
     private val core: SyncthingCore,
+    private val preferences: AppPreferences,
 ) : ViewModel() {
 
     private val edit = MutableStateFlow(Edit())
 
-    val state: StateFlow<SettingsState> = combine(core.state, repository.overview, edit) { coreState, overview, e ->
+    val state: StateFlow<SettingsState> = combine(
+        combine(core.state, repository.overview, edit, ::Triple),
+        preferences.autoAcceptKnownFolders,
+        preferences.languageTag,
+    ) { (coreState, overview, e), autoAccept, languageTag ->
         SettingsState(
             coreState = coreState,
             myId = overview?.myId?.value.orEmpty(),
@@ -57,6 +70,8 @@ class SettingsViewModel(
             isSaving = e.isSaving,
             nameSaved = e.saved,
             error = e.error,
+            autoAcceptKnownFolders = autoAccept,
+            languageTag = languageTag,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SettingsState())
 
@@ -64,6 +79,8 @@ class SettingsViewModel(
         when (action) {
             is SettingsAction.OnNameChange -> edit.update { it.copy(nameInput = action.value, saved = false, error = null) }
             SettingsAction.OnSaveName -> saveName()
+            is SettingsAction.OnAutoAcceptChange -> preferences.setAutoAcceptKnownFolders(action.enabled)
+            is SettingsAction.OnLanguageChange -> preferences.setLanguageTag(AppLanguages.sanitize(action.tag))
             SettingsAction.OnStart -> core.start()
             SettingsAction.OnStop -> core.stop()
             SettingsAction.OnRestart -> core.restart()

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="devices_title">Geräte</string>
+    <string name="devices_add">Gerät hinzufügen</string>
+    <string name="devices_this_phone_sub">Ihre ID für andere Geräte</string>
+    <string name="devices_show_qr">QR anzeigen</string>
+    <string name="devices_line_connected">Jetzt verbunden</string>
+    <string name="devices_line_syncing">Tauscht Dateien aus</string>
+    <string name="devices_line_offline_since">Offline seit %1$s</string>
+    <string name="devices_line_never">Noch nicht verbunden</string>
+    <string name="devices_line_paused">Von Ihnen pausiert</string>
+    <string name="devices_no_folders">Keine geteilten Ordner</string>
+    <string name="devices_empty">Noch keine weiteren Geräte. Fügen Sie Ihren Computer oder ein anderes Telefon hinzu.</string>
+    <string name="devices_pending_title">%1$s möchte sich verbinden</string>
+    <string name="devices_pending_body">ID %1$s · %2$s</string>
+    <string name="devices_approve">Genehmigen</string>
+    <string name="devices_reject">Ablehnen</string>
+    <string name="devices_menu_pause">Pausieren</string>
+    <string name="devices_menu_resume">Fortsetzen</string>
+    <string name="devices_menu_remove">Gerät entfernen</string>
+    <string name="devices_menu_close">Schließen</string>
+    <string name="devices_remove_confirm_title">%1$s entfernen?</string>
+    <string name="devices_remove_confirm_body">Es erhält Ihre Ordner nicht mehr. Dateien, die bereits darauf sind, werden nicht gelöscht.</string>
+    <string name="devices_remove_confirm">Entfernen</string>
+    <string name="devices_open">Optionen für %1$s</string>
+
+    <string name="add_title">Gerät hinzufügen</string>
+    <string name="add_steps">Schritte</string>
+    <string name="add_step_show">ID anzeigen</string>
+    <string name="add_step_approve">Genehmigen</string>
+    <string name="add_step_folders">Ordner</string>
+    <string name="add_show_title">Zeigen Sie diese ID dem anderen Gerät</string>
+    <string name="add_show_body">Öffnen Sie auf dem anderen Gerät Syncthing und wählen Sie „Gerät hinzufügen“. Richten Sie dann die Kamera auf den Code unten.</string>
+    <string name="add_qr_description">QR-Code mit der ID dieses Telefons</string>
+    <string name="add_text_code">Text-ID</string>
+    <string name="add_copy">ID kopieren</string>
+    <string name="add_wait_hint">Nachdem der Code gelesen wurde, müssen Sie das neue Gerät hier genehmigen. Wir benachrichtigen Sie, sobald es erscheint.</string>
+    <string name="add_scan">Code des anderen Geräts scannen</string>
+    <string name="add_manual">ID manuell eingeben</string>
+    <string name="add_scan_invalid">Dieser QR-Code enthält keine Syncthing-Geräte-ID.</string>
+    <string name="add_approve_title">Neues Gerät prüfen</string>
+    <string name="add_device_id">Geräte-ID</string>
+    <string name="add_device_id_hint">Es sind 8 Blöcke aus je 7 Buchstaben und Ziffern. Bindestriche und Leerzeichen sind optional.</string>
+    <string name="add_device_id_invalid">Unvollständige oder ungültige ID.</string>
+    <string name="add_device_name">Name</string>
+    <string name="add_device_name_placeholder">z. B. Anas Laptop</string>
+    <string name="add_confirm_device">Gerät hinzufügen</string>
+    <string name="add_folders_title">Was möchten Sie mit %1$s teilen?</string>
+    <string name="add_folders_body">Wählen Sie die Ordner, die es erhalten soll. Sie können das später ändern.</string>
+    <string name="add_folders_none">Sie haben noch keine Ordner. Erstellen Sie einen im Tab „Ordner“.</string>
+    <string name="add_finish">Fertig</string>
+    <string name="add_skip">Vorerst überspringen</string>
+</resources>

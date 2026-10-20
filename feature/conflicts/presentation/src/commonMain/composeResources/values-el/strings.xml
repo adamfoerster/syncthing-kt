@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- List -->
+    <string name="conflicts_title">Συγκρούσεις</string>
+    <plurals name="conflicts_pending_badge">
+        <item quantity="one">%1$d σε εκκρεμότητα</item>
+        <item quantity="other">%1$d σε εκκρεμότητα</item>
+    </plurals>
+    <string name="conflicts_what_title">Τι είναι σύγκρουση;</string>
+    <string name="conflicts_what_body">Το ίδιο αρχείο τροποποιήθηκε σε δύο συσκευές πριν από τον συγχρονισμό. Και οι δύο εκδόσεις φυλάσσονται μέχρι να επιλέξετε.</string>
+    <string name="conflicts_folder_label">Φάκελος %1$s</string>
+    <plurals name="conflicts_hunks">
+        <item quantity="one">%1$d διαφορετικό τμήμα</item>
+        <item quantity="other">%1$d διαφορετικά τμήματα</item>
+    </plurals>
+    <string name="conflicts_same_content">Ίδιο περιεχόμενο και στις δύο εκδόσεις</string>
+    <string name="conflicts_kind_image">Εικόνα: επιλέξτε μία από τις εκδόσεις</string>
+    <string name="conflicts_kind_binary">Αρχείο: επιλέξτε μία από τις εκδόσεις</string>
+    <string name="conflicts_footer">Κανένα αρχείο δεν θα διαγραφεί χωρίς την επιλογή σας.</string>
+    <string name="conflicts_empty_title">Καμία σύγκρουση</string>
+    <string name="conflicts_empty_body">Όταν το ίδιο αρχείο αλλάξει ταυτόχρονα σε δύο συσκευές, θα εμφανιστεί εδώ για να αποφασίσετε.</string>
+    <string name="conflicts_scanning">Αναζήτηση συγκρούσεων…</string>
+    <string name="conflicts_chip">%1$s · %2$s</string>
+    <string name="conflicts_open">Άνοιγμα σύγκρουσης για το %1$s</string>
+
+    <!-- Shared resolver -->
+    <string name="resolver_folder">Φάκελος %1$s</string>
+    <string name="resolver_done_title">Η σύγκρουση επιλύθηκε</string>
+    <string name="resolver_back_to_list">Επιστροφή στις συγκρούσεις</string>
+    <string name="resolver_not_found">Αυτή η σύγκρουση έχει ήδη επιλυθεί ή το αρχείο αφαιρέθηκε.</string>
+    <string name="resolver_loading">Φόρτωση των δύο εκδόσεων…</string>
+
+    <!-- Text resolver -->
+    <string name="text_summary">%1$d από %2$d τμήματα επιλύθηκαν</string>
+    <string name="text_summary_same">Οι εκδόσεις έχουν το ίδιο περιεχόμενο</string>
+    <string name="text_badge_ready">Έτοιμο</string>
+    <string name="text_badge_pending">Σε εκκρεμότητα</string>
+    <string name="text_all_from">Όλα από το %1$s</string>
+    <string name="text_all_mine">Όλα από το τηλέφωνό μου</string>
+    <string name="text_view_compare">Σύγκριση</string>
+    <string name="text_view_result">Τελικό αποτέλεσμα</string>
+    <string name="text_hunk_title">Τμήμα %1$d από %2$d</string>
+    <string name="text_hunk_resolved">Επιλύθηκε</string>
+    <string name="text_hunk_undecided">Χωρίς απόφαση</string>
+    <string name="text_pick_both">Και οι δύο</string>
+    <string name="text_pick_group">Επιλογή για το τμήμα %1$d</string>
+    <string name="text_side_header">%1$s · %2$s</string>
+    <string name="text_empty_side">(τίποτα σε αυτό το τμήμα)</string>
+    <string name="text_same_lines">⋯ %1$d ίδιες γραμμές · εμφάνιση</string>
+    <string name="text_result_pending">— αποφασίστε για το τμήμα %1$d —</string>
+    <string name="text_edit_manually">Επεξεργασία με το χέρι</string>
+    <string name="text_edit_hint">Επεξεργαστείτε το κείμενο όπως θέλετε. Αφαιρέστε τους δείκτες &lt;&lt;&lt;&lt;&lt;&lt;&lt;, ======= και &gt;&gt;&gt;&gt;&gt;&gt;&gt; για να ολοκληρώσετε.</string>
+    <string name="text_edit_discard">Απόρριψη επεξεργασίας</string>
+    <string name="text_edit_active">Επεξεργαστήκατε το αποτέλεσμα με το χέρι. Οι επιλογές ανά τμήμα δεν ισχύουν πλέον.</string>
+    <string name="text_helper_pending">Επιλέξτε μια επιλογή σε κάθε τμήμα για να συνεχίσετε.</string>
+    <string name="text_helper_ready">Ελέγξτε το τελικό αποτέλεσμα πριν επιβεβαιώσετε.</string>
+    <string name="text_helper_markers">Υπάρχουν ακόμη δείκτες σύγκρουσης στο επεξεργασμένο κείμενο.</string>
+    <string name="text_finish">Επισήμανση ως επιλυμένου</string>
+    <string name="text_done_body">Το %1$s ενημερώθηκε και θα σταλεί στις άλλες συσκευές. Οι δύο προηγούμενες εκδόσεις φυλάσσονται στο ιστορικό εκδόσεων.</string>
+
+    <!-- Binary resolver -->
+    <string name="binary_intro_image">Αυτή η εικόνα τροποποιήθηκε σε δύο συσκευές. Συγκρίνετε τις εκδόσεις και επιλέξτε τι θα κάνετε.</string>
+    <string name="binary_intro_file">Αυτό το αρχείο τροποποιήθηκε σε δύο συσκευές. Δεν είναι κείμενο, οπότε οι αλλαγές δεν μπορούν να συγχωνευθούν: επιλέξτε ποια έκδοση θα κρατήσετε.</string>
+    <string name="binary_preview_unavailable">Χωρίς προεπισκόπηση</string>
+    <string name="binary_question">Τι θέλετε να κρατήσετε;</string>
+    <string name="binary_keep_one">Κράτηση της έκδοσης του %1$s</string>
+    <string name="binary_keep_one_hint">Η έκδοση του %1$s θα φυλαχθεί στο ιστορικό εκδόσεων.</string>
+    <string name="binary_keep_mine">Κράτηση της έκδοσης του τηλεφώνου μου</string>
+    <string name="binary_keep_mine_hint">Η έκδοση του τηλεφώνου θα φυλαχθεί στο ιστορικό εκδόσεων.</string>
+    <string name="binary_done_mine">Η έκδοση του τηλεφώνου διατηρήθηκε και θα σταλεί στις άλλες συσκευές.</string>
+    <string name="binary_keep_both">Κράτηση και των δύο</string>
+    <string name="binary_keep_both_hint">Η δεύτερη θα ονομαστεί «%1$s».</string>
+    <string name="binary_copy_suffix">αντίγραφο</string>
+    <string name="binary_helper_pending">Επιλέξτε μια επιλογή για να συνεχίσετε.</string>
+    <string name="binary_helper_ready">Η έκδοση που απορρίφθηκε παραμένει στο ιστορικό εκδόσεων.</string>
+    <string name="binary_confirm">Επιβεβαίωση επιλογής</string>
+    <string name="binary_done_one">Η έκδοση του %1$s διατηρήθηκε και θα σταλεί στις άλλες συσκευές.</string>
+    <string name="binary_done_both">Και οι δύο εκδόσεις διατηρήθηκαν: %1$s και %2$s.</string>
+</resources>

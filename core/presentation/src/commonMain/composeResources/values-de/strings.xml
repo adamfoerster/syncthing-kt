@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_phone">Dieses Telefon</string>
+    <string name="unknown_device">Unbekanntes Gerät</string>
+
+    <string name="status_connected">Verbunden</string>
+    <string name="status_syncing">Synchronisiert</string>
+    <string name="status_offline">Offline</string>
+    <string name="status_paused">Pausiert</string>
+
+    <string name="time_just_now">gerade eben</string>
+    <string name="time_minutes_ago">vor %1$d Min.</string>
+    <string name="time_hours_ago">vor %1$d Std.</string>
+    <string name="time_days_ago">vor %1$d Tagen</string>
+    <string name="time_today_at">Heute, %1$s</string>
+    <string name="time_yesterday_at">Gestern, %1$s</string>
+    <string name="time_date_at">%1$s.%2$s., %3$s</string>
+    <string name="weekday_monday">Montag, %1$s</string>
+    <string name="weekday_tuesday">Dienstag, %1$s</string>
+    <string name="weekday_wednesday">Mittwoch, %1$s</string>
+    <string name="weekday_thursday">Donnerstag, %1$s</string>
+    <string name="weekday_friday">Freitag, %1$s</string>
+    <string name="weekday_saturday">Samstag, %1$s</string>
+    <string name="weekday_sunday">Sonntag, %1$s</string>
+
+    <string name="core_starting_title">Syncthing wird gestartet …</string>
+    <string name="core_starting_body">Beim ersten Mal dauert es einige Sekunden.</string>
+    <string name="core_stopped_title">Synchronisierung gestoppt</string>
+    <string name="core_stopped_body">Solange Syncthing gestoppt ist, wird nichts gesendet oder empfangen.</string>
+    <string name="core_start">Starten</string>
+    <string name="core_permission_title">Dateizugriff erlauben</string>
+    <string name="core_permission_body">Syncthing benötigt Zugriff auf alle Dateien, um Ihre Ordner zu synchronisieren und Konflikte zu lösen.</string>
+    <string name="core_grant_access">Zugriff erlauben</string>
+    <string name="core_binary_missing_title">Syncthing-Kern fehlt</string>
+    <string name="core_binary_missing_body">Diese Version der App wurde ohne die Syncthing-Binärdatei erstellt. Kompilieren Sie mit ./gradlew :syncthing-native:buildNative und erstellen Sie die App erneut.</string>
+    <string name="core_failed_title">Syncthing wurde mit einem Fehler beendet</string>
+
+    <string name="error_core_unavailable">Syncthing läuft noch nicht. Versuchen Sie es gleich noch einmal.</string>
+    <string name="error_unauthorized">Syncthing hat den Zugriff verweigert. Starten Sie die App neu.</string>
+    <string name="error_bad_request">Syncthing hat diese Anfrage nicht akzeptiert. Prüfen Sie die Eingaben.</string>
+    <string name="error_server">Bei Syncthing ist ein Fehler aufgetreten. Versuchen Sie es erneut.</string>
+    <string name="error_unknown">Etwas ist schiefgelaufen. Versuchen Sie es erneut.</string>
+    <string name="error_not_found">Die Datei existiert nicht mehr.</string>
+    <string name="error_permission">Keine Berechtigung für den Dateizugriff. Erlauben Sie den Zugriff auf alle Dateien.</string>
+    <string name="error_file_changed">Die Datei hat sich geändert, während Sie entschieden haben. Öffnen Sie den Konflikt erneut, um die aktuelle Version zu sehen.</string>
+    <string name="error_io">Die Datei konnte nicht gelesen oder geschrieben werden.</string>
+</resources>

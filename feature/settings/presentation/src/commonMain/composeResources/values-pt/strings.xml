@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Ajustes</string>
+    <string name="settings_this_device">Este aparelho</string>
+    <string name="settings_name">Nome que os outros aparelhos veem</string>
+    <string name="settings_save_name">Salvar nome</string>
+    <string name="settings_name_saved">Nome salvo.</string>
+    <string name="settings_device_id">Código do aparelho</string>
+    <string name="settings_copy_id">Copiar código</string>
+    <string name="settings_sync">Sincronização</string>
+    <string name="settings_state_running">Rodando</string>
+    <string name="settings_state_stopped">Parada</string>
+    <string name="settings_state_starting">Iniciando</string>
+    <string name="settings_state_error">Com erro</string>
+    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_stop">Parar</string>
+    <string name="settings_start">Iniciar</string>
+    <string name="settings_restart">Reiniciar</string>
+    <string name="settings_history_title">Versões guardadas</string>
+    <string name="settings_history_body">Ao resolver um conflito, a versão descartada fica em .stversions dentro da própria pasta. O Syncthing nunca sincroniza esse diretório.</string>
+    <string name="settings_auto_accept_title">Pastas conhecidas</string>
+    <string name="settings_auto_accept_body">Quando um aparelho que você já adicionou oferece uma pasta que você já compartilha com outro aparelho, ele entra nessa pasta sem perguntar. Ofertas de pastas novas continuam pedindo sua resposta.</string>
+    <string name="settings_auto_accept_on">Ligado</string>
+    <string name="settings_auto_accept_off">Desligado</string>
+    <string name="settings_language_title">Idioma</string>
+    <string name="settings_language_body">Substitui o idioma do celular. “Idioma do aparelho” volta a seguir o sistema.</string>
+    <string name="settings_language_system">Idioma do aparelho</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_pt">Português</string>
+    <string name="settings_language_es">Español</string>
+    <string name="settings_language_it">Italiano</string>
+    <string name="settings_language_de">Deutsch</string>
+    <string name="settings_language_fr">Français</string>
+    <string name="settings_language_el">Ελληνικά</string>
+</resources>

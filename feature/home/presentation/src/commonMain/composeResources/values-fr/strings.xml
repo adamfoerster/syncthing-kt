@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Accueil</string>
+    <string name="home_badge_attention">Attention</string>
+    <string name="home_badge_up_to_date">À jour</string>
+    <string name="home_badge_syncing">Synchronisation</string>
+    <string name="home_badge_stopped">Arrêté</string>
+    <plurals name="home_conflicts_title">
+        <item quantity="one">%1$d fichier a besoin de vous</item>
+        <item quantity="other">%1$d fichiers ont besoin de vous</item>
+    </plurals>
+    <string name="home_conflicts_body">Ils ont été modifiés sur deux appareils en même temps. Rien n’a été supprimé : choisissez la version à conserver.</string>
+    <string name="home_resolve_now">Résoudre maintenant</string>
+    <string name="home_last_sync">Dernière synchronisation : %1$s</string>
+    <string name="home_last_sync_never">Rien n’a encore été synchronisé</string>
+    <string name="home_ok_title">Tout est à jour</string>
+    <string name="home_ok_body">Vos fichiers sont identiques sur tous les appareils connectés.</string>
+    <string name="home_syncing_title">Synchronisation · %1$s</string>
+    <string name="home_syncing_body">Certains fichiers sont encore en route. Vous pouvez continuer à utiliser votre téléphone.</string>
+    <string name="home_no_devices_title">Aucun appareil pour l’instant</string>
+    <string name="home_no_devices_body">Ajoutez votre ordinateur ou un autre téléphone pour commencer à synchroniser.</string>
+    <string name="home_add_device">Ajouter un appareil</string>
+    <plurals name="home_pending_devices">
+        <item quantity="one">%1$d appareil veut se connecter</item>
+        <item quantity="other">%1$d appareils veulent se connecter</item>
+    </plurals>
+    <plurals name="home_pending_folders">
+        <item quantity="one">%1$d dossier vous a été proposé</item>
+        <item quantity="other">%1$d dossiers vous ont été proposés</item>
+    </plurals>
+    <string name="home_review">Examiner</string>
+    <string name="home_your_devices">Vos appareils</string>
+    <plurals name="home_connected_count">
+        <item quantity="one">%1$d connecté</item>
+        <item quantity="other">%1$d connectés</item>
+    </plurals>
+    <string name="home_more_devices">+%1$d</string>
+    <string name="home_show_sharing">Voir qui partage quoi</string>
+</resources>

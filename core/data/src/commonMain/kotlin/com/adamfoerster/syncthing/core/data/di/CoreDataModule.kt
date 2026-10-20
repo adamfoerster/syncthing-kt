@@ -2,6 +2,7 @@ package com.adamfoerster.syncthing.core.data.di
 
 import com.adamfoerster.syncthing.core.data.network.HttpClientFactory
 import com.adamfoerster.syncthing.core.data.network.SyncthingApi
+import com.adamfoerster.syncthing.core.data.repository.FolderOfferAutoAccepter
 import com.adamfoerster.syncthing.core.data.repository.KtorSyncthingRepository
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingRepository
 import kotlinx.coroutines.CoroutineScope
@@ -19,4 +20,5 @@ val coreDataModule = module {
     single { HttpClientFactory.create(get()) }
     single { SyncthingApi(get()) }
     single<SyncthingRepository> { KtorSyncthingRepository(get(), get(), get(AppScope)) }
+    single { FolderOfferAutoAccepter(get(), get(), get(AppScope)) }
 }
