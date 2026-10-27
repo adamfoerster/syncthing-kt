@@ -20,6 +20,9 @@ Toda alteração (feature, correção, refatoração com efeito visível) só es
 4. **Documentação**: atualize o README.md (e o `README.en.md`, a tradução em inglês) (e este arquivo, se mudar arquitetura, módulos, comandos ou regras)
    e os KDocs do código tocado.
 
+**Git**: nunca faça commit nem ofereça para comitar. Deixe tudo preparado (testes verdes, versão, CHANGELOG,
+documentação) e termine sugerindo uma mensagem de commit; a revisão e o commit são feitos manualmente pelo usuário.
+
 `./gradlew verifyVersion` falha se `app.version` não for a versão mais recente do CHANGELOG, e roda antes
 de todo build do `androidApp`. Não contorne essa verificação.
 
