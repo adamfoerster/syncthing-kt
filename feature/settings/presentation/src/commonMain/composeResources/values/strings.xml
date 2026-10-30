@@ -12,7 +12,7 @@
     <string name="settings_state_stopped">Stopped</string>
     <string name="settings_state_starting">Starting</string>
     <string name="settings_state_error">Error</string>
-    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_version">MeshSync %1$s</string>
     <string name="settings_stop">Stop</string>
     <string name="settings_start">Start</string>
     <string name="settings_restart">Restart</string>

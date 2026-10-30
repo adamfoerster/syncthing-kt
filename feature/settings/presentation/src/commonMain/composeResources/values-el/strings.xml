@@ -12,7 +12,7 @@
     <string name="settings_state_stopped">Σταματημένος</string>
     <string name="settings_state_starting">Εκκίνηση</string>
     <string name="settings_state_error">Σφάλμα</string>
-    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_version">MeshSync %1$s</string>
     <string name="settings_stop">Διακοπή</string>
     <string name="settings_start">Έναρξη</string>
     <string name="settings_restart">Επανεκκίνηση</string>

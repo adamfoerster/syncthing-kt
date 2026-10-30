@@ -1,6 +1,7 @@
 package com.adamfoerster.syncthing.feature.conflicts.domain.model
 
 import com.adamfoerster.syncthing.core.domain.model.DeviceRef
+import com.adamfoerster.syncthing.feature.conflicts.domain.merge.TextDifference
 import kotlin.time.Instant
 
 /**
@@ -19,6 +20,8 @@ data class Conflict(
     val copy: ConflictVersion,
     /** Number of differing passages, for text conflicts. 0 means the contents are equivalent. */
     val hunkCount: Int?,
+    /** For text conflicts: invisible differences (line endings, final newline…) that explain a conflict without passages. */
+    val textDifferences: Set<TextDifference> = emptySet(),
 ) {
     /** Stable across rescans; there is one conflict per conflict copy. */
     val id: String get() = "$folderId:${copy.path}"

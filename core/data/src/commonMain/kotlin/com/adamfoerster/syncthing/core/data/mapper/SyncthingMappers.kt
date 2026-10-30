@@ -9,6 +9,7 @@ import com.adamfoerster.syncthing.core.data.dto.FolderConfigDto
 import com.adamfoerster.syncthing.core.data.dto.FolderStatusDto
 import com.adamfoerster.syncthing.core.data.dto.PendingDeviceDto
 import com.adamfoerster.syncthing.core.data.dto.PendingFolderDto
+import com.adamfoerster.syncthing.core.domain.model.DeclinedFolderOffer
 import com.adamfoerster.syncthing.core.domain.model.Device
 import com.adamfoerster.syncthing.core.domain.model.DeviceId
 import com.adamfoerster.syncthing.core.domain.model.DeviceStatus
@@ -97,6 +98,17 @@ fun Map.Entry<String, PendingFolderDto>.toPendingFolders(deviceName: (DeviceId) 
             offeredBy = id,
             offeredByName = deviceName(id),
             time = offer.time.toInstantOrNull(),
+        )
+    }
+
+fun DeviceConfigDto.toDeclinedOffers(deviceName: String): List<DeclinedFolderOffer> =
+    ignoredFolders.map {
+        DeclinedFolderOffer(
+            folderId = it.id,
+            label = it.label.ifBlank { it.id },
+            offeredBy = DeviceId(deviceId),
+            offeredByName = deviceName,
+            time = it.time.toInstantOrNull(),
         )
     }
 

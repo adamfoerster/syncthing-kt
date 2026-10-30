@@ -14,6 +14,9 @@
         <item quantity="other">%1$d διαφορετικά τμήματα</item>
     </plurals>
     <string name="conflicts_same_content">Ίδιο περιεχόμενο και στις δύο εκδόσεις</string>
+    <string name="difference_line_endings">Διαφέρουν μόνο οι αλλαγές γραμμής (Windows και Unix)</string>
+    <string name="difference_final_newline">Διαφέρει μόνο η τελική αλλαγή γραμμής</string>
+    <string name="difference_several">Διαφέρουν μόνο αόρατοι χαρακτήρες (αλλαγές γραμμής, κενά)</string>
     <string name="conflicts_kind_image">Εικόνα: επιλέξτε μία από τις εκδόσεις</string>
     <string name="conflicts_kind_binary">Αρχείο: επιλέξτε μία από τις εκδόσεις</string>
     <string name="conflicts_footer">Κανένα αρχείο δεν θα διαγραφεί χωρίς την επιλογή σας.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">Σε εκκρεμότητα</string>
     <string name="text_all_from">Όλα από το %1$s</string>
     <string name="text_all_mine">Όλα από το τηλέφωνό μου</string>
+    <string name="text_all_from_at">Όλα από το %1$s\n%2$s</string>
+    <string name="text_all_mine_at">Όλα από το τηλέφωνό μου\n%1$s</string>
     <string name="text_view_compare">Σύγκριση</string>
     <string name="text_view_result">Τελικό αποτέλεσμα</string>
     <string name="text_hunk_title">Τμήμα %1$d από %2$d</string>

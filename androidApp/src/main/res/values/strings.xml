@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Syncthing</string>
+    <string name="app_name">MeshSync</string>
     <string name="notification_channel">Sync</string>
     <string name="notification_running">Syncing your devices</string>
-    <string name="notification_running_body">Tap to open Syncthing.</string>
+    <string name="notification_running_body">Tap to open MeshSync.</string>
     <string name="scan_prompt">Point at the other device’s QR code</string>
     <string name="core_exit">Syncthing exited (code %1$d).</string>
     <string name="core_start_timeout">Syncthing did not respond in time.</string>

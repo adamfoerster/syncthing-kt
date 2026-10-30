@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Reimplementação do Syncthing Android em Kotlin Multiplatform + Compose Multiplatform. Android é o único
+MeshSync: reimplementação do Syncthing Android em Kotlin Multiplatform + Compose Multiplatform. Android é o único
 target por enquanto, mas o código vai em `commonMain` sempre que não precisar de API do Android.
 A interface é traduzida para pt, en, es, it, de, fr e el (inglês é o padrão para idiomas não suportados). Visão geral e instruções de build: [README.md](README.md).
 

@@ -36,6 +36,15 @@ interface SyncthingRepository {
     suspend fun setFolderPaused(folderId: String, paused: Boolean): EmptyResult<DataError.Remote>
     suspend fun dismissPendingFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote>
 
+    /**
+     * Declines an offer for good: the core stops offering it, and it shows up in
+     * [SyncOverview.declinedFolders] until [restoreDeclinedFolder] is called.
+     */
+    suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId): EmptyResult<DataError.Remote>
+
+    /** Takes the offer off the declined list, so accepting it (or the device offering again) works as usual. */
+    suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote>
+
     suspend fun setMyName(name: String): EmptyResult<DataError.Remote>
 
     /** Asks the core to rescan [subPath] (or the whole folder) right away. */

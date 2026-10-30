@@ -14,6 +14,9 @@
         <item quantity="other">%1$d sezioni diverse</item>
     </plurals>
     <string name="conflicts_same_content">Stesso contenuto in entrambe le versioni</string>
+    <string name="difference_line_endings">Differiscono solo i ritorni a capo (Windows e Unix)</string>
+    <string name="difference_final_newline">Differisce solo l’a capo finale</string>
+    <string name="difference_several">Differiscono solo caratteri invisibili (a capo, spazi)</string>
     <string name="conflicts_kind_image">Immagine: scegli una delle versioni</string>
     <string name="conflicts_kind_binary">File: scegli una delle versioni</string>
     <string name="conflicts_footer">Nessun file verrà eliminato senza la tua scelta.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">In sospeso</string>
     <string name="text_all_from">Tutto da %1$s</string>
     <string name="text_all_mine">Tutto dal mio telefono</string>
+    <string name="text_all_from_at">Tutto da %1$s\n%2$s</string>
+    <string name="text_all_mine_at">Tutto dal mio telefono\n%1$s</string>
     <string name="text_view_compare">Confronta</string>
     <string name="text_view_result">Risultato finale</string>
     <string name="text_hunk_title">Sezione %1$d di %2$d</string>

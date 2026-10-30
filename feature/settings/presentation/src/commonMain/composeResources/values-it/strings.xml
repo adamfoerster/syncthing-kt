@@ -12,7 +12,7 @@
     <string name="settings_state_stopped">Ferma</string>
     <string name="settings_state_starting">Avvio</string>
     <string name="settings_state_error">Con errore</string>
-    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_version">MeshSync %1$s</string>
     <string name="settings_stop">Ferma</string>
     <string name="settings_start">Avvia</string>
     <string name="settings_restart">Riavvia</string>

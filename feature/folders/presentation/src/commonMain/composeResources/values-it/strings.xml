@@ -26,6 +26,8 @@
     <string name="folders_offer_title">%1$s vuole condividere “%2$s”</string>
     <string name="folders_offer_accept">Accetta</string>
     <string name="folders_offer_dismiss">Rifiuta</string>
+    <string name="folders_declined_title">Offerte rifiutate</string>
+    <string name="folders_declined_hint">Cartelle che hai rifiutato. Accettane una per condividerla comunque.</string>
     <string name="folders_open">Apri %1$s</string>
 
     <string name="add_folder_title">Aggiungi cartella</string>

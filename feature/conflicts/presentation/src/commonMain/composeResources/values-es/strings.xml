@@ -14,6 +14,9 @@
         <item quantity="other">%1$d fragmentos distintos</item>
     </plurals>
     <string name="conflicts_same_content">Mismo contenido en las dos versiones</string>
+    <string name="difference_line_endings">Solo difieren los saltos de línea (Windows y Unix)</string>
+    <string name="difference_final_newline">Solo difiere el salto de línea final</string>
+    <string name="difference_several">Solo difieren caracteres invisibles (saltos de línea, espacios)</string>
     <string name="conflicts_kind_image">Imagen: elige una de las versiones</string>
     <string name="conflicts_kind_binary">Archivo: elige una de las versiones</string>
     <string name="conflicts_footer">Ningún archivo se borrará sin que lo elijas.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">Pendiente</string>
     <string name="text_all_from">Todo de %1$s</string>
     <string name="text_all_mine">Todo de mi teléfono</string>
+    <string name="text_all_from_at">Todo de %1$s\n%2$s</string>
+    <string name="text_all_mine_at">Todo de mi teléfono\n%1$s</string>
     <string name="text_view_compare">Comparar</string>
     <string name="text_view_result">Resultado final</string>
     <string name="text_hunk_title">Fragmento %1$d de %2$d</string>

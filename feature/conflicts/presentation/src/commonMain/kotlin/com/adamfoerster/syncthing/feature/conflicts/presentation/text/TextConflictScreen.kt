@@ -68,7 +68,9 @@ import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.resol
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.resolver_loading
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.resolver_not_found
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_all_from
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_all_from_at
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_all_mine
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_all_mine_at
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_badge_pending
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_badge_ready
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.text_done_body
@@ -194,7 +196,7 @@ private fun ProgressPanel(
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
                 if (state.hunkTotal == 0) {
-                    stringResource(Res.string.text_summary_same)
+                    state.sameContentNote?.asString() ?: stringResource(Res.string.text_summary_same)
                 } else {
                     stringResource(Res.string.text_summary, state.resolvedCount, state.hunkTotal)
                 },
@@ -554,5 +556,13 @@ private fun TextConflictScreenPreview() {
 }
 
 @Composable
-private fun allFrom(version: VersionUi): String =
-    if (version.isLocal) stringResource(Res.string.text_all_mine) else stringResource(Res.string.text_all_from, version.author.asString())
+private fun allFrom(version: VersionUi): String {
+    val whenModified = version.dayAndTime?.asString()
+    val author = version.author.asString()
+    return when {
+        version.isLocal && whenModified != null -> stringResource(Res.string.text_all_mine_at, whenModified)
+        version.isLocal -> stringResource(Res.string.text_all_mine)
+        whenModified != null -> stringResource(Res.string.text_all_from_at, author, whenModified)
+        else -> stringResource(Res.string.text_all_from, author)
+    }
+}

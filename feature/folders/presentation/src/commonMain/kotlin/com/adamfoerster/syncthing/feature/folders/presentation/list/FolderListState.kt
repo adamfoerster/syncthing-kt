@@ -9,6 +9,8 @@ data class FolderListState(
     val isLoaded: Boolean = false,
     val folders: List<FolderUi> = emptyList(),
     val offers: List<FolderOfferUi> = emptyList(),
+    /** Offers declined earlier; they can still be accepted from here. */
+    val declinedOffers: List<FolderOfferUi> = emptyList(),
 )
 
 data class FolderUi(
@@ -42,5 +44,6 @@ sealed interface FolderListAction {
     data class OnIgnoreClick(val id: String) : FolderListAction
     data class OnAcceptOffer(val offer: FolderOfferUi) : FolderListAction
     data class OnDismissOffer(val offer: FolderOfferUi) : FolderListAction
+    data class OnAcceptDeclinedOffer(val offer: FolderOfferUi) : FolderListAction
     data object OnStartCore : FolderListAction
 }

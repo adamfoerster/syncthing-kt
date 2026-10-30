@@ -6,9 +6,26 @@ import com.adamfoerster.syncthing.core.presentation.formatBytes
 import com.adamfoerster.syncthing.core.presentation.formatClock
 import com.adamfoerster.syncthing.core.presentation.initialOf
 import com.adamfoerster.syncthing.core.presentation.toDayAndTimeUiText
+import com.adamfoerster.syncthing.feature.conflicts.domain.merge.TextDifference
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.Conflict
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictVersion
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.VersionSide
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.Res
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.difference_final_newline
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.difference_line_endings
+import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.difference_several
+
+/** Why two texts with no differing passages are still different files; null when there is nothing to say. */
+fun Set<TextDifference>.toUiText(): UiText? = when {
+    isEmpty() -> null
+    size > 1 -> UiText.Resource(Res.string.difference_several)
+    else -> UiText.Resource(
+        when (first()) {
+            TextDifference.LINE_ENDINGS -> Res.string.difference_line_endings
+            TextDifference.FINAL_NEWLINE -> Res.string.difference_final_newline
+        },
+    )
+}
 
 /** One version as the screens show it: who made it and when. */
 data class VersionUi(

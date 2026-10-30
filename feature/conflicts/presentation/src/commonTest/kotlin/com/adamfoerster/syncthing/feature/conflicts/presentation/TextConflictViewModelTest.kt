@@ -15,6 +15,7 @@ import com.adamfoerster.syncthing.feature.conflicts.domain.BinaryChoice
 import com.adamfoerster.syncthing.feature.conflicts.domain.ConflictList
 import com.adamfoerster.syncthing.feature.conflicts.domain.ConflictRepository
 import com.adamfoerster.syncthing.feature.conflicts.domain.TextVersions
+import com.adamfoerster.syncthing.feature.conflicts.domain.merge.TextDifference
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.Conflict
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictKind
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictVersion
@@ -55,6 +56,16 @@ class TextConflictViewModelTest {
 
     @AfterTest
     fun tearDown() = Dispatchers.resetMain()
+
+    @Test
+    fun explainsWhyIdenticalLookingVersionsDiffer() = runTest {
+        val lineEndings = conflict.copy(hunkCount = 0, textDifferences = setOf(TextDifference.LINE_ENDINGS))
+        val vm = TextConflictViewModel(lineEndings.id, FakeRepository(lineEndings, current = "a\r\n", copy = "a\n"), SavedStateHandle())
+
+        assertThat(vm.state.value.hunkTotal).isEqualTo(0)
+        assertThat(vm.state.value.sameContentNote).isNotNull()
+        assertThat(vm.state.value.canFinish).isTrue()
+    }
 
     @Test
     fun localVersionComesFirstAndPicksMapToTheRightSide() = runTest {

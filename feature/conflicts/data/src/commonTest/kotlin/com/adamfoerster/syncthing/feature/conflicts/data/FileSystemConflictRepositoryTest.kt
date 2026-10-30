@@ -18,6 +18,7 @@ import com.adamfoerster.syncthing.core.domain.util.DataError
 import com.adamfoerster.syncthing.core.domain.util.EmptyResult
 import com.adamfoerster.syncthing.core.domain.util.Result
 import com.adamfoerster.syncthing.feature.conflicts.domain.BinaryChoice
+import com.adamfoerster.syncthing.feature.conflicts.domain.merge.TextDifference
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictKind
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -38,11 +39,15 @@ class FileSystemConflictRepositoryTest {
     private val root = "/sdcard/Documentos".toPath()
 
     private lateinit var fs: FakeFileSystem
+    private var fsNow = 0L
     private lateinit var syncthing: FakeSyncthing
 
     @BeforeTest
     fun setUp() {
-        fs = FakeFileSystem()
+        fsNow = 0L
+        fs = FakeFileSystem(clock = object : Clock {
+            override fun now(): Instant = Instant.fromEpochMilliseconds(fsNow)
+        })
         fs.createDirectories(root / "listas")
         fs.createDirectories(root / ".stversions")
         syncthing = FakeSyncthing(overview(me, laptop, root.toString()))
@@ -146,6 +151,58 @@ class FileSystemConflictRepositoryTest {
         assertThat(fs.exists(root / ".stversions" / "plan~20261019-174500.bin")).isTrue()
     }
 
+    @Test
+    fun identicalCopyIsResolvedAutomaticallyKeepingTheOlderFile() = runTest {
+        val current = root / "listas" / "compras.txt"
+        val copy = root / "listas" / "compras.sync-conflict-20261019-143500-BBBBBBB.txt"
+        writeAt(current, "a\nb\n", 2_000L)
+        writeAt(copy, "a\nb\n", 1_000L)
+        val repo = repository()
+
+        repo.rescan()
+
+        assertThat(repo.conflicts.value.items).hasSize(0)
+        assertThat(fs.exists(copy)).isFalse()
+        assertThat(fs.read(current) { readUtf8() }).isEqualTo("a\nb\n")
+        assertThat(fs.metadata(current).lastModifiedAtMillis).isEqualTo(1_000L)
+        assertThat(fs.list(root / ".stversions" / "listas")).hasSize(1)
+        assertThat(syncthing.scans).containsExactly("doc" to "listas")
+    }
+
+    @Test
+    fun identicalCopyKeepsTheCurrentFileWhenItIsTheOlder() = runTest {
+        val current = root / "notas.txt"
+        val copy = root / "notas.sync-conflict-20261019-143500-BBBBBBB.txt"
+        writeAt(current, "igual\n", 1_000L)
+        writeAt(copy, "igual\n", 2_000L)
+        val repo = repository()
+
+        repo.rescan()
+
+        assertThat(repo.conflicts.value.items).hasSize(0)
+        assertThat(fs.exists(copy)).isFalse()
+        assertThat(fs.metadata(current).lastModifiedAtMillis).isEqualTo(1_000L)
+    }
+
+    @Test
+    fun copiesThatDifferEvenSlightlyStayAsConflicts() = runTest {
+        fs.write(root / "notas.txt") { writeUtf8("um\r\ndois\r\n") }
+        fs.write(root / "notas.sync-conflict-20261019-143500-BBBBBBB.txt") { writeUtf8("um\ndois\n") }
+        val repo = repository()
+
+        repo.rescan()
+
+        val conflict = repo.conflicts.value.items.single()
+        assertThat(conflict.hunkCount).isEqualTo(0)
+        assertThat(conflict.textDifferences.toList()).containsExactly(TextDifference.LINE_ENDINGS)
+    }
+
+    /** Writes [text] stamped with [millis] as its modification time. */
+    private fun writeAt(path: okio.Path, text: String, millis: Long) {
+        fsNow = millis
+        fs.write(path) { writeUtf8(text) }
+    }
+
     private object FixedClock : Clock {
         override fun now(): Instant = Instant.parse("2026-10-19T17:45:00Z")
     }
@@ -191,6 +248,8 @@ class FileSystemConflictRepositoryTest {
         override suspend fun setFolderDevices(folderId: String, devices: List<DeviceId>) = unsupported
         override suspend fun setFolderPaused(folderId: String, paused: Boolean) = unsupported
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId) = unsupported
+        override suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId) = unsupported
+        override suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId) = unsupported
         override suspend fun setMyName(name: String) = unsupported
         override suspend fun renameDevice(id: DeviceId, name: String) = unsupported
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> =

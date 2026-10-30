@@ -1,8 +1,10 @@
 package com.adamfoerster.syncthing.core.data.repository
 
 import com.adamfoerster.syncthing.core.data.dto.FolderDeviceDto
+import com.adamfoerster.syncthing.core.data.dto.IgnoredFolderDto
 import com.adamfoerster.syncthing.core.data.dto.NewDeviceDto
 import com.adamfoerster.syncthing.core.data.dto.NewFolderDto
+import com.adamfoerster.syncthing.core.data.mapper.toDeclinedOffers
 import com.adamfoerster.syncthing.core.data.mapper.toDevice
 import com.adamfoerster.syncthing.core.data.mapper.toFileInfo
 import com.adamfoerster.syncthing.core.data.mapper.toFolder
@@ -38,6 +40,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlin.time.Clock
 import kotlinx.serialization.json.JsonPrimitive
 import kotlinx.serialization.json.buildJsonArray
 import kotlinx.serialization.json.buildJsonObject
@@ -145,6 +148,9 @@ class KtorSyncthingRepository(
             lastSync = folderStatsCall.await().getOrNull().orEmpty().values
                 .mapNotNull { it.lastFile?.at.toInstantOrNull() }
                 .maxOrNull(),
+            declinedFolders = otherDevices
+                .flatMap { dto -> dto.toDeclinedOffers(nameOf(DeviceId(dto.deviceId))) }
+                .filter { offer -> folders.none { it.id == offer.folderId } },
         )
     }
 
@@ -192,6 +198,39 @@ class KtorSyncthingRepository(
 
     override suspend fun dismissPendingFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> =
         api.dismissPendingFolder(folderId, device.value).refreshOnSuccess()
+
+    override suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId): EmptyResult<DataError.Remote> =
+        patchIgnoredFolders(device) { current ->
+            current.filter { it.id != folderId } + IgnoredFolderDto(folderId, label, Clock.System.now().toString())
+        }
+
+    override suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> =
+        patchIgnoredFolders(device) { current -> current.filter { it.id != folderId } }
+
+    /** PATCH replaces arrays whole, so the device's current list is read first and written back changed. */
+    private suspend fun patchIgnoredFolders(
+        device: DeviceId,
+        change: (List<IgnoredFolderDto>) -> List<IgnoredFolderDto>,
+    ): EmptyResult<DataError.Remote> {
+        val config = when (val result = api.config()) {
+            is Result.Success -> result.data
+            is Result.Failure -> return result
+        }
+        val current = config.devices.firstOrNull { it.deviceId == device.value }?.ignoredFolders.orEmpty()
+        val patch = buildJsonObject {
+            put("ignoredFolders", buildJsonArray {
+                change(current).forEach {
+                    add(buildJsonObject {
+                        put("id", it.id)
+                        put("label", it.label)
+                        // An empty string is not a valid time for the core, so absent times are left out.
+                        it.time?.let { time -> put("time", time) }
+                    })
+                }
+            })
+        }
+        return api.patchDevice(device.value, patch).refreshOnSuccess()
+    }
 
     override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> {
         val myId = _overview.value?.myId ?: return Result.Failure(DataError.Remote.CORE_UNAVAILABLE)

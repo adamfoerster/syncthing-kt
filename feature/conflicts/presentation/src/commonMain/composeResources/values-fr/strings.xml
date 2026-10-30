@@ -14,6 +14,9 @@
         <item quantity="other">%1$d passages différents</item>
     </plurals>
     <string name="conflicts_same_content">Contenu identique dans les deux versions</string>
+    <string name="difference_line_endings">Seules les fins de ligne diffèrent (Windows et Unix)</string>
+    <string name="difference_final_newline">Seul le saut de ligne final diffère</string>
+    <string name="difference_several">Seuls des caractères invisibles diffèrent (fins de ligne, espaces)</string>
     <string name="conflicts_kind_image">Image : choisissez l’une des versions</string>
     <string name="conflicts_kind_binary">Fichier : choisissez l’une des versions</string>
     <string name="conflicts_footer">Aucun fichier ne sera supprimé sans votre choix.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">En attente</string>
     <string name="text_all_from">Tout de %1$s</string>
     <string name="text_all_mine">Tout de mon téléphone</string>
+    <string name="text_all_from_at">Tout de %1$s\n%2$s</string>
+    <string name="text_all_mine_at">Tout de mon téléphone\n%1$s</string>
     <string name="text_view_compare">Comparer</string>
     <string name="text_view_result">Résultat final</string>
     <string name="text_hunk_title">Passage %1$d sur %2$d</string>

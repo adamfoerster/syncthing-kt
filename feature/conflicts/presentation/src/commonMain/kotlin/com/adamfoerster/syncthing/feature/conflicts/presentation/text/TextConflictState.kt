@@ -12,6 +12,8 @@ data class TextConflictState(
     val second: VersionUi? = null,
     val blocks: List<DiffBlockUi> = emptyList(),
     val hunkTotal: Int = 0,
+    /** Why the versions differ when there are no differing passages, e.g. only the line endings. */
+    val sameContentNote: UiText? = null,
     val resolvedCount: Int = 0,
     val view: TextView = TextView.COMPARE,
     val result: List<ResultLineUi> = emptyList(),
