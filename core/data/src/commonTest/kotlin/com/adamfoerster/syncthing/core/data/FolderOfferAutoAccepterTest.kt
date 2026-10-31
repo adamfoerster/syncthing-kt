@@ -60,6 +60,8 @@ class FolderOfferAutoAccepterTest {
         override suspend fun addFolder(id: String, label: String, path: String, type: FolderType, devices: List<DeviceId>): EmptyResult<DataError.Remote> = TODO()
         override suspend fun setFolderPaused(folderId: String, paused: Boolean): EmptyResult<DataError.Remote> = TODO()
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> = TODO()
+        override suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId) = TODO()
+        override suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId) = TODO()
         override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> = TODO()
         override suspend fun renameDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote> = TODO()
         override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> = TODO()

@@ -14,6 +14,9 @@
         <item quantity="other">%1$d different sections</item>
     </plurals>
     <string name="conflicts_same_content">Same content in both versions</string>
+    <string name="difference_line_endings">Only the line endings differ (Windows vs Unix)</string>
+    <string name="difference_final_newline">Only the final line break differs</string>
+    <string name="difference_several">Only invisible characters differ (line endings, spaces)</string>
     <string name="conflicts_kind_image">Image: choose one of the versions</string>
     <string name="conflicts_kind_binary">File: choose one of the versions</string>
     <string name="conflicts_footer">No file will be deleted without your choice.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">Pending</string>
     <string name="text_all_from">All from %1$s</string>
     <string name="text_all_mine">All from my phone</string>
+    <string name="text_all_from_at">All from %1$s\n%2$s</string>
+    <string name="text_all_mine_at">All from my phone\n%1$s</string>
     <string name="text_view_compare">Compare</string>
     <string name="text_view_result">Final result</string>
     <string name="text_hunk_title">Section %1$d of %2$d</string>

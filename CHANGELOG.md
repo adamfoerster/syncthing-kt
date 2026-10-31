@@ -8,6 +8,44 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-10-30
+
+### Adicionado
+- Na aba Pastas, a nova seção **Ofertas recusadas** lista as pastas que você recusou, com o nome do aparelho
+  que as ofereceu e um botão **Aceitar** para compartilhá-las depois.
+
+### Alterado
+- **Recusar** uma oferta de pasta agora é definitivo: o Syncthing guarda a recusa e a oferta não volta a
+  aparecer sozinha quando o aparelho reconecta. Para tê-la de volta, aceite-a em Ofertas recusadas.
+
+## [1.7.0] - 2026-10-28
+
+### Adicionado
+- Quando um conflito de texto não tem nenhum trecho diferente, a lista e a tela de resolução agora dizem o
+  motivo em vez de "mesmo conteúdo": só as quebras de linha diferem (Windows x Unix), só a quebra de linha
+  final difere, ou os dois casos juntos.
+
+## [1.6.0] - 2026-10-28
+
+### Adicionado
+- Conflitos com conteúdo idêntico (os que mostravam "Same content in both versions", comuns depois de mover
+  uma pasta) agora são resolvidos sozinhos: o app mantém o arquivo mais antigo e arquiva o outro em
+  `.stversions/`. Só conflitos cujos bytes são exatamente iguais são resolvidos assim; qualquer diferença,
+  mesmo de quebra de linha, continua na lista para você decidir.
+
+## [1.5.2] - 2026-10-28
+
+### Alterado
+- Na tela de resolução de conflitos de texto, os botões "Tudo de …" agora mostram também a data e a hora
+  da última modificação de cada versão, para você saber qual é a mais recente antes de aceitar tudo.
+
+## [1.5.1] - 2026-10-27
+
+### Alterado
+- O app agora se chama **MeshSync**: o nome aparece no ícone, na notificação, na tela de configurações e nas
+  mensagens de inicialização e de permissão, em todos os idiomas. O núcleo continua sendo o Syncthing, e
+  os identificadores internos (pacote do app) não mudaram, então a atualização preserva seus dados.
+
 ## [1.5.0] - 2026-10-20
 
 ### Adicionado

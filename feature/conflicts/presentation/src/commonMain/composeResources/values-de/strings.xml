@@ -14,6 +14,9 @@
         <item quantity="other">%1$d abweichende Abschnitte</item>
     </plurals>
     <string name="conflicts_same_content">Gleicher Inhalt in beiden Versionen</string>
+    <string name="difference_line_endings">Nur die Zeilenumbrüche unterscheiden sich (Windows und Unix)</string>
+    <string name="difference_final_newline">Nur der abschließende Zeilenumbruch unterscheidet sich</string>
+    <string name="difference_several">Nur unsichtbare Zeichen unterscheiden sich (Zeilenumbrüche, Leerzeichen)</string>
     <string name="conflicts_kind_image">Bild: Wählen Sie eine der Versionen</string>
     <string name="conflicts_kind_binary">Datei: Wählen Sie eine der Versionen</string>
     <string name="conflicts_footer">Keine Datei wird ohne Ihre Entscheidung gelöscht.</string>
@@ -37,6 +40,8 @@
     <string name="text_badge_pending">Offen</string>
     <string name="text_all_from">Alles von %1$s</string>
     <string name="text_all_mine">Alles von meinem Telefon</string>
+    <string name="text_all_from_at">Alles von %1$s\n%2$s</string>
+    <string name="text_all_mine_at">Alles von meinem Telefon\n%1$s</string>
     <string name="text_view_compare">Vergleichen</string>
     <string name="text_view_result">Endergebnis</string>
     <string name="text_hunk_title">Abschnitt %1$d von %2$d</string>

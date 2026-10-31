@@ -40,6 +40,8 @@ import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_badge_syncing
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_badge_up_to_date
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_badge_waiting
+import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_declined_hint
+import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_declined_title
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_empty_body
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_empty_title
 import com.adamfoerster.syncthing.feature.folders.presentation.resources.folders_offer_accept
@@ -74,6 +76,10 @@ fun FolderListRoot(
                 FolderListAction.OnAddClick -> onAddFolder()
                 is FolderListAction.OnIgnoreClick -> onOpenIgnores(action.id)
                 is FolderListAction.OnAcceptOffer -> onAcceptOffer(action.offer.folderId, action.offer.label, action.offer.deviceId)
+                is FolderListAction.OnAcceptDeclinedOffer -> {
+                    viewModel.onAction(action)
+                    onAcceptOffer(action.offer.folderId, action.offer.label, action.offer.deviceId)
+                }
                 else -> viewModel.onAction(action)
             }
         },
@@ -122,6 +128,26 @@ fun FolderListScreen(
                         style = NgButtonStyle.Primary,
                         modifier = Modifier.weight(1f),
                     )
+                }
+            }
+        }
+
+        if (state.declinedOffers.isNotEmpty()) {
+            NgPanel(modifier = Modifier.fillMaxWidth()) {
+                Text(stringResource(Res.string.folders_declined_title), style = NgTheme.type.h3, color = c.text)
+                Text(stringResource(Res.string.folders_declined_hint), style = NgTheme.type.sub, color = c.text2)
+                state.declinedOffers.forEach { offer ->
+                    Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Column(Modifier.weight(1f)) {
+                            Text(offer.label, style = NgTheme.type.body, color = c.text)
+                            Text(offer.deviceName, style = NgTheme.type.sub, color = c.text2)
+                        }
+                        NgButton(
+                            stringResource(Res.string.folders_offer_accept),
+                            onClick = { onAction(FolderListAction.OnAcceptDeclinedOffer(offer)) },
+                            minHeight = 40.dp,
+                        )
+                    }
                 }
             }
         }

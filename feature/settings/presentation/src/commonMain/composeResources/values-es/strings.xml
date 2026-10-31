@@ -12,7 +12,7 @@
     <string name="settings_state_stopped">Detenida</string>
     <string name="settings_state_starting">Iniciando</string>
     <string name="settings_state_error">Con error</string>
-    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_version">MeshSync %1$s</string>
     <string name="settings_stop">Detener</string>
     <string name="settings_start">Iniciar</string>
     <string name="settings_restart">Reiniciar</string>

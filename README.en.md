@@ -1,8 +1,8 @@
-# Syncthing KT
+# MeshSync
 
 🇧🇷 [Leia em português](README.md)
 
-A reimplementation of the Syncthing Android app in Kotlin Multiplatform + Compose Multiplatform
+MeshSync is a reimplementation of the Syncthing Android app in Kotlin Multiplatform + Compose Multiplatform
 (Android is the only target for now), with the "Neon Grid" redesign interface and a GitHub-style
 conflict resolver.
 
@@ -50,9 +50,14 @@ The app scans the folders (again whenever a folder's index changes), identifies 
 
 - **Text** (UTF-8, up to 2 MB): line-based diff; each differing section is resolved with
   "this phone", "the other device" or "both"; each button has the color of the section it picks
-  (green for the first version, blue for the second). There is a final-result view and **manual editing**
+  (green for the first version, blue for the second). The "All from …" buttons show each version’s date and time. There is a final-result view and **manual editing**
   starting from text with `<<<<<<<`/`=======`/`>>>>>>>` markers, as on GitHub; it only finishes once the markers are gone.
 - **Binary / image**: pick one version or keep both (`name (copy).ext`), with a preview for images.
+
+Conflicts whose two versions are byte-for-byte identical (for example after moving a folder) are
+resolved automatically during the scan: the older file is kept and the other goes to `.stversions/`.
+If the texts have no differing section but the bytes are not equal, the list and the resolver screen say why
+(`TextDifference`: line endings or the final line break).
 
 Nothing is deleted: replaced versions go to `.stversions/` inside the folder, using the same name
 format as Syncthing's own versioning (which never syncs that directory). If the file changes on disk
@@ -87,6 +92,13 @@ devices or Send Only/Receive Only folders still ask you. The option is under **S
 default; off, everything asks again). The pure rule is `knownFolderOffers` in `core:domain`; `FolderOfferAutoAccepter`
 in `core:data` applies it and is started by `SyncthingApplication`. Preferences live in `AppPreferences`
 (`core:domain`), stored in SharedPreferences.
+
+## Declined offers
+
+**Decline** on a folder offer is stored in the core (the device's `ignoredFolders`, through
+`SyncthingRepository.declineFolderOffer`), so it does not come back when the device reconnects. The Folders tab lists
+them under **Declined offers** (`SyncOverview.declinedFolders`); **Accept** calls `restoreDeclinedFolder` and opens the
+usual accept-folder flow.
 
 ## Light and dark theme
 

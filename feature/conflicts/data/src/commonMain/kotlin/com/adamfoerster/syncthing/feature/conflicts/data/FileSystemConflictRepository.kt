@@ -13,6 +13,7 @@ import com.adamfoerster.syncthing.feature.conflicts.domain.ConflictList
 import com.adamfoerster.syncthing.feature.conflicts.domain.ConflictRepository
 import com.adamfoerster.syncthing.feature.conflicts.domain.TextVersions
 import com.adamfoerster.syncthing.feature.conflicts.domain.merge.MergeDocument
+import com.adamfoerster.syncthing.feature.conflicts.domain.merge.TextDifference
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.Conflict
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictKind
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictVersion
@@ -102,6 +103,11 @@ class FileSystemConflictRepository(
     private suspend fun toConflict(found: FoundConflict, overview: SyncOverview): Conflict? {
         val currentFile = found.root.resolveSlashPath(found.originalPath)
         val copyFile = found.root.resolveSlashPath(found.copyPath)
+        if (withContext(io) { resolveIfIdentical(found.root, currentFile, copyFile) }) {
+            val dir = found.originalPath.substringBeforeLast('/', missingDelimiterValue = "").ifEmpty { null }
+            syncthing.scan(found.folder.id, dir)
+            return null
+        }
         val disk = withContext(io) { inspect(found.originalPath, currentFile, copyFile) } ?: return null
         // The core's index knows who made the current version; the copy's name says who made it.
         val currentAuthor = syncthing.fileInfo(found.folder.id, found.originalPath).getOrNull()?.modifiedBy
@@ -126,7 +132,48 @@ class FileSystemConflictRepository(
                 author = overview.deviceRef(found.copyName.shortDeviceId),
             ),
             hunkCount = disk.hunkCount,
+            textDifferences = disk.textDifferences,
         )
+    }
+
+    /**
+     * A conflict whose two files are byte-for-byte equal (typically after a folder was moved) has
+     * nothing to decide: the older file stays at the original name and the other goes to `.stversions`.
+     * Returns true when the conflict was resolved; any doubt or I/O error leaves it for the user.
+     */
+    private fun resolveIfIdentical(root: Path, currentFile: Path, copyFile: Path): Boolean = try {
+        val currentMeta = fileSystem.metadataOrNull(currentFile)
+        val copyMeta = fileSystem.metadataOrNull(copyFile)
+        if (currentMeta == null || copyMeta == null || !sameBytes(currentFile, copyFile)) {
+            false
+        } else {
+            val copyIsOlder = (copyMeta.lastModifiedAtMillis ?: Long.MAX_VALUE) <
+                (currentMeta.lastModifiedAtMillis ?: Long.MAX_VALUE)
+            if (copyIsOlder) {
+                archive.move(root, currentFile)
+                fileSystem.atomicMove(copyFile, currentFile)
+            } else {
+                archive.move(root, copyFile)
+            }
+            true
+        }
+    } catch (e: IOException) {
+        false
+    }
+
+    private fun sameBytes(a: Path, b: Path): Boolean {
+        if (fileSystem.metadata(a).size != fileSystem.metadata(b).size) return false
+        return fileSystem.source(a).buffer().use { sa ->
+            fileSystem.source(b).buffer().use { sb ->
+                var equal = true
+                while (equal && !sa.exhausted()) {
+                    // Sizes match, so the second file cannot run out first.
+                    val chunk = minOf(COMPARE_CHUNK.toLong(), sa.buffer.size.coerceAtLeast(1L))
+                    equal = !sb.exhausted() && sa.readByteString(chunk) == sb.readByteString(chunk)
+                }
+                equal
+            }
+        }
     }
 
     private class DiskState(
@@ -134,6 +181,7 @@ class FileSystemConflictRepository(
         val copy: FileMetadata,
         val kind: ConflictKind,
         val hunkCount: Int?,
+        val textDifferences: Set<TextDifference>,
     )
 
     private fun inspect(originalPath: String, currentFile: Path, copyFile: Path): DiskState? = try {
@@ -147,12 +195,15 @@ class FileSystemConflictRepository(
                 samples = listOf(sample(currentFile), sample(copyFile)),
                 sizes = listOf(currentMeta.size ?: 0, copyMeta.size ?: 0),
             )
-            val hunks = if (kind == ConflictKind.TEXT) {
-                MergeDocument.of(readText(currentFile), readText(copyFile)).hunks.size
-            } else {
-                null
+            var hunks: Int? = null
+            var differences = emptySet<TextDifference>()
+            if (kind == ConflictKind.TEXT) {
+                val current = readText(currentFile)
+                val copy = readText(copyFile)
+                hunks = MergeDocument.of(current, copy).hunks.size
+                differences = TextDifference.between(current, copy)
             }
-            DiskState(currentMeta, copyMeta, kind, hunks)
+            DiskState(currentMeta, copyMeta, kind, hunks, differences)
         }
     } catch (e: IOException) {
         null
@@ -277,5 +328,6 @@ class FileSystemConflictRepository(
 
     private companion object {
         const val RESCAN_DEBOUNCE_MS = 1_500L
+        const val COMPARE_CHUNK = 64 * 1024
     }
 }

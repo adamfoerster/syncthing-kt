@@ -15,6 +15,7 @@ import com.adamfoerster.syncthing.feature.conflicts.domain.model.Conflict
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.VersionSide
 import com.adamfoerster.syncthing.feature.conflicts.presentation.common.orderedVersions
 import com.adamfoerster.syncthing.feature.conflicts.presentation.common.toUi
+import com.adamfoerster.syncthing.feature.conflicts.presentation.common.toUiText
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -69,6 +70,7 @@ class TextConflictViewModel(
                         phase = ResolverPhase.READY,
                         fileName = found.fileName,
                         folderLabel = found.folderLabel,
+                        sameContentNote = found.textDifferences.toUiText(),
                         first = first.toUi(),
                         second = second.toUi(),
                     )

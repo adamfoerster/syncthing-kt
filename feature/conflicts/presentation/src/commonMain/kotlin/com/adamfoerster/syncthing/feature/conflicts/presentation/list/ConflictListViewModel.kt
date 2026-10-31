@@ -9,6 +9,7 @@ import com.adamfoerster.syncthing.feature.conflicts.domain.model.Conflict
 import com.adamfoerster.syncthing.feature.conflicts.domain.model.ConflictKind
 import com.adamfoerster.syncthing.feature.conflicts.presentation.common.orderedVersions
 import com.adamfoerster.syncthing.feature.conflicts.presentation.common.toUi
+import com.adamfoerster.syncthing.feature.conflicts.presentation.common.toUiText
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.Res
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.conflicts_hunks
 import com.adamfoerster.syncthing.feature.conflicts.presentation.resources.conflicts_kind_binary
@@ -55,7 +56,7 @@ class ConflictListViewModel(
             kind = kind,
             detail = when (kind) {
                 ConflictKind.TEXT -> when (val hunks = hunkCount ?: 0) {
-                    0 -> UiText.Resource(Res.string.conflicts_same_content)
+                    0 -> textDifferences.toUiText() ?: UiText.Resource(Res.string.conflicts_same_content)
                     else -> UiText.Plural(Res.plurals.conflicts_hunks, hunks, hunks)
                 }
                 ConflictKind.IMAGE -> UiText.Resource(Res.string.conflicts_kind_image)

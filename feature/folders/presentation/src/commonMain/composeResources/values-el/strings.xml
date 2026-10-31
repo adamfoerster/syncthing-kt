@@ -26,6 +26,8 @@
     <string name="folders_offer_title">Η συσκευή %1$s θέλει να μοιραστεί το «%2$s»</string>
     <string name="folders_offer_accept">Αποδοχή</string>
     <string name="folders_offer_dismiss">Απόρριψη</string>
+    <string name="folders_declined_title">Απορριφθείσες προσφορές</string>
+    <string name="folders_declined_hint">Φάκελοι που απορρίψατε. Αποδεχτείτε έναν για να τον μοιραστείτε τελικά.</string>
     <string name="folders_open">Άνοιγμα του %1$s</string>
 
     <string name="add_folder_title">Προσθήκη φακέλου</string>

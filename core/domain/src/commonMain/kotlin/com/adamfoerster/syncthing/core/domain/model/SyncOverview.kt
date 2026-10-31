@@ -12,6 +12,8 @@ data class SyncOverview(
     val pendingDevices: List<PendingDevice>,
     val pendingFolders: List<PendingFolder>,
     val lastSync: Instant?,
+    /** Offers the user declined earlier and may still accept; never includes folders that already exist here. */
+    val declinedFolders: List<DeclinedFolderOffer> = emptyList(),
 )
 
 /** Resolves a short device ID (as found in conflict names and `modifiedBy`) to a known device. */

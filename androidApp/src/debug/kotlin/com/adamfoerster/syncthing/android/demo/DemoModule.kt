@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import com.adamfoerster.syncthing.core.domain.model.CoreState
+import com.adamfoerster.syncthing.core.domain.model.DeclinedFolderOffer
 import com.adamfoerster.syncthing.core.domain.model.Device
 import com.adamfoerster.syncthing.core.domain.model.DeviceId
 import com.adamfoerster.syncthing.core.domain.model.DeviceStatus
@@ -127,6 +128,7 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
             pendingDevices = emptyList(),
             pendingFolders = emptyList(),
             lastSync = now - 2.minutes,
+            declinedFolders = listOf(DeclinedFolderOffer("videos", "Family Videos", DemoData.laptop, "Ana’s Laptop", now - 1.days)),
         ),
     )
 
@@ -173,6 +175,21 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
     }
     override suspend fun setFolderPaused(folderId: String, paused: Boolean) = ok
     override suspend fun dismissPendingFolder(folderId: String, device: DeviceId) = ok
+    override suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId): EmptyResult<DataError.Remote> {
+        overview.update { o ->
+            o ?: return@update o
+            val name = o.devices.firstOrNull { it.id == device }?.name ?: device.short
+            o.copy(
+                pendingFolders = o.pendingFolders.filterNot { it.folderId == folderId && it.offeredBy == device },
+                declinedFolders = o.declinedFolders + DeclinedFolderOffer(folderId, label, device, name, Clock.System.now()),
+            )
+        }
+        return ok
+    }
+    override suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> {
+        overview.update { o -> o?.copy(declinedFolders = o.declinedFolders.filterNot { it.folderId == folderId && it.offeredBy == device }) }
+        return ok
+    }
     override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> {
         overview.update { it?.copy(myName = name) }
         return ok

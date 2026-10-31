@@ -1,8 +1,8 @@
-# Syncthing KT
+# MeshSync
 
 🇬🇧 [Read in English](README.en.md)
 
-Reimplementação do app Android do Syncthing em Kotlin Multiplatform + Compose Multiplatform
+MeshSync é uma reimplementação do app Android do Syncthing em Kotlin Multiplatform + Compose Multiplatform
 (Android é o único target por enquanto), com a interface "Neon Grid" do redesign e um
 resolvedor de conflitos no estilo do GitHub.
 
@@ -50,9 +50,14 @@ O app varre as pastas (de novo sempre que o índice de uma pasta muda), identifi
 
 - **Texto** (UTF-8, até 2 MB): diff por linhas; cada trecho diferente é resolvido com
   "este celular", "o outro aparelho" ou "as duas"; cada botão tem a cor do trecho que escolhe
-  (verde para a primeira versão, azul para a segunda). Há visão de resultado final e **edição à mão**
+  (verde para a primeira versão, azul para a segunda). Os botões "Tudo de …" mostram a data e a hora de cada versão. Há visão de resultado final e **edição à mão**
   a partir do texto com marcadores `<<<<<<<`/`=======`/`>>>>>>>`, como no GitHub; só conclui sem marcadores.
 - **Binário / imagem**: escolher uma versão ou manter as duas (`nome (cópia).ext`), com prévia para imagens.
+
+Conflitos em que as duas versões têm exatamente os mesmos bytes (por exemplo, depois de mover uma pasta)
+são resolvidos automaticamente na varredura: fica o arquivo mais antigo e o outro vai para `.stversions/`.
+Se os textos não têm nenhum trecho diferente mas os bytes não são iguais, a lista e a tela de resolução explicam
+o motivo (`TextDifference`: quebras de linha ou quebra de linha final).
 
 Nada é apagado: as versões substituídas vão para `.stversions/` dentro da pasta, com o mesmo formato
 de nome do versionamento do Syncthing (que nunca sincroniza esse diretório). Se o arquivo mudar no disco
@@ -87,6 +92,13 @@ aparelhos desconhecidos ou de pastas Somente enviar/receber continuam pedindo su
 **Ajustes → Pastas conhecidas** (ligada por padrão; desligada, tudo volta a perguntar). A regra pura é
 `knownFolderOffers` em `core:domain`; quem a aplica é o `FolderOfferAutoAccepter` em `core:data`, iniciado pelo
 `SyncthingApplication`. As preferências ficam em `AppPreferences` (`core:domain`), guardadas em SharedPreferences.
+
+## Ofertas recusadas
+
+**Recusar** uma oferta de pasta grava a recusa no núcleo (`ignoredFolders` do aparelho, via
+`SyncthingRepository.declineFolderOffer`), então ela não reaparece quando o aparelho reconecta. A aba Pastas lista
+essas ofertas em **Ofertas recusadas** (`SyncOverview.declinedFolders`); **Aceitar** chama `restoreDeclinedFolder` e abre
+o mesmo fluxo de aceitar pasta.
 
 ## Tema claro e escuro
 

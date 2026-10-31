@@ -26,6 +26,8 @@
     <string name="folders_offer_title">%1$s möchte „%2$s“ teilen</string>
     <string name="folders_offer_accept">Annehmen</string>
     <string name="folders_offer_dismiss">Ablehnen</string>
+    <string name="folders_declined_title">Abgelehnte Angebote</string>
+    <string name="folders_declined_hint">Ordner, die du abgelehnt hast. Nimm einen an, um ihn doch zu teilen.</string>
     <string name="folders_open">%1$s öffnen</string>
 
     <string name="add_folder_title">Ordner hinzufügen</string>

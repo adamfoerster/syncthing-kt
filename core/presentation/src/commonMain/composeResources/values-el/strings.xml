@@ -23,13 +23,13 @@
     <string name="weekday_saturday">Σάββατο, %1$s</string>
     <string name="weekday_sunday">Κυριακή, %1$s</string>
 
-    <string name="core_starting_title">Εκκίνηση του Syncthing…</string>
+    <string name="core_starting_title">Εκκίνηση του MeshSync…</string>
     <string name="core_starting_body">Την πρώτη φορά χρειάζονται λίγα δευτερόλεπτα.</string>
     <string name="core_stopped_title">Ο συγχρονισμός σταμάτησε</string>
-    <string name="core_stopped_body">Δεν στέλνεται ούτε λαμβάνεται τίποτα όσο το Syncthing είναι σταματημένο.</string>
+    <string name="core_stopped_body">Δεν στέλνεται ούτε λαμβάνεται τίποτα όσο το MeshSync είναι σταματημένο.</string>
     <string name="core_start">Έναρξη</string>
     <string name="core_permission_title">Επιτρέψτε την πρόσβαση στα αρχεία</string>
-    <string name="core_permission_body">Το Syncthing χρειάζεται πρόσβαση σε όλα τα αρχεία για να συγχρονίζει τους φακέλους σας και να επιλύει συγκρούσεις.</string>
+    <string name="core_permission_body">Το MeshSync χρειάζεται πρόσβαση σε όλα τα αρχεία για να συγχρονίζει τους φακέλους σας και να επιλύει συγκρούσεις.</string>
     <string name="core_grant_access">Παραχώρηση πρόσβασης</string>
     <string name="core_binary_missing_title">Λείπει ο πυρήνας του Syncthing</string>
     <string name="core_binary_missing_body">Αυτή η έκδοση της εφαρμογής δημιουργήθηκε χωρίς το δυαδικό αρχείο του Syncthing. Κάντε μεταγλώττιση με ./gradlew :syncthing-native:buildNative και δημιουργήστε ξανά την εφαρμογή.</string>

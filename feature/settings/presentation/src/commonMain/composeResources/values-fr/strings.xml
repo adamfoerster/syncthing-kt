@@ -12,7 +12,7 @@
     <string name="settings_state_stopped">Arrêtée</string>
     <string name="settings_state_starting">Démarrage</string>
     <string name="settings_state_error">Erreur</string>
-    <string name="settings_version">Syncthing %1$s</string>
+    <string name="settings_version">MeshSync %1$s</string>
     <string name="settings_stop">Arrêter</string>
     <string name="settings_start">Démarrer</string>
     <string name="settings_restart">Redémarrer</string>

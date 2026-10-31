@@ -39,13 +39,19 @@ class FolderListViewModel(
             isLoaded = true,
             folders = overview.folders.sortedBy { it.label.lowercase() }.map { it.toUi(overview, counts[it.id] ?: 0) },
             offers = overview.pendingFolders.map { FolderOfferUi(it.folderId, it.label, it.offeredBy.value, it.offeredByName) },
+            declinedOffers = overview.declinedFolders.map { FolderOfferUi(it.folderId, it.label, it.offeredBy.value, it.offeredByName) },
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), FolderListState())
 
     fun onAction(action: FolderListAction) {
         when (action) {
             is FolderListAction.OnDismissOffer -> viewModelScope.launch {
-                repository.dismissPendingFolder(action.offer.folderId, DeviceId(action.offer.deviceId))
+                repository.declineFolderOffer(action.offer.folderId, action.offer.label, DeviceId(action.offer.deviceId))
+            }
+            // The Root opens the add flow; here the offer only leaves the declined list. If the user backs out
+            // of that flow the device simply offers the folder again.
+            is FolderListAction.OnAcceptDeclinedOffer -> viewModelScope.launch {
+                repository.restoreDeclinedFolder(action.offer.folderId, DeviceId(action.offer.deviceId))
             }
             FolderListAction.OnStartCore -> core.start()
             else -> Unit

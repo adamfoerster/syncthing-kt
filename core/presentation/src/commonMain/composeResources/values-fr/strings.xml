@@ -23,13 +23,13 @@
     <string name="weekday_saturday">samedi, %1$s</string>
     <string name="weekday_sunday">dimanche, %1$s</string>
 
-    <string name="core_starting_title">Démarrage de Syncthing…</string>
+    <string name="core_starting_title">Démarrage de MeshSync…</string>
     <string name="core_starting_body">Cela prend quelques secondes la première fois.</string>
     <string name="core_stopped_title">Synchronisation arrêtée</string>
-    <string name="core_stopped_body">Rien n’est envoyé ni reçu tant que Syncthing est arrêté.</string>
+    <string name="core_stopped_body">Rien n’est envoyé ni reçu tant que MeshSync est arrêté.</string>
     <string name="core_start">Démarrer</string>
     <string name="core_permission_title">Autorisez l’accès aux fichiers</string>
-    <string name="core_permission_body">Syncthing a besoin d’accéder à tous les fichiers pour synchroniser vos dossiers et résoudre les conflits.</string>
+    <string name="core_permission_body">MeshSync a besoin d’accéder à tous les fichiers pour synchroniser vos dossiers et résoudre les conflits.</string>
     <string name="core_grant_access">Autoriser l’accès</string>
     <string name="core_binary_missing_title">Noyau Syncthing manquant</string>
     <string name="core_binary_missing_body">Cette version de l’application a été générée sans le binaire de Syncthing. Compilez avec ./gradlew :syncthing-native:buildNative puis générez à nouveau l’application.</string>

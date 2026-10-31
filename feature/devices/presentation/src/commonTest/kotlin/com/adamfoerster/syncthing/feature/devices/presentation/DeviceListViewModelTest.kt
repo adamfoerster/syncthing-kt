@@ -164,6 +164,8 @@ class DeviceListViewModelTest {
         override suspend fun setFolderDevices(folderId: String, devices: List<DeviceId>): EmptyResult<DataError.Remote> = unused()
         override suspend fun setFolderPaused(folderId: String, paused: Boolean): EmptyResult<DataError.Remote> = unused()
         override suspend fun dismissPendingFolder(folderId: String, device: DeviceId): EmptyResult<DataError.Remote> = unused()
+        override suspend fun declineFolderOffer(folderId: String, label: String, device: DeviceId) = unused()
+        override suspend fun restoreDeclinedFolder(folderId: String, device: DeviceId) = unused()
         override suspend fun setMyName(name: String): EmptyResult<DataError.Remote> = unused()
         override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> = unused()
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> = unused()

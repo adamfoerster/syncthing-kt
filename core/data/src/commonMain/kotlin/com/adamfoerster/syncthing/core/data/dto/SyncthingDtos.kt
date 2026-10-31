@@ -41,6 +41,15 @@ data class DeviceConfigDto(
     @SerialName("deviceID") val deviceId: String,
     val name: String = "",
     val paused: Boolean = false,
+    val ignoredFolders: List<IgnoredFolderDto> = emptyList(),
+)
+
+/** A folder offer declined on this device (`ignoredFolders` in the device config). */
+@Serializable
+data class IgnoredFolderDto(
+    val id: String,
+    val label: String = "",
+    val time: String? = null,
 )
 
 /** Reply of `GET /rest/db/ignores`; `ignore` is null when the folder has no `.stignore`. */
