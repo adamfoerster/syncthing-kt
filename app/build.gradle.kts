@@ -8,6 +8,7 @@ kotlin {
             implementation(projects.core.data)
             implementation(projects.feature.conflicts.data)
             implementation(projects.feature.conflicts.presentation)
+            implementation(projects.feature.onboarding.presentation)
             implementation(projects.feature.home.presentation)
             implementation(projects.feature.sharing.presentation)
             implementation(projects.feature.folders.presentation)

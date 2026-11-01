@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Καλώς ήρθατε</string>
+    <string name="onboarding_skip">Παράλειψη</string>
+    <string name="onboarding_next">Επόμενο</string>
+    <string name="onboarding_back">Πίσω</string>
+    <string name="onboarding_page_count">%1$d από %2$d</string>
+    <string name="onboarding_p1_title">Τα αρχεία σας, πάντα ίδια</string>
+    <string name="onboarding_p1_body">Το MeshSync κρατά τον ίδιο φάκελο πανομοιότυπο στις συσκευές σας — κινητό, υπολογιστή, tablet. Αλλάζετε ένα αρχείο στη μία και εμφανίζεται στις άλλες.</string>
+    <string name="onboarding_p2_title">Χωρίς cloud ενδιάμεσα</string>
+    <string name="onboarding_p2_body">Οι συσκευές σας μιλούν απευθείας μεταξύ τους: χωρίς λογαριασμό και χωρίς διακομιστή εταιρείας που φυλάει τα αρχεία σας. Κάθε συσκευή έχει έναν κωδικό· για να ζευγαρώσετε δύο συσκευές ανταλλάσσετε τους κωδικούς.</string>
+    <string name="onboarding_p3_title">Εσείς ελέγχετε</string>
+    <string name="onboarding_p3_body">Εσείς επιλέγετε ποιους φακέλους θα μοιραστείτε και με ποιες συσκευές. Τίποτα δεν φεύγει από αυτό το κινητό χωρίς εσάς, και τα αρχεία που αντικαθίστανται φυλάσσονται σε αντίγραφο ασφαλείας.</string>
+    <string name="onboarding_choice_title">Τι θέλετε να κάνετε πρώτα;</string>
+    <string name="onboarding_choice_body">Μπορείτε να το αλλάξετε αργότερα.</string>
+    <string name="onboarding_choice_share">Κοινή χρήση φακέλου από αυτή τη συσκευή</string>
+    <string name="onboarding_choice_share_hint">Επιλέξτε έναν φάκελο από εδώ και στείλτε τον σε άλλη συσκευή.</string>
+    <string name="onboarding_choice_receive">Λήψη φακέλου από άλλη συσκευή</string>
+    <string name="onboarding_choice_receive_hint">Συνδεθείτε στη συσκευή που έχει τα αρχεία και αποδεχτείτε τον φάκελό της.</string>
+    <string name="onboarding_choice_later">Απόφαση αργότερα</string>
+</resources>

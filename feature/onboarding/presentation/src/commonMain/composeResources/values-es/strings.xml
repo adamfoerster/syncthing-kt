@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Bienvenida</string>
+    <string name="onboarding_skip">Omitir</string>
+    <string name="onboarding_next">Siguiente</string>
+    <string name="onboarding_back">Atrás</string>
+    <string name="onboarding_page_count">%1$d de %2$d</string>
+    <string name="onboarding_p1_title">Tus archivos, siempre iguales</string>
+    <string name="onboarding_p1_body">MeshSync mantiene la misma carpeta idéntica en tus dispositivos: móvil, ordenador, tableta. Cambias un archivo en uno y aparece en los demás.</string>
+    <string name="onboarding_p2_title">Sin nube de por medio</string>
+    <string name="onboarding_p2_body">Tus dispositivos hablan directamente entre sí, sin cuenta ni servidor de ninguna empresa con tus archivos. Cada dispositivo tiene un código; para emparejar dos, intercambias esos códigos.</string>
+    <string name="onboarding_p3_title">Tú tienes el control</string>
+    <string name="onboarding_p3_body">Tú eliges qué carpetas compartir y con qué dispositivos. Nada sale de este móvil sin que lo digas, y los archivos reemplazados se guardan en una copia de seguridad.</string>
+    <string name="onboarding_choice_title">¿Qué quieres hacer primero?</string>
+    <string name="onboarding_choice_body">Puedes cambiarlo más tarde.</string>
+    <string name="onboarding_choice_share">Compartir una carpeta de este dispositivo</string>
+    <string name="onboarding_choice_share_hint">Elige una carpeta de aquí y envíala a otro dispositivo.</string>
+    <string name="onboarding_choice_receive">Recibir una carpeta de otro dispositivo</string>
+    <string name="onboarding_choice_receive_hint">Conéctate al dispositivo que tiene los archivos y acepta su carpeta.</string>
+    <string name="onboarding_choice_later">Decidir más tarde</string>
+</resources>

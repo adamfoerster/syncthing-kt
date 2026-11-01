@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Boas-vindas</string>
+    <string name="onboarding_skip">Pular</string>
+    <string name="onboarding_next">Avançar</string>
+    <string name="onboarding_back">Voltar</string>
+    <string name="onboarding_page_count">%1$d de %2$d</string>
+    <string name="onboarding_p1_title">Seus arquivos, sempre iguais</string>
+    <string name="onboarding_p1_body">O MeshSync mantém a mesma pasta idêntica nos seus aparelhos — celular, computador, tablet. Mudou um arquivo em um, ele aparece nos outros.</string>
+    <string name="onboarding_p2_title">Sem nuvem no meio</string>
+    <string name="onboarding_p2_body">Seus aparelhos conversam direto entre si: não há conta nem servidor de empresa guardando seus arquivos. Cada aparelho tem um código; para parear dois aparelhos, você troca esses códigos.</string>
+    <string name="onboarding_p3_title">Você no controle</string>
+    <string name="onboarding_p3_body">Você escolhe quais pastas compartilhar e com quais aparelhos. Nada sai deste celular sem você mandar, e arquivos substituídos ficam guardados em uma cópia de segurança.</string>
+    <string name="onboarding_choice_title">O que você quer fazer primeiro?</string>
+    <string name="onboarding_choice_body">Você pode mudar isso depois.</string>
+    <string name="onboarding_choice_share">Compartilhar uma pasta deste aparelho</string>
+    <string name="onboarding_choice_share_hint">Escolha uma pasta daqui e envie para outro aparelho.</string>
+    <string name="onboarding_choice_receive">Pegar uma pasta de outro aparelho</string>
+    <string name="onboarding_choice_receive_hint">Conecte-se ao aparelho que tem os arquivos e aceite a pasta dele.</string>
+    <string name="onboarding_choice_later">Decidir depois</string>
+</resources>

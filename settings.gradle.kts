@@ -39,6 +39,7 @@ include(":core:data")
 include(":core:presentation")
 include(":core:design-system")
 
+include(":feature:onboarding:presentation")
 include(":feature:home:presentation")
 include(":feature:sharing:presentation")
 include(":feature:folders:presentation")

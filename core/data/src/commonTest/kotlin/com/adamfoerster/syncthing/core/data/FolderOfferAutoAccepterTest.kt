@@ -77,6 +77,8 @@ class FolderOfferAutoAccepterTest {
         override val themeMode = MutableStateFlow(ThemeMode.System)
         override fun setLanguageTag(tag: String?) { languageTag.value = tag }
         override fun setThemeMode(mode: ThemeMode) { themeMode.value = mode }
+        override val onboardingCompleted = MutableStateFlow(false)
+        override fun setOnboardingCompleted(completed: Boolean) { onboardingCompleted.value = completed }
     }
 
     private fun TestScope.accepter(repository: FakeRepository, preferences: AppPreferences) =

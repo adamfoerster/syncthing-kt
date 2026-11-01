@@ -18,6 +18,9 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
 
     private val _themeMode = MutableStateFlow(ThemeMode.fromStored(prefs.getString(KEY_THEME, null)))
 
+    private val _onboardingCompleted = MutableStateFlow(prefs.getBoolean(KEY_ONBOARDING, false))
+
+    override val onboardingCompleted: StateFlow<Boolean> = _onboardingCompleted
     override val autoAcceptKnownFolders: StateFlow<Boolean> = _autoAccept
     override val languageTag: StateFlow<String?> = _languageTag
     override val themeMode: StateFlow<ThemeMode> = _themeMode
@@ -37,10 +40,16 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
         _themeMode.value = mode
     }
 
+    override fun setOnboardingCompleted(completed: Boolean) {
+        prefs.edit().putBoolean(KEY_ONBOARDING, completed).apply()
+        _onboardingCompleted.value = completed
+    }
+
     companion object {
         private const val FILE = "app_preferences"
         private const val KEY_THEME = "theme_mode"
         private const val KEY_AUTO_ACCEPT = "auto_accept_known_folders"
+        private const val KEY_ONBOARDING = "onboarding_completed"
         private const val KEY_LANGUAGE = "language_tag"
 
         /** The language the user picked in Settings, or null to follow the device. */

@@ -58,7 +58,8 @@ abstract class BuildSyncthingTask @Inject constructor(private val exec: ExecOper
                 workingDir(src)
                 environment("CGO_ENABLED", "1")
                 // Needed by the network-interface workaround Syncthing uses on Android (wlynxg/anet).
-                environment("EXTRA_LDFLAGS", "-checklinkname=0")
+                // The extldflags aligns the ELF segments to 16 KB, which Android 15+ devices with 16 KB pages require.
+                environment("EXTRA_LDFLAGS", "-checklinkname=0 -extldflags=-Wl,-z,max-page-size=16384")
                 environment("BUILD_USER", "syncthing-kt")
                 environment("SOURCE_DATE_EPOCH", "0")
                 commandLine(

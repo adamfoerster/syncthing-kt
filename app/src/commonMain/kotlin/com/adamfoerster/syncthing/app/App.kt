@@ -5,6 +5,7 @@ import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -19,6 +20,7 @@ import com.adamfoerster.syncthing.app.navigation.DevicesRoute
 import com.adamfoerster.syncthing.app.navigation.FoldersRoute
 import com.adamfoerster.syncthing.app.navigation.HomeRoute
 import com.adamfoerster.syncthing.app.navigation.IgnoreRoute
+import com.adamfoerster.syncthing.app.navigation.OnboardingRoute
 import com.adamfoerster.syncthing.app.navigation.SettingsRoute
 import com.adamfoerster.syncthing.app.navigation.SharingRoute
 import com.adamfoerster.syncthing.app.resources.Res
@@ -30,6 +32,7 @@ import com.adamfoerster.syncthing.core.designsystem.components.NgTab
 import com.adamfoerster.syncthing.core.designsystem.components.NgTabBar
 import com.adamfoerster.syncthing.core.designsystem.icons.NgIcons
 import com.adamfoerster.syncthing.core.designsystem.theme.SyncthingTheme
+import com.adamfoerster.syncthing.core.domain.preferences.AppPreferences
 import com.adamfoerster.syncthing.core.domain.repository.SyncthingCore
 import com.adamfoerster.syncthing.core.presentation.LocalPlatformActions
 import com.adamfoerster.syncthing.core.presentation.PlatformActions
@@ -42,6 +45,8 @@ import com.adamfoerster.syncthing.feature.folders.presentation.add.FolderOffer
 import com.adamfoerster.syncthing.feature.folders.presentation.ignore.IgnoreRoot
 import com.adamfoerster.syncthing.feature.folders.presentation.list.FolderListRoot
 import com.adamfoerster.syncthing.feature.home.presentation.HomeRoot
+import com.adamfoerster.syncthing.feature.onboarding.presentation.OnboardingDestination
+import com.adamfoerster.syncthing.feature.onboarding.presentation.OnboardingRoot
 import com.adamfoerster.syncthing.feature.settings.presentation.SettingsRoot
 import com.adamfoerster.syncthing.feature.sharing.presentation.SharingRoot
 import org.jetbrains.compose.resources.stringResource
@@ -61,15 +66,28 @@ fun App(platformActions: PlatformActions, darkTheme: Boolean) {
 @Composable
 private fun AppNavHost(navController: NavHostController = rememberNavController()) {
     val core = koinInject<SyncthingCore>()
+    val preferences = koinInject<AppPreferences>()
+    // Read once: finishing the introduction must not swap the start destination under the running NavHost.
+    val startDestination: Any = remember { if (preferences.onboardingCompleted.value) HomeRoute else OnboardingRoute }
     val tabBar: @Composable () -> Unit = { MainTabBar(navController) }
 
     NavHost(
         navController = navController,
-        startDestination = HomeRoute,
+        startDestination = startDestination,
         // Tabs swap in place, like the mockups' bottom navigation.
         enterTransition = { EnterTransition.None },
         exitTransition = { ExitTransition.None },
     ) {
+        composable<OnboardingRoute> {
+            OnboardingRoot(onFinished = { destination ->
+                navController.navigate(HomeRoute) { popUpTo<OnboardingRoute> { inclusive = true } }
+                when (destination) {
+                    OnboardingDestination.Home -> Unit
+                    OnboardingDestination.ShareFolder -> navController.navigate(AddFolderRoute())
+                    OnboardingDestination.ReceiveFolder -> navController.navigate(AddDeviceRoute())
+                }
+            })
+        }
         composable<HomeRoute> {
             HomeRoot(
                 tabBar = tabBar,

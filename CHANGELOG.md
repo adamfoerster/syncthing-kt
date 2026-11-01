@@ -8,6 +8,24 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-10-31
+
+### Corrigido
+- Em aparelhos com páginas de memória de 16 KB (Android 15+), o app não mostra mais o aviso de
+  incompatibilidade: o núcleo de sincronização e a biblioteca gráfica agora são compilados com alinhamento de 16 KB.
+
+## [1.9.0] - 2026-10-31
+
+### Adicionado
+- Introdução na primeira abertura do app: três telas explicam em linguagem simples como o MeshSync funciona
+  e uma última pergunta se você quer compartilhar uma pasta deste aparelho, pegar uma pasta de outro aparelho
+  ou decidir depois. Dá para pular a qualquer momento e ela só aparece uma vez.
+
+## [1.8.1] - 2026-10-31
+
+### Alterado
+- O app ganhou o novo logotipo do MeshSync como ícone (inclusive o ícone monocromático do Android 13+).
+
 ## [1.8.0] - 2026-10-30
 
 ### Adicionado

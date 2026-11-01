@@ -73,6 +73,11 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.zxing.android.embedded)
 
+    // 1.0.1 (pulled in by Compose) ships libandroidx.graphics.path.so without 16 KB page alignment.
+    constraints {
+        implementation("androidx.graphics:graphics-path:1.1.0") { because("16 KB page-size aligned native library") }
+    }
+
     testImplementation(libs.junit)
     testImplementation(libs.assertk)
 }

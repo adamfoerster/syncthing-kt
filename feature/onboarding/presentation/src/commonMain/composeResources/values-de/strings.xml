@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Willkommen</string>
+    <string name="onboarding_skip">Überspringen</string>
+    <string name="onboarding_next">Weiter</string>
+    <string name="onboarding_back">Zurück</string>
+    <string name="onboarding_page_count">%1$d von %2$d</string>
+    <string name="onboarding_p1_title">Deine Dateien, immer gleich</string>
+    <string name="onboarding_p1_body">MeshSync hält denselben Ordner auf deinen Geräten identisch – Handy, Computer, Tablet. Änderst du eine Datei auf einem Gerät, erscheint sie auf den anderen.</string>
+    <string name="onboarding_p2_title">Keine Cloud dazwischen</string>
+    <string name="onboarding_p2_body">Deine Geräte sprechen direkt miteinander: kein Konto und kein Firmenserver, der deine Dateien speichert. Jedes Gerät hat einen Code; zum Koppeln tauschst du diese Codes aus.</string>
+    <string name="onboarding_p3_title">Du behältst die Kontrolle</string>
+    <string name="onboarding_p3_body">Du entscheidest, welche Ordner du mit welchen Geräten teilst. Nichts verlässt dieses Handy ohne dein Zutun, und ersetzte Dateien bleiben in einer Sicherungskopie erhalten.</string>
+    <string name="onboarding_choice_title">Was möchtest du zuerst tun?</string>
+    <string name="onboarding_choice_body">Du kannst das später ändern.</string>
+    <string name="onboarding_choice_share">Einen Ordner von diesem Gerät teilen</string>
+    <string name="onboarding_choice_share_hint">Wähle hier einen Ordner und sende ihn an ein anderes Gerät.</string>
+    <string name="onboarding_choice_receive">Einen Ordner von einem anderen Gerät holen</string>
+    <string name="onboarding_choice_receive_hint">Verbinde dich mit dem Gerät, das die Dateien hat, und nimm seinen Ordner an.</string>
+    <string name="onboarding_choice_later">Später entscheiden</string>
+</resources>

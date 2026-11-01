@@ -30,12 +30,13 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `build-logic` | Convention plugins (`syncthing.kmp.library`, `.compose`, `.feature`) |
 | `core:domain` | Models, `Result`/`DataError`, the `SyncthingRepository`, `SyncthingCore` and `ConflictSummary` contracts |
 | `core:data` | Ktor REST API client, DTOs, repository with long-polling on `/rest/events` |
-| `core:design-system` | Tokens, fonts (Chakra Petch, IBM Plex), chamfered corners, icons and components |
+| `core:design-system` | Tokens, fonts (Chakra Petch, IBM Plex), chamfered corners, icons and components; MeshSync logo as the app icon (`androidApp/res/drawable/ic_launcher_*`) |
 | `core:presentation` | `UiText`, formatters, `ObserveAsEvents`, `PlatformActions`, core status callout |
 | `feature:home` | Home: status and device map |
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
 | `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR |
+| `feature:onboarding` | First-run introduction (explains the app and asks whether to share or fetch a folder) |
 | `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |
@@ -99,6 +100,13 @@ in `core:data` applies it and is started by `SyncthingApplication`. Preferences 
 `SyncthingRepository.declineFolderOffer`), so it does not come back when the device reconnects. The Folders tab lists
 them under **Declined offers** (`SyncOverview.declinedFolders`); **Accept** calls `restoreDeclinedFolder` and opens the
 usual accept-folder flow.
+
+## Introduction (onboarding)
+
+On first launch the app shows three short screens explaining how it works and a final question: share a folder from
+this device (opens *Add folder*), get a folder from another device (opens *Add device*) or decide later. Finishing or
+tapping "Skip" stores `AppPreferences.onboardingCompleted`, so it never returns. The current page survives process
+death through `SavedStateHandle`.
 
 ## Light and dark theme
 

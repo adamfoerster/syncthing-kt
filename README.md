@@ -30,12 +30,13 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `build-logic` | Convention plugins (`syncthing.kmp.library`, `.compose`, `.feature`) |
 | `core:domain` | Modelos, `Result`/`DataError`, contratos `SyncthingRepository`, `SyncthingCore`, `ConflictSummary` |
 | `core:data` | Cliente Ktor da REST API, DTOs, repositório com long-poll em `/rest/events` |
-| `core:design-system` | Tokens, fontes (Chakra Petch, IBM Plex), cantos chanfrados, ícones e componentes |
+| `core:design-system` | Tokens, fontes (Chakra Petch, IBM Plex), cantos chanfrados, ícones e componentes; logotipo MeshSync no ícone do app (`androidApp/res/drawable/ic_launcher_*`) |
 | `core:presentation` | `UiText`, formatadores, `ObserveAsEvents`, `PlatformActions`, aviso de estado do núcleo |
 | `feature:home` | Início: status e mapa de aparelhos |
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
 | `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR |
+| `feature:onboarding` | Introdução da primeira abertura (explica o app e pergunta se compartilha ou pega uma pasta) |
 | `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |
@@ -99,6 +100,13 @@ aparelhos desconhecidos ou de pastas Somente enviar/receber continuam pedindo su
 `SyncthingRepository.declineFolderOffer`), então ela não reaparece quando o aparelho reconecta. A aba Pastas lista
 essas ofertas em **Ofertas recusadas** (`SyncOverview.declinedFolders`); **Aceitar** chama `restoreDeclinedFolder` e abre
 o mesmo fluxo de aceitar pasta.
+
+## Introdução (onboarding)
+
+Na primeira abertura o app mostra três telas curtas explicando como funciona e uma pergunta final: compartilhar uma
+pasta deste aparelho (abre *Adicionar pasta*), pegar uma pasta de outro aparelho (abre *Adicionar aparelho*) ou decidir
+depois. O fim ou o "Pular" grava `AppPreferences.onboardingCompleted`, então ela não volta. A página atual sobrevive a
+morte de processo via `SavedStateHandle`.
 
 ## Tema claro e escuro
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Bienvenue</string>
+    <string name="onboarding_skip">Passer</string>
+    <string name="onboarding_next">Suivant</string>
+    <string name="onboarding_back">Retour</string>
+    <string name="onboarding_page_count">%1$d sur %2$d</string>
+    <string name="onboarding_p1_title">Vos fichiers, toujours identiques</string>
+    <string name="onboarding_p1_body">MeshSync garde le même dossier identique sur vos appareils : téléphone, ordinateur, tablette. Vous modifiez un fichier sur l’un, il apparaît sur les autres.</string>
+    <string name="onboarding_p2_title">Pas de cloud au milieu</string>
+    <string name="onboarding_p2_body">Vos appareils communiquent directement entre eux : pas de compte ni de serveur d’entreprise qui garde vos fichiers. Chaque appareil a un code ; pour associer deux appareils, vous échangez ces codes.</string>
+    <string name="onboarding_p3_title">Vous gardez la main</string>
+    <string name="onboarding_p3_body">Vous choisissez quels dossiers partager et avec quels appareils. Rien ne quitte ce téléphone sans votre accord, et les fichiers remplacés sont conservés dans une copie de sécurité.</string>
+    <string name="onboarding_choice_title">Que voulez-vous faire en premier ?</string>
+    <string name="onboarding_choice_body">Vous pourrez changer plus tard.</string>
+    <string name="onboarding_choice_share">Partager un dossier de cet appareil</string>
+    <string name="onboarding_choice_share_hint">Choisissez un dossier ici et envoyez-le à un autre appareil.</string>
+    <string name="onboarding_choice_receive">Récupérer un dossier d’un autre appareil</string>
+    <string name="onboarding_choice_receive_hint">Connectez-vous à l’appareil qui a les fichiers et acceptez son dossier.</string>
+    <string name="onboarding_choice_later">Décider plus tard</string>
+</resources>

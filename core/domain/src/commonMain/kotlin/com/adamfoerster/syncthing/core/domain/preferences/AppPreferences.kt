@@ -13,9 +13,13 @@ interface AppPreferences {
     /** Light/dark choice; [ThemeMode.System] follows the device. */
     val themeMode: StateFlow<ThemeMode>
 
+    /** Whether the first-run introduction was finished or skipped; it is shown only until then. */
+    val onboardingCompleted: StateFlow<Boolean>
+
     fun setAutoAcceptKnownFolders(enabled: Boolean)
     fun setLanguageTag(tag: String?)
     fun setThemeMode(mode: ThemeMode)
+    fun setOnboardingCompleted(completed: Boolean)
 
     companion object {
         const val DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS = true

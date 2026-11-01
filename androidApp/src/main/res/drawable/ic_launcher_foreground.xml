@@ -1,22 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Three linked nodes in the Neon Grid style (not the Syncthing trademark logo). -->
+<!-- MeshSync mark (96-unit logo scaled into the 66dp adaptive-icon safe zone). -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path
-        android:pathData="M54,40 L38,66 M54,40 L70,66 M38,66 L70,66"
-        android:strokeWidth="3"
-        android:strokeColor="#FF00F0FF"
-        android:strokeLineCap="square" />
-    <path
-        android:fillColor="#FF00F0FF"
-        android:pathData="M47,33h11l3,3v11h-14z" />
-    <path
-        android:fillColor="#FF00F0FF"
-        android:pathData="M31,59h11l3,3v11h-14z" />
-    <path
-        android:fillColor="#FFFCEE0A"
-        android:pathData="M63,59h11l3,3v11h-14z" />
+    <group android:scaleX="0.6875" android:scaleY="0.6875" android:translateX="21" android:translateY="21">
+        <path
+            android:pathData="M14,80L48,56L82,80"
+            android:strokeWidth="2.5"
+            android:strokeAlpha="0.55"
+            android:strokeColor="#FF00F0FF"
+            android:strokeLineCap="square" />
+        <path
+            android:pathData="M14,80V16L48,56L82,16V80"
+            android:strokeWidth="6"
+            android:strokeColor="#FF00F0FF"
+            android:strokeLineCap="square" />
+        <path
+            android:fillColor="#FF080A0F"
+            android:pathData="M6,8h16v16h-16z"
+            android:strokeWidth="5"
+            android:strokeColor="#FF00F0FF" />
+        <path
+            android:fillColor="#FF080A0F"
+            android:pathData="M6,72h16v16h-16z"
+            android:strokeWidth="5"
+            android:strokeColor="#FF00F0FF" />
+        <path
+            android:fillColor="#FF080A0F"
+            android:pathData="M74,8h16v16h-16z"
+            android:strokeWidth="5"
+            android:strokeColor="#FF00F0FF" />
+        <path
+            android:fillColor="#FF080A0F"
+            android:pathData="M74,72h16v16h-16z"
+            android:strokeWidth="5"
+            android:strokeColor="#FF00F0FF" />
+        <path
+            android:fillColor="#FF080A0F"
+            android:pathData="M40,48h16v16h-16z"
+            android:strokeWidth="5"
+            android:strokeColor="#FFFCEE0A" />
+    </group>
 </vector>

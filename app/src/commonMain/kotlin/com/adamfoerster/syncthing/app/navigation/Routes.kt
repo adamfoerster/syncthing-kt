@@ -2,6 +2,10 @@ package com.adamfoerster.syncthing.app.navigation
 
 import kotlinx.serialization.Serializable
 
+/** First-run introduction; shown once, before the tabs. */
+@Serializable
+data object OnboardingRoute
+
 @Serializable
 data object HomeRoute
 

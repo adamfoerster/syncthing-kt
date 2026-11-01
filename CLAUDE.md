@@ -61,6 +61,8 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
 - Preferências do app (`AppPreferences` em `core:domain`, SharedPreferences no `androidApp`): aceite automático de
   ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`), `ThemeMode` (sistema/claro/escuro; `SyncthingTheme(darkTheme)` escolhe `NgColors.Light` ou `NgColors.Dark`, resolvido no `MainActivity`) e idioma que sobrescreve o do
   aparelho (aplicado em `MainActivity.attachBaseContext`).
+- Onboarding (`feature:onboarding`): `OnboardingRoute` é o destino inicial até `AppPreferences.onboardingCompleted`; ao terminar
+  navega para Home e, conforme a escolha, abre `AddFolderRoute` ou `AddDeviceRoute`.
 - Conflitos: detecção e resolução são operações de arquivo (Okio) em `feature:conflicts:data`; nada é apagado,
   versões substituídas vão para `.stversions/`. Preserve essa garantia.
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_title">Welcome</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_back">Back</string>
+    <string name="onboarding_page_count">%1$d of %2$d</string>
+    <string name="onboarding_p1_title">Your files, in sync</string>
+    <string name="onboarding_p1_body">MeshSync keeps the same folder identical on your devices — phone, computer, tablet. Change a file on one and it shows up on the others.</string>
+    <string name="onboarding_p2_title">No cloud in the middle</string>
+    <string name="onboarding_p2_body">Your devices talk straight to each other, so there is no account and no company server holding your files. Each device has its own code; you pair two devices by sharing that code.</string>
+    <string name="onboarding_p3_title">You are in control</string>
+    <string name="onboarding_p3_body">You choose which folders to share and with which devices. Nothing leaves this phone until you say so, and replaced files are kept in a safe copy.</string>
+    <string name="onboarding_choice_title">What do you want to do first?</string>
+    <string name="onboarding_choice_body">You can always change this later.</string>
+    <string name="onboarding_choice_share">Share a folder from this device</string>
+    <string name="onboarding_choice_share_hint">Pick a folder here and send it to another device.</string>
+    <string name="onboarding_choice_receive">Get a folder from another device</string>
+    <string name="onboarding_choice_receive_hint">Connect to the device that has the files and accept its folder.</string>
+    <string name="onboarding_choice_later">Decide later</string>
+</resources>
