@@ -1,5 +1,5 @@
-import com.adamfoerster.syncthing.buildlogic.lib
-import com.adamfoerster.syncthing.buildlogic.libs
+import com.adamfoerster.meshsync.buildlogic.lib
+import com.adamfoerster.meshsync.buildlogic.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure

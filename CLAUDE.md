@@ -37,7 +37,7 @@ Uma alteração = um bump. Vários ajustes na mesma tarefa entram numa única ve
 ./gradlew :syncthing-native:buildNative -Pabis=arm64-v8a,x86_64   # núcleo Go (precisa de Go + NDK)
 ```
 
-Modo demo (debug, sem núcleo): `adb shell run-as com.adamfoerster.syncthing.debug touch files/demo`
+Modo demo (debug, sem núcleo): `adb shell run-as com.adamfoerster.meshsync.debug touch files/demo`
 e reabra o app. Use o emulador para testes manuais, não o aparelho físico do usuário.
 
 ## Arquitetura

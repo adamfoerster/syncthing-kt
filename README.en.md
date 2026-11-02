@@ -128,12 +128,16 @@ and declares the languages in `res/xml/locales_config.xml` (Android 13+ per-app 
 To add a language: create `values-<language>` in every module, add it to `locales_config.xml`,
 to `localeFilters` (`androidApp/build.gradle.kts`) and to the list in `TranslationsTest`.
 
-## Play Store screenshots
+## Play Store listing
 
-`store-screenshots/<language>/` holds the images (1080×2160, 2:1 ratio). To redo them: emulator with
-`wm size 1080x2160`, install the debug build, enable demo mode, set the language with
-`adb shell cmd locale set-app-locales com.adamfoerster.syncthing.debug --locales en-US` and capture with
-`adb exec-out screencap -p`. Only `en/` exists today.
+`store-listing/<locale>/` (`en-US`, `pt-BR`) holds `title.txt`, `short-description.txt` (≤ 80 characters) and
+`full-description.txt` (≤ 4000); `store-listing/feature-graphic.png` is the feature graphic (1024×500) and `app-icon.png` (+ `.svg`) the 512×512 icon, square with no rounded corners (Play applies the mask).
+
+`store-screenshots/en/{phone,tablet-7,tablet-10}/` holds the 8 screenshots of each format (dark mode):
+phone 1080×2160, 7" tablet 1200×1920 and 10" tablet 1600×2560. To redo them: emulator with the format's
+`wm size` and `wm density 320`/`420`, `adb shell cmd uimode night yes`, install the debug build, enable demo mode,
+set the language with `adb shell cmd locale set-app-locales com.adamfoerster.meshsync.debug --locales en-US` and capture with
+`adb exec-out screencap -p`. Only `en/` exists for now.
 
 ## Building
 
@@ -150,13 +154,25 @@ The APK only really syncs with the embedded core. Build it once (needs git, Go a
 This clones Syncthing `v2.1.6` into `syncthing-native/go/` and writes `androidApp/src/main/jniLibs/<abi>/libsyncthing.so`
 (both outside git). Without the binary, the app shows "Syncthing core missing".
 
+### Release build (R8 + signing)
+
+The release build uses R8 (obfuscation, minification and `shrinkResources`; rules in `androidApp/proguard-rules.pro`).
+To sign it, point `meshsync.signing` (in `~/.gradle/gradle.properties`, never in the repo) at a `.properties` file with
+`storeFile`, `storePassword`, `keyAlias` and `keyPassword`; without it the APK is left unsigned.
+Upload `mapping.txt` (`androidApp/build/outputs/mapping/release/`) to Play/Amazon to deobfuscate crashes.
+
+```bash
+./gradlew :androidApp:bundleRelease   # AAB for Google Play
+./gradlew :androidApp:assembleRelease # APK (Amazon Appstore)
+```
+
 ### Demo mode (debug only)
 
 To see the interface without the core: create the flag file and reopen the app. The REST API is simulated, but the
 conflicts are real files in `Android/data/<app>/files/Documents`, so detection and resolution run for real.
 
 ```bash
-adb shell run-as com.adamfoerster.syncthing.debug touch files/demo
+adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 ```
 
 ## Tests

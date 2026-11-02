@@ -8,6 +8,17 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.9.3] - 2026-11-01
+
+### Alterado
+- O app publicado agora é ofuscado e reduzido (R8), ficando menor e mais difícil de descompilar.
+- O build de release pode ser assinado com a chave de publicação para Play Store e Amazon Appstore.
+
+## [1.9.2] - 2026-11-01
+
+### Alterado
+- O identificador do app passou a ser `com.adamfoerster.meshsync` (antes `com.adamfoerster.syncthing`). Por ser um novo ID, o Android o trata como um app diferente: instale-o como novo e reconfigure pastas e dispositivos.
+
 ## [1.9.1] - 2026-10-31
 
 ### Corrigido

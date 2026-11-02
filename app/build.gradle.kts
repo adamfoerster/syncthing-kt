@@ -20,5 +20,5 @@ kotlin {
 }
 
 compose.resources {
-    packageOfResClass = "com.adamfoerster.syncthing.app.resources"
+    packageOfResClass = "com.adamfoerster.meshsync.app.resources"
 }

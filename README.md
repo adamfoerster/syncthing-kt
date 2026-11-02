@@ -129,11 +129,15 @@ e declara os idiomas em `res/xml/locales_config.xml` (seletor de idioma por app 
 Para adicionar um idioma: crie o `values-<idioma>` em todos os módulos, inclua-o em `locales_config.xml`,
 em `localeFilters` (`androidApp/build.gradle.kts`) e na lista de `TranslationsTest`.
 
-## Screenshots da Play Store
+## Ficha da Play Store
 
-`store-screenshots/<idioma>/` guarda as imagens (1080×2160, proporção 2:1). Para refazê-las: emulador com
-`wm size 1080x2160`, instale o debug, ative o modo demo, defina o idioma com
-`adb shell cmd locale set-app-locales com.adamfoerster.syncthing.debug --locales en-US` e capture com
+`store-listing/<locale>/` (`en-US`, `pt-BR`) guarda `title.txt`, `short-description.txt` (≤ 80 caracteres) e
+`full-description.txt` (≤ 4000); `store-listing/feature-graphic.png` é o gráfico de destaque (1024×500) e `app-icon.png` (+ `.svg`) o ícone de 512×512, quadrado e sem cantos arredondados (a Play aplica a máscara).
+
+`store-screenshots/en/{phone,tablet-7,tablet-10}/` guarda as 8 capturas de cada formato (modo escuro):
+celular 1080×2160, tablet de 7" 1200×1920 e tablet de 10" 1600×2560. Para refazê-las: emulador com
+`wm size` e `wm density 320`/`420` do formato, `adb shell cmd uimode night yes`, instale o debug, ative o modo demo,
+defina o idioma com `adb shell cmd locale set-app-locales com.adamfoerster.meshsync.debug --locales en-US` e capture com
 `adb exec-out screencap -p`. Hoje só existe `en/`.
 
 ## Compilar
@@ -151,13 +155,25 @@ O APK só sincroniza de verdade com o núcleo embutido. Compile-o uma vez (preci
 Isso clona o Syncthing `v2.1.6` em `syncthing-native/go/` e grava `androidApp/src/main/jniLibs/<abi>/libsyncthing.so`
 (ambos fora do git). Sem o binário, o app mostra "Núcleo do Syncthing ausente".
 
+### Build de release (R8 + assinatura)
+
+O build de release usa R8 (ofuscação, minificação e `shrinkResources`; regras em `androidApp/proguard-rules.pro`).
+Para assiná-lo, aponte `meshsync.signing` (em `~/.gradle/gradle.properties`, nunca no repositório) para um `.properties`
+com `storeFile`, `storePassword`, `keyAlias` e `keyPassword`; sem isso o APK sai sem assinatura.
+Envie o `mapping.txt` (`androidApp/build/outputs/mapping/release/`) à Play Store/Amazon para desofuscar crashes.
+
+```bash
+./gradlew :androidApp:bundleRelease   # AAB para a Play Store
+./gradlew :androidApp:assembleRelease # APK (Amazon Appstore)
+```
+
 ### Modo demo (só debug)
 
 Para ver a interface sem o núcleo: crie o arquivo de flag e reabra o app. A REST é simulada, mas os
 conflitos são arquivos reais em `Android/data/<app>/files/Documents`, então detecção e resolução rodam de verdade.
 
 ```bash
-adb shell run-as com.adamfoerster.syncthing.debug touch files/demo
+adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 ```
 
 ## Testes

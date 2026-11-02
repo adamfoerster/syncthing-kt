@@ -12,7 +12,7 @@ kotlin {
 }
 
 compose.resources {
-    packageOfResClass = "com.adamfoerster.syncthing.feature.devices.presentation.resources"
+    packageOfResClass = "com.adamfoerster.meshsync.feature.devices.presentation.resources"
 }
 
 dependencies {

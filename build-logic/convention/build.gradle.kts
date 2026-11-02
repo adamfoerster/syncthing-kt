@@ -2,7 +2,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.adamfoerster.syncthing.buildlogic"
+group = "com.adamfoerster.meshsync.buildlogic"
 
 dependencies {
     compileOnly(libs.android.gradlePlugin)

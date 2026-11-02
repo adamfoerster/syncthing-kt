@@ -1,7 +1,7 @@
-import com.adamfoerster.syncthing.buildlogic.derivedNamespace
-import com.adamfoerster.syncthing.buildlogic.int
-import com.adamfoerster.syncthing.buildlogic.lib
-import com.adamfoerster.syncthing.buildlogic.libs
+import com.adamfoerster.meshsync.buildlogic.derivedNamespace
+import com.adamfoerster.meshsync.buildlogic.int
+import com.adamfoerster.meshsync.buildlogic.lib
+import com.adamfoerster.meshsync.buildlogic.libs
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryTarget
 import org.gradle.api.Plugin
 import org.gradle.api.Project

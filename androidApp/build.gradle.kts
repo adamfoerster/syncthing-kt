@@ -1,3 +1,6 @@
+import java.io.File
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
@@ -11,11 +14,11 @@ val appVersionCode: Int = appVersionName.split(".").map(String::toInt).let { (ma
 }
 
 android {
-    namespace = "com.adamfoerster.syncthing.android"
+    namespace = "com.adamfoerster.meshsync.android"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
-        applicationId = "com.adamfoerster.syncthing"
+        applicationId = "com.adamfoerster.meshsync"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = appVersionCode
@@ -31,9 +34,28 @@ android {
         compose = true
     }
 
+    // Release signing: point `meshsync.signing` (gradle.properties or -P) at a keystore .properties file kept
+    // outside the repo (storeFile, storePassword, keyAlias, keyPassword). Without it the release stays unsigned.
+    val signingProps = Properties().also { props ->
+        providers.gradleProperty("meshsync.signing").orNull
+            ?.let { File(it) }?.takeIf { it.isFile }
+            ?.reader()?.use { props.load(it) }
+    }
+    if (signingProps.isNotEmpty()) {
+        signingConfigs.create("release") {
+            storeFile = file(signingProps.getProperty("storeFile"))
+            storePassword = signingProps.getProperty("storePassword")
+            keyAlias = signingProps.getProperty("keyAlias")
+            keyPassword = signingProps.getProperty("keyPassword")
+        }
+    }
+
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfigs.findByName("release")?.let { signingConfig = it }
         }
         debug {
             applicationIdSuffix = ".debug"

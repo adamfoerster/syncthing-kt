@@ -16,5 +16,5 @@ kotlin {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "com.adamfoerster.syncthing.core.presentation.resources"
+    packageOfResClass = "com.adamfoerster.meshsync.core.presentation.resources"
 }

@@ -11,7 +11,7 @@ kotlin {
 }
 
 compose.resources {
-    packageOfResClass = "com.adamfoerster.syncthing.feature.folders.presentation.resources"
+    packageOfResClass = "com.adamfoerster.meshsync.feature.folders.presentation.resources"
 }
 
 dependencies {

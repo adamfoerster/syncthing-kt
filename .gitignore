@@ -13,3 +13,7 @@ captures
 # Syncthing core: compiled by :syncthing-native, never committed
 androidApp/src/main/jniLibs/
 syncthing-native/go/
+
+# Local signing config pointer
+keystore.properties
+*.jks
