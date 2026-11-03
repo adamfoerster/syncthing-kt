@@ -1,0 +1,1 @@
+syncthing,sincronizar,pastas,backup,p2p,privado,sem nuvem,criptografado,arquivos,código aberto

@@ -1,0 +1,1 @@
+syncthing,file sync,folder sync,p2p,backup,private,no cloud,encrypted,sync devices,open source

@@ -17,7 +17,7 @@ A tela inicial mostra o estado da sincronização e um mapa dos seus aparelhos. 
 CLARO, ESCURO E NO SEU IDIOMA
 Tema claro, escuro ou o do sistema. Disponível em português, inglês, espanhol, italiano, alemão, francês e grego, com troca de idioma dentro do app.
 
-PRIVADO POR PROJETO
+PRIVADO POR DESIGN
 Sem anúncios. Sem análises. Sem rastreamento. Sem conta. Não temos servidores e nunca vemos seus arquivos. Seus aparelhos se encontram pela rede pública de descoberta e relays do Syncthing, que só lida com IDs de aparelho e tráfego criptografado.
 
 BOM SABER

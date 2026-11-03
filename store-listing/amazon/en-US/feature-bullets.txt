@@ -1,0 +1,5 @@
+Sync folders directly between your devices: no cloud, no account, no ads
+Built-in conflict resolver: compare both versions, pick line by line or edit by hand
+Ignore files made easy: one-tap presets for temp files and junk, or advanced .stignore mode
+Private and secure: end-to-end encrypted, powered by the official Syncthing core
+Dark and light themes, QR device pairing, available in 7 languages

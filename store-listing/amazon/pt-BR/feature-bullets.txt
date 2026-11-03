@@ -1,0 +1,5 @@
+Sincronize pastas direto entre seus aparelhos: sem nuvem, sem conta, sem anúncios
+Resolva conflitos no app: compare as versões, escolha trecho a trecho ou edite à mão
+Arquivos ignorados sem complicação: atalhos de um toque ou modo avançado (.stignore)
+Privado e seguro: criptografia ponta a ponta com o núcleo oficial do Syncthing
+Tema claro e escuro, pareamento por QR code e interface em 7 idiomas
