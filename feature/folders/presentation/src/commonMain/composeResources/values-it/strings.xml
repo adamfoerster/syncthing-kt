@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">Es.: Foto della fotocamera</string>
     <string name="add_folder_path">Posizione sul telefono</string>
     <string name="add_folder_path_hint">La cartella viene creata se non esiste ancora.</string>
+    <string name="add_folder_choose">Scegli o crea cartella</string>
     <string name="add_folder_devices">Condividi con</string>
     <string name="add_folder_no_devices">Aggiungi prima un dispositivo per poter condividere.</string>
     <string name="add_folder_save">Salva cartella</string>

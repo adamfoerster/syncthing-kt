@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">π.χ. Φωτογραφίες κάμερας</string>
     <string name="add_folder_path">Τοποθεσία στο τηλέφωνο</string>
     <string name="add_folder_path_hint">Ο φάκελος δημιουργείται αν δεν υπάρχει ήδη.</string>
+    <string name="add_folder_choose">Επιλογή ή δημιουργία φακέλου</string>
     <string name="add_folder_devices">Κοινή χρήση με</string>
     <string name="add_folder_no_devices">Προσθέστε πρώτα μια συσκευή για να μπορείτε να μοιραστείτε.</string>
     <string name="add_folder_save">Αποθήκευση φακέλου</string>

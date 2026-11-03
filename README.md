@@ -109,6 +109,13 @@ pasta deste aparelho (abre *Adicionar pasta*), pegar uma pasta de outro aparelho
 depois. O fim ou o "Pular" grava `AppPreferences.onboardingCompleted`, então ela não volta. A página atual sobrevive a
 morte de processo via `SavedStateHandle`.
 
+## Escolher a pasta no celular
+
+Em *Adicionar pasta*, o botão **Escolher ou criar pasta** chama `PlatformActions.pickFolder`, que no Android abre o seletor de
+pastas do sistema (`OpenDocumentTree`, com opção de criar pasta). O ID do documento escolhido vira um caminho de arquivo
+(`documentIdToPath` em `core:presentation`: `primary:` → armazenamento interno, `XXXX-XXXX:` → cartão SD), já que o Syncthing
+trabalha com caminhos e o app tem acesso a todos os arquivos. O campo de texto continua editável.
+
 ## Tema claro e escuro
 
 O app tem duas paletas, `NgColors.Dark` e `NgColors.Light` (o claro escurece os acentos neon para ter contraste sobre

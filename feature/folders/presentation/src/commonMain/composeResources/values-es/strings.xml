@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">Ej.: Fotos de la cámara</string>
     <string name="add_folder_path">Ubicación en el teléfono</string>
     <string name="add_folder_path_hint">La carpeta se crea si aún no existe.</string>
+    <string name="add_folder_choose">Elegir o crear carpeta</string>
     <string name="add_folder_devices">Compartir con</string>
     <string name="add_folder_no_devices">Añade primero un dispositivo para poder compartir.</string>
     <string name="add_folder_save">Guardar carpeta</string>

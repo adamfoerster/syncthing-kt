@@ -39,6 +39,10 @@ sealed interface AddFolderAction {
     data object OnBackClick : AddFolderAction
     data class OnLabelChange(val value: String) : AddFolderAction
     data class OnPathChange(val value: String) : AddFolderAction
+    /** Opens the system folder chooser; handled by the Root because it needs the platform. */
+    data object OnChooseFolder : AddFolderAction
+    /** A folder chosen in the system chooser; also names the share when no name was typed yet. */
+    data class OnFolderPicked(val path: String) : AddFolderAction
     data class OnToggleDevice(val id: String) : AddFolderAction
     data object OnSave : AddFolderAction
 }
@@ -92,11 +96,19 @@ class AddFolderViewModel(
                 savedStateHandle[KEY_PATH] = action.value
                 _state.update { it.copy(path = action.value, error = null) }
             }
+            is AddFolderAction.OnFolderPicked -> {
+                pathEdited = true
+                savedStateHandle[KEY_PATH_EDITED] = true
+                savedStateHandle[KEY_PATH] = action.path
+                val label = _state.value.label.ifBlank { action.path.trimEnd('/').substringAfterLast('/') }
+                savedStateHandle[KEY_LABEL] = label
+                _state.update { it.copy(path = action.path, label = label, error = null) }
+            }
             is AddFolderAction.OnToggleDevice -> _state.update { s ->
                 s.copy(devices = s.devices.map { if (it.id == action.id) it.copy(checked = !it.checked) else it })
             }
             AddFolderAction.OnSave -> save()
-            AddFolderAction.OnBackClick -> Unit
+            AddFolderAction.OnBackClick, AddFolderAction.OnChooseFolder -> Unit
         }
     }
 

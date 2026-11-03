@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">E.g. Camera photos</string>
     <string name="add_folder_path">Location on the phone</string>
     <string name="add_folder_path_hint">The folder is created if it does not exist yet.</string>
+    <string name="add_folder_choose">Choose or create folder</string>
     <string name="add_folder_devices">Share with</string>
     <string name="add_folder_no_devices">Add a device first so you can share.</string>
     <string name="add_folder_save">Save folder</string>

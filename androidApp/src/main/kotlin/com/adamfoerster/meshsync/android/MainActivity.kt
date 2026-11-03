@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.provider.DocumentsContract
 import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
@@ -22,6 +23,7 @@ import com.adamfoerster.meshsync.android.core.AndroidSyncthingCore
 import com.adamfoerster.meshsync.app.App
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.presentation.PlatformActions
+import com.adamfoerster.meshsync.core.presentation.documentIdToPath
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
 import org.koin.android.ext.android.inject
@@ -39,6 +41,12 @@ class MainActivity : ComponentActivity() {
         pendingScan?.invoke(result.contents)
         pendingScan = null
     }
+    private var pendingFolder: ((String?) -> Unit)? = null
+    private val folderChooser = registerForActivityResult(ActivityResultContracts.OpenDocumentTree()) { uri ->
+        val path = uri?.let { runCatching { documentIdToPath(DocumentsContract.getTreeDocumentId(it), Environment.getExternalStorageDirectory().absolutePath) }.getOrNull() }
+        pendingFolder?.invoke(path)
+        pendingFolder = null
+    }
     private val legacyStorage = registerForActivityResult(ActivityResultContracts.RequestPermission()) { core.startIfWanted() }
     private val notifications = registerForActivityResult(ActivityResultContracts.RequestPermission()) { }
 
@@ -52,6 +60,11 @@ class MainActivity : ComponentActivity() {
                     .setBeepEnabled(false)
                     .setOrientationLocked(false),
             )
+        }
+
+        override fun pickFolder(onResult: (String?) -> Unit) {
+            pendingFolder = onResult
+            folderChooser.launch(null)
         }
 
         override fun requestStorageAccess() {

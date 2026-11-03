@@ -7,6 +7,9 @@ interface PlatformActions {
     /** Opens the camera QR scanner; [onResult] gets the scanned text, or null if cancelled. */
     fun scanQrCode(onResult: (String?) -> Unit)
 
+    /** Opens the system folder chooser (which can also create folders); [onResult] gets the chosen path, or null if cancelled. */
+    fun pickFolder(onResult: (String?) -> Unit)
+
     /** Sends the user to grant all-files access, which Syncthing needs for shared folders. */
     fun requestStorageAccess()
 
@@ -18,6 +21,7 @@ interface PlatformActions {
 
     object NoOp : PlatformActions {
         override fun scanQrCode(onResult: (String?) -> Unit) = onResult(null)
+        override fun pickFolder(onResult: (String?) -> Unit) = onResult(null)
         override fun requestStorageAccess() = Unit
         override fun hasStorageAccess(): Boolean = true
         override val defaultFolderRoot: String = "/storage/emulated/0"

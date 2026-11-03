@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">Ex. : Photos de l’appareil photo</string>
     <string name="add_folder_path">Emplacement sur le téléphone</string>
     <string name="add_folder_path_hint">Le dossier est créé s’il n’existe pas encore.</string>
+    <string name="add_folder_choose">Choisir ou créer un dossier</string>
     <string name="add_folder_devices">Partager avec</string>
     <string name="add_folder_no_devices">Ajoutez d’abord un appareil pour pouvoir partager.</string>
     <string name="add_folder_save">Enregistrer le dossier</string>

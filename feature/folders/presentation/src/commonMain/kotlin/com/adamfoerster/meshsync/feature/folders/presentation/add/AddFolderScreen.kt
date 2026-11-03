@@ -35,6 +35,7 @@ import com.adamfoerster.meshsync.core.presentation.ObserveAsEvents
 import com.adamfoerster.meshsync.core.presentation.initialOf
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.Res
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.add_folder_accept_title
+import com.adamfoerster.meshsync.feature.folders.presentation.resources.add_folder_choose
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.add_folder_devices
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.add_folder_invalid
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.add_folder_label
@@ -62,9 +63,16 @@ fun AddFolderRoot(
             AddFolderEvent.Saved -> onDone()
         }
     }
+    val platform = LocalPlatformActions.current
     AddFolderScreen(
         state = state,
-        onAction = { action -> if (action == AddFolderAction.OnBackClick) onDone() else viewModel.onAction(action) },
+        onAction = { action ->
+            when (action) {
+                AddFolderAction.OnBackClick -> onDone()
+                AddFolderAction.OnChooseFolder -> platform.pickFolder { path -> if (path != null) viewModel.onAction(AddFolderAction.OnFolderPicked(path)) }
+                else -> viewModel.onAction(action)
+            }
+        },
     )
 }
 
@@ -111,6 +119,12 @@ fun AddFolderScreen(
             label = stringResource(Res.string.add_folder_path),
             supportingText = stringResource(Res.string.add_folder_path_hint),
             textStyle = NgTheme.type.mono14,
+        )
+        NgButton(
+            stringResource(Res.string.add_folder_choose),
+            onClick = { onAction(AddFolderAction.OnChooseFolder) },
+            icon = NgIcons.Folder,
+            modifier = Modifier.fillMaxWidth(),
         )
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             NgSectionLabel(stringResource(Res.string.add_folder_devices))

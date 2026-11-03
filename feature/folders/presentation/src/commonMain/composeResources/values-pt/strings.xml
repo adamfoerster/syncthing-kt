@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">Ex.: Fotos da câmera</string>
     <string name="add_folder_path">Local no celular</string>
     <string name="add_folder_path_hint">A pasta é criada se ainda não existir.</string>
+    <string name="add_folder_choose">Escolher ou criar pasta</string>
     <string name="add_folder_devices">Compartilhar com</string>
     <string name="add_folder_no_devices">Adicione um aparelho primeiro para poder compartilhar.</string>
     <string name="add_folder_save">Salvar pasta</string>

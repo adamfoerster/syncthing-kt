@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.11.0] - 2026-11-03
+
+### Adicionado
+- Ao adicionar uma pasta, o botão **Escolher ou criar pasta** abre o seletor de pastas do sistema, onde você também pode criar uma pasta nova. O local escolhido preenche o campo automaticamente, e o nome da pasta vira o nome do compartilhamento se você ainda não digitou um.
+
 ## [1.10.0] - 2026-11-03
 
 ### Adicionado

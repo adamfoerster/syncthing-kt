@@ -109,6 +109,13 @@ this device (opens *Add folder*), get a folder from another device (opens *Add d
 tapping "Skip" stores `AppPreferences.onboardingCompleted`, so it never returns. The current page survives process
 death through `SavedStateHandle`.
 
+## Choosing the folder on the phone
+
+In *Add folder*, the **Choose or create folder** button calls `PlatformActions.pickFolder`, which on Android opens the system
+folder chooser (`OpenDocumentTree`, with a create-folder option). The chosen document ID becomes a file path
+(`documentIdToPath` in `core:presentation`: `primary:` → internal storage, `XXXX-XXXX:` → SD card), since Syncthing works with
+paths and the app holds all-files access. The text field stays editable.
+
 ## Light and dark theme
 
 The app has two palettes, `NgColors.Dark` and `NgColors.Light` (the light one darkens the neon accents so they have

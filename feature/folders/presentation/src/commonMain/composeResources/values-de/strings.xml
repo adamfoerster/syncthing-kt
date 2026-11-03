@@ -36,6 +36,7 @@
     <string name="add_folder_label_placeholder">z. B. Kamerafotos</string>
     <string name="add_folder_path">Speicherort auf dem Telefon</string>
     <string name="add_folder_path_hint">Der Ordner wird erstellt, falls er noch nicht existiert.</string>
+    <string name="add_folder_choose">Ordner wählen oder erstellen</string>
     <string name="add_folder_devices">Teilen mit</string>
     <string name="add_folder_no_devices">Fügen Sie zuerst ein Gerät hinzu, um teilen zu können.</string>
     <string name="add_folder_save">Ordner speichern</string>
