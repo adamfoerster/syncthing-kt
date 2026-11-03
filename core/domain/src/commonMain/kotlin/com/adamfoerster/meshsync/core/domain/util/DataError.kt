@@ -18,6 +18,15 @@ sealed interface DataError : Error {
         /** A file changed on disk after it was read, so writing would lose that change. */
         FILE_CHANGED,
         IO,
+
+        /** A file or folder name that is empty or contains a path separator. */
+        INVALID_NAME,
+
+        /** Something with that name already exists, so it was not overwritten. */
+        ALREADY_EXISTS,
+
+        /** A folder cannot be copied or moved into itself. */
+        INTO_ITSELF,
         UNKNOWN,
     }
 }

@@ -44,4 +44,7 @@
     <string name="error_permission">No permission to access the file. Allow access to all files.</string>
     <string name="error_file_changed">The file changed while you were deciding. Open the conflict again to see the current version.</string>
     <string name="error_io">Could not read or write the file.</string>
+    <string name="error_invalid_name">That name can’t be used. Type a name without slashes.</string>
+    <string name="error_already_exists">Something with that name already exists.</string>
+    <string name="error_into_itself">A folder can’t be copied or moved into itself.</string>
 </resources>

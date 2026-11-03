@@ -41,6 +41,8 @@ data class FolderOfferUi(
 sealed interface FolderListAction {
     data class OnFolderClick(val id: String, val hasConflicts: Boolean) : FolderListAction
     data object OnAddClick : FolderListAction
+    /** Opens the file manager; handled by the Root because it navigates. */
+    data object OnBrowseFilesClick : FolderListAction
     data class OnIgnoreClick(val id: String) : FolderListAction
     data class OnAcceptOffer(val offer: FolderOfferUi) : FolderListAction
     data class OnDismissOffer(val offer: FolderOfferUi) : FolderListAction

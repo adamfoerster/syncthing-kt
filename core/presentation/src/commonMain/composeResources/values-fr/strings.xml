@@ -44,4 +44,7 @@
     <string name="error_permission">Pas d’autorisation pour accéder au fichier. Autorisez l’accès à tous les fichiers.</string>
     <string name="error_file_changed">Le fichier a changé pendant que vous décidiez. Rouvrez le conflit pour voir la version actuelle.</string>
     <string name="error_io">Impossible de lire ou d’écrire le fichier.</string>
+    <string name="error_invalid_name">Ce nom ne peut pas être utilisé. Saisissez un nom sans barre oblique.</string>
+    <string name="error_already_exists">Un élément porte déjà ce nom.</string>
+    <string name="error_into_itself">Un dossier ne peut pas être copié ni déplacé dans lui-même.</string>
 </resources>

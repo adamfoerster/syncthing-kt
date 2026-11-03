@@ -3,7 +3,9 @@ package com.adamfoerster.meshsync.feature.devices.presentation.add
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
+import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
 import com.adamfoerster.meshsync.core.domain.util.Result
 import com.adamfoerster.meshsync.core.presentation.UiText
@@ -31,8 +33,11 @@ data class AddDeviceState(
     val folders: List<FolderChoiceUi> = emptyList(),
     val isSaving: Boolean = false,
     val error: UiText? = null,
+    /** Adding a device and showing our own code both need the core, so the flow says why it waits. */
+    val coreState: CoreState = CoreState.Running,
 ) {
     val parsedId: DeviceId? get() = DeviceId.parse(deviceIdInput)
+    val coreReady: Boolean get() = coreState == CoreState.Running
 }
 
 data class IncomingDeviceUi(val id: String, val name: String)
@@ -51,6 +56,7 @@ sealed interface AddDeviceAction {
     data class OnToggleFolder(val id: String) : AddDeviceAction
     data object OnFinish : AddDeviceAction
     data object OnSkipFolders : AddDeviceAction
+    data object OnStartCore : AddDeviceAction
 }
 
 sealed interface AddDeviceEvent {
@@ -63,6 +69,7 @@ class AddDeviceViewModel(
     prefillId: String?,
     prefillName: String?,
     private val repository: SyncthingRepository,
+    private val core: SyncthingCore,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
@@ -72,6 +79,7 @@ class AddDeviceViewModel(
                 ?: if (prefillId != null) AddStep.APPROVE else AddStep.SHOW_CODE,
             deviceIdInput = savedStateHandle[KEY_ID] ?: prefillId.orEmpty(),
             nameInput = savedStateHandle[KEY_NAME] ?: prefillName.orEmpty(),
+            coreState = core.state.value,
         ),
     )
     val state = _state.asStateFlow()
@@ -80,6 +88,7 @@ class AddDeviceViewModel(
     val events = _events.receiveAsFlow()
 
     init {
+        viewModelScope.launch { core.state.collect { c -> _state.update { it.copy(coreState = c) } } }
         viewModelScope.launch {
             repository.overview.filterNotNull().collect { overview ->
                 val known = overview.devices.map { it.id }.toSet()
@@ -122,6 +131,7 @@ class AddDeviceViewModel(
             }
             AddDeviceAction.OnFinish -> shareFolders()
             AddDeviceAction.OnSkipFolders -> viewModelScope.launch { _events.send(AddDeviceEvent.Done) }
+            AddDeviceAction.OnStartCore -> core.start()
             AddDeviceAction.OnBackClick -> Unit
         }
     }

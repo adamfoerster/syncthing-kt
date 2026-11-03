@@ -10,6 +10,9 @@ interface PlatformActions {
     /** Opens the system folder chooser (which can also create folders); [onResult] gets the chosen path, or null if cancelled. */
     fun pickFolder(onResult: (String?) -> Unit)
 
+    /** Opens the system share dialog for the files at [paths] (absolute). */
+    fun shareFiles(paths: List<String>)
+
     /** Sends the user to grant all-files access, which Syncthing needs for shared folders. */
     fun requestStorageAccess()
 
@@ -22,6 +25,7 @@ interface PlatformActions {
     object NoOp : PlatformActions {
         override fun scanQrCode(onResult: (String?) -> Unit) = onResult(null)
         override fun pickFolder(onResult: (String?) -> Unit) = onResult(null)
+        override fun shareFiles(paths: List<String>) = Unit
         override fun requestStorageAccess() = Unit
         override fun hasStorageAccess(): Boolean = true
         override val defaultFolderRoot: String = "/storage/emulated/0"

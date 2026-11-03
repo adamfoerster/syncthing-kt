@@ -44,6 +44,7 @@ import com.adamfoerster.meshsync.core.designsystem.components.PanelTone
 import com.adamfoerster.meshsync.core.designsystem.icons.NgIcons
 import com.adamfoerster.meshsync.core.designsystem.theme.NgTheme
 import com.adamfoerster.meshsync.core.designsystem.theme.SyncthingTheme
+import com.adamfoerster.meshsync.core.presentation.CoreStatusCallout
 import com.adamfoerster.meshsync.core.presentation.LocalPlatformActions
 import com.adamfoerster.meshsync.core.presentation.ObserveAsEvents
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.Res
@@ -111,6 +112,7 @@ fun AddDeviceScreen(
         bottomBar = { StepActions(state, onAction) },
     ) {
         Stepper(state.step)
+        CoreStatusCallout(state.coreState, onStart = { onAction(AddDeviceAction.OnStartCore) })
         when (state.step) {
             AddStep.SHOW_CODE -> ShowCodeStep(state, onAction)
             AddStep.APPROVE -> ApproveStep(state, onAction)
@@ -276,7 +278,7 @@ private fun StepActions(state: AddDeviceState, onAction: (AddDeviceAction) -> Un
                     Modifier.fillMaxWidth(),
                     style = NgButtonStyle.Primary,
                     icon = NgIcons.Plus,
-                    enabled = state.deviceIdInput.isNotBlank() && !state.isSaving,
+                    enabled = state.deviceIdInput.isNotBlank() && !state.isSaving && state.coreReady,
                 )
                 NgButton(stringResource(Res.string.add_scan), { onAction(AddDeviceAction.OnScanClick) }, Modifier.fillMaxWidth(), style = NgButtonStyle.Tertiary, icon = NgIcons.Qr)
             }

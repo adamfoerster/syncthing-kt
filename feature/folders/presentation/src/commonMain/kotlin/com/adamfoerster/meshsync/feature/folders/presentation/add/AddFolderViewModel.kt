@@ -3,8 +3,10 @@ package com.adamfoerster.meshsync.feature.folders.presentation.add
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.FolderType
+import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
 import com.adamfoerster.meshsync.core.domain.util.Result
 import com.adamfoerster.meshsync.core.presentation.UiText
@@ -29,8 +31,11 @@ data class AddFolderState(
     val isOffer: Boolean = false,
     val isSaving: Boolean = false,
     val error: UiText? = null,
+    /** Saving talks to the core, so the form says why it cannot save while the core is still coming up. */
+    val coreState: CoreState = CoreState.Running,
 ) {
     val isValid: Boolean get() = label.isNotBlank() && path.isNotBlank()
+    val canSave: Boolean get() = isValid && !isSaving && coreState == CoreState.Running
 }
 
 data class DeviceChoiceUi(val id: String, val name: String, val checked: Boolean)
@@ -45,6 +50,7 @@ sealed interface AddFolderAction {
     data class OnFolderPicked(val path: String) : AddFolderAction
     data class OnToggleDevice(val id: String) : AddFolderAction
     data object OnSave : AddFolderAction
+    data object OnStartCore : AddFolderAction
 }
 
 sealed interface AddFolderEvent {
@@ -53,16 +59,20 @@ sealed interface AddFolderEvent {
 
 class AddFolderViewModel(
     private val offer: FolderOffer?,
+    /** Folder chosen elsewhere (the file manager's Sync action): fills the path and names the share after it. */
+    initialPath: String?,
     private val defaultRoot: String,
     private val repository: SyncthingRepository,
+    private val core: SyncthingCore,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(
         AddFolderState(
-            label = savedStateHandle[KEY_LABEL] ?: offer?.label.orEmpty(),
-            path = savedStateHandle[KEY_PATH] ?: offer?.label?.let { suggestedPath(it) }.orEmpty(),
+            label = savedStateHandle[KEY_LABEL] ?: offer?.label ?: initialPath?.let { folderNameOf(it) }.orEmpty(),
+            path = savedStateHandle[KEY_PATH] ?: initialPath ?: offer?.label?.let { suggestedPath(it) }.orEmpty(),
             isOffer = offer != null,
+            coreState = core.state.value,
         ),
     )
     val state = _state.asStateFlow()
@@ -71,9 +81,10 @@ class AddFolderViewModel(
     val events = _events.receiveAsFlow()
 
     /** The path follows the name until the user types a path of their own. */
-    private var pathEdited: Boolean = savedStateHandle[KEY_PATH_EDITED] ?: false
+    private var pathEdited: Boolean = savedStateHandle[KEY_PATH_EDITED] ?: (initialPath != null)
 
     init {
+        viewModelScope.launch { core.state.collect { c -> _state.update { it.copy(coreState = c) } } }
         viewModelScope.launch {
             val overview = repository.overview.filterNotNull().first()
             _state.update { s ->
@@ -100,7 +111,7 @@ class AddFolderViewModel(
                 pathEdited = true
                 savedStateHandle[KEY_PATH_EDITED] = true
                 savedStateHandle[KEY_PATH] = action.path
-                val label = _state.value.label.ifBlank { action.path.trimEnd('/').substringAfterLast('/') }
+                val label = _state.value.label.ifBlank { folderNameOf(action.path) }
                 savedStateHandle[KEY_LABEL] = label
                 _state.update { it.copy(path = action.path, label = label, error = null) }
             }
@@ -108,13 +119,14 @@ class AddFolderViewModel(
                 s.copy(devices = s.devices.map { if (it.id == action.id) it.copy(checked = !it.checked) else it })
             }
             AddFolderAction.OnSave -> save()
+            AddFolderAction.OnStartCore -> core.start()
             AddFolderAction.OnBackClick, AddFolderAction.OnChooseFolder -> Unit
         }
     }
 
     private fun save() {
         val s = _state.value
-        if (!s.isValid || s.isSaving) return
+        if (!s.canSave) return
         viewModelScope.launch {
             _state.update { it.copy(isSaving = true, error = null) }
             val result = repository.addFolder(
@@ -130,6 +142,8 @@ class AddFolderViewModel(
             }
         }
     }
+
+    private fun folderNameOf(path: String): String = path.trimEnd('/').substringAfterLast('/')
 
     private fun suggestedPath(label: String): String {
         val safe = label.trim().replace(Regex("""[\\/:*?"<>|]"""), "_")

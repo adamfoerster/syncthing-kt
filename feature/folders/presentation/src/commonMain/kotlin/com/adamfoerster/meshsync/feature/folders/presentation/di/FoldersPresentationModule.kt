@@ -10,6 +10,6 @@ import org.koin.dsl.module
 
 val foldersPresentationModule = module {
     viewModelOf(::FolderListViewModel)
-    viewModel { (offer: FolderOffer?, defaultRoot: String) -> AddFolderViewModel(offer, defaultRoot, get(), get()) }
+    viewModel { (offer: FolderOffer?, initialPath: String?, defaultRoot: String) -> AddFolderViewModel(offer, initialPath, defaultRoot, get(), get(), get()) }
     viewModel { (folderId: String) -> IgnoreViewModel(folderId, get(), get()) }
 }

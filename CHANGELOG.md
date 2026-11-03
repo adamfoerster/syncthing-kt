@@ -8,6 +8,19 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.12.1] - 2026-11-03
+
+### Corrigido
+- Ao terminar a introdução logo após instalar, as telas *Adicionar pasta* e *Adicionar aparelho* falhavam com "Syncthing is not running yet", porque o núcleo ainda estava iniciando. Agora elas mostram o estado do núcleo (iniciando, sem permissão, parado) com o botão para resolver, e só liberam **Salvar** e **Confirmar** quando ele está rodando. A mensagem enganosa "Adicione um aparelho primeiro" também não aparece mais enquanto o núcleo não respondeu.
+
+## [1.12.0] - 2026-11-03
+
+### Adicionado
+- Na aba **Pastas**, abaixo das pastas compartilhadas, o botão **Explorar arquivos** abre um gerenciador de arquivos com o armazenamento do aparelho. Toque numa pasta para abri-la; toque e segure (ou toque em um arquivo) para selecionar e então **copiar**, **mover**, **colar aqui**, **renomear**, **remover** ou **compartilhar** pelo diálogo do sistema. O botão **+** cria uma pasta nova. Colar nunca sobrescreve: se o nome já existe, o item chega como `nome (1)`.
+- No gerenciador, as pastas que o MeshSync sincroniza aparecem com a marca do app dentro do ícone da pasta.
+- Ao selecionar uma pasta ainda não sincronizada, a ação **Sincronizar** abre o fluxo de adicionar pasta com o caminho já preenchido (e o nome da pasta como nome do compartilhamento).
+- Mensagens novas para nome inválido, nome que já existe e pasta copiada para dentro dela mesma.
+
 ## [1.11.0] - 2026-11-03
 
 ### Adicionado

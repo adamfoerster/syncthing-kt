@@ -2,6 +2,7 @@
 <resources>
     <string name="folders_title">Folders</string>
     <string name="folders_add">Add folder</string>
+    <string name="folders_browse_files">Browse files</string>
     <string name="folders_badge_up_to_date">Up to date</string>
     <plurals name="folders_badge_conflicts">
         <item quantity="one">%1$d conflict</item>

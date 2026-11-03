@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="files_title">Αρχεία</string>
+    <string name="files_new_folder">Νέος φάκελος</string>
+    <string name="files_empty">Αυτός ο φάκελος είναι άδειος.</string>
+    <string name="files_copy">Αντιγραφή</string>
+    <string name="files_cut">Μετακίνηση</string>
+    <string name="files_paste">Επικόλληση εδώ</string>
+    <string name="files_rename">Μετονομασία</string>
+    <string name="files_delete">Διαγραφή</string>
+    <string name="files_share">Κοινοποίηση</string>
+    <string name="files_sync">Συγχρονισμός</string>
+    <string name="files_clear_selection">Εκκαθάριση επιλογής</string>
+    <string name="files_clipboard_clear">Απόρριψη</string>
+    <string name="files_delete_body">Τα διαγραμμένα στοιχεία δεν μπορούν να ανακτηθούν. Μέσα σε συγχρονισμένο φάκελο διαγράφονται και από τις άλλες συσκευές σας.</string>
+    <string name="files_name_label">Όνομα</string>
+    <string name="files_confirm">ΟΚ</string>
+    <string name="files_cancel">Ακύρωση</string>
+    <string name="files_folder_synced">Φάκελος συγχρονισμένος από το MeshSync</string>
+    <plurals name="files_selected">
+        <item quantity="one">%1$d επιλεγμένο</item>
+        <item quantity="other">%1$d επιλεγμένα</item>
+    </plurals>
+    <plurals name="files_clipboard_copy">
+        <item quantity="one">%1$d στοιχείο αντιγράφηκε</item>
+        <item quantity="other">%1$d στοιχεία αντιγράφηκαν</item>
+    </plurals>
+    <plurals name="files_clipboard_move">
+        <item quantity="one">%1$d στοιχείο για μετακίνηση</item>
+        <item quantity="other">%1$d στοιχεία για μετακίνηση</item>
+    </plurals>
+    <plurals name="files_delete_title">
+        <item quantity="one">Διαγραφή %1$d στοιχείου;</item>
+        <item quantity="other">Διαγραφή %1$d στοιχείων;</item>
+    </plurals>
+</resources>

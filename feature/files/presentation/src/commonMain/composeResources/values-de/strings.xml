@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="files_title">Dateien</string>
+    <string name="files_new_folder">Neuer Ordner</string>
+    <string name="files_empty">Dieser Ordner ist leer.</string>
+    <string name="files_copy">Kopieren</string>
+    <string name="files_cut">Verschieben</string>
+    <string name="files_paste">Hier einfügen</string>
+    <string name="files_rename">Umbenennen</string>
+    <string name="files_delete">Löschen</string>
+    <string name="files_share">Teilen</string>
+    <string name="files_sync">Synchronisieren</string>
+    <string name="files_clear_selection">Auswahl aufheben</string>
+    <string name="files_clipboard_clear">Verwerfen</string>
+    <string name="files_delete_body">Gelöschte Elemente lassen sich nicht wiederherstellen. In einem synchronisierten Ordner werden sie auch auf deinen anderen Geräten gelöscht.</string>
+    <string name="files_name_label">Name</string>
+    <string name="files_confirm">OK</string>
+    <string name="files_cancel">Abbrechen</string>
+    <string name="files_folder_synced">Von MeshSync synchronisierter Ordner</string>
+    <plurals name="files_selected">
+        <item quantity="one">%1$d ausgewählt</item>
+        <item quantity="other">%1$d ausgewählt</item>
+    </plurals>
+    <plurals name="files_clipboard_copy">
+        <item quantity="one">%1$d Element kopiert</item>
+        <item quantity="other">%1$d Elemente kopiert</item>
+    </plurals>
+    <plurals name="files_clipboard_move">
+        <item quantity="one">%1$d Element zum Verschieben</item>
+        <item quantity="other">%1$d Elemente zum Verschieben</item>
+    </plurals>
+    <plurals name="files_delete_title">
+        <item quantity="one">%1$d Element löschen?</item>
+        <item quantity="other">%1$d Elemente löschen?</item>
+    </plurals>
+</resources>

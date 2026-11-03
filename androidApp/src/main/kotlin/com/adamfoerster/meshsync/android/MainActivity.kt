@@ -1,6 +1,7 @@
 package com.adamfoerster.meshsync.android
 
 import android.Manifest
+import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.Settings
+import android.webkit.MimeTypeMap
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
@@ -19,6 +21,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.core.content.FileProvider
 import com.adamfoerster.meshsync.android.core.AndroidSyncthingCore
 import com.adamfoerster.meshsync.app.App
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
@@ -26,6 +29,7 @@ import com.adamfoerster.meshsync.core.presentation.PlatformActions
 import com.adamfoerster.meshsync.core.presentation.documentIdToPath
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
+import java.io.File
 import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
@@ -65,6 +69,24 @@ class MainActivity : ComponentActivity() {
         override fun pickFolder(onResult: (String?) -> Unit) {
             pendingFolder = onResult
             folderChooser.launch(null)
+        }
+
+        override fun shareFiles(paths: List<String>) {
+            val authority = "$packageName.files"
+            val uris = paths.mapNotNull { runCatching { FileProvider.getUriForFile(this@MainActivity, authority, File(it)) }.getOrNull() }
+            if (uris.isEmpty()) return
+            val types = paths.map { MimeTypeMap.getSingleton().getMimeTypeFromExtension(File(it).extension.lowercase()) ?: "application/octet-stream" }.distinct()
+            // One kind of file shares as that kind; a mix falls back to the wildcard so every app can offer itself.
+            val mime = types.singleOrNull() ?: "*/*"
+            val intent = if (uris.size == 1) {
+                Intent(Intent.ACTION_SEND).putExtra(Intent.EXTRA_STREAM, uris.single())
+            } else {
+                Intent(Intent.ACTION_SEND_MULTIPLE).putParcelableArrayListExtra(Intent.EXTRA_STREAM, ArrayList(uris))
+            }
+            intent.setType(mime)
+            intent.clipData = ClipData.newRawUri(null, uris.first()).also { clip -> uris.drop(1).forEach { clip.addItem(ClipData.Item(it)) } }
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            runCatching { startActivity(Intent.createChooser(intent, null)) }
         }
 
         override fun requestStorageAccess() {

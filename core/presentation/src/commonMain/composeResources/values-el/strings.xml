@@ -44,4 +44,7 @@
     <string name="error_permission">Δεν υπάρχει άδεια πρόσβασης στο αρχείο. Επιτρέψτε την πρόσβαση σε όλα τα αρχεία.</string>
     <string name="error_file_changed">Το αρχείο άλλαξε ενώ αποφασίζατε. Ανοίξτε ξανά τη σύγκρουση για να δείτε την τρέχουσα έκδοση.</string>
     <string name="error_io">Δεν ήταν δυνατή η ανάγνωση ή η εγγραφή του αρχείου.</string>
+    <string name="error_invalid_name">Αυτό το όνομα δεν μπορεί να χρησιμοποιηθεί. Πληκτρολογήστε όνομα χωρίς κάθετες.</string>
+    <string name="error_already_exists">Υπάρχει ήδη κάτι με αυτό το όνομα.</string>
+    <string name="error_into_itself">Ένας φάκελος δεν μπορεί να αντιγραφεί ή να μετακινηθεί μέσα στον εαυτό του.</string>
 </resources>

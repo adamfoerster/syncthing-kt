@@ -2,6 +2,7 @@
 <resources>
     <string name="folders_title">Carpetas</string>
     <string name="folders_add">Añadir carpeta</string>
+    <string name="folders_browse_files">Explorar archivos</string>
     <string name="folders_badge_up_to_date">Al día</string>
     <plurals name="folders_badge_conflicts">
         <item quantity="one">%1$d conflicto</item>

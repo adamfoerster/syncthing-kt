@@ -44,4 +44,7 @@
     <string name="error_permission">Keine Berechtigung für den Dateizugriff. Erlauben Sie den Zugriff auf alle Dateien.</string>
     <string name="error_file_changed">Die Datei hat sich geändert, während Sie entschieden haben. Öffnen Sie den Konflikt erneut, um die aktuelle Version zu sehen.</string>
     <string name="error_io">Die Datei konnte nicht gelesen oder geschrieben werden.</string>
+    <string name="error_invalid_name">Dieser Name kann nicht verwendet werden. Gib einen Namen ohne Schrägstriche ein.</string>
+    <string name="error_already_exists">Es gibt bereits etwas mit diesem Namen.</string>
+    <string name="error_into_itself">Ein Ordner kann nicht in sich selbst kopiert oder verschoben werden.</string>
 </resources>

@@ -33,6 +33,7 @@ import com.adamfoerster.meshsync.core.presentation.UiText
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.Res
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_add
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_badge_conflicts
+import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_browse_files
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_badge_error
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_badge_local
 import com.adamfoerster.meshsync.feature.folders.presentation.resources.folders_badge_paused
@@ -62,6 +63,7 @@ fun FolderListRoot(
     onOpenConflicts: () -> Unit,
     onOpenSharing: () -> Unit,
     onAddFolder: () -> Unit,
+    onBrowseFiles: () -> Unit,
     onOpenIgnores: (folderId: String) -> Unit,
     onAcceptOffer: (folderId: String, label: String, deviceId: String) -> Unit,
     viewModel: FolderListViewModel = koinViewModel(),
@@ -74,6 +76,7 @@ fun FolderListRoot(
             when (action) {
                 is FolderListAction.OnFolderClick -> if (action.hasConflicts) onOpenConflicts() else onOpenSharing()
                 FolderListAction.OnAddClick -> onAddFolder()
+                FolderListAction.OnBrowseFilesClick -> onBrowseFiles()
                 is FolderListAction.OnIgnoreClick -> onOpenIgnores(action.id)
                 is FolderListAction.OnAcceptOffer -> onAcceptOffer(action.offer.folderId, action.offer.label, action.offer.deviceId)
                 is FolderListAction.OnAcceptDeclinedOffer -> {
@@ -207,6 +210,13 @@ fun FolderListScreen(
                 )
             }
         }
+
+        NgButton(
+            stringResource(Res.string.folders_browse_files),
+            onClick = { onAction(FolderListAction.OnBrowseFilesClick) },
+            icon = NgIcons.Folder,
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 

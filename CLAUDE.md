@@ -63,6 +63,9 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
   aparelho (aplicado em `MainActivity.attachBaseContext`).
 - Onboarding (`feature:onboarding`): `OnboardingRoute` é o destino inicial até `AppPreferences.onboardingCompleted`; ao terminar
   navega para Home e, conforme a escolha, abre `AddFolderRoute` ou `AddDeviceRoute`.
+- Gerenciador de arquivos (`feature:files:{domain,data,presentation}`): operações de arquivo (Okio) em `OkioFileManager`,
+  aberto pelo botão da aba Pastas (`FilesRoute`). Pastas sincronizadas usam `NgFolderIcon(shared = true)`; **Sincronizar**
+  abre `AddFolderRoute(path)`. Compartilhar usa `PlatformActions.shareFiles` (FileProvider no `androidApp`). Colar nunca sobrescreve.
 - Conflitos: detecção e resolução são operações de arquivo (Okio) em `feature:conflicts:data`; nada é apagado,
   versões substituídas vão para `.stversions/`. Preserve essa garantia.
 

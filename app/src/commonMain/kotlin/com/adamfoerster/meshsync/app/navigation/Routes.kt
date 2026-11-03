@@ -27,6 +27,8 @@ data class AddFolderRoute(
     val offeredFolderId: String? = null,
     val offeredLabel: String? = null,
     val offeredBy: String? = null,
+    /** Set when syncing a folder picked in the file manager: pre-fills the folder path. */
+    val path: String? = null,
 )
 
 /** The ignored-files editor of one folder. */
@@ -39,3 +41,7 @@ data class AddDeviceRoute(
     val deviceId: String? = null,
     val name: String? = null,
 )
+
+/** The file manager, starting at the device's shared storage. */
+@Serializable
+data object FilesRoute

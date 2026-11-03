@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="files_title">Fichiers</string>
+    <string name="files_new_folder">Nouveau dossier</string>
+    <string name="files_empty">Ce dossier est vide.</string>
+    <string name="files_copy">Copier</string>
+    <string name="files_cut">Déplacer</string>
+    <string name="files_paste">Coller ici</string>
+    <string name="files_rename">Renommer</string>
+    <string name="files_delete">Supprimer</string>
+    <string name="files_share">Partager</string>
+    <string name="files_sync">Synchroniser</string>
+    <string name="files_clear_selection">Effacer la sélection</string>
+    <string name="files_clipboard_clear">Annuler</string>
+    <string name="files_delete_body">Les éléments supprimés ne peuvent pas être récupérés. Dans un dossier synchronisé, ils sont aussi supprimés sur vos autres appareils.</string>
+    <string name="files_name_label">Nom</string>
+    <string name="files_confirm">OK</string>
+    <string name="files_cancel">Annuler</string>
+    <string name="files_folder_synced">Dossier synchronisé par MeshSync</string>
+    <plurals name="files_selected">
+        <item quantity="one">%1$d sélectionné</item>
+        <item quantity="other">%1$d sélectionnés</item>
+    </plurals>
+    <plurals name="files_clipboard_copy">
+        <item quantity="one">%1$d élément copié</item>
+        <item quantity="other">%1$d éléments copiés</item>
+    </plurals>
+    <plurals name="files_clipboard_move">
+        <item quantity="one">%1$d élément à déplacer</item>
+        <item quantity="other">%1$d éléments à déplacer</item>
+    </plurals>
+    <plurals name="files_delete_title">
+        <item quantity="one">Supprimer %1$d élément ?</item>
+        <item quantity="other">Supprimer %1$d éléments ?</item>
+    </plurals>
+</resources>

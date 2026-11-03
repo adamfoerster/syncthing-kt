@@ -2,6 +2,7 @@
 <resources>
     <string name="folders_title">Φάκελοι</string>
     <string name="folders_add">Προσθήκη φακέλου</string>
+    <string name="folders_browse_files">Περιήγηση αρχείων</string>
     <string name="folders_badge_up_to_date">Ενημερωμένο</string>
     <plurals name="folders_badge_conflicts">
         <item quantity="one">%1$d σύγκρουση</item>

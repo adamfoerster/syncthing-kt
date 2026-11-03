@@ -30,6 +30,8 @@ import com.adamfoerster.meshsync.core.designsystem.components.PanelTone
 import com.adamfoerster.meshsync.core.designsystem.icons.NgIcons
 import com.adamfoerster.meshsync.core.designsystem.theme.NgTheme
 import com.adamfoerster.meshsync.core.designsystem.theme.SyncthingTheme
+import com.adamfoerster.meshsync.core.domain.model.CoreState
+import com.adamfoerster.meshsync.core.presentation.CoreStatusCallout
 import com.adamfoerster.meshsync.core.presentation.LocalPlatformActions
 import com.adamfoerster.meshsync.core.presentation.ObserveAsEvents
 import com.adamfoerster.meshsync.core.presentation.initialOf
@@ -53,10 +55,11 @@ import org.koin.core.parameter.parametersOf
 @Composable
 fun AddFolderRoot(
     offer: FolderOffer?,
+    initialPath: String?,
     onDone: () -> Unit,
 ) {
     val defaultRoot = LocalPlatformActions.current.defaultFolderRoot
-    val viewModel: AddFolderViewModel = koinViewModel(key = offer?.folderId) { parametersOf(offer, defaultRoot) }
+    val viewModel: AddFolderViewModel = koinViewModel(key = offer?.folderId ?: initialPath) { parametersOf(offer, initialPath, defaultRoot) }
     val state by viewModel.state.collectAsStateWithLifecycle()
     ObserveAsEvents(viewModel.events) { event ->
         when (event) {
@@ -101,12 +104,13 @@ fun AddFolderScreen(
                     onClick = { onAction(AddFolderAction.OnSave) },
                     style = NgButtonStyle.Primary,
                     icon = NgIcons.Check,
-                    enabled = state.isValid && !state.isSaving,
+                    enabled = state.canSave,
                     modifier = Modifier.fillMaxWidth(),
                 )
             }
         },
     ) {
+        CoreStatusCallout(state.coreState, onStart = { onAction(AddFolderAction.OnStartCore) })
         NgTextField(
             value = state.label,
             onValueChange = { onAction(AddFolderAction.OnLabelChange(it)) },
@@ -128,7 +132,8 @@ fun AddFolderScreen(
         )
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             NgSectionLabel(stringResource(Res.string.add_folder_devices))
-            if (state.devices.isEmpty()) {
+            // Before the core answers there is no device list yet, which is not the same as having no devices.
+            if (state.devices.isEmpty() && state.coreState == CoreState.Running) {
                 Text(stringResource(Res.string.add_folder_no_devices), style = NgTheme.type.sub, color = c.text2)
             }
             state.devices.forEach { device ->
@@ -151,6 +156,14 @@ fun AddFolderScreen(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun AddFolderCoreStartingPreview() {
+    SyncthingTheme {
+        AddFolderScreen(state = AddFolderState(label = "Sync", path = "/storage/emulated/0/Sync", coreState = CoreState.Starting), onAction = {})
     }
 }
 

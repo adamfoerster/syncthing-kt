@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The file manager may share any file the app can read (it has all-files access); the URI is granted per share. -->
+<paths>
+    <root-path name="root" path="." />
+</paths>

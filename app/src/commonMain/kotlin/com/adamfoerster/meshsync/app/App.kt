@@ -17,6 +17,7 @@ import androidx.navigation.toRoute
 import com.adamfoerster.meshsync.app.navigation.AddDeviceRoute
 import com.adamfoerster.meshsync.app.navigation.AddFolderRoute
 import com.adamfoerster.meshsync.app.navigation.DevicesRoute
+import com.adamfoerster.meshsync.app.navigation.FilesRoute
 import com.adamfoerster.meshsync.app.navigation.FoldersRoute
 import com.adamfoerster.meshsync.app.navigation.HomeRoute
 import com.adamfoerster.meshsync.app.navigation.IgnoreRoute
@@ -40,6 +41,7 @@ import com.adamfoerster.meshsync.feature.conflicts.presentation.ConflictsGraph
 import com.adamfoerster.meshsync.feature.conflicts.presentation.conflictsGraph
 import com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceRoot
 import com.adamfoerster.meshsync.feature.devices.presentation.list.DeviceListRoot
+import com.adamfoerster.meshsync.feature.files.presentation.FilesRoot
 import com.adamfoerster.meshsync.feature.folders.presentation.add.AddFolderRoot
 import com.adamfoerster.meshsync.feature.folders.presentation.add.FolderOffer
 import com.adamfoerster.meshsync.feature.folders.presentation.ignore.IgnoreRoot
@@ -103,6 +105,7 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
                 onOpenConflicts = { navController.navigate(ConflictsGraph) },
                 onOpenSharing = { navController.navigate(SharingRoute) },
                 onAddFolder = { navController.navigate(AddFolderRoute()) },
+                onBrowseFiles = { navController.navigate(FilesRoute) },
                 onOpenIgnores = { folderId -> navController.navigate(IgnoreRoute(folderId)) },
                 onAcceptOffer = { id, label, device -> navController.navigate(AddFolderRoute(id, label, device)) },
             )
@@ -125,7 +128,13 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
             } else {
                 null
             }
-            AddFolderRoot(offer = offer, onDone = { navController.navigateUp() })
+            AddFolderRoot(offer = offer, initialPath = route.path, onDone = { navController.navigateUp() })
+        }
+        composable<FilesRoute> {
+            FilesRoot(
+                onBack = { navController.navigateUp() },
+                onSyncFolder = { path -> navController.navigate(AddFolderRoute(path = path)) },
+            )
         }
         composable<IgnoreRoute> { entry ->
             IgnoreRoot(folderId = entry.toRoute<IgnoreRoute>().folderId, onDone = { navController.navigateUp() })

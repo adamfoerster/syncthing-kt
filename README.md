@@ -35,6 +35,7 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:home` | Início: status e mapa de aparelhos |
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
+| `feature:files` | Gerenciador de arquivos: `domain` (`FileManager`), `data` (Okio), `presentation` |
 | `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR |
 | `feature:onboarding` | Introdução da primeira abertura (explica o app e pergunta se compartilha ou pega uma pasta) |
 | `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
@@ -85,6 +86,17 @@ Os dois modos editam o mesmo texto, então alternar entre eles não perde nada; 
 entende (exceções, `(?i)`, curingas, comentários) aparecem como "regra avançada" e são mantidas como estão.
 A lógica está em `core:domain` (`IgnoreRules`, `IgnorePreset`) e a tela em `feature:folders` (pacote `ignore`).
 
+## Gerenciador de arquivos
+
+O botão **Explorar arquivos**, abaixo da lista na aba **Pastas**, abre `FilesRoot` (`feature:files`) no armazenamento
+compartilhado do aparelho. Toque abre a pasta; toque e segure seleciona, e a barra de baixo oferece **Copiar**, **Mover**,
+**Renomear**, **Remover** e **Compartilhar** (só arquivos, pelo diálogo do sistema via `PlatformActions.shareFiles` e
+um `FileProvider`); **Colar aqui** aparece quando há algo copiado ou cortado. Colar nunca sobrescreve (`nome (1).ext`) e
+uma pasta não vai para dentro dela mesma. Pastas que o MeshSync sincroniza (caminho igual ao de uma pasta de
+`SyncOverview.folders`) usam `NgFolderIcon(shared = true)`, o ícone da pasta com a marca do app. Para uma pasta ainda não
+sincronizada, **Sincronizar** navega para `AddFolderRoute(path = …)`, que preenche o caminho e o nome. Precisa do acesso a
+todos os arquivos; as operações são de arquivo (Okio) em `feature:files:data`, sem passar pelo núcleo.
+
 ## Pastas conhecidas
 
 Quando um aparelho que você já adicionou oferece uma pasta que você já compartilha com outro aparelho (mesmo ID,
@@ -107,7 +119,8 @@ Na primeira abertura o app mostra três telas curtas explicando como funciona, u
 inicia, nem para conectar a outro aparelho; `PlatformActions.hasStorageAccess` é relido a cada retomada) e uma pergunta final: compartilhar uma
 pasta deste aparelho (abre *Adicionar pasta*), pegar uma pasta de outro aparelho (abre *Adicionar aparelho*) ou decidir
 depois. O fim ou o "Pular" grava `AppPreferences.onboardingCompleted`, então ela não volta. A página atual sobrevive a
-morte de processo via `SavedStateHandle`.
+morte de processo via `SavedStateHandle`. Os formulários *Adicionar pasta* e *Adicionar aparelho* observam `SyncthingCore.state`:
+enquanto o núcleo não está `Running` mostram o `CoreStatusCallout` e bloqueiam salvar/confirmar.
 
 ## Escolher a pasta no celular
 

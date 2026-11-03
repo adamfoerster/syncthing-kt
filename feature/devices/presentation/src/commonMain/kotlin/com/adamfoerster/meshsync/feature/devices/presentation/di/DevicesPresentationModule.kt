@@ -8,5 +8,5 @@ import org.koin.dsl.module
 
 val devicesPresentationModule = module {
     viewModelOf(::DeviceListViewModel)
-    viewModel { (prefillId: String?, prefillName: String?) -> AddDeviceViewModel(prefillId, prefillName, get(), get()) }
+    viewModel { (prefillId: String?, prefillName: String?) -> AddDeviceViewModel(prefillId, prefillName, get(), get(), get()) }
 }

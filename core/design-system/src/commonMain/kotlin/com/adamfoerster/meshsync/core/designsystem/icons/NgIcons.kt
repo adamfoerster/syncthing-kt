@@ -37,12 +37,41 @@ object NgIcons {
     val Copy = icon("Copy", "M8 8h12v12H8zM4 16V4h12")
     val Power = icon("Power", "M12 3v9M6.3 6.3a8 8 0 1 0 11.4 0")
     val Block = icon("Block", "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18zM5.6 5.6l12.8 12.8")
+    val Share = icon("Share", "M3 9h5v5H3zM16 3h5v5h-5zM16 16h5v5h-5zM8 10l8-5M8 13l8 5")
+    val Delete = icon("Delete", "M4 7h16M9 7V4h6v3M6 7v13h12V7M10 11v6M14 11v6")
+    val Paste = icon("Paste", "M8 4h8v3H8zM6 5H4v16h16V5h-2M9 12h6M9 16h6")
+    val Cut = icon("Cut", "M6 3l12 13M18 3L6 16M3 17h5v4H3zM16 17h5v4h-5z")
     val Restart = icon("Restart","M4 4v6h6M20 12a8 8 0 1 1-2.3-5.7L20 9")
 
     /** Status glyphs (`.st`): square = connected, diamond = syncing, triangle = offline. */
     val StatusSquare = icon("StatusSquare", "M4 4h16v16H4z")
     val StatusDiamond = icon("StatusDiamond", "M12 2l10 10-10 10L2 12z")
     val StatusTriangle = icon("StatusTriangle", "M12 3l10 18H2z")
+
+    /**
+     * The MeshSync logo (launcher icon geometry, 96-unit viewport), drawn solid so it stays legible at small
+     * sizes inside [com.adamfoerster.meshsync.core.designsystem.components.NgFolderIcon]. Tint it like the others.
+     */
+    val MeshSync: ImageVector = ImageVector.Builder(
+        name = "MeshSync",
+        defaultWidth = 24.dp,
+        defaultHeight = 24.dp,
+        viewportWidth = 96f,
+        viewportHeight = 96f,
+    ).apply {
+        addPath(
+            pathData = addPathNodes("M14 80V16L48 56L82 16V80"),
+            fill = null,
+            stroke = SolidColor(Color.Black),
+            strokeLineWidth = 9f,
+            strokeLineCap = StrokeCap.Square,
+            strokeLineJoin = StrokeJoin.Miter,
+        )
+        // Four corner nodes and the center one.
+        listOf("M2 4h24v24H2z", "M2 68h24v24H2z", "M70 4h24v24H70z", "M70 68h24v24H70z", "M36 44h24v24H36z").forEach {
+            addPath(pathData = addPathNodes(it), fill = SolidColor(Color.Black))
+        }
+    }.build()
 
     private fun icon(name: String, path: String): ImageVector =
         ImageVector.Builder(

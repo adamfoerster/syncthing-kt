@@ -35,6 +35,7 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:home` | Home: status and device map |
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
+| `feature:files` | File manager: `domain` (`FileManager`), `data` (Okio), `presentation` |
 | `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR |
 | `feature:onboarding` | First-run introduction (explains the app and asks whether to share or fetch a folder) |
 | `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
@@ -85,6 +86,17 @@ Both modes edit the same text, so switching between them loses nothing; rules th
 understand (exceptions, `(?i)`, wildcards, comments) show up as "advanced rule" and are kept as they are.
 The logic lives in `core:domain` (`IgnoreRules`, `IgnorePreset`) and the screen in `feature:folders` (`ignore` package).
 
+## File manager
+
+The **Browse files** button below the list on the **Folders** tab opens `FilesRoot` (`feature:files`) on the device's
+shared storage. Tapping opens a folder; long-press selects, and the bottom bar offers **Copy**, **Move**, **Rename**,
+**Delete** and **Share** (files only, through the system dialog via `PlatformActions.shareFiles` and a `FileProvider`);
+**Paste here** appears when something is copied or cut. Pasting never overwrites (`name (1).ext`) and a folder cannot go
+into itself. Folders MeshSync syncs (path equal to a folder in `SyncOverview.folders`) use
+`NgFolderIcon(shared = true)`, the folder icon with the app mark inside. For a folder that is not synced yet, **Sync**
+navigates to `AddFolderRoute(path = …)`, which pre-fills the path and the name. It needs all-files access; operations are
+plain file operations (Okio) in `feature:files:data`, not going through the core.
+
 ## Known folders
 
 When a device you already added offers a folder you already share with another device (same ID, Send & Receive
@@ -107,7 +119,8 @@ On first launch the app shows three short screens explaining how it works, a scr
 start, not even to connect to another device; `PlatformActions.hasStorageAccess` is re-read on every resume) and a final question: share a folder from
 this device (opens *Add folder*), get a folder from another device (opens *Add device*) or decide later. Finishing or
 tapping "Skip" stores `AppPreferences.onboardingCompleted`, so it never returns. The current page survives process
-death through `SavedStateHandle`.
+death through `SavedStateHandle`. The *Add folder* and *Add device* forms observe `SyncthingCore.state`: until the core is
+`Running` they show the `CoreStatusCallout` and block save/confirm.
 
 ## Choosing the folder on the phone
 

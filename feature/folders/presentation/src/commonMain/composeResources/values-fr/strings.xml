@@ -2,6 +2,7 @@
 <resources>
     <string name="folders_title">Dossiers</string>
     <string name="folders_add">Ajouter un dossier</string>
+    <string name="folders_browse_files">Parcourir les fichiers</string>
     <string name="folders_badge_up_to_date">À jour</string>
     <plurals name="folders_badge_conflicts">
         <item quantity="one">%1$d conflit</item>

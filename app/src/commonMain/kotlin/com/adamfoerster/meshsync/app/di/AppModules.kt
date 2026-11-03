@@ -4,6 +4,8 @@ import com.adamfoerster.meshsync.core.data.di.coreDataModule
 import com.adamfoerster.meshsync.feature.conflicts.data.di.conflictsDataModule
 import com.adamfoerster.meshsync.feature.conflicts.presentation.di.conflictsPresentationModule
 import com.adamfoerster.meshsync.feature.devices.presentation.di.devicesPresentationModule
+import com.adamfoerster.meshsync.feature.files.data.di.filesDataModule
+import com.adamfoerster.meshsync.feature.files.presentation.di.filesPresentationModule
 import com.adamfoerster.meshsync.feature.folders.presentation.di.foldersPresentationModule
 import com.adamfoerster.meshsync.feature.home.presentation.di.homePresentationModule
 import com.adamfoerster.meshsync.feature.onboarding.presentation.di.onboardingPresentationModule
@@ -19,6 +21,8 @@ val sharedModules = listOf(
     homePresentationModule,
     sharingPresentationModule,
     foldersPresentationModule,
+    filesDataModule,
+    filesPresentationModule,
     devicesPresentationModule,
     settingsPresentationModule,
 )

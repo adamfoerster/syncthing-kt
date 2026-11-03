@@ -12,6 +12,8 @@ kotlin {
             implementation(projects.feature.home.presentation)
             implementation(projects.feature.sharing.presentation)
             implementation(projects.feature.folders.presentation)
+            implementation(projects.feature.files.data)
+            implementation(projects.feature.files.presentation)
             implementation(projects.feature.devices.presentation)
             implementation(projects.feature.settings.presentation)
             implementation(libs.compose.components.resources)

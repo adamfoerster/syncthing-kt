@@ -44,4 +44,7 @@
     <string name="error_permission">Sem permissão para acessar o arquivo. Libere o acesso a todos os arquivos.</string>
     <string name="error_file_changed">O arquivo mudou enquanto você decidia. Abra o conflito de novo para ver a versão atual.</string>
     <string name="error_io">Não foi possível ler ou gravar o arquivo.</string>
+    <string name="error_invalid_name">Esse nome não pode ser usado. Digite um nome sem barras.</string>
+    <string name="error_already_exists">Já existe algo com esse nome.</string>
+    <string name="error_into_itself">Uma pasta não pode ser copiada ou movida para dentro dela mesma.</string>
 </resources>
