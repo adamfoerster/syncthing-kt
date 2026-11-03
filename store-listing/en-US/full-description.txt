@@ -1,0 +1,27 @@
+MeshSync keeps the same folders identical on all your devices — phone, tablet, computer — without sending your files to anyone's cloud. Data goes straight from one device to another, encrypted, and stays with you.
+
+Under the hood it runs Syncthing, the trusted open-source sync engine. MeshSync is a brand-new Android app built around it, designed for people who have never heard of a "device ID".
+
+GET STARTED IN MINUTES
+A short introduction explains how everything works and asks whether you want to share a folder from this device or receive one from another. Connecting two devices is as simple as scanning a QR code.
+
+RESOLVE CONFLICTS INSIDE THE APP
+Edited the same file on two devices? Compare both versions side by side and choose section by section — "this phone", "the other device" or "both" — or edit by hand, like a GitHub merge. For images and other files, keep one version or keep both. Nothing is deleted blindly: replaced versions go to the .stversions folder.
+
+IGNORED FILES, MADE SIMPLE
+Pick with one tap what a folder should not sync (temporary files, system leftovers, thumbnails) or type a name or file type. Open the advanced mode only if you want to edit the full .stignore.
+
+SEE WHO SHARES WHAT
+The home screen shows your sync status and a map of your devices. Another screen shows, as a graph, which folders are shared with which devices. Pause, rename and remove devices, accept folders that are offered to you, or turn on auto-accept for folders you already share.
+
+LIGHT, DARK AND IN YOUR LANGUAGE
+Light, dark or follow-the-system theme. Available in English, Portuguese, Spanish, Italian, German, French and Greek, with an in-app language switch.
+
+PRIVATE BY DESIGN
+No ads. No analytics. No tracking. No account. We run no servers and never see your files. Your devices find each other through the public Syncthing discovery and relay network, which only handles device IDs and encrypted traffic.
+
+GOOD TO KNOW
+• MeshSync keeps Syncthing running in the background with a persistent notification, so it can sync even when the app is closed.
+• To reach your folders in device storage, Android 11 and later asks for the "All files access" permission. MeshSync only touches the folders you add.
+• The camera is used only to scan QR codes. Nothing is stored or sent.
+• MeshSync is an independent app and is not affiliated with the Syncthing project.

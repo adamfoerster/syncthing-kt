@@ -1,0 +1,27 @@
+O MeshSync mantém as mesmas pastas idênticas em todos os seus aparelhos — celular, tablet, computador — sem enviar seus arquivos para a nuvem de ninguém. Os dados vão direto de um aparelho para o outro, criptografados, e ficam só com você.
+
+Por baixo do capô roda o Syncthing, o motor de sincronização de código aberto em que muita gente confia. O MeshSync é um app Android novo construído em torno dele, pensado para quem nunca ouviu falar em "ID de dispositivo".
+
+COMECE EM POUCOS MINUTOS
+Uma introdução curta explica como tudo funciona e pergunta se você quer compartilhar uma pasta deste aparelho ou receber uma de outro. Conectar dois aparelhos é só ler um QR code.
+
+RESOLVA CONFLITOS DENTRO DO APP
+Editou o mesmo arquivo em dois aparelhos? Compare as duas versões lado a lado e escolha trecho a trecho — "este celular", "o outro aparelho" ou "as duas" — ou edite à mão, como num merge do GitHub. Para imagens e outros arquivos, fique com uma versão ou com as duas. Nada é apagado às cegas: as versões substituídas vão para a pasta .stversions.
+
+ARQUIVOS IGNORADOS, SEM COMPLICAÇÃO
+Escolha com um toque o que uma pasta não deve sincronizar (arquivos temporários, restos do sistema, miniaturas) ou digite um nome ou tipo de arquivo. Abra o modo avançado só se quiser editar o .stignore completo.
+
+VEJA QUEM COMPARTILHA O QUÊ
+A tela inicial mostra o estado da sincronização e um mapa dos seus aparelhos. Outra tela mostra, em um grafo, quais pastas estão com quais aparelhos. Pause, renomeie e remova aparelhos, aceite pastas oferecidas a você ou ative o aceite automático para pastas que você já compartilha.
+
+CLARO, ESCURO E NO SEU IDIOMA
+Tema claro, escuro ou o do sistema. Disponível em português, inglês, espanhol, italiano, alemão, francês e grego, com troca de idioma dentro do app.
+
+PRIVADO POR PROJETO
+Sem anúncios. Sem análises. Sem rastreamento. Sem conta. Não temos servidores e nunca vemos seus arquivos. Seus aparelhos se encontram pela rede pública de descoberta e relays do Syncthing, que só lida com IDs de aparelho e tráfego criptografado.
+
+BOM SABER
+• O MeshSync mantém o Syncthing rodando em segundo plano, com uma notificação permanente, para sincronizar mesmo com o app fechado.
+• Para acessar suas pastas no armazenamento do aparelho, o Android 11+ pede a permissão "Acesso a todos os arquivos". O MeshSync só mexe nas pastas que você adiciona.
+• A câmera é usada só para ler QR codes. Nada é guardado nem enviado.
+• O MeshSync é um app independente e não é afiliado ao projeto Syncthing.
