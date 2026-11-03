@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Récupérer un dossier d’un autre appareil</string>
     <string name="onboarding_choice_receive_hint">Connectez-vous à l’appareil qui a les fichiers et acceptez son dossier.</string>
     <string name="onboarding_choice_later">Décider plus tard</string>
+    <string name="onboarding_storage_title">Autorisez l’accès à vos fichiers</string>
+    <string name="onboarding_storage_body">MeshSync a besoin d’accéder à tous les fichiers pour lire et écrire les dossiers que vous partagez. Sans cela, la synchronisation ne peut pas démarrer, même pour se connecter à un autre appareil.</string>
+    <string name="onboarding_storage_grant">Autoriser l’accès</string>
+    <string name="onboarding_storage_hint">Android ouvrira un écran de réglages : activez le commutateur de MeshSync, puis revenez.</string>
+    <string name="onboarding_storage_granted">Accès autorisé</string>
 </resources>

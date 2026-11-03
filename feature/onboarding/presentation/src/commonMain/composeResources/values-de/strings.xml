@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Einen Ordner von einem anderen Gerät holen</string>
     <string name="onboarding_choice_receive_hint">Verbinde dich mit dem Gerät, das die Dateien hat, und nimm seinen Ordner an.</string>
     <string name="onboarding_choice_later">Später entscheiden</string>
+    <string name="onboarding_storage_title">Zugriff auf deine Dateien erlauben</string>
+    <string name="onboarding_storage_body">MeshSync braucht Zugriff auf alle Dateien, um die geteilten Ordner zu lesen und zu schreiben. Ohne ihn startet die Synchronisierung nicht – auch nicht, um ein anderes Gerät zu verbinden.</string>
+    <string name="onboarding_storage_grant">Zugriff erlauben</string>
+    <string name="onboarding_storage_hint">Android öffnet die Einstellungen: Aktiviere den Schalter für MeshSync und kehre dann zurück.</string>
+    <string name="onboarding_storage_granted">Zugriff erlaubt</string>
 </resources>

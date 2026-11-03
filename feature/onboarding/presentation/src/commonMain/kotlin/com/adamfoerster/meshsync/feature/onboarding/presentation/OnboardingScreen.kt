@@ -13,7 +13,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LifecycleResumeEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.adamfoerster.meshsync.core.presentation.LocalPlatformActions
 import com.adamfoerster.meshsync.core.designsystem.components.NgActionBar
 import com.adamfoerster.meshsync.core.designsystem.components.NgButton
 import com.adamfoerster.meshsync.core.designsystem.components.NgButtonStyle
@@ -41,6 +43,11 @@ import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboa
 import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_p3_body
 import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_p3_title
 import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_skip
+import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_storage_body
+import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_storage_grant
+import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_storage_granted
+import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_storage_hint
+import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_storage_title
 import com.adamfoerster.meshsync.feature.onboarding.presentation.resources.onboarding_title
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -59,7 +66,13 @@ fun OnboardingRoot(
             }
         }
     }
-    OnboardingScreen(state = state, onAction = viewModel::onAction)
+    val platform = LocalPlatformActions.current
+    // The grant happens in system settings, so the answer is re-read each time the user comes back.
+    LifecycleResumeEffect(platform) {
+        viewModel.onAction(OnboardingAction.OnStorageAccessChecked(platform.hasStorageAccess()))
+        onPauseOrDispose { }
+    }
+    OnboardingScreen(state = state, onAction = viewModel::onAction, onGrantStorage = platform::requestStorageAccess)
 }
 
 private class Page(val icon: androidx.compose.ui.graphics.vector.ImageVector, val title: StringResource, val body: StringResource)
@@ -71,7 +84,7 @@ private val pages = listOf(
 )
 
 @Composable
-fun OnboardingScreen(state: OnboardingState, onAction: (OnboardingAction) -> Unit) {
+fun OnboardingScreen(state: OnboardingState, onAction: (OnboardingAction) -> Unit, onGrantStorage: () -> Unit = {}) {
     val c = NgTheme.colors
     NgScreen(
         topBar = {
@@ -110,6 +123,22 @@ fun OnboardingScreen(state: OnboardingState, onAction: (OnboardingAction) -> Uni
             Icon(page.icon, null, tint = c.cyan, modifier = Modifier.size(48.dp))
             Text(stringResource(page.title), style = NgTheme.type.h2, color = c.text)
             Text(stringResource(page.body), style = NgTheme.type.body, color = c.text2)
+        } else if (state.isPermissionPage) {
+            Icon(NgIcons.Folder, null, tint = c.cyan, modifier = Modifier.size(48.dp))
+            Text(stringResource(Res.string.onboarding_storage_title), style = NgTheme.type.h2, color = c.text)
+            Text(stringResource(Res.string.onboarding_storage_body), style = NgTheme.type.body, color = c.text2)
+            if (state.storageGranted) {
+                // Text plus glyph, never colour alone.
+                Text("✓ " + stringResource(Res.string.onboarding_storage_granted), style = NgTheme.type.body, color = c.text)
+            } else {
+                NgButton(
+                    text = stringResource(Res.string.onboarding_storage_grant),
+                    onClick = onGrantStorage,
+                    style = NgButtonStyle.Primary,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Text(stringResource(Res.string.onboarding_storage_hint), style = NgTheme.type.sub, color = c.text2)
+            }
         } else {
             Text(stringResource(Res.string.onboarding_choice_title), style = NgTheme.type.h2, color = c.text)
             Text(stringResource(Res.string.onboarding_choice_body), style = NgTheme.type.body, color = c.text2)

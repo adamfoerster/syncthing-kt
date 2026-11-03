@@ -22,14 +22,18 @@ enum class OnboardingDestination {
     ReceiveFolder,
 }
 
-data class OnboardingState(val page: Int = 0) {
+data class OnboardingState(val page: Int = 0, val storageGranted: Boolean = false) {
     val isLastPage: Boolean get() = page >= OnboardingViewModel.LAST_PAGE
+    val isPermissionPage: Boolean get() = page == OnboardingViewModel.PERMISSION_PAGE
 }
 
 sealed interface OnboardingAction {
     data object OnNextClick : OnboardingAction
     data object OnBackClick : OnboardingAction
     data object OnSkipClick : OnboardingAction
+
+    /** The platform's current answer to "may we read and write shared folders?", re-checked on every resume. */
+    data class OnStorageAccessChecked(val granted: Boolean) : OnboardingAction
     data class OnChoose(val destination: OnboardingDestination) : OnboardingAction
 }
 
@@ -54,6 +58,7 @@ class OnboardingViewModel(
             OnboardingAction.OnNextClick -> goTo(_state.value.page + 1)
             OnboardingAction.OnBackClick -> goTo(_state.value.page - 1)
             OnboardingAction.OnSkipClick -> finish(OnboardingDestination.Home)
+            is OnboardingAction.OnStorageAccessChecked -> _state.value = _state.value.copy(storageGranted = action.granted)
             is OnboardingAction.OnChoose -> finish(action.destination)
         }
     }
@@ -61,7 +66,7 @@ class OnboardingViewModel(
     private fun goTo(page: Int) {
         val clamped = page.coerceIn(0, LAST_PAGE)
         savedState[KEY_PAGE] = clamped
-        _state.value = OnboardingState(clamped)
+        _state.value = _state.value.copy(page = clamped)
     }
 
     private fun finish(destination: OnboardingDestination) {
@@ -70,8 +75,13 @@ class OnboardingViewModel(
     }
 
     companion object {
-        /** Three explanation pages (0–2) and the final question (3). */
-        const val LAST_PAGE = 3
+        /**
+         * Three explanation pages (0–2), the all-files permission (3) and the final question (4).
+         * The permission comes before the choice because both paths need it: without it the core
+         * cannot start, so pairing with another device would fail right after onboarding.
+         */
+        const val PERMISSION_PAGE = 3
+        const val LAST_PAGE = 4
         private const val KEY_PAGE = "page"
     }
 }

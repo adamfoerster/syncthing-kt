@@ -103,7 +103,8 @@ o mesmo fluxo de aceitar pasta.
 
 ## Introdução (onboarding)
 
-Na primeira abertura o app mostra três telas curtas explicando como funciona e uma pergunta final: compartilhar uma
+Na primeira abertura o app mostra três telas curtas explicando como funciona, uma tela pedindo o acesso a todos os arquivos (sem ele o núcleo não
+inicia, nem para conectar a outro aparelho; `PlatformActions.hasStorageAccess` é relido a cada retomada) e uma pergunta final: compartilhar uma
 pasta deste aparelho (abre *Adicionar pasta*), pegar uma pasta de outro aparelho (abre *Adicionar aparelho*) ou decidir
 depois. O fim ou o "Pular" grava `AppPreferences.onboardingCompleted`, então ela não volta. A página atual sobrevive a
 morte de processo via `SavedStateHandle`.

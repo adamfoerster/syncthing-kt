@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Ricevere una cartella da un altro dispositivo</string>
     <string name="onboarding_choice_receive_hint">Collegati al dispositivo che ha i file e accetta la sua cartella.</string>
     <string name="onboarding_choice_later">Decidi più tardi</string>
+    <string name="onboarding_storage_title">Consenti l’accesso ai tuoi file</string>
+    <string name="onboarding_storage_body">MeshSync ha bisogno dell’accesso a tutti i file per leggere e scrivere le cartelle che condividi. Senza, la sincronizzazione non può partire, nemmeno per collegarsi a un altro dispositivo.</string>
+    <string name="onboarding_storage_grant">Consenti accesso</string>
+    <string name="onboarding_storage_hint">Android aprirà una schermata di impostazioni: attiva l’interruttore di MeshSync e torna qui.</string>
+    <string name="onboarding_storage_granted">Accesso consentito</string>
 </resources>

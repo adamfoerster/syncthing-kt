@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Pegar uma pasta de outro aparelho</string>
     <string name="onboarding_choice_receive_hint">Conecte-se ao aparelho que tem os arquivos e aceite a pasta dele.</string>
     <string name="onboarding_choice_later">Decidir depois</string>
+    <string name="onboarding_storage_title">Permita o acesso aos arquivos</string>
+    <string name="onboarding_storage_body">O MeshSync precisa de acesso a todos os arquivos para ler e gravar as pastas que você compartilha. Sem isso a sincronização não inicia — nem para conectar a outro aparelho.</string>
+    <string name="onboarding_storage_grant">Permitir acesso</string>
+    <string name="onboarding_storage_hint">O Android abrirá uma tela de configurações: ative a chave do MeshSync e volte.</string>
+    <string name="onboarding_storage_granted">Acesso permitido</string>
 </resources>

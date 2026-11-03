@@ -64,6 +64,8 @@ class MainActivity : ComponentActivity() {
             }
         }
 
+        override fun hasStorageAccess(): Boolean = core.hasStorageAccess()
+
         override val defaultFolderRoot: String = Environment.getExternalStorageDirectory().absolutePath
     }
 

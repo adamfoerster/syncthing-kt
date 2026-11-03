@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Get a folder from another device</string>
     <string name="onboarding_choice_receive_hint">Connect to the device that has the files and accept its folder.</string>
     <string name="onboarding_choice_later">Decide later</string>
+    <string name="onboarding_storage_title">Allow access to your files</string>
+    <string name="onboarding_storage_body">MeshSync needs access to all files to read and write the folders you share. Without it, syncing cannot start — not even to connect to another device.</string>
+    <string name="onboarding_storage_grant">Allow access</string>
+    <string name="onboarding_storage_hint">Android will open a settings screen: turn on the switch for MeshSync, then come back.</string>
+    <string name="onboarding_storage_granted">Access allowed</string>
 </resources>

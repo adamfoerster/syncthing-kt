@@ -76,6 +76,28 @@ class OnboardingViewModelTest {
         }
     }
 
+    @Test
+    fun storagePermissionHasItsOwnPageBeforeTheChoice() {
+        repeat(OnboardingViewModel.PERMISSION_PAGE) { viewModel.onAction(OnboardingAction.OnNextClick) }
+        assertThat(viewModel.state.value.isPermissionPage).isTrue()
+        assertThat(viewModel.state.value.isLastPage).isFalse()
+
+        viewModel.onAction(OnboardingAction.OnNextClick)
+        assertThat(viewModel.state.value.isLastPage).isTrue()
+    }
+
+    @Test
+    fun storageAccessStateFollowsWhatThePlatformReports() {
+        assertThat(viewModel.state.value.storageGranted).isFalse()
+
+        viewModel.onAction(OnboardingAction.OnStorageAccessChecked(true))
+        assertThat(viewModel.state.value.storageGranted).isTrue()
+
+        // Moving between pages must not forget it.
+        viewModel.onAction(OnboardingAction.OnNextClick)
+        assertThat(viewModel.state.value.storageGranted).isTrue()
+    }
+
     private class FakePreferences : AppPreferences {
         override val autoAcceptKnownFolders = MutableStateFlow(AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS)
         override val languageTag = MutableStateFlow<String?>(null)

@@ -18,4 +18,9 @@
     <string name="onboarding_choice_receive">Λήψη φακέλου από άλλη συσκευή</string>
     <string name="onboarding_choice_receive_hint">Συνδεθείτε στη συσκευή που έχει τα αρχεία και αποδεχτείτε τον φάκελό της.</string>
     <string name="onboarding_choice_later">Απόφαση αργότερα</string>
+    <string name="onboarding_storage_title">Επιτρέψτε την πρόσβαση στα αρχεία σας</string>
+    <string name="onboarding_storage_body">Το MeshSync χρειάζεται πρόσβαση σε όλα τα αρχεία για να διαβάζει και να γράφει τους φακέλους που μοιράζεστε. Χωρίς αυτήν, ο συγχρονισμός δεν ξεκινά — ούτε για σύνδεση με άλλη συσκευή.</string>
+    <string name="onboarding_storage_grant">Να επιτραπεί η πρόσβαση</string>
+    <string name="onboarding_storage_hint">Το Android θα ανοίξει μια οθόνη ρυθμίσεων: ενεργοποιήστε τον διακόπτη του MeshSync και επιστρέψτε.</string>
+    <string name="onboarding_storage_granted">Η πρόσβαση επιτράπηκε</string>
 </resources>

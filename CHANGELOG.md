@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.10.0] - 2026-11-03
+
+### Adicionado
+- A introdução agora pede o acesso a todos os arquivos antes da escolha final. Antes, quem escolhia conectar a outro aparelho via a falha e só então descobria na tela inicial que faltava essa permissão.
+
 ## [1.9.3] - 2026-11-01
 
 ### Alterado

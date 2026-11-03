@@ -10,12 +10,16 @@ interface PlatformActions {
     /** Sends the user to grant all-files access, which Syncthing needs for shared folders. */
     fun requestStorageAccess()
 
+    /** Whether the all-files access above is currently granted; the answer changes while the app is in the background. */
+    fun hasStorageAccess(): Boolean
+
     /** Suggested parent for new folders, e.g. `/storage/emulated/0`. */
     val defaultFolderRoot: String
 
     object NoOp : PlatformActions {
         override fun scanQrCode(onResult: (String?) -> Unit) = onResult(null)
         override fun requestStorageAccess() = Unit
+        override fun hasStorageAccess(): Boolean = true
         override val defaultFolderRoot: String = "/storage/emulated/0"
     }
 }

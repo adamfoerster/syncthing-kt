@@ -103,7 +103,8 @@ usual accept-folder flow.
 
 ## Introduction (onboarding)
 
-On first launch the app shows three short screens explaining how it works and a final question: share a folder from
+On first launch the app shows three short screens explaining how it works, a screen asking for all-files access (without it the core cannot
+start, not even to connect to another device; `PlatformActions.hasStorageAccess` is re-read on every resume) and a final question: share a folder from
 this device (opens *Add folder*), get a folder from another device (opens *Add device*) or decide later. Finishing or
 tapping "Skip" stores `AppPreferences.onboardingCompleted`, so it never returns. The current page survives process
 death through `SavedStateHandle`.
