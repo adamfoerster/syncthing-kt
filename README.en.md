@@ -204,7 +204,7 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 
 ## Versioning and contributing
 
-Current version: **1.2.0** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
+Current version: **1.12.2** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
 
 Every change needs tests, a version bump, a CHANGELOG entry and updated documentation;
 the full rules are in [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (which runs before every

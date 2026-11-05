@@ -82,4 +82,15 @@ class TranslationsTest {
         }.filter { it.exists() && Regex("""<(string|item)[^>]*>[^<]*'[^<]*<""").containsMatchIn(it.readText()) }
         assertThat(offenders.map { it.path }).isEqualTo(emptyList())
     }
+
+    @Test
+    fun `settings version label names the Syncthing core, not the app`() {
+        val offenders = resourceRoots().flatMap { root ->
+            root.listFiles { f -> f.name.startsWith("values") }.orEmpty().map { File(it, "strings.xml") }
+        }.filter { it.exists() }.flatMap { file ->
+            Regex("""<string name="settings_version">([^<]*)</string>""").findAll(file.readText())
+                .filter { !it.groupValues[1].startsWith("Syncthing ") }.map { file.path }.toList()
+        }
+        assertThat(offenders).isEqualTo(emptyList())
+    }
 }

@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.12.2] - 2026-11-05
+
+### Corrigido
+- Em **Ajustes**, a versão mostrada junto ao estado do núcleo aparecia como "MeshSync …", mas é a versão do núcleo Syncthing. Agora aparece como "Syncthing …".
+
 ## [1.12.1] - 2026-11-03
 
 ### Corrigido
