@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.13.1] - 2026-11-10
+
+### Alterado
+- No Windows, o ícone ao lado do relógio agora é o ícone do MeshSync. O estado (sincronizando, iniciando, pausado, com problema) continua na dica que aparece ao passar o mouse.
+
 ## [1.13.0] - 2026-11-10
 
 ### Adicionado

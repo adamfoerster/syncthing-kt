@@ -183,7 +183,7 @@ This clones Syncthing `v2.1.6` into `syncthing-native/go/` and writes `androidAp
 ## Windows
 
 MeshSync also runs on Windows (`desktopApp`): the same Compose app, with the `syncthing.exe` core as a child process and
-a tray icon. Data and configuration live in `%LOCALAPPDATA%\MeshSync`; autostart uses `HKCU\...\Run` with `--minimized`.
+a tray icon (the app icon; status is shown in the tooltip). Data and configuration live in `%LOCALAPPDATA%\MeshSync`; autostart uses `HKCU\...\Run` with `--minimized`.
 OS-specific code stays in `desktopApp` only, so macOS can follow.
 
 ```bash

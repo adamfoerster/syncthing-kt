@@ -9,6 +9,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Tray
@@ -104,6 +106,7 @@ fun main(args: Array<String>) {
         val language by preferences.languageTag.collectAsState()
         val themeMode by preferences.themeMode.collectAsState()
         val status = TrayStatus.of(coreState)
+        val appIcon = remember { loadAppIcon() }
         val windowState = rememberWindowState(size = DpSize(1100.dp, 780.dp))
         var autostartOn by remember { mutableStateOf(autostart.isEnabled()) }
 
@@ -130,7 +133,7 @@ fun main(args: Array<String>) {
                 },
             )
             Tray(
-                icon = remember(status) { StatusIcon(status) },
+                icon = appIcon,
                 tooltip = tooltip,
                 onAction = { windowVisible = true },
                 menu = {
@@ -167,6 +170,17 @@ fun main(args: Array<String>) {
             }
         }
     }
+}
+
+/**
+ * The app icon shown in the tray. Status is no longer drawn into it; the tooltip spells it out instead,
+ * so it never depends on the icon's colour.
+ */
+private fun loadAppIcon(): BitmapPainter {
+    val stream = checkNotNull(Thread.currentThread().contextClassLoader.getResourceAsStream("app-icon.png")) {
+        "app-icon.png missing from desktopApp resources"
+    }
+    return BitmapPainter(stream.use { javax.imageio.ImageIO.read(it) }.toComposeImageBitmap())
 }
 
 /** Sets the JVM default locale, which Compose resources use; null follows the system language. */

@@ -184,7 +184,7 @@ Isso clona o Syncthing `v2.1.6` em `syncthing-native/go/` e grava `androidApp/sr
 ## Windows
 
 O MeshSync também roda no Windows (`desktopApp`): o mesmo app Compose, com o núcleo `syncthing.exe` como processo filho e
-um ícone na bandeja. Dados e configuração ficam em `%LOCALAPPDATA%\MeshSync`; o autostart usa
+um ícone na bandeja (o ícone do app; o estado aparece na dica). Dados e configuração ficam em `%LOCALAPPDATA%\MeshSync`; o autostart usa
 `HKCU\...\Run` com `--minimized`. Código específico de SO fica só em `desktopApp`, para o macOS entrar depois.
 
 ```bash
