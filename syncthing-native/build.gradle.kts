@@ -18,6 +18,9 @@ import javax.inject.Inject
  * Needs: git, Go (>= the version Syncthing's go.mod asks for) and the Android NDK.
  *   ./gradlew :syncthing-native:buildNative                 # all ABIs
  *   ./gradlew :syncthing-native:buildNative -Pabis=arm64-v8a,x86_64
+ *
+ * Desktop needs only git and Go:
+ *   ./gradlew :syncthing-native:buildWindows                # desktopApp/resources/windows-x64/syncthing.exe
  */
 
 val syncthingVersion = "v2.1.6"
@@ -85,6 +88,60 @@ abstract class BuildSyncthingTask @Inject constructor(private val exec: ExecOper
             "x86" to ("386" to "i686-linux-android"),
         )
     }
+}
+
+/**
+ * Cross-compiles Syncthing as a plain executable for a desktop OS (no NDK, no cgo: Syncthing v2 is pure Go
+ * there). The binary and Syncthing's MPL-2.0 LICENSE land in [outputDir], which `:desktopApp` bundles.
+ */
+abstract class BuildSyncthingDesktopTask @Inject constructor(private val exec: ExecOperations) : DefaultTask() {
+    @get:Input abstract val version: Property<String>
+    @get:Input abstract val goos: Property<String>
+    @get:Input abstract val goarch: Property<String>
+    @get:Internal abstract val sourceDir: DirectoryProperty
+    @get:OutputDirectory abstract val outputDir: DirectoryProperty
+
+    @TaskAction
+    fun build() {
+        val src = sourceDir.get().asFile
+        if (!File(src, "build.go").exists()) {
+            src.parentFile.mkdirs()
+            exec.exec {
+                commandLine("git", "clone", "--depth", "1", "--branch", version.get(), "https://github.com/syncthing/syncthing.git", src.absolutePath)
+            }
+        }
+        val hostWindows = System.getProperty("os.name").lowercase().contains("windows")
+        val exeName = if (goos.get() == "windows") "syncthing.exe" else "syncthing"
+        logger.lifecycle("Building Syncthing ${version.get()} for ${goos.get()}/${goarch.get()}")
+        exec.exec {
+            workingDir(src)
+            environment("CGO_ENABLED", "0")
+            environment("BUILD_USER", "syncthing-kt")
+            environment("SOURCE_DATE_EPOCH", "0")
+            commandLine(
+                if (hostWindows) "go.exe" else "go", "run", "build.go",
+                "-goos", goos.get(), "-goarch", goarch.get(),
+                "-version", version.get(), "-no-upgrade", "build",
+            )
+        }
+        val built = File(src, exeName)
+        require(built.exists()) { "Syncthing build did not produce $built" }
+        val out = outputDir.get().asFile.apply { mkdirs() }
+        built.copyTo(File(out, exeName), overwrite = true)
+        built.delete()
+        // MPL-2.0 requires shipping the license with the binary.
+        File(src, "LICENSE").takeIf { it.exists() }?.copyTo(File(out, "SYNCTHING-LICENSE.txt"), overwrite = true)
+    }
+}
+
+tasks.register<BuildSyncthingDesktopTask>("buildWindows") {
+    group = "build"
+    description = "Compiles syncthing.exe (windows/amd64) into desktopApp/resources/windows-x64"
+    version.set(syncthingVersion)
+    goos.set("windows")
+    goarch.set("amd64")
+    sourceDir.set(layout.projectDirectory.dir("go/syncthing"))
+    outputDir.set(rootProject.layout.projectDirectory.dir("desktopApp/resources/windows-x64"))
 }
 
 fun findNdk(): String {

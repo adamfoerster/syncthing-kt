@@ -13,6 +13,8 @@ captures
 # Syncthing core: compiled by :syncthing-native, never committed
 androidApp/src/main/jniLibs/
 syncthing-native/go/
+# Desktop Syncthing binaries, built by :syncthing-native:buildWindows
+desktopApp/resources/
 
 # Local signing config pointer
 keystore.properties

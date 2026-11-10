@@ -42,7 +42,8 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |
 | `androidApp` | Activity, service, core process manager, QR scanner (ZXing) |
-| `syncthing-native` | Task that builds the Go core for Android |
+| `desktopApp` | Windows app (JVM): tray, core process, autostart, MSI/EXE installer |
+| `syncthing-native` | Tasks that build the Go core (Android and Windows) |
 
 ## Conflict resolution
 
@@ -60,6 +61,10 @@ Conflicts whose two versions are byte-for-byte identical (for example after movi
 resolved automatically during the scan: the older file is kept and the other goes to `.stversions/`.
 If the texts have no differing section but the bytes are not equal, the list and the resolver screen say why
 (`TextDifference`: line endings or the final line break).
+
+To avoid conflicts nobody edited, folders are created with `ignorePerms = true` (Android storage reports every
+file as `0660`; without the flag the phone announces a metadata-only version for each received file, which races
+with the next edit made on another device). `FolderPermissionsMigrator` fixes existing folders.
 
 Nothing is deleted: replaced versions go to `.stversions/` inside the folder, using the same name
 format as Syncthing's own versioning (which never syncs that directory). If the file changes on disk
@@ -175,6 +180,21 @@ The APK only really syncs with the embedded core. Build it once (needs git, Go a
 This clones Syncthing `v2.1.6` into `syncthing-native/go/` and writes `androidApp/src/main/jniLibs/<abi>/libsyncthing.so`
 (both outside git). Without the binary, the app shows "Syncthing core missing".
 
+## Windows
+
+MeshSync also runs on Windows (`desktopApp`): the same Compose app, with the `syncthing.exe` core as a child process and
+a tray icon. Data and configuration live in `%LOCALAPPDATA%\MeshSync`; autostart uses `HKCU\...\Run` with `--minimized`.
+OS-specific code stays in `desktopApp` only, so macOS can follow.
+
+```bash
+./gradlew :syncthing-native:buildWindows   # syncthing.exe in desktopApp/resources/windows-x64 (needs Go >= 1.26.2)
+./gradlew :desktopApp:run                  # run the app
+./gradlew :desktopApp:packageMsi :desktopApp:packageExe   # installers in desktopApp/build/compose/binaries/main/{msi,exe}
+```
+
+The installer is per-user (no administrator) and **unsigned**, so SmartScreen warns. The `upgradeUuid` in
+`desktopApp/build.gradle.kts` must never change: it is how Windows recognises a newer version as an upgrade.
+
 ### Release build (R8 + signing)
 
 The release build uses R8 (obfuscation, minification and `shrinkResources`; rules in `androidApp/proguard-rules.pro`).
@@ -199,12 +219,12 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 ## Tests
 
 ```bash
-./gradlew testAndroidHostTest
+./gradlew testAndroidHostTest :desktopApp:test
 ```
 
 ## Versioning and contributing
 
-Current version: **1.12.2** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
+Current version: **1.13.0** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
 
 Every change needs tests, a version bump, a CHANGELOG entry and updated documentation;
 the full rules are in [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (which runs before every

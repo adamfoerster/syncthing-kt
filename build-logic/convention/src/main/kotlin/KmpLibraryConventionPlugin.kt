@@ -11,8 +11,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
 
 /**
- * Base for every shared module: Kotlin Multiplatform with Android as the only target for now.
- * Code goes to commonMain unless it needs an Android API, so new targets only need actuals.
+ * Base for every shared module: Kotlin Multiplatform with Android and a JVM `desktop` target.
+ * Code goes to commonMain unless it needs a platform API, so new targets only need actuals.
  */
 class KmpLibraryConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
@@ -31,6 +31,13 @@ class KmpLibraryConventionPlugin : Plugin<Project> {
                 androidResources { enable = true }
                 // Runs commonTest on the JVM, no device needed.
                 withHostTest {}
+            }
+
+            // Desktop (Windows now, macOS later) runs on the JVM; OS-specific code goes in desktopMain.
+            jvm("desktop") {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_17)
+                }
             }
 
             applyDefaultHierarchyTemplate()

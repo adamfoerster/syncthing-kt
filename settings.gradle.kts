@@ -31,6 +31,7 @@ dependencyResolutionManagement {
 }
 
 include(":androidApp")
+include(":desktopApp")
 include(":app")
 include(":syncthing-native")
 

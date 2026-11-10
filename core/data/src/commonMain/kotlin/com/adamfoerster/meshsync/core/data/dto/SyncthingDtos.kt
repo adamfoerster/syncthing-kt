@@ -28,6 +28,8 @@ data class FolderConfigDto(
     val path: String = "",
     val type: String = "sendreceive",
     val paused: Boolean = false,
+    /** Defaults to true so a core that omits the key is never "fixed" needlessly. */
+    val ignorePerms: Boolean = true,
     val devices: List<FolderDeviceDto> = emptyList(),
 )
 
@@ -71,13 +73,19 @@ data class NewDeviceDto(
     val name: String,
 )
 
-/** Body for `POST /rest/config/folders`; omitted fields are taken from the core's defaults. */
+/**
+ * Body for `POST /rest/config/folders`; omitted fields are taken from the core's defaults.
+ *
+ * [ignorePerms] has no default on purpose: the client does not encode defaults, so it would be
+ * dropped, and the core's own default (`false`) is exactly what causes spurious conflicts on Android.
+ */
 @Serializable
 data class NewFolderDto(
     val id: String,
     val label: String,
     val path: String,
     val type: String,
+    val ignorePerms: Boolean,
     val devices: List<FolderDeviceDto>,
 )
 

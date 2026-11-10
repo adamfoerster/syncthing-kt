@@ -8,6 +8,23 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.13.0] - 2026-11-10
+
+### Adicionado
+- **MeshSync para Windows**: um instalador (MSI ou EXE) instala o app para o seu usuário, sem pedir administrador. O Syncthing roda em segundo plano, com um **ícone ao lado do relógio** que mostra o estado (sincronizando, iniciando, pausado, com problema). Fechar a janela só a esconde; o serviço continua rodando.
+- Menu do ícone: **Abrir MeshSync**, **Pausar/Retomar sincronização**, **Iniciar com o Windows** e **Sair** (que também encerra o Syncthing).
+- O MeshSync inicia junto com o Windows, já na bandeja, e isso pode ser desligado no menu do ícone.
+- Abrir o app uma segunda vez apenas mostra a janela que já está aberta.
+- No Windows, **Escolher ou criar pasta** usa o seletor de pastas do sistema e **Compartilhar** abre o arquivo no Explorer.
+
+### Alterado
+- Quem usa o app no computador não vê a leitura de QR code: o código do aparelho é digitado ou colado.
+
+## [1.12.3] - 2026-11-05
+
+### Corrigido
+- Arquivos criados ou editados em outro aparelho (por exemplo o computador) apareciam como **conflito** sem ninguém ter mexido neles no celular. O Android grava todos os arquivos com as mesmas permissões, o que fazia o celular anunciar uma "nova versão" de cada arquivo recebido e colidir com a próxima edição. Agora as pastas são criadas com a opção de **ignorar permissões**, e as pastas que você já tinha são corrigidas automaticamente na próxima vez que o app abrir. Conflitos que já existem continuam na lista até você resolvê-los.
+
 ## [1.12.2] - 2026-11-05
 
 ### Corrigido

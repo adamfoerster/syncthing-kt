@@ -17,6 +17,11 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
         }
+        val desktopMain by getting {
+            dependencies {
+                implementation(libs.ktor.client.okhttp)
+            }
+        }
         commonTest.dependencies {
             implementation(libs.ktor.client.mock)
         }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_title">MeshSync</string>
+    <string name="tray_open">MeshSync öffnen</string>
+    <string name="tray_pause">Synchronisierung pausieren</string>
+    <string name="tray_resume">Synchronisierung fortsetzen</string>
+    <string name="tray_autostart">Mit Windows starten</string>
+    <string name="tray_quit">MeshSync beenden</string>
+    <string name="tray_status_running">MeshSync: läuft</string>
+    <string name="tray_status_starting">MeshSync: startet…</string>
+    <string name="tray_status_paused">MeshSync: pausiert</string>
+    <string name="tray_status_failed">MeshSync: Fehler</string>
+    <string name="tray_status_missing">MeshSync: Syncthing nicht gefunden</string>
+    <string name="core_exit">Syncthing wurde beendet (Code %1$s).</string>
+    <string name="core_start_timeout">Syncthing hat nicht rechtzeitig geantwortet.</string>
+</resources>

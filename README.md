@@ -3,7 +3,7 @@
 🇬🇧 [Read in English](README.en.md)
 
 MeshSync é uma reimplementação do app Android do Syncthing em Kotlin Multiplatform + Compose Multiplatform
-(Android é o único target por enquanto), com a interface "Neon Grid" do redesign e um
+(Android e Windows; macOS depois), com a interface "Neon Grid" do redesign e um
 resolvedor de conflitos no estilo do GitHub.
 
 ## Destaques
@@ -42,7 +42,8 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |
 | `androidApp` | Activity, serviço, gerenciador do processo do núcleo, scanner QR (ZXing) |
-| `syncthing-native` | Task que compila o núcleo Go para Android |
+| `desktopApp` | App Windows (JVM): bandeja, processo do núcleo, autostart, instalador MSI/EXE |
+| `syncthing-native` | Tasks que compilam o núcleo Go (Android e Windows) |
 
 ## Resolução de conflitos
 
@@ -60,6 +61,10 @@ Conflitos em que as duas versões têm exatamente os mesmos bytes (por exemplo, 
 são resolvidos automaticamente na varredura: fica o arquivo mais antigo e o outro vai para `.stversions/`.
 Se os textos não têm nenhum trecho diferente mas os bytes não são iguais, a lista e a tela de resolução explicam
 o motivo (`TextDifference`: quebras de linha ou quebra de linha final).
+
+Para não gerar conflitos que ninguém editou, as pastas são criadas com `ignorePerms = true` (o armazenamento do
+Android grava tudo como `0660`, e sem isso o celular anuncia uma versão só de metadados para cada arquivo recebido,
+que colide com a próxima edição em outro aparelho). `FolderPermissionsMigrator` corrige as pastas existentes.
 
 Nada é apagado: as versões substituídas vão para `.stversions/` dentro da pasta, com o mesmo formato
 de nome do versionamento do Syncthing (que nunca sincroniza esse diretório). Se o arquivo mudar no disco
@@ -176,6 +181,21 @@ O APK só sincroniza de verdade com o núcleo embutido. Compile-o uma vez (preci
 Isso clona o Syncthing `v2.1.6` em `syncthing-native/go/` e grava `androidApp/src/main/jniLibs/<abi>/libsyncthing.so`
 (ambos fora do git). Sem o binário, o app mostra "Núcleo do Syncthing ausente".
 
+## Windows
+
+O MeshSync também roda no Windows (`desktopApp`): o mesmo app Compose, com o núcleo `syncthing.exe` como processo filho e
+um ícone na bandeja. Dados e configuração ficam em `%LOCALAPPDATA%\MeshSync`; o autostart usa
+`HKCU\...\Run` com `--minimized`. Código específico de SO fica só em `desktopApp`, para o macOS entrar depois.
+
+```bash
+./gradlew :syncthing-native:buildWindows   # syncthing.exe em desktopApp/resources/windows-x64 (precisa de Go >= 1.26.2)
+./gradlew :desktopApp:run                  # executa o app
+./gradlew :desktopApp:packageMsi :desktopApp:packageExe   # instaladores em desktopApp/build/compose/binaries/main/{msi,exe}
+```
+
+O instalador é por usuário (sem administrador) e **não é assinado**, então o SmartScreen avisa. O `upgradeUuid` em
+`desktopApp/build.gradle.kts` nunca deve mudar: é ele que faz o Windows tratar uma versão nova como atualização.
+
 ### Build de release (R8 + assinatura)
 
 O build de release usa R8 (ofuscação, minificação e `shrinkResources`; regras em `androidApp/proguard-rules.pro`).
@@ -200,12 +220,12 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 ## Testes
 
 ```bash
-./gradlew testAndroidHostTest
+./gradlew testAndroidHostTest :desktopApp:test
 ```
 
 ## Versionamento e contribuição
 
-Versão atual: **1.12.2** (`app.version` em `gradle.properties`, SemVer). Histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **1.13.0** (`app.version` em `gradle.properties`, SemVer). Histórico em [CHANGELOG.md](CHANGELOG.md).
 
 Cada alteração precisa de testes, um bump de versão, uma entrada no CHANGELOG e a documentação atualizada;
 as regras completas estão em [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (que roda antes de todo

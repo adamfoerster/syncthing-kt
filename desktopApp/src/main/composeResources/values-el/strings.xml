@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="window_title">MeshSync</string>
+    <string name="tray_open">Άνοιγμα του MeshSync</string>
+    <string name="tray_pause">Παύση συγχρονισμού</string>
+    <string name="tray_resume">Συνέχιση συγχρονισμού</string>
+    <string name="tray_autostart">Εκκίνηση με τα Windows</string>
+    <string name="tray_quit">Έξοδος από το MeshSync</string>
+    <string name="tray_status_running">MeshSync: σε λειτουργία</string>
+    <string name="tray_status_starting">MeshSync: εκκίνηση…</string>
+    <string name="tray_status_paused">MeshSync: σε παύση</string>
+    <string name="tray_status_failed">MeshSync: σφάλμα</string>
+    <string name="tray_status_missing">MeshSync: το Syncthing δεν βρέθηκε</string>
+    <string name="core_exit">Το Syncthing τερματίστηκε (κωδικός %1$s).</string>
+    <string name="core_start_timeout">Το Syncthing δεν απάντησε εγκαίρως.</string>
+</resources>

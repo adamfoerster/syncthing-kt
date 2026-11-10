@@ -60,6 +60,7 @@ class KtorSyncthingRepository(
     override val overview: StateFlow<SyncOverview?> = _overview.asStateFlow()
 
     private val refreshLock = Mutex()
+    private val permissionsMigrator = FolderPermissionsMigrator(api)
 
     init {
         scope.launch {
@@ -72,6 +73,7 @@ class KtorSyncthingRepository(
     private suspend fun pollLoop() = coroutineScope {
         var since = 0L
         while (isActive) {
+            permissionsMigrator.run()
             if (!refreshNow()) {
                 delay(RETRY_DELAY_MS)
                 continue
@@ -178,7 +180,7 @@ class KtorSyncthingRepository(
     ): EmptyResult<DataError.Remote> {
         val myId = _overview.value?.myId
         val members = (listOfNotNull(myId) + devices).distinct().map { FolderDeviceDto(it.value) }
-        return api.addFolder(NewFolderDto(id, label, path, type.apiValue, members)).refreshOnSuccess()
+        return api.addFolder(NewFolderDto(id, label, path, type.apiValue, ignorePerms = true, devices = members)).refreshOnSuccess()
     }
 
     override suspend fun setFolderDevices(folderId: String, devices: List<DeviceId>): EmptyResult<DataError.Remote> {
