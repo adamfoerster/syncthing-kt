@@ -9,6 +9,7 @@ import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.FileInfo
 import com.adamfoerster.meshsync.core.domain.model.FolderType
+import com.adamfoerster.meshsync.core.domain.model.PendingDevice
 import com.adamfoerster.meshsync.core.domain.model.SyncOverview
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
@@ -37,7 +38,49 @@ class AddDeviceViewModelTest {
     @AfterTest
     fun tearDown() = Dispatchers.resetMain()
 
-    private fun viewModel() = AddDeviceViewModel(null, null, FakeRepository(), core, SavedStateHandle())
+    private val repository = FakeRepository()
+
+    private fun viewModel() = AddDeviceViewModel(null, null, repository, core, SavedStateHandle())
+
+    private val pendingId = "MFZWI3D-BONSGYC-YLTMRWG-C43ENR5-QXGZDMM-FZWI3DP-BONSGYY-LTMRWAD"
+
+    private fun overviewWithPending(name: String) = SyncOverview(
+        myId = DeviceId(pendingId.reversed().replace("-", "A").chunked(7).joinToString("-")),
+        myName = "Me", version = "", devices = emptyList(), folders = emptyList(),
+        pendingDevices = listOf(PendingDevice(DeviceId(pendingId), name, "", null)),
+        pendingFolders = emptyList(), lastSync = null,
+    )
+
+    @Test
+    fun theNameIsSuggestedFromAPendingDeviceWithTheTypedId() {
+        val vm = viewModel()
+        repository.overview.value = overviewWithPending("Notebook da Ana")
+
+        vm.onAction(AddDeviceAction.OnIdChange(pendingId))
+
+        assertThat(vm.state.value.nameInput).isEqualTo("Notebook da Ana")
+    }
+
+    @Test
+    fun aSuggestionNeverOverwritesWhatTheUserTyped() {
+        val vm = viewModel()
+        repository.overview.value = overviewWithPending("Notebook da Ana")
+        vm.onAction(AddDeviceAction.OnNameChange("Meu nome"))
+
+        vm.onAction(AddDeviceAction.OnIdChange(pendingId))
+
+        assertThat(vm.state.value.nameInput).isEqualTo("Meu nome")
+    }
+
+    @Test
+    fun noSuggestionWhenNoPendingDeviceMatches() {
+        val vm = viewModel()
+        repository.overview.value = overviewWithPending("Notebook da Ana")
+
+        vm.onAction(AddDeviceAction.OnIdChange("AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA-AAAAAAA"))
+
+        assertThat(vm.state.value.nameInput).isEqualTo("")
+    }
 
     @Test
     fun theFlowFollowsTheCoreState() {
@@ -65,7 +108,7 @@ class AddDeviceViewModelTest {
     }
 
     private class FakeRepository : SyncthingRepository {
-        override val overview: StateFlow<SyncOverview?> = MutableStateFlow(null)
+        override val overview = MutableStateFlow<SyncOverview?>(null)
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> = unused()
         override suspend fun setIgnorePatterns(folderId: String, lines: List<String>) = unused()
         override suspend fun refresh() = Unit

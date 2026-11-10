@@ -36,7 +36,7 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
 | `feature:files` | File manager: `domain` (`FileManager`), `data` (Okio), `presentation` |
-| `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR |
+| `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR (suggests the machine name when it has already asked to connect) |
 | `feature:onboarding` | First-run introduction (explains the app and asks whether to share or fetch a folder) |
 | `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |

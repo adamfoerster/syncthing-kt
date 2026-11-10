@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
+import com.adamfoerster.meshsync.core.domain.model.PendingDevice
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
 import com.adamfoerster.meshsync.core.domain.util.Result
@@ -84,6 +85,9 @@ class AddDeviceViewModel(
     )
     val state = _state.asStateFlow()
 
+    /** True once the user typed a name (or one was prefilled), so a suggestion never overwrites it. */
+    private var nameEdited = _state.value.nameInput.isNotBlank()
+
     private val _events = Channel<AddDeviceEvent>()
     val events = _events.receiveAsFlow()
 
@@ -92,6 +96,7 @@ class AddDeviceViewModel(
         viewModelScope.launch {
             repository.overview.filterNotNull().collect { overview ->
                 val known = overview.devices.map { it.id }.toSet()
+                pendingDevices = overview.pendingDevices
                 _state.update { s ->
                     s.copy(
                         myId = overview.myId.value,
@@ -100,10 +105,22 @@ class AddDeviceViewModel(
                         folders = overview.folders.map { folder ->
                             FolderChoiceUi(folder.id, folder.label, s.folders.firstOrNull { it.id == folder.id }?.checked ?: false)
                         },
-                    )
+                    ).withSuggestedName()
                 }
             }
         }
+    }
+
+    private var pendingDevices: List<PendingDevice> = emptyList()
+
+    /**
+     * Fills the name with the one the device announced about itself (its machine name) when its ID matches a
+     * pending device, until the user types their own.
+     */
+    private fun AddDeviceState.withSuggestedName(): AddDeviceState {
+        if (nameEdited) return this
+        val suggestion = parsedId?.let { id -> pendingDevices.firstOrNull { it.id == id }?.name?.trim() }
+        return if (suggestion.isNullOrEmpty() || suggestion == nameInput) this else copy(nameInput = suggestion)
     }
 
     fun onAction(action: AddDeviceAction) {
@@ -113,10 +130,11 @@ class AddDeviceViewModel(
             AddDeviceAction.OnManualClick -> goTo(AddStep.APPROVE)
             is AddDeviceAction.OnIdChange -> {
                 savedStateHandle[KEY_ID] = action.value
-                _state.update { it.copy(deviceIdInput = action.value, showIdError = false, error = null) }
+                _state.update { it.copy(deviceIdInput = action.value, showIdError = false, error = null).withSuggestedName() }
             }
             is AddDeviceAction.OnNameChange -> {
                 savedStateHandle[KEY_NAME] = action.value
+                nameEdited = action.value.isNotBlank()
                 _state.update { it.copy(nameInput = action.value) }
             }
             AddDeviceAction.OnUseIncoming -> {

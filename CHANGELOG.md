@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.14.0] - 2026-11-10
+
+### Adicionado
+- Ao adicionar um dispositivo, o nome da máquina é sugerido automaticamente quando ele já entrou em contato com este aparelho: basta escanear ou colar o ID e o campo de nome vem preenchido. O que você digitar nunca é substituído.
+
 ## [1.13.1] - 2026-11-10
 
 ### Alterado

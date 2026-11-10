@@ -36,7 +36,7 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
 | `feature:files` | Gerenciador de arquivos: `domain` (`FileManager`), `data` (Okio), `presentation` |
-| `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR |
+| `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR (sugere o nome da máquina quando ela já pediu conexão) |
 | `feature:onboarding` | Introdução da primeira abertura (explica o app e pergunta se compartilha ou pega uma pasta) |
 | `feature:settings` | Ajustes (nome, código, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
