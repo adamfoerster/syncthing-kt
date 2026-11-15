@@ -2,6 +2,7 @@ package com.adamfoerster.meshsync.desktop.core
 
 import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
+import com.adamfoerster.meshsync.desktop.HostOs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -35,7 +36,7 @@ class CoreMessages(
 )
 
 /**
- * Runs `syncthing.exe` as a child process of the tray app, the desktop counterpart of
+ * Runs `syncthing(.exe)` as a child process of the tray app, the desktop counterpart of
  * `AndroidSyncthingCore`: no service is installed, the app supervises the core. The state turns
  * [CoreState.Running] once the REST API answers, and the core is restarted when it asks for it
  * (exit code 3), since there is no monitor process (`STMONITORED=1`).
@@ -50,6 +51,7 @@ class DesktopSyncthingCore(
     private val startTimeoutMs: Long = TimeUnit.SECONDS.toMillis(90),
     private val stopGraceMs: Long = TimeUnit.SECONDS.toMillis(10),
     private val healthPollMs: Long = 500,
+    private val os: HostOs = HostOs.current(),
 ) : SyncthingCore {
 
     private val _state = MutableStateFlow<CoreState>(CoreState.Stopped)
@@ -126,14 +128,18 @@ class DesktopSyncthingCore(
 
     private suspend fun runProcess() {
         config.syncthingHome.mkdirs()
+        // Packaging (the macOS .app) copies the bundled core without its executable bit; restore it.
+        if (!binary.canExecute()) binary.setExecutable(true, false)
         StaleProcess.terminate(config.pidFile)
-        val command = listOf(
-            binary.path, "serve",
-            "--no-browser",
-            "--no-console",
-            "--gui-address=${config.baseUrl}",
-            "--gui-apikey=${config.apiKey}",
-        )
+        val command = buildList {
+            add(binary.path)
+            add("serve")
+            add("--no-browser")
+            // Windows-only flag (hides the console window); other builds reject it and exit.
+            if (os == HostOs.Windows) add("--no-console")
+            add("--gui-address=${config.baseUrl}")
+            add("--gui-apikey=${config.apiKey}")
+        }
         val environment = mapOf(
             "STHOMEDIR" to config.syncthingHome.absolutePath,
             "STNOUPGRADE" to "1",

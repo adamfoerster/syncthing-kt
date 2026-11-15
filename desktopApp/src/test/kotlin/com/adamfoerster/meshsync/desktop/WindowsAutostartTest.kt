@@ -43,7 +43,7 @@ class WindowsAutostartTest {
     @Test
     fun `a development run through java is not registered`() {
         // Under Gradle the current process is java.exe; registering that would break the login start.
-        val launcher = WindowsAutostart.currentLauncher()
+        val launcher = Autostart.currentLauncher()
         assertThat(launcher == null || !launcher.substringAfterLast('\\').startsWith("java", ignoreCase = true)).isTrue()
     }
 }

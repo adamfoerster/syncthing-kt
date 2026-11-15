@@ -21,6 +21,7 @@ import javax.inject.Inject
  *
  * Desktop needs only git and Go:
  *   ./gradlew :syncthing-native:buildWindows                # desktopApp/resources/windows-x64/syncthing.exe
+ *   ./gradlew :syncthing-native:buildMacos                  # desktopApp/resources/macos-arm64/syncthing
  */
 
 val syncthingVersion = "v2.1.6"
@@ -127,7 +128,8 @@ abstract class BuildSyncthingDesktopTask @Inject constructor(private val exec: E
         val built = File(src, exeName)
         require(built.exists()) { "Syncthing build did not produce $built" }
         val out = outputDir.get().asFile.apply { mkdirs() }
-        built.copyTo(File(out, exeName), overwrite = true)
+        // copyTo drops the executable bit, which macOS/Linux need to run the core.
+        built.copyTo(File(out, exeName), overwrite = true).setExecutable(true, false)
         built.delete()
         // MPL-2.0 requires shipping the license with the binary.
         File(src, "LICENSE").takeIf { it.exists() }?.copyTo(File(out, "SYNCTHING-LICENSE.txt"), overwrite = true)
@@ -142,6 +144,16 @@ tasks.register<BuildSyncthingDesktopTask>("buildWindows") {
     goarch.set("amd64")
     sourceDir.set(layout.projectDirectory.dir("go/syncthing"))
     outputDir.set(rootProject.layout.projectDirectory.dir("desktopApp/resources/windows-x64"))
+}
+
+tasks.register<BuildSyncthingDesktopTask>("buildMacos") {
+    group = "build"
+    description = "Compiles syncthing (darwin/arm64) into desktopApp/resources/macos-arm64"
+    version.set(syncthingVersion)
+    goos.set("darwin")
+    goarch.set("arm64")
+    sourceDir.set(layout.projectDirectory.dir("go/syncthing"))
+    outputDir.set(rootProject.layout.projectDirectory.dir("desktopApp/resources/macos-arm64"))
 }
 
 fun findNdk(): String {

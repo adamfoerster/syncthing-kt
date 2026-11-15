@@ -8,6 +8,14 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.15.0] - 2026-11-15
+
+### Adicionado
+- **MeshSync para macOS** (Macs com Apple Silicon): instale arrastando o app do DMG para Aplicativos. O Syncthing roda em segundo plano, com o ícone do MeshSync na **barra de menus**; fechar a janela só a esconde, e clicar no ícone do Dock a traz de volta. ⌘Q encerra também o Syncthing.
+- No macOS, **Abrir ao iniciar sessão** (no menu do ícone, ligado por padrão) abre o MeshSync já na barra de menus quando você entra no Mac.
+- No macOS, **Compartilhar** mostra o arquivo no Finder.
+- Como o app ainda não é notarizado pela Apple, na primeira abertura clique com o botão direito em MeshSync e escolha **Abrir**.
+
 ## [1.14.0] - 2026-11-10
 
 ### Adicionado

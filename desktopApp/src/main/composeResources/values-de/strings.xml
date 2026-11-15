@@ -5,6 +5,7 @@
     <string name="tray_pause">Synchronisierung pausieren</string>
     <string name="tray_resume">Synchronisierung fortsetzen</string>
     <string name="tray_autostart">Mit Windows starten</string>
+    <string name="tray_autostart_mac">Beim Anmelden starten</string>
     <string name="tray_quit">MeshSync beenden</string>
     <string name="tray_status_running">MeshSync: läuft</string>
     <string name="tray_status_starting">MeshSync: startet…</string>

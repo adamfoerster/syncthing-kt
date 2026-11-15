@@ -1,7 +1,7 @@
 # CLAUDE.md
 
-MeshSync: reimplementação do Syncthing Android em Kotlin Multiplatform + Compose Multiplatform. Android e Windows
-(`desktopApp`) são os targets; macOS vem depois, mas o código vai em `commonMain` sempre que não precisar de API do Android.
+MeshSync: reimplementação do Syncthing Android em Kotlin Multiplatform + Compose Multiplatform. Android, Windows e macOS
+Apple Silicon (`desktopApp`) são os targets; o código vai em `commonMain` sempre que não precisar de API do Android.
 A interface é traduzida para pt, en, es, it, de, fr e el (inglês é o padrão para idiomas não suportados). Visão geral e instruções de build: [README.md](README.md).
 
 ## Regras obrigatórias a cada alteração
@@ -36,6 +36,7 @@ Uma alteração = um bump. Vários ajustes na mesma tarefa entram numa única ve
 ./gradlew :desktopApp:test            # testes do app Windows
 ./gradlew verifyVersion                # versão x CHANGELOG
 ./gradlew :syncthing-native:buildWindows   # syncthing.exe (precisa de Go); depois :desktopApp:run / packageMsi / packageExe
+./gradlew :syncthing-native:buildMacos     # syncthing macOS arm64 (precisa de Go); depois :desktopApp:run / packageDmg (só num Mac; o JDK de empacotamento é escolhido sozinho, ou -Pmeshsync.packagingJdk)
 ./gradlew :syncthing-native:buildNative -Pabis=arm64-v8a,x86_64   # núcleo Go (precisa de Go + NDK)
 ```
 
@@ -68,10 +69,11 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
 - Gerenciador de arquivos (`feature:files:{domain,data,presentation}`): operações de arquivo (Okio) em `OkioFileManager`,
   aberto pelo botão da aba Pastas (`FilesRoute`). Pastas sincronizadas usam `NgFolderIcon(shared = true)`; **Sincronizar**
   abre `AddFolderRoute(path)`. Compartilhar usa `PlatformActions.shareFiles` (FileProvider no `androidApp`). Colar nunca sobrescreve.
-- Desktop (`desktopApp`, JVM puro): reutiliza `:app` e fornece `AppPreferences`, `SyncthingEndpoint`, `SyncthingCore` (`DesktopSyncthingCore`:
-  processo filho `syncthing.exe`, reinício no exit 3, limpeza de órfão por PID), `PlatformActions`, bandeja (`Tray`), instância única e
-  autostart (HKCU Run). Todo código específico de SO fica ali; os módulos KMP ganham só o target `jvm("desktop")` e seus `actual`s.
-  Dados em `%LOCALAPPDATA%\MeshSync`. O `upgradeUuid` do instalador nunca muda.
+- Desktop (`desktopApp`, JVM puro, Windows e macOS): reutiliza `:app` e fornece `AppPreferences`, `SyncthingEndpoint`, `SyncthingCore` (`DesktopSyncthingCore`:
+  processo filho `syncthing(.exe)`, reinício no exit 3, limpeza de órfão por PID), `PlatformActions`, bandeja (`Tray`), instância única e
+  autostart (`Autostart.forCurrentOs`: HKCU Run no Windows, LaunchAgent no macOS). O SO vem de `HostOs` (passe-o, não leia `os.name`).
+  Todo código específico de SO fica ali; os módulos KMP ganham só o target `jvm("desktop")` e seus `actual`s.
+  Dados em `%LOCALAPPDATA%\MeshSync` / `~/Library/Application Support/MeshSync`. O `upgradeUuid` do instalador nunca muda.
 - Conflitos: detecção e resolução são operações de arquivo (Okio) em `feature:conflicts:data`; nada é apagado,
   versões substituídas vão para `.stversions/`. Preserve essa garantia.
 

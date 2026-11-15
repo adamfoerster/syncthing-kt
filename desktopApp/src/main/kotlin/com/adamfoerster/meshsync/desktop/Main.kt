@@ -32,6 +32,7 @@ import com.adamfoerster.meshsync.desktop.resources.Res
 import com.adamfoerster.meshsync.desktop.resources.core_exit
 import com.adamfoerster.meshsync.desktop.resources.core_start_timeout
 import com.adamfoerster.meshsync.desktop.resources.tray_autostart
+import com.adamfoerster.meshsync.desktop.resources.tray_autostart_mac
 import com.adamfoerster.meshsync.desktop.resources.tray_open
 import com.adamfoerster.meshsync.desktop.resources.tray_pause
 import com.adamfoerster.meshsync.desktop.resources.tray_quit
@@ -53,7 +54,8 @@ import org.koin.dsl.module
 import java.util.Locale
 
 fun main(args: Array<String>) {
-    val dataDir = DesktopPaths.dataDir()
+    val os = HostOs.current()
+    val dataDir = DesktopPaths.dataDir(os)
     val showRequests = mutableStateOf(0)
     val instance = SingleInstance(dataDir) { showRequests.value += 1 }
     // A second launch just asks the running app to show itself.
@@ -65,13 +67,13 @@ fun main(args: Array<String>) {
     applyLanguage(preferences.languageTag.value, systemLocale)
 
     val trayAvailable = isTraySupported
-    val startMinimized = WindowsAutostart.MINIMIZED_FLAG in args && trayAvailable
+    val startMinimized = Autostart.MINIMIZED_FLAG in args && trayAvailable
     var windowVisible by mutableStateOf(!startMinimized)
 
-    val autostart: Autostart = WindowsAutostart.currentLauncher()?.let(::WindowsAutostart) ?: NoAutostart
+    val autostart: Autostart = Autostart.forCurrentOs(os)
     // Not marked as done for development runs (NoAutostart), so the first packaged run still applies it.
     if (autostart !== NoAutostart && !preferences.autostartInitialized) {
-        // First run: start with Windows, which the tray menu lets the user turn off.
+        // First run: start at login, which the tray menu lets the user turn off.
         autostart.setEnabled(true)
         preferences.autostartInitialized = true
     }
@@ -86,7 +88,7 @@ fun main(args: Array<String>) {
             sharedModules + module {
                 single<AppPreferences> { preferences }
                 single { SyncthingEndpoint(config.baseUrl, config.apiKey) }
-                single { DesktopSyncthingCore(DesktopPaths.syncthingBinary(), config, get(AppScope), messages = messages) } binds
+                single { DesktopSyncthingCore(DesktopPaths.syncthingBinary(os), config, get(AppScope), messages = messages, os = os) } binds
                     arrayOf(SyncthingCore::class)
             },
         )
@@ -98,7 +100,10 @@ fun main(args: Array<String>) {
     Runtime.getRuntime().addShutdownHook(Thread { core.shutdownAndWait() })
     core.startIfWanted()
 
-    val platformActions = DesktopPlatformActions()
+    val platformActions = DesktopPlatformActions(os)
+    // Set by application {} below; macOS menu/Dock events call it from the AppKit thread.
+    var quitFromSystem: (() -> Unit)? = null
+    if (os == HostOs.MacOs) installMacAppHandlers(onReopen = { windowVisible = true }, onQuit = { quitFromSystem?.invoke() })
 
     application {
         val scope = rememberCoroutineScope()
@@ -117,6 +122,8 @@ fun main(args: Array<String>) {
                 exitApplication()
             }
         }
+
+        quitFromSystem = ::quit
 
         LaunchedEffect(showRequests.value) {
             if (showRequests.value > 0) windowVisible = true
@@ -143,7 +150,7 @@ fun main(args: Array<String>) {
                         onClick = { if (status.canPause) core.stop() else core.start() },
                     )
                     CheckboxItem(
-                        stringResource(Res.string.tray_autostart),
+                        stringResource(if (os == HostOs.MacOs) Res.string.tray_autostart_mac else Res.string.tray_autostart),
                         checked = autostartOn,
                         onCheckedChange = { enabled ->
                             autostart.setEnabled(enabled)
@@ -168,6 +175,23 @@ fun main(args: Array<String>) {
             ) {
                 App(platformActions, themeMode.isDark(isSystemInDarkTheme()))
             }
+        }
+    }
+}
+
+/**
+ * macOS: clicking the Dock icon brings the hidden window back, and ⌘Q / Dock › Quit go through [onQuit], which
+ * stops the core first, instead of the JVM just exiting.
+ */
+private fun installMacAppHandlers(onReopen: () -> Unit, onQuit: () -> Unit) {
+    if (!java.awt.Desktop.isDesktopSupported()) return
+    val desktop = java.awt.Desktop.getDesktop()
+    runCatching { desktop.addAppEventListener(java.awt.desktop.AppReopenedListener { onReopen() }) }
+    runCatching {
+        desktop.setQuitHandler { _, response ->
+            // The core is stopped and the app exits from onQuit; tell AppKit not to kill the JVM meanwhile.
+            response.cancelQuit()
+            onQuit()
         }
     }
 }
