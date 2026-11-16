@@ -197,7 +197,7 @@ The installer is per-user (no administrator) and **unsigned**, so SmartScreen wa
 
 ## macOS
 
-The same `desktopApp` runs on macOS (Apple Silicon only): the `syncthing` core is a child process, the icon lives in the menu bar
+The same `desktopApp` runs on macOS (Apple Silicon only): the `syncthing` core is a child process, the icon lives in the menu bar (monochrome macOS template icon drawn as vectors by `MenuBarIcon`, with solid vertices)
 and clicking the Dock icon reopens the window; ⌘Q stops the core before quitting. Data lives in `~/Library/Application Support/MeshSync`;
 **Start at login** writes `~/Library/LaunchAgents/com.adamfoerster.meshsync.plist` (with `--minimized`).
 **Share** reveals the file in Finder.

@@ -198,7 +198,7 @@ O instalador é por usuário (sem administrador) e **não é assinado**, então 
 
 ## macOS
 
-O mesmo `desktopApp` roda no macOS (só Apple Silicon): o núcleo `syncthing` é processo filho, o ícone fica na barra de menus
+O mesmo `desktopApp` roda no macOS (só Apple Silicon): o núcleo `syncthing` é processo filho, o ícone fica na barra de menus (monocromático, ícone template do macOS desenhado em vetor por `MenuBarIcon`, com vértices sólidos)
 e clicar no Dock reabre a janela; ⌘Q encerra o núcleo antes de sair. Dados em `~/Library/Application Support/MeshSync`;
 **Abrir ao iniciar sessão** grava `~/Library/LaunchAgents/com.adamfoerster.meshsync.plist` (com `--minimized`).
 **Compartilhar** mostra o arquivo no Finder.

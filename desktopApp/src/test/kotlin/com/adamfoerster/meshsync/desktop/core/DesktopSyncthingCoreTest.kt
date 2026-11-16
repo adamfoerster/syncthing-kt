@@ -95,7 +95,8 @@ class DesktopSyncthingCoreTest {
         binary.setExecutable(false, false)
         val core = core()
         core.start()
-        core.await { it == CoreState.Starting }
+        // Starting is set before the IO coroutine runs, so wait for the launch itself.
+        runBlocking { withTimeout(5_000) { while (launches.get() == 0) kotlinx.coroutines.delay(10) } }
         assertThat(binary.canExecute()).isTrue()
         assertThat(launches.get()).isEqualTo(1)
     }

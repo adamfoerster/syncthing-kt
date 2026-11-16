@@ -8,6 +8,11 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.15.1] - 2026-11-15
+
+### Alterado
+- Na barra de menus do macOS, o ícone do MeshSync agora é monocromático e sem fundo, com a mesma cor dos ícones do sistema (preto ou branco, conforme a barra). Ele é desenhado em vetor, com os quadrados dos vértices preenchidos, para ficar nítido nesse tamanho.
+
 ## [1.15.0] - 2026-11-15
 
 ### Adicionado

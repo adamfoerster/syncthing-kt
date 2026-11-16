@@ -9,7 +9,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -55,6 +57,8 @@ import java.util.Locale
 
 fun main(args: Array<String>) {
     val os = HostOs.current()
+    // Menu bar icon as a template, so macOS paints it like the system icons (black or white).
+    if (os == HostOs.MacOs) System.setProperty(MenuBarIcon.TEMPLATE_PROPERTY, "true")
     val dataDir = DesktopPaths.dataDir(os)
     val showRequests = mutableStateOf(0)
     val instance = SingleInstance(dataDir) { showRequests.value += 1 }
@@ -111,7 +115,7 @@ fun main(args: Array<String>) {
         val language by preferences.languageTag.collectAsState()
         val themeMode by preferences.themeMode.collectAsState()
         val status = TrayStatus.of(coreState)
-        val appIcon = remember { loadAppIcon() }
+        val appIcon: Painter = remember { if (os == HostOs.MacOs) MenuBarIcon() else loadAppIcon() }
         val windowState = rememberWindowState(size = DpSize(1100.dp, 780.dp))
         var autostartOn by remember { mutableStateOf(autostart.isEnabled()) }
 
@@ -198,13 +202,15 @@ private fun installMacAppHandlers(onReopen: () -> Unit, onQuit: () -> Unit) {
 
 /**
  * The app icon shown in the tray. Status is no longer drawn into it; the tooltip spells it out instead,
- * so it never depends on the icon's colour.
+ * so it never depends on the icon's colour. The macOS menu bar uses the vector [MenuBarIcon] instead.
+ * The tray shrinks the 512 px image to a few dozen pixels, so it is filtered with [FilterQuality.High].
  */
 private fun loadAppIcon(): BitmapPainter {
     val stream = checkNotNull(Thread.currentThread().contextClassLoader.getResourceAsStream("app-icon.png")) {
         "app-icon.png missing from desktopApp resources"
     }
-    return BitmapPainter(stream.use { javax.imageio.ImageIO.read(it) }.toComposeImageBitmap())
+    val image = stream.use { javax.imageio.ImageIO.read(it) }
+    return BitmapPainter(image.toComposeImageBitmap(), filterQuality = FilterQuality.High)
 }
 
 /** Sets the JVM default locale, which Compose resources use; null follows the system language. */
