@@ -3,6 +3,7 @@ package com.adamfoerster.meshsync.feature.settings.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.adamfoerster.meshsync.core.domain.model.CoreState
+import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.domain.preferences.AppLanguages
 import com.adamfoerster.meshsync.core.domain.preferences.ThemeMode
@@ -24,7 +25,10 @@ data class SettingsState(
     val myId: String = "",
     val savedName: String = "",
     val nameInput: String? = null,
+    /** Version of the Syncthing core, once it answers. */
     val version: String = "",
+    /** Version of this MeshSync build. */
+    val appVersion: String = "",
     val isSaving: Boolean = false,
     val nameSaved: Boolean = false,
     val autoAcceptKnownFolders: Boolean = AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS,
@@ -55,6 +59,7 @@ class SettingsViewModel(
     private val repository: SyncthingRepository,
     private val core: SyncthingCore,
     private val preferences: AppPreferences,
+    private val appInfo: AppInfo,
 ) : ViewModel() {
 
     private val edit = MutableStateFlow(Edit())
@@ -70,6 +75,7 @@ class SettingsViewModel(
             savedName = overview?.myName.orEmpty(),
             nameInput = e.nameInput,
             version = overview?.version.orEmpty(),
+            appVersion = appInfo.version,
             isSaving = e.isSaving,
             nameSaved = e.saved,
             error = e.error,

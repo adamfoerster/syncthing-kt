@@ -10,6 +10,7 @@ import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.FileInfo
 import com.adamfoerster.meshsync.core.domain.model.FolderType
 import com.adamfoerster.meshsync.core.domain.model.SyncOverview
+import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.domain.preferences.ThemeMode
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
@@ -39,11 +40,18 @@ class SettingsViewModelTest {
     @BeforeTest
     fun setUp() {
         Dispatchers.setMain(UnconfinedTestDispatcher())
-        viewModel = SettingsViewModel(FakeRepository(), FakeCore(), preferences)
+        viewModel = SettingsViewModel(FakeRepository(), FakeCore(), preferences, object : AppInfo { override val version = "1.2.3" })
     }
 
     @AfterTest
     fun tearDown() = Dispatchers.resetMain()
+
+    @Test
+    fun exposesTheAppVersionAlongsideTheCoreVersion() = runTest {
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
+
+        assertThat(viewModel.state.value.appVersion).isEqualTo("1.2.3")
+    }
 
     @Test
     fun autoAcceptStartsOnAndFollowsTheSwitch() = runTest {

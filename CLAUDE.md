@@ -63,6 +63,7 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
 - Preferências do app (`AppPreferences` em `core:domain`, SharedPreferences no `androidApp`): aceite automático de
   ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`), `ThemeMode` (sistema/claro/escuro; `SyncthingTheme(darkTheme)` escolhe `NgColors.Light` ou `NgColors.Dark`, resolvido no `MainActivity`) e idioma que sobrescreve o do
   aparelho (aplicado em `MainActivity.attachBaseContext`).
+- Versão do app: `AppInfo` (`core:domain`) é fornecida por cada host (`androidApp` via `versionName`; `desktopApp` via `-Dmeshsync.version`, ambos de `app.version`) e aparece em Configurações junto da versão do núcleo.
 - Onboarding (`feature:onboarding`): `OnboardingRoute` é o destino inicial até `AppPreferences.onboardingCompleted`; ao terminar
   navega para Home e, conforme a escolha, abre `AddFolderRoute` ou `AddDeviceRoute`.
 - Gerenciador de arquivos (`feature:files:{domain,data,presentation}`): operações de arquivo (Okio) em `OkioFileManager`,

@@ -57,6 +57,8 @@ compose.desktop {
         mainClass = "com.adamfoerster.meshsync.desktop.MainKt"
         // Skiko loads a native library; silences the JDK's restricted-method warning.
         jvmArgs += "--enable-native-access=ALL-UNNAMED"
+        // Read by AppInfo to show the app version in Settings.
+        jvmArgs += "-Dmeshsync.version=$appVersion"
 
         nativeDistributions {
             // resources/<os>-<arch>/ holds the Syncthing binary from :syncthing-native:buildWindows. The

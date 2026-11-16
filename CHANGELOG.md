@@ -8,6 +8,16 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.15.1] - 2026-11-10
+
+### Corrigido
+- O aviso "Sincronizando" da tela Início mostrava 0% quando só outro aparelho ainda estava recebendo arquivos. Agora ele mostra o progresso real desse aparelho (por exemplo, 99%), de acordo com o mapa de aparelhos.
+
+## [1.15.0] - 2026-11-10
+
+### Adicionado
+- A tela de Configurações agora mostra a versão do MeshSync, acima da versão do núcleo Syncthing, que continua sendo exibida.
+
 ## [1.14.0] - 2026-11-10
 
 ### Adicionado

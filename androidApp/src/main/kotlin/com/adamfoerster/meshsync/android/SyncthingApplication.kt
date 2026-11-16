@@ -8,6 +8,7 @@ import com.adamfoerster.meshsync.app.di.sharedModules
 import com.adamfoerster.meshsync.core.data.di.AppScope
 import com.adamfoerster.meshsync.core.data.network.SyncthingEndpoint
 import com.adamfoerster.meshsync.core.data.repository.FolderOfferAutoAccepter
+import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import kotlinx.coroutines.CoroutineScope
@@ -48,6 +49,15 @@ class SyncthingApplication : Application() {
 
 private val androidModule = module {
     single<AppPreferences> { AndroidAppPreferences(get()) }
+    single<AppInfo> {
+        // versionName comes from app.version (androidApp/build.gradle.kts).
+        val context = androidContext()
+        object : AppInfo {
+            override val version: String = runCatching {
+                context.packageManager.getPackageInfo(context.packageName, 0).versionName
+            }.getOrNull().orEmpty()
+        }
+    }
     single { CoreConfig(get()) }
     single { SyncthingEndpoint(get<CoreConfig>().baseUrl, get<CoreConfig>().apiKey) }
     single { AndroidSyncthingCore(get(), get(), get(AppScope)) } binds arrayOf(SyncthingCore::class)

@@ -23,6 +23,7 @@ import com.adamfoerster.meshsync.app.di.sharedModules
 import com.adamfoerster.meshsync.core.data.di.AppScope
 import com.adamfoerster.meshsync.core.data.network.SyncthingEndpoint
 import com.adamfoerster.meshsync.core.data.repository.FolderOfferAutoAccepter
+import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.desktop.core.CoreMessages
@@ -85,6 +86,8 @@ fun main(args: Array<String>) {
         modules(
             sharedModules + module {
                 single<AppPreferences> { preferences }
+                // Set from app.version by desktopApp/build.gradle.kts (run and packaged); empty in other launches.
+                single<AppInfo> { object : AppInfo { override val version: String = System.getProperty("meshsync.version").orEmpty() } }
                 single { SyncthingEndpoint(config.baseUrl, config.apiKey) }
                 single { DesktopSyncthingCore(DesktopPaths.syncthingBinary(), config, get(AppScope), messages = messages) } binds
                     arrayOf(SyncthingCore::class)

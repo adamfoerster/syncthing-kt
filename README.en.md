@@ -38,7 +38,7 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:files` | File manager: `domain` (`FileManager`), `data` (Okio), `presentation` |
 | `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR (suggests the machine name when it has already asked to connect) |
 | `feature:onboarding` | First-run introduction (explains the app and asks whether to share or fetch a folder) |
-| `feature:settings` | Settings (name, ID, start/stop the core, folder auto-accept, light/dark theme, language) |
+| `feature:settings` | Settings (name, ID, app and core versions, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |
 | `androidApp` | Activity, service, core process manager, QR scanner (ZXing) |
@@ -224,7 +224,7 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 
 ## Versioning and contributing
 
-Current version: **1.13.0** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
+Current version: **1.15.1** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
 
 Every change needs tests, a version bump, a CHANGELOG entry and updated documentation;
 the full rules are in [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (which runs before every

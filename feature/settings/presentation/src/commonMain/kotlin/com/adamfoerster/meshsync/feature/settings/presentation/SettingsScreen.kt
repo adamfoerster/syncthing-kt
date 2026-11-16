@@ -68,6 +68,7 @@ import com.adamfoerster.meshsync.feature.settings.presentation.resources.setting
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_theme_system
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_theme_title
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_title
+import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_app_version
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_version
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -109,6 +110,9 @@ fun SettingsScreen(
                     else -> SyncStatus.Error to Res.string.settings_state_error
                 }
                 NgStatusLabel(status, stringResource(label))
+            }
+            if (state.appVersion.isNotEmpty()) {
+                Text(stringResource(Res.string.settings_app_version, state.appVersion), style = NgTheme.type.monoSmall, color = c.text2)
             }
             if (state.version.isNotEmpty()) {
                 Text(stringResource(Res.string.settings_version, state.version), style = NgTheme.type.monoSmall, color = c.text2)
@@ -245,6 +249,7 @@ private fun SettingsScreenPreview() {
                 myId = "MFZWI3D-BONSGYC-YLTMRWG-C43ENR5-QXGZDMM-FZWI3DP-BONSGYY-LTMRWAD",
                 savedName = "Pixel do Adam",
                 version = "v2.1.6",
+                appVersion = "1.15.0",
             ),
             tabBar = {},
             onAction = {},

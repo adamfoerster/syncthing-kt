@@ -3,8 +3,8 @@
 # min_api: 26
 # common_typos_disable
 # {"id":"com.android.tools.r8.mapping","version":"2.2"}
-# pg_map_id: b9754af7382960c433a5bf744895ca4449de5cc170f310aabfa03e06cb77a679
-# pg_map_hash: SHA-256 bcdf16500b59b380124f7999be6721e18165da922c1b700f1bf323bed7cce8ec
+# pg_map_id: 34ad114cf89153a11014ead5ca93e4d7e9d4cc903c3b71a37c438ab87e827b33
+# pg_map_hash: SHA-256 e7c5dfb317ce0b53f6261a2abb1253273593ab2611df8af42e1eea830386bb0c
 _COROUTINE.ArtificialStackFrames -> R8$$REMOVED$$CLASS$$0:
 # {"id":"sourceFile","fileName":"CoroutineDebugging.kt"}
 _COROUTINE.ArtificialStackFramesUnsafe -> jg:
@@ -22762,7 +22762,7 @@ androidx.compose.foundation.AbstractClickableNode$$ExternalSyntheticLambda1 -> n
     2277:2289:java.lang.Object AbstractClickableNode$$ExternalSyntheticLambda1.invoke(java.lang.Object):0:0 -> g
     2290:2291:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$0$0(kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,boolean):247:247 -> g
     2290:2291:java.lang.Object AbstractClickableNode$$ExternalSyntheticLambda1.invoke(java.lang.Object):0 -> g
-    2292:2293:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():45:45 -> g
+    2292:2293:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():46:46 -> g
     2292:2293:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$0$0(kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,boolean):247 -> g
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     2292:2293:java.lang.Object AbstractClickableNode$$ExternalSyntheticLambda1.invoke(java.lang.Object):0 -> g
@@ -27344,63 +27344,63 @@ androidx.compose.foundation.AbstractClickableNode$handlePressInteractionCancel$1
     1904:1915:java.lang.Object kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED():57:57 -> r
     1904:1915:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):0 -> r
     1904:1915:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1916:1938:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):158:158 -> r
+    1916:1938:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):176:176 -> r
     1916:1938:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1939:1942:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):201:201 -> r
+    1939:1942:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):219:219 -> r
     1939:1942:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1943:1960:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):202:202 -> r
+    1943:1960:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):220:220 -> r
     1943:1960:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1961:1964:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):159:159 -> r
+    1961:1964:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):177:177 -> r
     1961:1964:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1965:1970:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):203:203 -> r
+    1965:1970:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):221:221 -> r
     1965:1970:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1971:1972:com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getRepository$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    1971:1972:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):160 -> r
+    1971:1972:com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getRepository$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    1971:1972:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):178 -> r
     1971:1972:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1973:1976:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):160:160 -> r
+    1973:1976:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):178:178 -> r
     1973:1976:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1977:1978:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():29:29 -> r
-    1977:1978:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):160 -> r
+    1977:1978:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():30:30 -> r
+    1977:1978:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):178 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1977:1978:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    1979:2005:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):160:160 -> r
+    1979:2005:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):178:178 -> r
     1979:2005:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2006:2007:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):158:158 -> r
+    2006:2007:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):176:176 -> r
     2006:2007:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2008:2011:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):161:161 -> r
+    2008:2011:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):179:179 -> r
     2008:2011:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2012:2015:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):207:207 -> r
+    2012:2015:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):225:225 -> r
     2012:2015:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2016:2030:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):208:208 -> r
+    2016:2030:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):226:226 -> r
     2016:2030:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2031:2034:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):162:162 -> r
+    2031:2034:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):180:180 -> r
     2031:2034:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2035:2040:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):209:209 -> r
+    2035:2040:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):227:227 -> r
     2035:2040:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2041:2042:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):163:163 -> r
+    2041:2042:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):181:181 -> r
     2041:2042:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2043:2046:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel,com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):68:68 -> r
-    2043:2046:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):163 -> r
+    2043:2046:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel,com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):69:69 -> r
+    2043:2046:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):181 -> r
     2043:2046:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2047:2050:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):165:165 -> r
+    2047:2050:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):183:183 -> r
     2047:2050:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2051:2054:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):212:212 -> r
+    2051:2054:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):230:230 -> r
     2051:2054:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2055:2057:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):213:213 -> r
+    2055:2057:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):231:231 -> r
     2055:2057:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2058:2060:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):165:165 -> r
+    2058:2060:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):183:183 -> r
     2058:2060:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
     2061:2062:com.adamfoerster.meshsync.core.domain.util.Error com.adamfoerster.meshsync.core.domain.util.Result$Failure.getError():7:7 -> r
-    2061:2062:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):165 -> r
+    2061:2062:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):183 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     2061:2062:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2063:2081:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):165:165 -> r
+    2063:2081:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):183:183 -> r
     2063:2081:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2082:2087:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):214:214 -> r
+    2082:2087:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):232:232 -> r
     2082:2087:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2088:2090:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):167:167 -> r
+    2088:2090:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):185:185 -> r
     2088:2090:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
-    2091:2097:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):160:160 -> r
+    2091:2097:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$confirmDevice$2.invokeSuspend(java.lang.Object):178:178 -> r
     2091:2097:java.lang.Object AbstractClickableNode$handlePressInteractionCancel$1$1$1.invokeSuspend(java.lang.Object):0 -> r
     2098:2099:java.lang.Object kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED():57:57 -> r
     2098:2099:java.lang.Object invokeSuspend(java.lang.Object):0 -> r
@@ -238669,7 +238669,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnBac
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnBackClick INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Ld3;"}
-    2:4:void <init>():48:48 -> <clinit>
+    2:4:void <init>():49:49 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238679,7 +238679,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnCon
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnConfirmDevice INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Le3;"}
-    2:4:void <init>():55:55 -> <clinit>
+    2:4:void <init>():56:56 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238689,7 +238689,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnFin
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnFinish INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lf3;"}
-    2:4:void <init>():57:57 -> <clinit>
+    2:4:void <init>():58:58 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238698,7 +238698,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnFin
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnIdChange -> g3:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     java.lang.String value -> a
-    0:5:void <init>(java.lang.String):52:52 -> <init>
+    0:5:void <init>(java.lang.String):53:53 -> <init>
     14:23:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> equals
     14:23:boolean equals(java.lang.Object):0 -> equals
     0:6:int hashCode():0:0 -> hashCode
@@ -238715,7 +238715,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnMan
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnManualClick INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lh3;"}
-    2:4:void <init>():51:51 -> <clinit>
+    2:4:void <init>():52:52 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238724,7 +238724,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnMan
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnNameChange -> i3:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     java.lang.String value -> a
-    0:5:void <init>(java.lang.String):53:53 -> <init>
+    0:5:void <init>(java.lang.String):54:54 -> <init>
     14:23:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> equals
     14:23:boolean equals(java.lang.Object):0 -> equals
     0:6:int hashCode():0:0 -> hashCode
@@ -238741,7 +238741,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSca
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnScanClick INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lj3;"}
-    2:4:void <init>():49:49 -> <clinit>
+    2:4:void <init>():50:50 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238750,7 +238750,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSca
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnScanResult -> k3:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     java.lang.String text -> a
-    0:5:void <init>(java.lang.String):50:50 -> <init>
+    0:5:void <init>(java.lang.String):51:51 -> <init>
     4:23:boolean equals(java.lang.Object):0:0 -> equals
     0:10:int hashCode():0:0 -> hashCode
     4:10:java.lang.String toString():0:0 -> toString
@@ -238766,7 +238766,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSki
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSkipFolders INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Ll3;"}
-    2:4:void <init>():58:58 -> <clinit>
+    2:4:void <init>():59:59 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238776,7 +238776,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSta
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnStartCore INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lm3;"}
-    2:4:void <init>():59:59 -> <clinit>
+    2:4:void <init>():60:60 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238785,7 +238785,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnSta
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnToggleFolder -> n3:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     java.lang.String id -> a
-    3:8:void <init>(java.lang.String):56:56 -> <init>
+    3:8:void <init>(java.lang.String):57:57 -> <init>
     4:23:boolean equals(java.lang.Object):0:0 -> equals
     0:6:int hashCode():0:0 -> hashCode
     4:10:java.lang.String toString():0:0 -> toString
@@ -238801,7 +238801,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnUse
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnUseIncoming INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lo3;"}
-    2:4:void <init>():54:54 -> <clinit>
+    2:4:void <init>():55:55 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238813,7 +238813,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceEvent$Done -
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceEvent$Done INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lq3;"}
-    2:4:void <init>():64:64 -> <clinit>
+    2:4:void <init>():65:65 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -238823,7 +238823,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceEvent$Launch
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceEvent$LaunchScanner INSTANCE -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lr3;"}
-    2:4:void <init>():63:63 -> <clinit>
+    2:4:void <init>():64:64 -> <clinit>
     2:4:void <clinit>():0 -> <clinit>
     5:7:void <clinit>():0:0 -> <clinit>
     4:10:boolean equals(java.lang.Object):0:0 -> equals
@@ -240438,13 +240438,13 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt$$Ex
     2839:2858:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0:0 -> e
     2859:2875:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):0:0 -> e
     2859:2875:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2876:2877:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():26:26 -> e
+    2876:2877:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():27:27 -> e
     2876:2877:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):114 -> e
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     2876:2877:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2878:2880:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):114:114 -> e
     2878:2880:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2881:2882:com.adamfoerster.meshsync.core.domain.model.CoreState com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getCoreState():37:37 -> e
+    2881:2882:com.adamfoerster.meshsync.core.domain.model.CoreState com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getCoreState():38:38 -> e
     2881:2882:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):115 -> e
     2881:2882:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2883:2886:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):115:115 -> e
@@ -240457,7 +240457,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt$$Ex
     2900:2902:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2903:2908:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):115:115 -> e
     2903:2908:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2909:2910:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():26:26 -> e
+    2909:2910:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():27:27 -> e
     2909:2910:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):116 -> e
     2909:2910:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2911:2924:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceScreen$lambda$2(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):116:116 -> e
@@ -240557,7 +240557,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt$$Ex
     3093:3108:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     3109:3113:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$1(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):250:250 -> e
     3109:3113:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    3114:3115:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getLabel():45:45 -> e
+    3114:3115:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getLabel():46:46 -> e
     3114:3115:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$1(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):251 -> e
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     3114:3115:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
@@ -240585,7 +240585,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt$$Ex
     3128:3165:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     3166:3168:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$1(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):251:251 -> e
     3166:3168:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    3169:3170:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> e
+    3169:3170:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> e
     3169:3170:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep$lambda$1$1(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):253 -> e
     3169:3170:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda19.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     3171:3172:long com.adamfoerster.meshsync.core.designsystem.theme.NgColors.getCyan-0d7_KjU():19:19 -> e
@@ -241615,7 +241615,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt$$Ex
     1538:1545:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda22.invoke():0:0 -> b
     1546:1547:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep$lambda$1$0$2$0(androidx.compose.ui.platform.ClipboardManager,com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):198:198 -> b
     1546:1547:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda22.invoke():0 -> b
-    1548:1549:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getMyId():27:27 -> b
+    1548:1549:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getMyId():28:28 -> b
     1548:1549:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep$lambda$1$0$2$0(androidx.compose.ui.platform.ClipboardManager,com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):198 -> b
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1548:1549:java.lang.Object AddDeviceScreenKt$$ExternalSyntheticLambda22.invoke():0 -> b
@@ -244224,20 +244224,20 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState -> c4:
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lva3;"}
     com.adamfoerster.meshsync.core.domain.model.CoreState coreState -> j
       # {"id":"com.android.tools.r8.residualsignature","signature":"Ly20;"}
-    9:11:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):25:25 -> <init>
+    9:11:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):26:26 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(La5;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLw41;Ljava/util/List;ZLva3;Ly20;)V"}
-    12:13:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):26:26 -> <init>
-    14:15:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):27:27 -> <init>
-    16:17:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):28:28 -> <init>
-    18:19:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):29:29 -> <init>
-    20:21:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):30:30 -> <init>
-    22:23:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):32:32 -> <init>
-    24:25:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):33:33 -> <init>
-    26:27:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):34:34 -> <init>
-    28:29:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):35:35 -> <init>
-    30:32:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):37:37 -> <init>
-    93:110:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState copy(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):0:0 -> a
-    93:110:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState,int,java.lang.Object):0 -> a
+    12:13:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):27:27 -> <init>
+    14:15:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):28:28 -> <init>
+    16:17:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):29:29 -> <init>
+    18:19:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):30:30 -> <init>
+    20:21:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):31:31 -> <init>
+    22:23:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):33:33 -> <init>
+    24:25:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):34:34 -> <init>
+    26:27:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):35:35 -> <init>
+    28:29:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):36:36 -> <init>
+    30:32:void <init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):38:38 -> <init>
+    93:113:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState copy(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState):0:0 -> a
+    93:113:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState,int,java.lang.Object):0 -> a
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lc4;La5;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLw41;Ljava/util/ArrayList;ZLua3;Ly20;I)Lc4;"}
     23:29:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> equals
     23:29:boolean equals(java.lang.Object):0 -> equals
@@ -244301,222 +244301,254 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel ->
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lru2;"}
     kotlinx.coroutines.flow.StateFlow state -> f
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lxd2;"}
-    kotlinx.coroutines.channels.Channel _events -> g
+    boolean nameEdited -> g
+    kotlinx.coroutines.channels.Channel _events -> h
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lfn;"}
-    kotlinx.coroutines.flow.Flow events -> h
+    kotlinx.coroutines.flow.Flow events -> i
       # {"id":"com.android.tools.r8.residualsignature","signature":"Lbr;"}
-    4:8:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):68:68 -> <init>
+    java.util.List pendingDevices -> j
+    4:8:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):69:69 -> <init>
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/String;Ljava/lang/String;Lje1;Lpz2;Ldk2;)V"}
-    9:10:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):71:71 -> <init>
-    11:12:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):72:72 -> <init>
-    13:14:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):73:73 -> <init>
-    15:35:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):78:78 -> <init>
-    36:41:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):79:79 -> <init>
-    42:60:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):80:80 -> <init>
-    61:78:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):81:81 -> <init>
-    79:81:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):82:82 -> <init>
+    9:10:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):72:72 -> <init>
+    11:12:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):73:73 -> <init>
+    13:14:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):74:74 -> <init>
+    15:35:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):79:79 -> <init>
+    36:41:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):80:80 -> <init>
+    42:60:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):81:81 -> <init>
+    61:78:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):82:82 -> <init>
+    79:81:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):83:83 -> <init>
     82:83:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.android.core.AndroidSyncthingCore.getState():43:43 -> <init>
-    82:83:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):82 -> <init>
+    82:83:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):83 -> <init>
     84:89:java.lang.Object kotlinx.coroutines.flow.ReadonlyStateFlow.getValue():0:0 -> <init>
-    84:89:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):82 -> <init>
-    90:92:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):82:82 -> <init>
-    93:94:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):77:77 -> <init>
-    95:97:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.<init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState,int,kotlin.jvm.internal.DefaultConstructorMarker):33:33 -> <init>
-    95:97:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):77 -> <init>
-    98:105:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.<init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState,int,kotlin.jvm.internal.DefaultConstructorMarker):25:25 -> <init>
-    98:105:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):77 -> <init>
-    106:111:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):76:76 -> <init>
+    84:89:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):83 -> <init>
+    90:92:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):83:83 -> <init>
+    93:95:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):78:78 -> <init>
+    96:105:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.<init>(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep,java.lang.String,java.lang.String,java.lang.String,boolean,com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi,java.util.List,boolean,com.adamfoerster.meshsync.core.presentation.UiText,com.adamfoerster.meshsync.core.domain.model.CoreState,int,kotlin.jvm.internal.DefaultConstructorMarker):26:26 -> <init>
+    96:105:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):78 -> <init>
+    106:111:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):77:77 -> <init>
     112:115:kotlinx.coroutines.flow.StateFlow kotlinx.coroutines.flow.FlowKt.asStateFlow(kotlinx.coroutines.flow.MutableStateFlow):1:1 -> <init>
-    112:115:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):85 -> <init>
-    116:120:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):85:85 -> <init>
-    121:126:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):87:87 -> <init>
-    127:130:kotlinx.coroutines.flow.Flow kotlinx.coroutines.flow.FlowKt.receiveAsFlow(kotlinx.coroutines.channels.ReceiveChannel):1:1 -> <init>
-    127:130:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):88 -> <init>
-    131:132:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):88:88 -> <init>
-    133:142:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):91:91 -> <init>
-    143:145:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> <init>
-    143:145:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):91 -> <init>
-    146:155:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):92:92 -> <init>
-    156:159:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> <init>
-    156:159:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):92 -> <init>
-    0:10:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):189:189 -> e
+    112:115:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):86 -> <init>
+    116:117:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):86:86 -> <init>
+    118:123:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):89:89 -> <init>
+    124:125:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():30:30 -> <init>
+    124:125:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):89 -> <init>
+      # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
+    126:136:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):89:89 -> <init>
+    137:142:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):91:91 -> <init>
+    143:146:kotlinx.coroutines.flow.Flow kotlinx.coroutines.flow.FlowKt.receiveAsFlow(kotlinx.coroutines.channels.ReceiveChannel):1:1 -> <init>
+    143:146:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):92 -> <init>
+    147:148:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):92:92 -> <init>
+    149:158:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):95:95 -> <init>
+    159:161:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> <init>
+    159:161:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):95 -> <init>
+    162:170:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):96:96 -> <init>
+    171:173:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> <init>
+    171:173:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):96 -> <init>
+    174:176:void <init>(java.lang.String,java.lang.String,com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository,com.adamfoerster.meshsync.core.domain.repository.SyncthingCore,androidx.lifecycle.SavedStateHandle):114:114 -> <init>
+    0:10:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):207:207 -> e
       # {"id":"com.android.tools.r8.residualsignature","signature":"(La5;)V"}
-    11:16:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):231:231 -> e
-    17:31:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):232:232 -> e
-    32:35:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):190:190 -> e
-    36:44:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):233:233 -> e
-    4:5:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):111:111 -> f
+    11:16:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):251:251 -> e
+    17:31:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):252:252 -> e
+    32:35:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):208:208 -> e
+    36:44:void goTo(com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep):253:253 -> e
+    4:5:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128:128 -> f
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lp3;)V"}
     6:13:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    6:13:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):111 -> f
-    14:23:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):111:111 -> f
+    6:13:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
+    14:23:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128:128 -> f
     24:27:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
-    24:27:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):111 -> f
-    28:37:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112:112 -> f
-    38:43:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnScanResult.getText():50:50 -> f
-    38:43:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    24:27:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
+    28:37:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129:129 -> f
+    38:43:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnScanResult.getText():51:51 -> f
+    38:43:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    44:54:void onScanned(java.lang.String):142:142 -> f
-    44:54:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    44:54:void onScanned(java.lang.String):160:160 -> f
+    44:54:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     55:61:void kotlin.text.Regex.<init>(java.lang.String):90:90 -> f
-    55:61:void onScanned(java.lang.String):142 -> f
-    55:61:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    62:70:void onScanned(java.lang.String):142:142 -> f
-    62:70:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    55:61:void onScanned(java.lang.String):160 -> f
+    55:61:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    62:70:void onScanned(java.lang.String):160:160 -> f
+    62:70:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     71:77:kotlin.text.MatchResult kotlin.text.Regex.find(java.lang.CharSequence,int):123:123 -> f
     71:77:kotlin.text.MatchResult kotlin.text.Regex.find$default(kotlin.text.Regex,java.lang.CharSequence,int,int,java.lang.Object):122 -> f
-    71:77:void onScanned(java.lang.String):142 -> f
-    71:77:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    71:77:void onScanned(java.lang.String):160 -> f
+    71:77:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     78:83:kotlin.text.MatchResult kotlin.text.RegexKt.access$findNext(java.util.regex.Matcher,int,java.lang.CharSequence):1:1 -> f
     78:83:kotlin.text.MatchResult kotlin.text.Regex.find(java.lang.CharSequence,int):123 -> f
     78:83:kotlin.text.MatchResult kotlin.text.Regex.find$default(kotlin.text.Regex,java.lang.CharSequence,int,int,java.lang.Object):122 -> f
-    78:83:void onScanned(java.lang.String):142 -> f
-    78:83:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    78:83:void onScanned(java.lang.String):160 -> f
+    78:83:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     84:85:java.util.regex.MatchResult kotlin.text.MatcherMatchResult.getMatchResult():374:374 -> f
     84:85:java.lang.String kotlin.text.MatcherMatchResult.getValue():378 -> f
-    84:85:void onScanned(java.lang.String):142 -> f
-    84:85:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    84:85:void onScanned(java.lang.String):160 -> f
+    84:85:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     86:92:java.lang.String kotlin.text.MatcherMatchResult.getValue():378:378 -> f
-    86:92:void onScanned(java.lang.String):142 -> f
-    86:92:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    93:98:void onScanned(java.lang.String):142:142 -> f
-    93:98:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    86:92:void onScanned(java.lang.String):160 -> f
+    86:92:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    93:98:void onScanned(java.lang.String):160:160 -> f
+    93:98:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     99:107:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> f
-    99:107:void onScanned(java.lang.String):142 -> f
-    99:107:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    99:107:void onScanned(java.lang.String):160 -> f
+    99:107:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     108:113:java.lang.String com.adamfoerster.meshsync.core.domain.model.DeviceId.unbox-impl():0:0 -> f
-    108:113:void onScanned(java.lang.String):142 -> f
+    108:113:void onScanned(java.lang.String):160 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    108:113:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    114:117:void onScanned(java.lang.String):221:221 -> f
-    114:117:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    118:120:void onScanned(java.lang.String):222:222 -> f
-    118:120:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    121:122:void onScanned(java.lang.String):144:144 -> f
-    121:122:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
+    108:113:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    114:117:void onScanned(java.lang.String):241:241 -> f
+    114:117:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    118:120:void onScanned(java.lang.String):242:242 -> f
+    118:120:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    121:122:void onScanned(java.lang.String):162:162 -> f
+    121:122:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
     123:130:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getAdd_scan_invalid(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):213:213 -> f
-    123:130:void onScanned(java.lang.String):144 -> f
-    123:130:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    131:153:void onScanned(java.lang.String):144:144 -> f
-    131:153:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    154:161:void onScanned(java.lang.String):223:223 -> f
-    154:161:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    162:169:void onScanned(java.lang.String):147:147 -> f
-    162:169:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    170:173:void onScanned(java.lang.String):148:148 -> f
-    170:173:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):112 -> f
-    174:175:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):113:113 -> f
+    123:130:void onScanned(java.lang.String):162 -> f
+    123:130:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    131:153:void onScanned(java.lang.String):162:162 -> f
+    131:153:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    154:161:void onScanned(java.lang.String):243:243 -> f
+    154:161:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    162:169:void onScanned(java.lang.String):165:165 -> f
+    162:169:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    170:173:void onScanned(java.lang.String):166:166 -> f
+    170:173:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129 -> f
+    174:175:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130:130 -> f
     176:181:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    176:181:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):113 -> f
-    182:185:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):113:113 -> f
-    186:191:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):114:114 -> f
-    192:200:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):115:115 -> f
-    201:204:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):202:202 -> f
-    205:221:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):203:203 -> f
-    222:225:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):116:116 -> f
-    226:233:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):204:204 -> f
-    234:237:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):118:118 -> f
-    238:246:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):119:119 -> f
-    247:250:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):207:207 -> f
-    251:267:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):208:208 -> f
-    268:271:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):120:120 -> f
-    272:279:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):209:209 -> f
-    280:281:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):122:122 -> f
-    282:287:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    282:287:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):122 -> f
-    288:293:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):123:123 -> f
-    294:299:com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getIncoming():32:32 -> f
-    294:299:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):123 -> f
+    176:181:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
+    182:185:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130:130 -> f
+    186:191:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):131:131 -> f
+    192:200:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132:132 -> f
+    201:204:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):222:222 -> f
+    205:221:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):223:223 -> f
+    222:229:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):133:133 -> f
+    230:237:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):224:224 -> f
+    238:241:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):135:135 -> f
+    242:250:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):136:136 -> f
+    251:258:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):137:137 -> f
+    259:262:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):227:227 -> f
+    263:279:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):228:228 -> f
+    280:283:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):138:138 -> f
+    284:291:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):229:229 -> f
+    292:293:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):140:140 -> f
+    294:299:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    294:299:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):140 -> f
+    300:305:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):141:141 -> f
+    306:311:com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getIncoming():33:33 -> f
+    306:311:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):141 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    300:301:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):124:124 -> f
-    302:303:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getId():43:43 -> f
-    302:303:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):124 -> f
+    312:313:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):142:142 -> f
+    314:315:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getId():44:44 -> f
+    314:315:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):142 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    304:309:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):124:124 -> f
-    310:311:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):125:125 -> f
-    312:313:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getName():43:43 -> f
-    312:313:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):125 -> f
-    314:319:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):125:125 -> f
-    320:323:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):126:126 -> f
-    324:325:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128:128 -> f
-    326:331:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    326:331:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    332:338:void confirmDevice():152:152 -> f
-    332:338:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    339:341:void confirmDevice():153:153 -> f
-    339:341:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    342:351:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():39:39 -> f
-    342:351:void confirmDevice():153 -> f
-    342:351:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    352:355:void confirmDevice():226:226 -> f
-    352:355:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    356:371:void confirmDevice():227:227 -> f
-    356:371:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    372:375:void confirmDevice():155:155 -> f
-    372:375:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    376:383:void confirmDevice():228:228 -> f
-    376:383:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    384:393:void confirmDevice():158:158 -> f
-    384:393:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    394:397:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
-    394:397:void confirmDevice():158 -> f
-    394:397:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):128 -> f
-    398:401:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):129:129 -> f
-    402:405:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):212:212 -> f
-    406:408:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):213:213 -> f
-    409:410:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():33:33 -> f
-    409:410:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
+    316:321:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):142:142 -> f
+    322:323:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):143:143 -> f
+    324:325:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getName():44:44 -> f
+    324:325:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):143 -> f
+    326:331:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):143:143 -> f
+    332:335:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):144:144 -> f
+    336:337:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146:146 -> f
+    338:343:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    338:343:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    344:350:void confirmDevice():170:170 -> f
+    344:350:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    351:353:void confirmDevice():171:171 -> f
+    351:353:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    354:363:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():40:40 -> f
+    354:363:void confirmDevice():171 -> f
+    354:363:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    364:367:void confirmDevice():246:246 -> f
+    364:367:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    368:383:void confirmDevice():247:247 -> f
+    368:383:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    384:387:void confirmDevice():173:173 -> f
+    384:387:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    388:395:void confirmDevice():248:248 -> f
+    388:395:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    396:405:void confirmDevice():176:176 -> f
+    396:405:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    406:409:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
+    406:409:void confirmDevice():176 -> f
+    406:409:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):146 -> f
+    410:413:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):147:147 -> f
+    414:417:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):232:232 -> f
+    418:420:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):233:233 -> f
+    421:422:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():34:34 -> f
+    421:422:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    411:421:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):214:214 -> f
-    422:435:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):215:215 -> f
-    436:437:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):216:216 -> f
-    438:439:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():45:45 -> f
-    438:439:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
+    423:433:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):234:234 -> f
+    434:447:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):235:235 -> f
+    448:449:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):236:236 -> f
+    450:451:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():46:46 -> f
+    450:451:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    440:442:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130:130 -> f
-    443:444:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnToggleFolder.getId():56:56 -> f
-    443:444:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
+    452:454:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148:148 -> f
+    455:456:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction$OnToggleFolder.getId():57:57 -> f
+    455:456:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    445:450:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130:130 -> f
-    451:454:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> f
-    451:454:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
-    455:458:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,java.lang.String,java.lang.String,boolean,int,java.lang.Object):0:0 -> f
-    455:458:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
-    459:470:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy(java.lang.String,java.lang.String,boolean):0:0 -> f
-    459:470:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,java.lang.String,java.lang.String,boolean,int,java.lang.Object):0 -> f
-    459:470:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130 -> f
-    471:486:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):216:216 -> f
-    487:490:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):130:130 -> f
-    491:497:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):218:218 -> f
-    498:499:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132:132 -> f
-    500:505:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    500:505:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    506:512:void shareFolders():171:171 -> f
-    506:512:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    513:515:void shareFolders():172:172 -> f
-    513:515:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    516:526:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():39:39 -> f
-    516:526:void shareFolders():172 -> f
-    516:526:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    527:538:void shareFolders():173:173 -> f
-    527:538:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    539:544:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
-    539:544:void shareFolders():173 -> f
-    539:544:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):132 -> f
-    545:546:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):133:133 -> f
-    547:552:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    547:552:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):133 -> f
-    553:561:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):133:133 -> f
-    562:565:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
-    562:565:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):133 -> f
-    566:567:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):134:134 -> f
-    568:573:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    568:573:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):134 -> f
-    574:581:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):134:134 -> f
-    582:583:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):135:135 -> f
-    584:590:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
-    584:590:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):135 -> f
-    591:594:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):110:110 -> f
+    457:462:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148:148 -> f
+    463:466:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> f
+    463:466:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
+    467:470:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,java.lang.String,java.lang.String,boolean,int,java.lang.Object):0:0 -> f
+    467:470:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
+    471:482:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy(java.lang.String,java.lang.String,boolean):0:0 -> f
+    471:482:com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.copy$default(com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi,java.lang.String,java.lang.String,boolean,int,java.lang.Object):0 -> f
+    471:482:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148 -> f
+    483:498:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):236:236 -> f
+    499:502:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):148:148 -> f
+    503:509:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):238:238 -> f
+    510:511:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150:150 -> f
+    512:517:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    512:517:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    518:524:void shareFolders():189:189 -> f
+    518:524:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    525:527:void shareFolders():190:190 -> f
+    525:527:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    528:538:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():40:40 -> f
+    528:538:void shareFolders():190 -> f
+    528:538:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    539:550:void shareFolders():191:191 -> f
+    539:550:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    551:556:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
+    551:556:void shareFolders():191 -> f
+    551:556:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):150 -> f
+    557:558:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):151:151 -> f
+    559:564:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    559:564:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):151 -> f
+    565:573:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):151:151 -> f
+    574:577:kotlinx.coroutines.Job kotlinx.coroutines.BuildersKt.launch$default(kotlinx.coroutines.CoroutineScope,kotlin.coroutines.CoroutineContext,kotlinx.coroutines.CoroutineStart,kotlin.jvm.functions.Function2,int,java.lang.Object):1:1 -> f
+    574:577:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):151 -> f
+    578:579:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):152:152 -> f
+    580:585:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    580:585:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):152 -> f
+    586:593:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):152:152 -> f
+    594:595:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):153:153 -> f
+    596:602:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> f
+    596:602:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):153 -> f
+    603:606:void onAction(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceAction):127:127 -> f
+    0:5:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):121:121 -> g
+      # {"id":"com.android.tools.r8.residualsignature","signature":"(Lc4;)Lc4;"}
+    6:16:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():40:40 -> g
+    6:16:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122 -> g
+    17:18:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122:122 -> g
+    19:35:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):219:219 -> g
+    36:37:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getId-xmC_qAE():24:24 -> g
+    36:37:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122 -> g
+      # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
+    38:39:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122:122 -> g
+    40:47:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> g
+    40:47:boolean com.adamfoerster.meshsync.core.domain.model.DeviceId.equals-impl0(java.lang.String,java.lang.String):0 -> g
+    40:47:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122 -> g
+    48:51:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122:122 -> g
+    52:55:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getName():25:25 -> g
+    52:55:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122 -> g
+      # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
+    56:66:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):122:122 -> g
+    67:73:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):123:123 -> g
+    74:75:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():30:30 -> g
+    74:75:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):123 -> g
+      # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
+    76:94:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> g
+    76:94:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):123 -> g
+    95:100:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):123:123 -> g
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$1 -> e4:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     byte AddDeviceViewModel$1.$r8$classId -> m
@@ -244541,36 +244573,36 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$1 
     14:20:kotlin.coroutines.Continuation com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.create(java.lang.Object,kotlin.coroutines.Continuation):0:0 -> p
     21:27:kotlin.coroutines.Continuation com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.create(java.lang.Object,kotlin.coroutines.Continuation):0:0 -> p
     28:35:kotlin.coroutines.Continuation create(java.lang.Object,kotlin.coroutines.Continuation):0:0 -> p
-    15:32:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):133:133 -> r
-    33:34:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    33:34:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):133 -> r
-    35:46:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):133:133 -> r
-    47:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):111:111 -> r
-    65:66:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    65:66:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):111 -> r
-    67:78:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):111:111 -> r
-    79:96:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):92:92 -> r
-    97:98:com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getRepository$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    97:98:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):93 -> r
+    15:32:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):151:151 -> r
+    33:34:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    33:34:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):151 -> r
+    35:46:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$5.invokeSuspend(java.lang.Object):151:151 -> r
+    47:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):128:128 -> r
+    65:66:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    65:66:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):128 -> r
+    67:78:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$onAction$1.invokeSuspend(java.lang.Object):128:128 -> r
+    79:96:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):96:96 -> r
+    97:98:com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getRepository$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    97:98:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):97 -> r
     99:100:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.core.data.repository.KtorSyncthingRepository.getOverview():60:60 -> r
-    99:100:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):93 -> r
+    99:100:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):97 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    101:107:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):93:93 -> r
+    101:107:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):97:97 -> r
     108:118:java.lang.Object kotlinx.coroutines.flow.FlowKt__TransformKt$filterNotNull$$inlined$unsafeTransform$1.collect(kotlinx.coroutines.flow.FlowCollector,kotlin.coroutines.Continuation):112:112 -> r
-    108:118:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):93 -> r
-    119:139:java.lang.Object invokeSuspend(java.lang.Object):91:91 -> r
-    140:141:com.adamfoerster.meshsync.core.domain.repository.SyncthingCore com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getCore$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    140:141:java.lang.Object invokeSuspend(java.lang.Object):91 -> r
-    142:143:java.lang.Object invokeSuspend(java.lang.Object):91:91 -> r
+    108:118:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2.invokeSuspend(java.lang.Object):97 -> r
+    119:139:java.lang.Object invokeSuspend(java.lang.Object):95:95 -> r
+    140:141:com.adamfoerster.meshsync.core.domain.repository.SyncthingCore com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$getCore$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    140:141:java.lang.Object invokeSuspend(java.lang.Object):95 -> r
+    142:143:java.lang.Object invokeSuspend(java.lang.Object):95:95 -> r
     144:145:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.android.core.AndroidSyncthingCore.getState():43:43 -> r
-    144:145:java.lang.Object invokeSuspend(java.lang.Object):91 -> r
+    144:145:java.lang.Object invokeSuspend(java.lang.Object):95 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    146:153:java.lang.Object invokeSuspend(java.lang.Object):91:91 -> r
+    146:153:java.lang.Object invokeSuspend(java.lang.Object):95:95 -> r
     154:155:java.lang.Object kotlinx.coroutines.flow.ReadonlyStateFlow.collect(kotlinx.coroutines.flow.FlowCollector,kotlin.coroutines.Continuation):0:0 -> r
-    154:155:java.lang.Object invokeSuspend(java.lang.Object):91 -> r
+    154:155:java.lang.Object invokeSuspend(java.lang.Object):95 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     156:159:java.lang.Object kotlinx.coroutines.flow.ReadonlyStateFlow.collect(kotlinx.coroutines.flow.FlowCollector,kotlin.coroutines.Continuation):0:0 -> r
-    156:159:java.lang.Object invokeSuspend(java.lang.Object):91 -> r
+    156:159:java.lang.Object invokeSuspend(java.lang.Object):95 -> r
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$1$1 -> d4:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     byte AddDeviceViewModel$1$1.$r8$classId -> i
@@ -244580,115 +244612,118 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$1$
     0:7:void AddDeviceViewModel$1$1.<init>(AddDeviceViewModel,byte):0:0 -> <init>
       # {"id":"com.android.tools.r8.synthesized"}
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Lg4;B)V"}
-    11:14:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93:93 -> j
+    11:14:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97:97 -> j
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/Object;Lj20;)Ljava/lang/Object;"}
-    15:16:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getDevices():10:10 -> j
-    15:16:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):94 -> j
+    15:18:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getDevices():10:10 -> j
+    15:18:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    15:16:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    17:27:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):200:200 -> j
-    17:27:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    28:41:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):201:201 -> j
-    28:41:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    42:43:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):202:202 -> j
-    42:43:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    44:45:java.lang.String com.adamfoerster.meshsync.core.domain.model.Device.getId-xmC_qAE():6:6 -> j
-    44:45:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):94 -> j
+    15:18:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    19:29:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):218:218 -> j
+    19:29:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    30:43:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):219:219 -> j
+    30:43:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    44:45:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):220:220 -> j
+    44:45:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    46:47:java.lang.String com.adamfoerster.meshsync.core.domain.model.Device.getId-xmC_qAE():6:6 -> j
+    46:47:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    44:45:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    46:50:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> j
-    46:50:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):94 -> j
-    46:50:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    51:54:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):202:202 -> j
-    51:54:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    55:58:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):94:94 -> j
-    55:58:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    59:60:kotlinx.coroutines.flow.MutableStateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_state$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> j
-    59:60:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):95 -> j
-    59:60:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    61:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):205:205 -> j
-    61:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    65:67:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):206:206 -> j
-    65:67:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    68:69:java.lang.String com.adamfoerster.meshsync.core.domain.model.SyncOverview.getMyId-xmC_qAE():7:7 -> j
-    68:69:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):97 -> j
-    68:69:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    70:71:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getPendingDevices():12:12 -> j
-    70:71:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
-    70:71:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    72:88:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):207:207 -> j
-    72:88:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    89:90:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getId-xmC_qAE():24:24 -> j
-    89:90:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
+    46:47:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    48:52:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> j
+    48:52:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
+    48:52:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    53:56:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):220:220 -> j
+    53:56:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    57:60:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98:98 -> j
+    57:60:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    61:62:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$setPendingDevices$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel,java.util.List):69:69 -> j
+    61:62:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):99 -> j
+    61:62:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    63:64:kotlinx.coroutines.flow.MutableStateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_state$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> j
+    63:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):100 -> j
+    63:64:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    65:68:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):223:223 -> j
+    65:68:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    69:71:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):224:224 -> j
+    69:71:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    72:73:java.lang.String com.adamfoerster.meshsync.core.domain.model.SyncOverview.getMyId-xmC_qAE():7:7 -> j
+    72:73:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):102 -> j
+    72:73:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    74:90:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):225:225 -> j
+    74:90:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    91:92:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getId-xmC_qAE():24:24 -> j
+    91:92:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):103 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    89:90:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    91:95:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> j
-    91:95:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98 -> j
-    91:95:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    96:107:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):98:98 -> j
-    96:107:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    108:109:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):99:99 -> j
-    108:109:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    110:111:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getName():25:25 -> j
-    110:111:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):99 -> j
-    110:111:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    112:129:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):99:99 -> j
-    112:129:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    130:131:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getFolders():11:11 -> j
-    130:131:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):100 -> j
-    130:131:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    132:140:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):210:210 -> j
-    132:140:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    141:154:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):211:211 -> j
-    141:154:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    155:156:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):212:212 -> j
-    155:156:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    157:158:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getId():4:4 -> j
-    157:158:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
+    91:92:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    93:97:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> j
+    93:97:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):103 -> j
+    93:97:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    98:109:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):103:103 -> j
+    98:109:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    110:111:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):104:104 -> j
+    110:111:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    112:113:java.lang.String com.adamfoerster.meshsync.core.domain.model.PendingDevice.getName():25:25 -> j
+    112:113:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):104 -> j
+    112:113:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    114:131:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):104:104 -> j
+    114:131:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    132:133:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getFolders():11:11 -> j
+    132:133:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):105 -> j
+    132:133:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    134:142:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):228:228 -> j
+    134:142:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    143:156:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):229:229 -> j
+    143:156:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    157:158:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):230:230 -> j
+    157:158:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    159:160:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getId():4:4 -> j
+    159:160:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    157:158:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    159:160:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getLabel():5:5 -> j
-    159:160:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
-    159:160:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    161:162:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():33:33 -> j
-    161:162:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
+    159:160:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    161:162:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getLabel():5:5 -> j
+    161:162:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
+    161:162:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    163:164:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():34:34 -> j
+    163:164:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    161:162:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    163:180:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):213:213 -> j
-    163:180:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    181:182:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():45:45 -> j
-    181:182:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
+    163:164:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    165:184:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):231:231 -> j
+    165:184:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    185:188:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():46:46 -> j
+    185:188:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    181:182:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    183:184:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getId():4:4 -> j
-    183:184:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
-    183:184:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    185:202:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101:101 -> j
-    185:202:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    203:206:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> j
-    203:206:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101 -> j
+    185:188:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    189:190:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getId():4:4 -> j
+    189:190:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
+    189:190:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    191:214:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106:106 -> j
+    191:214:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    215:218:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> j
+    215:218:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106 -> j
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
-    203:206:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    207:211:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101:101 -> j
-    207:211:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    212:227:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):212:212 -> j
-    212:227:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    228:231:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):96:96 -> j
-    228:231:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    232:242:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):216:216 -> j
-    232:242:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):93 -> j
-    243:246:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91:91 -> j
-    247:248:kotlinx.coroutines.flow.MutableStateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_state$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> j
-    247:248:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):91 -> j
-    247:248:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91 -> j
-    249:252:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):201:201 -> j
-    249:252:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91 -> j
-    253:266:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):202:202 -> j
-    253:266:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91 -> j
-    267:270:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):91:91 -> j
-    267:270:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91 -> j
-    271:277:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):203:203 -> j
-    271:277:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):91 -> j
+    215:218:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    219:223:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):106:106 -> j
+    219:223:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    224:249:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):230:230 -> j
+    224:249:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    250:253:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):101:101 -> j
+    250:253:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    254:257:com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$withSuggestedName(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel,com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState):69:69 -> j
+    254:257:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):108 -> j
+    254:257:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    258:274:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(com.adamfoerster.meshsync.core.domain.model.SyncOverview,kotlin.coroutines.Continuation):234:234 -> j
+    258:274:java.lang.Object com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$2$1.emit(java.lang.Object,kotlin.coroutines.Continuation):97 -> j
+    275:278:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95:95 -> j
+    279:280:kotlinx.coroutines.flow.MutableStateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_state$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> j
+    279:280:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):95 -> j
+    279:280:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95 -> j
+    281:284:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):219:219 -> j
+    281:284:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95 -> j
+    285:298:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):220:220 -> j
+    285:298:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95 -> j
+    299:302:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):95:95 -> j
+    299:302:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95 -> j
+    303:309:java.lang.Object emit(com.adamfoerster.meshsync.core.domain.model.CoreState,kotlin.coroutines.Continuation):221:221 -> j
+    303:309:java.lang.Object emit(java.lang.Object,kotlin.coroutines.Continuation):95 -> j
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$shareFolders$1 -> f4:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     byte AddDeviceViewModel$shareFolders$1.$r8$classId -> m
@@ -245024,102 +245059,102 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel$sh
     847:854:java.lang.Object kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED():57:57 -> r
     847:854:java.lang.Object invokeSuspend(java.lang.Object):0 -> r
     847:854:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    855:893:java.lang.Object invokeSuspend(java.lang.Object):173:173 -> r
+    855:893:java.lang.Object invokeSuspend(java.lang.Object):191:191 -> r
     855:893:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    894:897:java.lang.Object invokeSuspend(java.lang.Object):201:201 -> r
+    894:897:java.lang.Object invokeSuspend(java.lang.Object):219:219 -> r
     894:897:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    898:923:java.lang.Object invokeSuspend(java.lang.Object):202:202 -> r
+    898:923:java.lang.Object invokeSuspend(java.lang.Object):220:220 -> r
     898:923:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    924:927:java.lang.Object invokeSuspend(java.lang.Object):174:174 -> r
+    924:927:java.lang.Object invokeSuspend(java.lang.Object):192:192 -> r
     924:927:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    928:933:java.lang.Object invokeSuspend(java.lang.Object):203:203 -> r
+    928:933:java.lang.Object invokeSuspend(java.lang.Object):221:221 -> r
     928:933:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     934:935:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.core.data.repository.KtorSyncthingRepository.getOverview():60:60 -> r
-    934:935:java.lang.Object invokeSuspend(java.lang.Object):175 -> r
+    934:935:java.lang.Object invokeSuspend(java.lang.Object):193 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     934:935:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     936:937:java.lang.Object kotlinx.coroutines.flow.ReadonlyStateFlow.getValue():0:0 -> r
-    936:937:java.lang.Object invokeSuspend(java.lang.Object):175 -> r
+    936:937:java.lang.Object invokeSuspend(java.lang.Object):193 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     936:937:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     938:941:java.lang.Object kotlinx.coroutines.flow.ReadonlyStateFlow.getValue():0:0 -> r
-    938:941:java.lang.Object invokeSuspend(java.lang.Object):175 -> r
+    938:941:java.lang.Object invokeSuspend(java.lang.Object):193 -> r
     938:941:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    942:943:java.lang.Object invokeSuspend(java.lang.Object):175:175 -> r
+    942:943:java.lang.Object invokeSuspend(java.lang.Object):193:193 -> r
     942:943:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    944:947:java.lang.Object invokeSuspend(java.lang.Object):176:176 -> r
+    944:947:java.lang.Object invokeSuspend(java.lang.Object):194:194 -> r
     944:947:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    948:949:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():33:33 -> r
-    948:949:java.lang.Object invokeSuspend(java.lang.Object):176 -> r
+    948:949:java.util.List com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getFolders():34:34 -> r
+    948:949:java.lang.Object invokeSuspend(java.lang.Object):194 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     948:949:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    950:954:java.lang.Object invokeSuspend(java.lang.Object):205:205 -> r
+    950:954:java.lang.Object invokeSuspend(java.lang.Object):223:223 -> r
     950:954:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    955:971:java.lang.Object invokeSuspend(java.lang.Object):206:206 -> r
+    955:971:java.lang.Object invokeSuspend(java.lang.Object):224:224 -> r
     955:971:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    972:975:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> r
-    972:975:java.lang.Object invokeSuspend(java.lang.Object):176 -> r
+    972:975:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> r
+    972:975:java.lang.Object invokeSuspend(java.lang.Object):194 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     972:975:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    976:979:java.lang.Object invokeSuspend(java.lang.Object):206:206 -> r
+    976:979:java.lang.Object invokeSuspend(java.lang.Object):224:224 -> r
     976:979:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    980:1002:java.lang.Object invokeSuspend(java.lang.Object):176:176 -> r
+    980:1002:java.lang.Object invokeSuspend(java.lang.Object):194:194 -> r
     980:1002:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     1003:1006:java.util.List com.adamfoerster.meshsync.core.domain.model.SyncOverview.getFolders():11:11 -> r
-    1003:1006:java.lang.Object invokeSuspend(java.lang.Object):177 -> r
+    1003:1006:java.lang.Object invokeSuspend(java.lang.Object):195 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1003:1006:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1007:1023:java.lang.Object invokeSuspend(java.lang.Object):208:208 -> r
+    1007:1023:java.lang.Object invokeSuspend(java.lang.Object):226:226 -> r
     1007:1023:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     1024:1025:java.lang.String com.adamfoerster.meshsync.core.domain.model.Folder.getId():4:4 -> r
-    1024:1025:java.lang.Object invokeSuspend(java.lang.Object):177 -> r
+    1024:1025:java.lang.Object invokeSuspend(java.lang.Object):195 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1024:1025:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1026:1027:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():45:45 -> r
-    1026:1027:java.lang.Object invokeSuspend(java.lang.Object):177 -> r
+    1026:1027:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():46:46 -> r
+    1026:1027:java.lang.Object invokeSuspend(java.lang.Object):195 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1026:1027:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1028:1039:java.lang.Object invokeSuspend(java.lang.Object):177:177 -> r
+    1028:1039:java.lang.Object invokeSuspend(java.lang.Object):195:195 -> r
     1028:1039:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     1040:1045:java.util.List com.adamfoerster.meshsync.core.domain.model.Folder.getDeviceIds():9:9 -> r
-    1040:1045:java.lang.Object invokeSuspend(java.lang.Object):177 -> r
+    1040:1045:java.lang.Object invokeSuspend(java.lang.Object):195 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1040:1045:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1046:1047:java.lang.Object invokeSuspend(java.lang.Object):177:177 -> r
+    1046:1047:java.lang.Object invokeSuspend(java.lang.Object):195:195 -> r
     1046:1047:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1048:1049:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():45:45 -> r
-    1048:1049:java.lang.Object invokeSuspend(java.lang.Object):178 -> r
+    1048:1049:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getId():46:46 -> r
+    1048:1049:java.lang.Object invokeSuspend(java.lang.Object):196 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1048:1049:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1050:1052:java.lang.Object invokeSuspend(java.lang.Object):178:178 -> r
+    1050:1052:java.lang.Object invokeSuspend(java.lang.Object):196:196 -> r
     1050:1052:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     1053:1057:com.adamfoerster.meshsync.core.domain.model.DeviceId com.adamfoerster.meshsync.core.domain.model.DeviceId.box-impl(java.lang.String):0:0 -> r
-    1053:1057:java.lang.Object invokeSuspend(java.lang.Object):178 -> r
+    1053:1057:java.lang.Object invokeSuspend(java.lang.Object):196 -> r
     1053:1057:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1058:1074:java.lang.Object invokeSuspend(java.lang.Object):178:178 -> r
+    1058:1074:java.lang.Object invokeSuspend(java.lang.Object):196:196 -> r
     1058:1074:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1075:1076:java.lang.Object invokeSuspend(java.lang.Object):173:173 -> r
+    1075:1076:java.lang.Object invokeSuspend(java.lang.Object):191:191 -> r
     1075:1076:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1077:1080:java.lang.Object invokeSuspend(java.lang.Object):179:179 -> r
+    1077:1080:java.lang.Object invokeSuspend(java.lang.Object):197:197 -> r
     1077:1080:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1081:1084:java.lang.Object invokeSuspend(java.lang.Object):211:211 -> r
+    1081:1084:java.lang.Object invokeSuspend(java.lang.Object):229:229 -> r
     1081:1084:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1085:1088:java.lang.Object invokeSuspend(java.lang.Object):212:212 -> r
+    1085:1088:java.lang.Object invokeSuspend(java.lang.Object):230:230 -> r
     1085:1088:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1089:1091:java.lang.Object invokeSuspend(java.lang.Object):180:180 -> r
+    1089:1091:java.lang.Object invokeSuspend(java.lang.Object):198:198 -> r
     1089:1091:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
     1092:1093:com.adamfoerster.meshsync.core.domain.util.Error com.adamfoerster.meshsync.core.domain.util.Result$Failure.getError():7:7 -> r
-    1092:1093:java.lang.Object invokeSuspend(java.lang.Object):180 -> r
+    1092:1093:java.lang.Object invokeSuspend(java.lang.Object):198 -> r
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1092:1093:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1094:1121:java.lang.Object invokeSuspend(java.lang.Object):180:180 -> r
+    1094:1121:java.lang.Object invokeSuspend(java.lang.Object):198:198 -> r
     1094:1121:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1122:1129:java.lang.Object invokeSuspend(java.lang.Object):213:213 -> r
+    1122:1129:java.lang.Object invokeSuspend(java.lang.Object):231:231 -> r
     1122:1129:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1130:1131:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):68:68 -> r
-    1130:1131:java.lang.Object invokeSuspend(java.lang.Object):184 -> r
+    1130:1131:kotlinx.coroutines.channels.Channel com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.access$get_events$p(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel):69:69 -> r
+    1130:1131:java.lang.Object invokeSuspend(java.lang.Object):202 -> r
     1130:1131:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
-    1132:1147:java.lang.Object invokeSuspend(java.lang.Object):184:184 -> r
+    1132:1147:java.lang.Object invokeSuspend(java.lang.Object):202:202 -> r
     1132:1147:java.lang.Object AddDeviceViewModel$shareFolders$1.invokeSuspend(java.lang.Object):0 -> r
 com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep -> a5:
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
@@ -245131,19 +245166,19 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep -> a5:
       # {"id":"com.android.tools.r8.residualsignature","signature":"La5;"}
     com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep[] $VALUES -> l
       # {"id":"com.android.tools.r8.residualsignature","signature":"[La5;"}
-    0:4:void <clinit>():23:23 -> <clinit>
-    5:7:void <init>(java.lang.String,int):23:23 -> <clinit>
-    5:7:void <clinit>():23 -> <clinit>
-    8:14:void <clinit>():23:23 -> <clinit>
-    15:17:void <init>(java.lang.String,int):23:23 -> <clinit>
-    15:17:void <clinit>():23 -> <clinit>
-    18:24:void <clinit>():23:23 -> <clinit>
-    25:27:void <init>(java.lang.String,int):23:23 -> <clinit>
-    25:27:void <clinit>():23 -> <clinit>
-    28:29:void <clinit>():23:23 -> <clinit>
+    0:4:void <clinit>():24:24 -> <clinit>
+    5:7:void <init>(java.lang.String,int):24:24 -> <clinit>
+    5:7:void <clinit>():24 -> <clinit>
+    8:14:void <clinit>():24:24 -> <clinit>
+    15:17:void <init>(java.lang.String,int):24:24 -> <clinit>
+    15:17:void <clinit>():24 -> <clinit>
+    18:24:void <clinit>():24:24 -> <clinit>
+    25:27:void <init>(java.lang.String,int):24:24 -> <clinit>
+    25:27:void <clinit>():24 -> <clinit>
+    28:29:void <clinit>():24:24 -> <clinit>
     30:33:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep[] $values():0:0 -> <clinit>
-    30:33:void <clinit>():23 -> <clinit>
-    34:36:void <clinit>():23:23 -> <clinit>
+    30:33:void <clinit>():24 -> <clinit>
+    34:36:void <clinit>():24:24 -> <clinit>
     0:8:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep valueOf(java.lang.String):0:0 -> valueOf
       # {"id":"com.android.tools.r8.residualsignature","signature":"(Ljava/lang/String;)La5;"}
     0:8:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep[] values():0:0 -> values
@@ -245153,7 +245188,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi -> hq0
     java.lang.String id -> a
     java.lang.String label -> b
     boolean checked -> c
-    6:15:void <init>(java.lang.String,java.lang.String,boolean):45:45 -> <init>
+    6:15:void <init>(java.lang.String,java.lang.String,boolean):46:46 -> <init>
     4:41:boolean equals(java.lang.Object):0:0 -> equals
     11:14:int hashCode():0:0 -> hashCode
     11:14:int FolderChoiceUi.hashCode():0 -> hashCode
@@ -245178,7 +245213,7 @@ com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi -> w
 # {"id":"sourceFile","fileName":"AddDeviceViewModel.kt"}
     java.lang.String id -> a
     java.lang.String name -> b
-    0:7:void <init>(java.lang.String,java.lang.String):43:43 -> <init>
+    0:7:void <init>(java.lang.String,java.lang.String):44:44 -> <init>
     14:20:boolean kotlin.jvm.internal.Intrinsics.areEqual(java.lang.Object,java.lang.Object):169:169 -> equals
     14:20:boolean equals(java.lang.Object):0 -> equals
     21:24:boolean equals(java.lang.Object):0:0 -> equals
@@ -263274,7 +263309,7 @@ com.adamfoerster.meshsync.feature.home.presentation.DeviceMapKt$$ExternalSynthet
     1527:1529:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0:0 -> e
     1530:1532:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep$lambda$1(com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.ui.platform.ClipboardManager,com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):521:521 -> e
     1530:1532:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    1533:1536:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getMyId():27:27 -> e
+    1533:1536:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getMyId():28:28 -> e
     1533:1536:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep$lambda$1(com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.ui.platform.ClipboardManager,com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):184 -> e
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     1533:1536:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
@@ -263444,7 +263479,7 @@ com.adamfoerster.meshsync.feature.home.presentation.DeviceMapKt$$ExternalSynthet
     1963:1984:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0:0 -> e
     1985:2003:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):0:0 -> e
     1985:2003:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2004:2012:com.adamfoerster.meshsync.core.presentation.UiText com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getError():35:35 -> e
+    2004:2012:com.adamfoerster.meshsync.core.presentation.UiText com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getError():36:36 -> e
     2004:2012:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):266 -> e
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     2004:2012:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
@@ -263488,7 +263523,7 @@ com.adamfoerster.meshsync.feature.home.presentation.DeviceMapKt$$ExternalSynthet
     2091:2093:void androidx.compose.runtime.GapComposer.endReplaceGroup():398 -> e
     2091:2093:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):266 -> e
     2091:2093:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2094:2095:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():26:26 -> e
+    2094:2095:com.adamfoerster.meshsync.feature.devices.presentation.add.AddStep com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getStep():27:27 -> e
     2094:2095:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):269 -> e
     2094:2095:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2096:2114:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):269:269 -> e
@@ -263571,12 +263606,12 @@ com.adamfoerster.meshsync.feature.home.presentation.DeviceMapKt$$ExternalSynthet
     2321:2322:androidx.compose.ui.graphics.vector.ImageVector com.adamfoerster.meshsync.core.designsystem.icons.NgIcons.getPlus():24:24 -> e
     2321:2322:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):280 -> e
     2321:2322:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2323:2324:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getDeviceIdInput():28:28 -> e
+    2323:2324:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getDeviceIdInput():29:29 -> e
     2323:2324:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):281 -> e
     2323:2324:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2325:2332:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):281:281 -> e
     2325:2332:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
-    2333:2361:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getCoreReady():40:40 -> e
+    2333:2361:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getCoreReady():41:41 -> e
     2333:2361:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):281 -> e
     2333:2361:java.lang.Object DeviceMapKt$$ExternalSyntheticLambda3.invoke(java.lang.Object,java.lang.Object,java.lang.Object):0 -> e
     2362:2364:kotlin.Unit com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.StepActions$lambda$0(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,com.adamfoerster.meshsync.core.designsystem.theme.NgColors,androidx.compose.foundation.layout.ColumnScope,androidx.compose.runtime.Composer,int):275:275 -> e
@@ -312367,7 +312402,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     132:139:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):326:326 -> a
     140:143:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):325:325 -> a
     144:145:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):90:90 -> a
-    146:147:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.getState():85:85 -> a
+    146:147:kotlinx.coroutines.flow.StateFlow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.getState():86:86 -> a
     146:147:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):91 -> a
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     148:151:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):91:91 -> a
@@ -312375,7 +312410,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     152:153:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):92 -> a
     154:157:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):327:327 -> a
     158:159:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):92:92 -> a
-    160:161:kotlinx.coroutines.flow.Flow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.getEvents():88:88 -> a
+    160:161:kotlinx.coroutines.flow.Flow com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceViewModel.getEvents():92:92 -> a
     160:161:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):93 -> a
     162:178:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):93:93 -> a
     179:186:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.AddDeviceRoot(java.lang.String,java.lang.String,kotlin.jvm.functions.Function0,androidx.compose.runtime.Composer,int):328:328 -> a
@@ -312431,7 +312466,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     86:133:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):210 -> c
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     134:138:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):210:210 -> c
-    139:147:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getDeviceIdInput():28:28 -> c
+    139:147:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getDeviceIdInput():29:29 -> c
     139:147:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):212 -> c
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     148:151:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):422:422 -> c
@@ -312442,14 +312477,14 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     176:183:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getAdd_device_id(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):57:57 -> c
     176:183:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):214 -> c
     184:187:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):214:214 -> c
-    188:191:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getShowIdError():30:30 -> c
+    188:191:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getShowIdError():31:31 -> c
     188:191:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):215 -> c
     192:200:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getAdd_device_id_invalid(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):83:83 -> c
     192:200:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):215 -> c
     201:208:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getAdd_device_id_hint(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):70:70 -> c
     201:208:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):215 -> c
     209:215:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):215:215 -> c
-    216:219:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getShowIdError():30:30 -> c
+    216:219:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getShowIdError():31:31 -> c
     216:219:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):216 -> c
     220:223:com.adamfoerster.meshsync.core.designsystem.theme.NgTypography com.adamfoerster.meshsync.core.designsystem.theme.NgTheme.getType(androidx.compose.runtime.Composer,int):54:54 -> c
     220:223:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):218 -> c
@@ -312460,7 +312495,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     228:247:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):219:219 -> c
     248:250:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):211:211 -> c
-    251:258:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():29:29 -> c
+    251:258:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():30:30 -> c
     251:258:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):222 -> c
     259:272:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):428:428 -> c
     273:280:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ApproveStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):223:223 -> c
@@ -312715,11 +312750,11 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     63:64:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):231 -> h
     65:72:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getAdd_folders_title(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):161:161 -> h
     65:72:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):233 -> h
-    73:76:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():29:29 -> h
+    73:76:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getNameInput():30:30 -> h
     73:76:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):233 -> h
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     77:82:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):233:233 -> h
-    83:92:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():39:39 -> h
+    83:92:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getParsedId-xn-1lW8():40:40 -> h
     83:92:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):233 -> h
     93:110:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):233:233 -> h
     111:112:androidx.compose.runtime.ProvidableCompositionLocal com.adamfoerster.meshsync.core.designsystem.theme.NgTypographyKt.getLocalNgTypography():68:68 -> h
@@ -312772,7 +312807,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     290:292:void androidx.compose.runtime.GapComposer.endReplaceGroup():398 -> h
     290:292:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):240 -> h
     293:308:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):435:435 -> h
-    309:312:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> h
+    309:312:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> h
     309:312:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):243 -> h
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     313:317:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):243:243 -> h
@@ -312784,7 +312819,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     327:330:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):245:245 -> h
     331:334:androidx.compose.ui.Modifier androidx.compose.foundation.layout.SizeKt.fillMaxWidth$default(androidx.compose.ui.Modifier,float,int,java.lang.Object):477:477 -> h
     331:334:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):246 -> h
-    335:336:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():45:45 -> h
+    335:336:boolean com.adamfoerster.meshsync.feature.devices.presentation.add.FolderChoiceUi.getChecked():46:46 -> h
     335:336:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):247 -> h
     337:351:androidx.compose.ui.semantics.Role androidx.compose.ui.semantics.Role.box-impl(int):0:0 -> h
     337:351:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.FoldersStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):247 -> h
@@ -312853,7 +312888,7 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     63:64:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):160 -> k
     65:68:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):420:420 -> k
     69:71:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):160:160 -> k
-    72:78:com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getIncoming():32:32 -> k
+    72:78:com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState.getIncoming():33:33 -> k
     72:78:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):161 -> k
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     79:81:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):161:161 -> k
@@ -312863,11 +312898,11 @@ kotlin.jvm.internal.Intrinsics$Kotlin -> x81:
     89:91:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):161:161 -> k
     92:99:org.jetbrains.compose.resources.StringResource com.adamfoerster.meshsync.feature.devices.presentation.resources.String0_commonMainKt.getDevices_pending_title(com.adamfoerster.meshsync.feature.devices.presentation.resources.Res$string):564:564 -> k
     92:99:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):163 -> k
-    100:101:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getName():43:43 -> k
+    100:101:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getName():44:44 -> k
     100:101:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):163 -> k
       # {"id":"com.android.tools.r8.rewriteFrame","conditions":["throws(Ljava/lang/NullPointerException;)"],"actions":["removeInnerFrames(1)"]}
     102:109:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):163:163 -> k
-    110:111:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getId():43:43 -> k
+    110:111:java.lang.String com.adamfoerster.meshsync.feature.devices.presentation.add.IncomingDeviceUi.getId():44:44 -> k
     110:111:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):164 -> k
     112:113:androidx.compose.ui.graphics.vector.ImageVector com.adamfoerster.meshsync.core.designsystem.icons.NgIcons.getDevices():18:18 -> k
     112:113:void com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceScreenKt.ShowCodeStep(com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceState,kotlin.jvm.functions.Function1,androidx.compose.runtime.Composer,int):166 -> k
