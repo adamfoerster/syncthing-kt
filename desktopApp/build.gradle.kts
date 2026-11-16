@@ -9,7 +9,7 @@ plugins {
 
 val appVersion: String = providers.gradleProperty("app.version").get()
 
-// Windows (and, later, macOS) host for the shared UI. Plain JVM: the OS-specific pieces live here.
+// Windows and macOS (Apple Silicon) host for the shared UI. Plain JVM: the OS-specific pieces live here.
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -59,13 +59,15 @@ compose.desktop {
         jvmArgs += "--enable-native-access=ALL-UNNAMED"
         // Read by AppInfo to show the app version in Settings.
         jvmArgs += "-Dmeshsync.version=$appVersion"
+        // jpackage and the bundled runtime come from this JDK; see packagingJdk() below.
+        packagingJdk()?.let { javaHome = it }
 
         nativeDistributions {
-            // resources/<os>-<arch>/ holds the Syncthing binary from :syncthing-native:buildWindows. The
+            // resources/<os>-<arch>/ holds the Syncthing binary from :syncthing-native:buildWindows/buildMacos. The
             // plugin points `compose.application.resources.dir` at it, both for `run` and when packaged.
             appResourcesRootDir.set(layout.projectDirectory.dir("resources"))
 
-            targetFormats(TargetFormat.Msi, TargetFormat.Exe)
+            targetFormats(TargetFormat.Msi, TargetFormat.Exe, TargetFormat.Dmg)
             packageName = "MeshSync"
             packageVersion = appVersion
             description = "Syncs folders between your devices with Syncthing"
@@ -85,19 +87,59 @@ compose.desktop {
                 // Fixed forever: it is how Windows recognises a newer MeshSync as an upgrade of the installed one.
                 upgradeUuid = "6f3a1c52-8d47-4b1e-9a60-2c5e7b0d4f18"
             }
+
+            // Apple Silicon only (jpackage builds for the JDK's own architecture). Not Developer ID signed:
+            // the first launch needs right-click › Open.
+            macOS {
+                iconFile.set(layout.projectDirectory.file("packaging/meshsync.icns"))
+                bundleID = "com.adamfoerster.meshsync"
+                dockName = "MeshSync"
+                packageName = "MeshSync"
+                appCategory = "public.app-category.utilities"
+            }
         }
     }
+}
+
+/**
+ * The JDK whose jpackage builds the installers and whose runtime is bundled. Gradle's own JVM often can't:
+ * Android Studio's JBR has no jpackage, and the Compose plugin refuses Homebrew builds. So: an explicit
+ * -Pmeshsync.packagingJdk wins; otherwise the first of JAVA_HOME, Gradle's JVM and the installed macOS JDKs
+ * (newest first) that is 17+, has jpackage, matches this machine's architecture and is not Homebrew's.
+ * Null leaves the plugin's default (Gradle's JVM), which then reports what is wrong.
+ */
+fun packagingJdk(): String? {
+    providers.gradleProperty("meshsync.packagingJdk").orNull?.let { return it }
+    fun release(home: File): Map<String, String> = File(home, "release").takeIf { it.isFile }?.readLines().orEmpty()
+        .mapNotNull { line -> line.split('=', limit = 2).takeIf { it.size == 2 }?.let { it[0] to it[1].trim('"') } }
+        .toMap()
+    fun major(home: File): Int = release(home)["JAVA_VERSION"]?.substringBefore('.')?.toIntOrNull() ?: 0
+    val hostArch = System.getProperty("os.arch").let { if (it == "arm64") "aarch64" else it }
+    fun usable(home: File): Boolean {
+        val info = release(home)
+        val hasJpackage = File(home, "bin/jpackage").exists() || File(home, "bin/jpackage.exe").exists()
+        val arch = info["OS_ARCH"]?.let { if (it == "arm64") "aarch64" else it }
+        return hasJpackage && major(home) >= 17 && info["IMPLEMENTOR"] != "Homebrew" && (arch == null || arch == hostArch)
+    }
+    val installed = listOf(File("/Library/Java/JavaVirtualMachines"), File(System.getProperty("user.home"), "Library/Java/JavaVirtualMachines"))
+        .flatMap { it.listFiles()?.toList().orEmpty() }
+        .map { File(it, "Contents/Home") }
+        .sortedByDescending(::major)
+    val candidates = listOfNotNull(System.getenv("JAVA_HOME")?.let(::File), File(System.getProperty("java.home"))) + installed
+    return candidates.firstOrNull { it.isDirectory && usable(it) }?.absolutePath
 }
 
 // Same rule as :androidApp: no build without a bumped version and a matching CHANGELOG entry.
 tasks.named("compileKotlin") { dependsOn(":verifyVersion") }
 
+val hostIsMac = System.getProperty("os.name").lowercase().contains("mac")
 val checkSyncthingBinary by tasks.registering {
     group = "verification"
-    description = "Fails if the bundled syncthing.exe has not been built yet"
-    val binary = layout.projectDirectory.file("resources/windows-x64/syncthing.exe")
+    description = "Fails if the Syncthing binary for this OS has not been built yet"
+    val binary = layout.projectDirectory.file(if (hostIsMac) "resources/macos-arm64/syncthing" else "resources/windows-x64/syncthing.exe")
+    val buildTask = if (hostIsMac) "buildMacos" else "buildWindows"
     doLast {
-        check(binary.asFile.exists()) { "Missing $binary. Run ./gradlew :syncthing-native:buildWindows first (needs Go)." }
+        check(binary.asFile.exists()) { "Missing $binary. Run ./gradlew :syncthing-native:$buildTask first (needs Go)." }
     }
 }
 tasks.matching { it.name == "createDistributable" || it.name.startsWith("package") }

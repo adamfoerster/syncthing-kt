@@ -9,7 +9,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.painter.BitmapPainter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
@@ -33,6 +35,7 @@ import com.adamfoerster.meshsync.desktop.resources.Res
 import com.adamfoerster.meshsync.desktop.resources.core_exit
 import com.adamfoerster.meshsync.desktop.resources.core_start_timeout
 import com.adamfoerster.meshsync.desktop.resources.tray_autostart
+import com.adamfoerster.meshsync.desktop.resources.tray_autostart_mac
 import com.adamfoerster.meshsync.desktop.resources.tray_open
 import com.adamfoerster.meshsync.desktop.resources.tray_pause
 import com.adamfoerster.meshsync.desktop.resources.tray_quit
@@ -54,7 +57,10 @@ import org.koin.dsl.module
 import java.util.Locale
 
 fun main(args: Array<String>) {
-    val dataDir = DesktopPaths.dataDir()
+    val os = HostOs.current()
+    // Menu bar icon as a template, so macOS paints it like the system icons (black or white).
+    if (os == HostOs.MacOs) System.setProperty(MenuBarIcon.TEMPLATE_PROPERTY, "true")
+    val dataDir = DesktopPaths.dataDir(os)
     val showRequests = mutableStateOf(0)
     val instance = SingleInstance(dataDir) { showRequests.value += 1 }
     // A second launch just asks the running app to show itself.
@@ -66,13 +72,13 @@ fun main(args: Array<String>) {
     applyLanguage(preferences.languageTag.value, systemLocale)
 
     val trayAvailable = isTraySupported
-    val startMinimized = WindowsAutostart.MINIMIZED_FLAG in args && trayAvailable
+    val startMinimized = Autostart.MINIMIZED_FLAG in args && trayAvailable
     var windowVisible by mutableStateOf(!startMinimized)
 
-    val autostart: Autostart = WindowsAutostart.currentLauncher()?.let(::WindowsAutostart) ?: NoAutostart
+    val autostart: Autostart = Autostart.forCurrentOs(os)
     // Not marked as done for development runs (NoAutostart), so the first packaged run still applies it.
     if (autostart !== NoAutostart && !preferences.autostartInitialized) {
-        // First run: start with Windows, which the tray menu lets the user turn off.
+        // First run: start at login, which the tray menu lets the user turn off.
         autostart.setEnabled(true)
         preferences.autostartInitialized = true
     }
@@ -89,7 +95,7 @@ fun main(args: Array<String>) {
                 // Set from app.version by desktopApp/build.gradle.kts (run and packaged); empty in other launches.
                 single<AppInfo> { object : AppInfo { override val version: String = System.getProperty("meshsync.version").orEmpty() } }
                 single { SyncthingEndpoint(config.baseUrl, config.apiKey) }
-                single { DesktopSyncthingCore(DesktopPaths.syncthingBinary(), config, get(AppScope), messages = messages) } binds
+                single { DesktopSyncthingCore(DesktopPaths.syncthingBinary(os), config, get(AppScope), messages = messages, os = os) } binds
                     arrayOf(SyncthingCore::class)
             },
         )
@@ -101,7 +107,10 @@ fun main(args: Array<String>) {
     Runtime.getRuntime().addShutdownHook(Thread { core.shutdownAndWait() })
     core.startIfWanted()
 
-    val platformActions = DesktopPlatformActions()
+    val platformActions = DesktopPlatformActions(os)
+    // Set by application {} below; macOS menu/Dock events call it from the AppKit thread.
+    var quitFromSystem: (() -> Unit)? = null
+    if (os == HostOs.MacOs) installMacAppHandlers(onReopen = { windowVisible = true }, onQuit = { quitFromSystem?.invoke() })
 
     application {
         val scope = rememberCoroutineScope()
@@ -109,7 +118,7 @@ fun main(args: Array<String>) {
         val language by preferences.languageTag.collectAsState()
         val themeMode by preferences.themeMode.collectAsState()
         val status = TrayStatus.of(coreState)
-        val appIcon = remember { loadAppIcon() }
+        val appIcon: Painter = remember { if (os == HostOs.MacOs) MenuBarIcon() else loadAppIcon() }
         val windowState = rememberWindowState(size = DpSize(1100.dp, 780.dp))
         var autostartOn by remember { mutableStateOf(autostart.isEnabled()) }
 
@@ -120,6 +129,8 @@ fun main(args: Array<String>) {
                 exitApplication()
             }
         }
+
+        quitFromSystem = ::quit
 
         LaunchedEffect(showRequests.value) {
             if (showRequests.value > 0) windowVisible = true
@@ -146,7 +157,7 @@ fun main(args: Array<String>) {
                         onClick = { if (status.canPause) core.stop() else core.start() },
                     )
                     CheckboxItem(
-                        stringResource(Res.string.tray_autostart),
+                        stringResource(if (os == HostOs.MacOs) Res.string.tray_autostart_mac else Res.string.tray_autostart),
                         checked = autostartOn,
                         onCheckedChange = { enabled ->
                             autostart.setEnabled(enabled)
@@ -176,14 +187,33 @@ fun main(args: Array<String>) {
 }
 
 /**
+ * macOS: clicking the Dock icon brings the hidden window back, and ⌘Q / Dock › Quit go through [onQuit], which
+ * stops the core first, instead of the JVM just exiting.
+ */
+private fun installMacAppHandlers(onReopen: () -> Unit, onQuit: () -> Unit) {
+    if (!java.awt.Desktop.isDesktopSupported()) return
+    val desktop = java.awt.Desktop.getDesktop()
+    runCatching { desktop.addAppEventListener(java.awt.desktop.AppReopenedListener { onReopen() }) }
+    runCatching {
+        desktop.setQuitHandler { _, response ->
+            // The core is stopped and the app exits from onQuit; tell AppKit not to kill the JVM meanwhile.
+            response.cancelQuit()
+            onQuit()
+        }
+    }
+}
+
+/**
  * The app icon shown in the tray. Status is no longer drawn into it; the tooltip spells it out instead,
- * so it never depends on the icon's colour.
+ * so it never depends on the icon's colour. The macOS menu bar uses the vector [MenuBarIcon] instead.
+ * The tray shrinks the 512 px image to a few dozen pixels, so it is filtered with [FilterQuality.High].
  */
 private fun loadAppIcon(): BitmapPainter {
     val stream = checkNotNull(Thread.currentThread().contextClassLoader.getResourceAsStream("app-icon.png")) {
         "app-icon.png missing from desktopApp resources"
     }
-    return BitmapPainter(stream.use { javax.imageio.ImageIO.read(it) }.toComposeImageBitmap())
+    val image = stream.use { javax.imageio.ImageIO.read(it) }
+    return BitmapPainter(image.toComposeImageBitmap(), filterQuality = FilterQuality.High)
 }
 
 /** Sets the JVM default locale, which Compose resources use; null follows the system language. */

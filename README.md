@@ -3,7 +3,7 @@
 🇬🇧 [Read in English](README.en.md)
 
 MeshSync é uma reimplementação do app Android do Syncthing em Kotlin Multiplatform + Compose Multiplatform
-(Android e Windows; macOS depois), com a interface "Neon Grid" do redesign e um
+(Android, Windows e macOS), com a interface "Neon Grid" do redesign e um
 resolvedor de conflitos no estilo do GitHub.
 
 ## Destaques
@@ -42,8 +42,8 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |
 | `androidApp` | Activity, serviço, gerenciador do processo do núcleo, scanner QR (ZXing) |
-| `desktopApp` | App Windows (JVM): bandeja, processo do núcleo, autostart, instalador MSI/EXE |
-| `syncthing-native` | Tasks que compilam o núcleo Go (Android e Windows) |
+| `desktopApp` | App Windows e macOS (JVM): bandeja/barra de menus, processo do núcleo, autostart, instaladores MSI/EXE/DMG |
+| `syncthing-native` | Tasks que compilam o núcleo Go (Android, Windows e macOS) |
 
 ## Resolução de conflitos
 
@@ -185,7 +185,7 @@ Isso clona o Syncthing `v2.1.6` em `syncthing-native/go/` e grava `androidApp/sr
 
 O MeshSync também roda no Windows (`desktopApp`): o mesmo app Compose, com o núcleo `syncthing.exe` como processo filho e
 um ícone na bandeja (o ícone do app; o estado aparece na dica). Dados e configuração ficam em `%LOCALAPPDATA%\MeshSync`; o autostart usa
-`HKCU\...\Run` com `--minimized`. Código específico de SO fica só em `desktopApp`, para o macOS entrar depois.
+`HKCU\...\Run` com `--minimized`. Código específico de SO fica só em `desktopApp`.
 
 ```bash
 ./gradlew :syncthing-native:buildWindows   # syncthing.exe em desktopApp/resources/windows-x64 (precisa de Go >= 1.26.2)
@@ -195,6 +195,22 @@ um ícone na bandeja (o ícone do app; o estado aparece na dica). Dados e config
 
 O instalador é por usuário (sem administrador) e **não é assinado**, então o SmartScreen avisa. O `upgradeUuid` em
 `desktopApp/build.gradle.kts` nunca deve mudar: é ele que faz o Windows tratar uma versão nova como atualização.
+
+## macOS
+
+O mesmo `desktopApp` roda no macOS (só Apple Silicon): o núcleo `syncthing` é processo filho, o ícone fica na barra de menus (monocromático, ícone template do macOS desenhado em vetor por `MenuBarIcon`, com vértices sólidos)
+e clicar no Dock reabre a janela; ⌘Q encerra o núcleo antes de sair. Dados em `~/Library/Application Support/MeshSync`;
+**Abrir ao iniciar sessão** grava `~/Library/LaunchAgents/com.adamfoerster.meshsync.plist` (com `--minimized`).
+**Compartilhar** mostra o arquivo no Finder.
+
+```bash
+./gradlew :syncthing-native:buildMacos     # syncthing em desktopApp/resources/macos-arm64 (precisa de Go >= 1.26.2)
+./gradlew :desktopApp:run                  # executa o app
+./gradlew :desktopApp:packageDmg           # desktopApp/build/compose/binaries/main/dmg/MeshSync-X.Y.Z.dmg
+```
+
+O DMG precisa ser gerado num Mac com um JDK 17+ arm64 que tenha `jpackage` e não seja do Homebrew (o plugin do Compose recusa; o JBR do Android Studio não tem `jpackage`). O build escolhe sozinho um JDK adequado (`JAVA_HOME`, o JVM do Gradle ou os instalados em `/Library/Java/JavaVirtualMachines`); para forçar um, use `-Pmeshsync.packagingJdk=<caminho do JDK>`. Se nenhum servir, instale um, por exemplo Temurin ou Corretto 17+ arm64. O app **não é assinado com Developer ID nem notarizado**: na primeira
+abertura, clique com o botão direito em MeshSync › **Abrir** (ou em Ajustes do Sistema › Privacidade e Segurança › **Abrir Mesmo Assim**).
 
 ### Build de release (R8 + assinatura)
 

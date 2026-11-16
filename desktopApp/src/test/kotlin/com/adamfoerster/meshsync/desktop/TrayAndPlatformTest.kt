@@ -30,20 +30,35 @@ class TrayAndPlatformTest {
     @Test
     fun `one file is selected in Explorer`() {
         val file = File("C:\\docs\\a.txt").absolutePath
-        assertThat(DesktopPlatformActions.explorerCommand(listOf("C:\\docs\\a.txt")))
+        assertThat(DesktopPlatformActions.revealCommand(listOf("C:\\docs\\a.txt"), HostOs.Windows))
             .isEqualTo(listOf("explorer.exe", "/select,$file"))
     }
 
     @Test
     fun `several files open their folder`() {
         val parent = File("C:\\docs\\a.txt").absoluteFile.parentFile.path
-        assertThat(DesktopPlatformActions.explorerCommand(listOf("C:\\docs\\a.txt", "C:\\docs\\b.txt")))
+        assertThat(DesktopPlatformActions.revealCommand(listOf("C:\\docs\\a.txt", "C:\\docs\\b.txt"), HostOs.Windows))
             .isEqualTo(listOf("explorer.exe", parent))
     }
 
     @Test
     fun `nothing to share does nothing`() {
-        assertThat(DesktopPlatformActions.explorerCommand(emptyList())).isNull()
+        assertThat(DesktopPlatformActions.revealCommand(emptyList(), HostOs.Windows)).isNull()
+        assertThat(DesktopPlatformActions.revealCommand(emptyList(), HostOs.MacOs)).isNull()
+    }
+
+    @Test
+    fun `one file is revealed in Finder`() {
+        val file = File("/Users/u/docs/a.txt").absolutePath
+        assertThat(DesktopPlatformActions.revealCommand(listOf("/Users/u/docs/a.txt"), HostOs.MacOs))
+            .isEqualTo(listOf("open", "-R", file))
+    }
+
+    @Test
+    fun `several files open their folder in Finder`() {
+        val parent = File("/Users/u/docs/a.txt").absoluteFile.parentFile.path
+        assertThat(DesktopPlatformActions.revealCommand(listOf("/Users/u/docs/a.txt", "/Users/u/docs/b.txt"), HostOs.MacOs))
+            .isEqualTo(listOf("open", parent))
     }
 
     @Test

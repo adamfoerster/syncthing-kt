@@ -5,6 +5,7 @@
     <string name="tray_pause">Παύση συγχρονισμού</string>
     <string name="tray_resume">Συνέχιση συγχρονισμού</string>
     <string name="tray_autostart">Εκκίνηση με τα Windows</string>
+    <string name="tray_autostart_mac">Άνοιγμα κατά τη σύνδεση</string>
     <string name="tray_quit">Έξοδος από το MeshSync</string>
     <string name="tray_status_running">MeshSync: σε λειτουργία</string>
     <string name="tray_status_starting">MeshSync: εκκίνηση…</string>

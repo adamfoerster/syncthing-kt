@@ -4,22 +4,35 @@ import java.io.File
 
 /** Where the desktop app keeps its files and finds the bundled Syncthing. */
 object DesktopPaths {
-    /** `%LOCALAPPDATA%\MeshSync`: settings, the core's config/database and the instance lock. */
-    fun dataDir(): File {
-        val base = System.getenv("LOCALAPPDATA")?.takeIf { it.isNotBlank() }?.let(::File)
-            ?: File(System.getProperty("user.home"), ".local/share")
+    /**
+     * Settings, the core's config/database and the instance lock: `%LOCALAPPDATA%\MeshSync` on Windows,
+     * `~/Library/Application Support/MeshSync` on macOS and `~/.local/share/MeshSync` elsewhere.
+     */
+    fun dataDir(
+        os: HostOs = HostOs.current(),
+        env: (String) -> String? = System::getenv,
+        home: File = File(System.getProperty("user.home")),
+    ): File {
+        val base = when (os) {
+            HostOs.Windows -> env("LOCALAPPDATA")?.takeIf { it.isNotBlank() }?.let(::File) ?: File(home, ".local/share")
+            HostOs.MacOs -> File(home, "Library/Application Support")
+            HostOs.Other -> File(home, ".local/share")
+        }
         return File(base, "MeshSync")
     }
 
     /**
      * The Syncthing executable. Packaged builds and `gradle run` both set `compose.application.resources.dir`
-     * to the OS folder of `desktopApp/resources` (see `:syncthing-native:buildWindows`); the fallback covers
-     * running from an IDE.
+     * to the OS folder of `desktopApp/resources` (see `:syncthing-native:buildWindows`/`buildMacos`); the
+     * fallback covers running from an IDE.
      */
-    fun syncthingBinary(): File {
-        val name = if (System.getProperty("os.name").lowercase().contains("windows")) "syncthing.exe" else "syncthing"
-        val resources = System.getProperty("compose.application.resources.dir")?.let(::File)
-            ?: File("resources/windows-x64")
+    fun syncthingBinary(
+        os: HostOs = HostOs.current(),
+        resourcesDir: String? = System.getProperty("compose.application.resources.dir"),
+    ): File {
+        val name = if (os == HostOs.Windows) "syncthing.exe" else "syncthing"
+        val resources = resourcesDir?.let(::File)
+            ?: File(if (os == HostOs.MacOs) "resources/macos-arm64" else "resources/windows-x64")
         return File(resources, name)
     }
 }

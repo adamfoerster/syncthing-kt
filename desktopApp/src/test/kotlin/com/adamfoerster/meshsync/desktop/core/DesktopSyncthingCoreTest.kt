@@ -2,11 +2,13 @@ package com.adamfoerster.meshsync.desktop.core
 
 import assertk.assertThat
 import assertk.assertions.contains
+import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
 import assertk.assertions.isFalse
 import assertk.assertions.isInstanceOf
 import assertk.assertions.isTrue
 import com.adamfoerster.meshsync.core.domain.model.CoreState
+import com.adamfoerster.meshsync.desktop.HostOs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -47,11 +49,15 @@ class DesktopSyncthingCoreTest {
         }
     }
 
-    private fun core(binary: File = this.binary, startTimeoutMs: Long = 5_000, launcher: ProcessLauncher = launcherOf()) =
-        DesktopSyncthingCore(
-            binary, config, scope, api, launcher,
-            startTimeoutMs = startTimeoutMs, stopGraceMs = 1_000, healthPollMs = 10,
-        )
+    private fun core(
+        binary: File = this.binary,
+        startTimeoutMs: Long = 5_000,
+        launcher: ProcessLauncher = launcherOf(),
+        os: HostOs = HostOs.Windows,
+    ) = DesktopSyncthingCore(
+        binary, config, scope, api, launcher,
+        startTimeoutMs = startTimeoutMs, stopGraceMs = 1_000, healthPollMs = 10, os = os,
+    )
 
     private fun launcherOf(output: String = "") = ProcessLauncher { _, _ ->
         launches.incrementAndGet()
@@ -84,6 +90,18 @@ class DesktopSyncthingCoreTest {
     }
 
     @Test
+    fun `a binary that lost its executable bit is made runnable before launch`() {
+        // The macOS app bundle copies resources without the x bit, so the core would never start.
+        binary.setExecutable(false, false)
+        val core = core()
+        core.start()
+        // Starting is set before the IO coroutine runs, so wait for the launch itself.
+        runBlocking { withTimeout(5_000) { while (launches.get() == 0) kotlinx.coroutines.delay(10) } }
+        assertThat(binary.canExecute()).isTrue()
+        assertThat(launches.get()).isEqualTo(1)
+    }
+
+    @Test
     fun `becomes Running once the API is healthy`() {
         val core = core()
         core.start()
@@ -110,6 +128,21 @@ class DesktopSyncthingCoreTest {
         assertThat(command).contains("--no-console")
         assertThat(environment["STHOMEDIR"]).isEqualTo(config.syncthingHome.absolutePath)
         assertThat(environment["STMONITORED"]).isEqualTo("1")
+    }
+
+    @Test
+    fun `the Windows-only no-console flag is not passed on macOS`() {
+        // The macOS core rejects --no-console ("unknown flag") and exits at once.
+        var command: List<String> = emptyList()
+        val core = core(os = HostOs.MacOs, launcher = { c, _ ->
+            command = c
+            FakeProcess("").also { processes += it }
+        })
+        core.start()
+        runBlocking { withTimeout(5_000) { while (command.isEmpty()) kotlinx.coroutines.delay(10) } }
+
+        assertThat(command).doesNotContain("--no-console")
+        assertThat(command).contains("--gui-apikey=${config.apiKey}")
     }
 
     @Test
