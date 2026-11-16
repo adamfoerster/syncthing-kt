@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">Remove %1$s?</string>
     <string name="devices_remove_confirm_body">It will stop receiving your folders. Files already on it are not deleted.</string>
     <string name="devices_remove_confirm">Remove</string>
+    <string name="devices_menu_pending">Pending files</string>
+    <string name="devices_pending_files_title">Pending for %1$s</string>
+    <string name="devices_pending_files_loading">Checking what is missing…</string>
+    <string name="devices_pending_files_empty">%1$s has everything. Nothing is pending.</string>
+    <string name="devices_pending_files_removal">Will be deleted</string>
+    <string name="devices_pending_files_limit">Showing only the first %1$d entries of each folder.</string>
     <string name="devices_open">Options for %1$s</string>
 
     <string name="add_title">Add device</string>

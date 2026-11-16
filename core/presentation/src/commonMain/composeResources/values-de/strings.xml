@@ -47,4 +47,14 @@
     <string name="error_invalid_name">Dieser Name kann nicht verwendet werden. Gib einen Namen ohne Schrägstriche ein.</string>
     <string name="error_already_exists">Es gibt bereits etwas mit diesem Namen.</string>
     <string name="error_into_itself">Ein Ordner kann nicht in sich selbst kopiert oder verschoben werden.</string>
+
+    <string name="release_notes_title">Neu in Version %1$s</string>
+    <string name="release_notes_close">Verstanden</string>
+    <string name="release_notes_kind_new">Neu</string>
+    <string name="release_notes_kind_changed">Geändert</string>
+    <string name="release_notes_kind_fixed">Behoben</string>
+    <string name="release_notes_1_19_0_new_share">Du kannst jetzt Dateien aus anderen Apps mit MeshSync teilen: Wähle einen synchronisierten Ordner, und die Dateien werden dort gespeichert.</string>
+    <string name="release_notes_1_18_0_new_popup">Nach jedem Update erscheint jetzt einmal eine Mitteilung mit den Neuerungen. Du kannst sie in den Einstellungen neben der Version erneut öffnen.</string>
+    <string name="release_notes_1_18_0_new_pending">Auf dem Tab Geräte zeigt das Menü jedes Geräts jetzt die Dateien, die es noch nicht erhalten hat.</string>
+    <string name="release_notes_1_18_0_fixed_progress">Der Hinweis „Synchronisierung“ auf der Startseite zeigt nicht mehr 0 %, wenn nur noch ein anderes Gerät Dateien empfängt.</string>
 </resources>

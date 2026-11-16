@@ -54,6 +54,18 @@ class SettingsViewModelTest {
     }
 
     @Test
+    fun releaseNotesOpenAndCloseFromTheVersionLine() = runTest {
+        backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
+        assertThat(viewModel.state.value.showReleaseNotes).isFalse()
+
+        viewModel.onAction(SettingsAction.OnShowReleaseNotes)
+        assertThat(viewModel.state.value.showReleaseNotes).isTrue()
+
+        viewModel.onAction(SettingsAction.OnDismissReleaseNotes)
+        assertThat(viewModel.state.value.showReleaseNotes).isFalse()
+    }
+
+    @Test
     fun autoAcceptStartsOnAndFollowsTheSwitch() = runTest {
         backgroundScope.launch(UnconfinedTestDispatcher(testScheduler)) { viewModel.state.collect {} }
         assertThat(viewModel.state.value.autoAcceptKnownFolders).isTrue()
@@ -99,6 +111,8 @@ class SettingsViewModelTest {
     private class FakePreferences : AppPreferences {
         override val autoAcceptKnownFolders = MutableStateFlow(AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS)
         override val languageTag = MutableStateFlow<String?>(null)
+        override val lastSeenReleaseNotes = MutableStateFlow<String?>(null)
+        override fun setLastSeenReleaseNotes(version: String) { lastSeenReleaseNotes.value = version }
         override fun setAutoAcceptKnownFolders(enabled: Boolean) { autoAcceptKnownFolders.value = enabled }
         override val themeMode = MutableStateFlow(ThemeMode.System)
         override fun setLanguageTag(tag: String?) { languageTag.value = tag }
@@ -132,6 +146,7 @@ class SettingsViewModelTest {
         override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> = TODO()
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> = TODO()
         override suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> = TODO()
+        override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<com.adamfoerster.meshsync.core.domain.model.PendingFile>, DataError.Remote> = TODO()
         override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> = TODO()
     }
 }

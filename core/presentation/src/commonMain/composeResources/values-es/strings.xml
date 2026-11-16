@@ -47,4 +47,14 @@
     <string name="error_invalid_name">No se puede usar ese nombre. Escribe un nombre sin barras.</string>
     <string name="error_already_exists">Ya existe algo con ese nombre.</string>
     <string name="error_into_itself">Una carpeta no se puede copiar ni mover dentro de sí misma.</string>
+
+    <string name="release_notes_title">Novedades de la versión %1$s</string>
+    <string name="release_notes_close">Entendido</string>
+    <string name="release_notes_kind_new">Nuevo</string>
+    <string name="release_notes_kind_changed">Cambiado</string>
+    <string name="release_notes_kind_fixed">Corregido</string>
+    <string name="release_notes_1_19_0_new_share">Ahora puedes compartir archivos desde otras apps con MeshSync: elige una carpeta sincronizada y los archivos se guardan en ella.</string>
+    <string name="release_notes_1_18_0_new_popup">Ahora aparece un mensaje de novedades una vez después de cada actualización. Puedes volver a abrirlo en Ajustes, junto a la versión.</string>
+    <string name="release_notes_1_18_0_new_pending">En la pestaña Dispositivos, el menú de cada dispositivo ahora muestra los archivos que aún no ha recibido.</string>
+    <string name="release_notes_1_18_0_fixed_progress">El aviso “Sincronizando” de Inicio ya no muestra 0 % cuando solo otro dispositivo sigue recibiendo archivos.</string>
 </resources>

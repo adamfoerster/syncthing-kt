@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
@@ -32,6 +34,7 @@ import com.adamfoerster.meshsync.core.designsystem.theme.NgTheme
 import com.adamfoerster.meshsync.core.designsystem.theme.SyncthingTheme
 import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.model.DeviceStatus
+import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
 import com.adamfoerster.meshsync.core.presentation.CoreStatusCallout
 import com.adamfoerster.meshsync.core.presentation.UiText
 import com.adamfoerster.meshsync.core.presentation.label
@@ -50,6 +53,12 @@ import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_no_folders
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_open
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_body
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_files_title
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_files_removal
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_files_loading
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_files_limit
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_files_empty
+import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_menu_pending
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_pending_title
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_reject
 import com.adamfoerster.meshsync.feature.devices.presentation.resources.devices_rename_hint
@@ -188,6 +197,7 @@ fun DeviceListScreen(
 
     state.menuFor?.let { device -> DeviceMenu(device, onAction) }
     state.rename?.let { rename -> RenameDialog(rename, onAction) }
+    state.pendingFiles?.let { pending -> PendingFilesDialog(pending, onAction) }
     state.confirmRemove?.let { device ->
         AlertDialog(
             onDismissRequest = { onAction(DeviceListAction.OnDismissMenu) },
@@ -223,6 +233,12 @@ private fun DeviceMenu(device: DeviceUi, onAction: (DeviceListAction) -> Unit) {
                     icon = if (paused) NgIcons.Play else NgIcons.Pause,
                 )
                 NgButton(
+                    stringResource(Res.string.devices_menu_pending),
+                    { onAction(DeviceListAction.OnShowPendingFiles(device)) },
+                    Modifier.fillMaxWidth(),
+                    icon = NgIcons.Folder,
+                )
+                NgButton(
                     stringResource(Res.string.devices_menu_rename),
                     { onAction(DeviceListAction.OnRenameRequest(device)) },
                     Modifier.fillMaxWidth(),
@@ -235,6 +251,48 @@ private fun DeviceMenu(device: DeviceUi, onAction: (DeviceListAction) -> Unit) {
                     style = NgButtonStyle.Danger,
                     icon = NgIcons.Close,
                 )
+            }
+        },
+        confirmButton = {
+            NgButton(stringResource(Res.string.devices_menu_close), { onAction(DeviceListAction.OnDismissMenu) }, style = NgButtonStyle.Tertiary)
+        },
+    )
+}
+
+@Composable
+private fun PendingFilesDialog(pending: PendingFilesUi, onAction: (DeviceListAction) -> Unit) {
+    val c = NgTheme.colors
+    AlertDialog(
+        onDismissRequest = { onAction(DeviceListAction.OnDismissMenu) },
+        shape = NgShapes.panel,
+        containerColor = c.panel,
+        title = { Text(stringResource(Res.string.devices_pending_files_title, pending.device.name), style = NgTheme.type.h2) },
+        text = {
+            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                when {
+                    pending.isLoading -> Text(stringResource(Res.string.devices_pending_files_loading), style = NgTheme.type.sub, color = c.text2)
+                    pending.error != null -> NgCallout(body = pending.error.asString(), tone = PanelTone.Warn)
+                    pending.isEmpty -> Text(stringResource(Res.string.devices_pending_files_empty, pending.device.name), style = NgTheme.type.sub, color = c.text2)
+                    else -> {
+                        pending.folders.forEach { folder ->
+                            Text(folder.label, style = NgTheme.type.h3, color = c.text)
+                            folder.files.forEach { file ->
+                                Column {
+                                    Text(file.path, style = NgTheme.type.body, color = c.text)
+                                    val detail = if (file.isDeletion) stringResource(Res.string.devices_pending_files_removal) else file.size
+                                    detail?.let { Text(it, style = NgTheme.type.sub, color = c.text2) }
+                                }
+                            }
+                        }
+                        if (pending.truncated) {
+                            Text(
+                                stringResource(Res.string.devices_pending_files_limit, SyncthingRepository.PENDING_FILES_LIMIT),
+                                style = NgTheme.type.sub,
+                                color = c.text2,
+                            )
+                        }
+                    }
+                }
             }
         },
         confirmButton = {

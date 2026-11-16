@@ -16,10 +16,14 @@ interface AppPreferences {
     /** Whether the first-run introduction was finished or skipped; it is shown only until then. */
     val onboardingCompleted: StateFlow<Boolean>
 
+    /** App version whose release notes were already shown (or skipped on a fresh install); null if none yet. */
+    val lastSeenReleaseNotes: StateFlow<String?>
+
     fun setAutoAcceptKnownFolders(enabled: Boolean)
     fun setLanguageTag(tag: String?)
     fun setThemeMode(mode: ThemeMode)
     fun setOnboardingCompleted(completed: Boolean)
+    fun setLastSeenReleaseNotes(version: String)
 
     companion object {
         const val DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS = true

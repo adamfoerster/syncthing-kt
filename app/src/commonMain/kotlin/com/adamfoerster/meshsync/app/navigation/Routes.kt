@@ -45,3 +45,7 @@ data class AddDeviceRoute(
 /** The file manager, starting at the device's shared storage. */
 @Serializable
 data object FilesRoute
+
+/** Picks the synced folder that receives files another app shared with MeshSync. */
+@Serializable
+data object ShareTargetRoute

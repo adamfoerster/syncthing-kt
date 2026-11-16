@@ -47,4 +47,14 @@
     <string name="error_invalid_name">Esse nome não pode ser usado. Digite um nome sem barras.</string>
     <string name="error_already_exists">Já existe algo com esse nome.</string>
     <string name="error_into_itself">Uma pasta não pode ser copiada ou movida para dentro dela mesma.</string>
+
+    <string name="release_notes_title">Novidades da versão %1$s</string>
+    <string name="release_notes_close">Entendi</string>
+    <string name="release_notes_kind_new">Novo</string>
+    <string name="release_notes_kind_changed">Alterado</string>
+    <string name="release_notes_kind_fixed">Corrigido</string>
+    <string name="release_notes_1_19_0_new_share">Agora você pode compartilhar arquivos de outros apps com o MeshSync: escolha uma pasta sincronizada e os arquivos são salvos nela.</string>
+    <string name="release_notes_1_18_0_new_popup">Agora uma mensagem de novidades aparece uma vez após cada atualização. Você pode abri-la de novo em Configurações, ao lado da versão.</string>
+    <string name="release_notes_1_18_0_new_pending">Na aba Aparelhos, o menu de cada aparelho agora mostra os arquivos que ele ainda não recebeu.</string>
+    <string name="release_notes_1_18_0_fixed_progress">O aviso “Sincronizando” da tela Início não mostra mais 0% quando só outro aparelho ainda está recebendo arquivos.</string>
 </resources>

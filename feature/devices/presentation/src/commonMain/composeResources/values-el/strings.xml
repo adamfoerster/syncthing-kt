@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">Αφαίρεση του %1$s;</string>
     <string name="devices_remove_confirm_body">Δεν θα λαμβάνει πλέον τους φακέλους σας. Τα αρχεία που υπάρχουν ήδη σε αυτήν δεν διαγράφονται.</string>
     <string name="devices_remove_confirm">Αφαίρεση</string>
+    <string name="devices_menu_pending">Εκκρεμή αρχεία</string>
+    <string name="devices_pending_files_title">Εκκρεμή για %1$s</string>
+    <string name="devices_pending_files_loading">Έλεγχος του τι λείπει…</string>
+    <string name="devices_pending_files_empty">Η συσκευή %1$s τα έχει όλα. Δεν εκκρεμεί τίποτα.</string>
+    <string name="devices_pending_files_removal">Θα διαγραφεί</string>
+    <string name="devices_pending_files_limit">Εμφανίζονται μόνο οι πρώτες %1$d καταχωρίσεις κάθε φακέλου.</string>
     <string name="devices_open">Επιλογές για %1$s</string>
 
     <string name="add_title">Προσθήκη συσκευής</string>

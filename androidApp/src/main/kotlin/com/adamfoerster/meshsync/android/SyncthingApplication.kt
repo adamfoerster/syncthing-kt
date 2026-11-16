@@ -11,6 +11,7 @@ import com.adamfoerster.meshsync.core.data.repository.FolderOfferAutoAccepter
 import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
+import com.adamfoerster.meshsync.feature.files.domain.ShareImporter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -58,6 +59,7 @@ private val androidModule = module {
             }.getOrNull().orEmpty()
         }
     }
+    single<ShareImporter> { AndroidShareImporter(androidContext().contentResolver) }
     single { CoreConfig(get()) }
     single { SyncthingEndpoint(get<CoreConfig>().baseUrl, get<CoreConfig>().apiKey) }
     single { AndroidSyncthingCore(get(), get(), get(AppScope)) } binds arrayOf(SyncthingCore::class)

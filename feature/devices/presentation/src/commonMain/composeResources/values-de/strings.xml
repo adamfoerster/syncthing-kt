@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">%1$s entfernen?</string>
     <string name="devices_remove_confirm_body">Es erhält Ihre Ordner nicht mehr. Dateien, die bereits darauf sind, werden nicht gelöscht.</string>
     <string name="devices_remove_confirm">Entfernen</string>
+    <string name="devices_menu_pending">Ausstehende Dateien</string>
+    <string name="devices_pending_files_title">Ausstehend für %1$s</string>
+    <string name="devices_pending_files_loading">Prüfe, was fehlt …</string>
+    <string name="devices_pending_files_empty">%1$s hat alles. Nichts ausstehend.</string>
+    <string name="devices_pending_files_removal">Wird gelöscht</string>
+    <string name="devices_pending_files_limit">Es werden nur die ersten %1$d Einträge je Ordner angezeigt.</string>
     <string name="devices_open">Optionen für %1$s</string>
 
     <string name="add_title">Gerät hinzufügen</string>

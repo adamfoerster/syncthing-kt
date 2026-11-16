@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">Supprimer %1$s ?</string>
     <string name="devices_remove_confirm_body">Il ne recevra plus vos dossiers. Les fichiers qu’il contient déjà ne sont pas supprimés.</string>
     <string name="devices_remove_confirm">Supprimer</string>
+    <string name="devices_menu_pending">Fichiers en attente</string>
+    <string name="devices_pending_files_title">En attente pour %1$s</string>
+    <string name="devices_pending_files_loading">Vérification de ce qui manque…</string>
+    <string name="devices_pending_files_empty">%1$s a tout. Rien en attente.</string>
+    <string name="devices_pending_files_removal">Sera supprimé</string>
+    <string name="devices_pending_files_limit">Seules les %1$d premières entrées de chaque dossier sont affichées.</string>
     <string name="devices_open">Options pour %1$s</string>
 
     <string name="add_title">Ajouter un appareil</string>

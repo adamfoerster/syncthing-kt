@@ -3,6 +3,7 @@ package com.adamfoerster.meshsync.core.domain.repository
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.FileInfo
 import com.adamfoerster.meshsync.core.domain.model.FolderType
+import com.adamfoerster.meshsync.core.domain.model.PendingFile
 import com.adamfoerster.meshsync.core.domain.model.SyncOverview
 import com.adamfoerster.meshsync.core.domain.util.DataError
 import com.adamfoerster.meshsync.core.domain.util.EmptyResult
@@ -57,4 +58,14 @@ interface SyncthingRepository {
     suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote>
 
     suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote>
+
+    /**
+     * Entries of [folderId] that [device] has not received yet (`/rest/db/remoteneed`). Capped at
+     * [PENDING_FILES_LIMIT] entries; empty when the device is up to date or not connected.
+     */
+    suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<PendingFile>, DataError.Remote>
+
+    companion object {
+        const val PENDING_FILES_LIMIT = 500
+    }
 }

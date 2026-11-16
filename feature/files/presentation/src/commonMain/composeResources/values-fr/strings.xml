@@ -33,4 +33,17 @@
         <item quantity="one">Supprimer %1$d élément ?</item>
         <item quantity="other">Supprimer %1$d éléments ?</item>
     </plurals>
+    <string name="share_title">Enregistrer dans un dossier</string>
+    <string name="share_choose">Choisissez le dossier synchronisé qui recevra les fichiers.</string>
+    <string name="share_no_folders">Aucun dossier synchronisé pour l’instant. Ajoutez un dossier, puis partagez à nouveau.</string>
+    <string name="share_paused">En pause</string>
+    <string name="share_saving">Enregistrement…</string>
+    <plurals name="share_items">
+        <item quantity="one">%1$d élément à enregistrer</item>
+        <item quantity="other">%1$d éléments à enregistrer</item>
+    </plurals>
+    <plurals name="share_done">
+        <item quantity="one">%1$d fichier enregistré dans « %2$s ».</item>
+        <item quantity="other">%1$d fichiers enregistrés dans « %2$s ».</item>
+    </plurals>
 </resources>

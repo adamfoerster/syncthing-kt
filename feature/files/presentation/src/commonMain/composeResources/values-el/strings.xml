@@ -33,4 +33,17 @@
         <item quantity="one">Διαγραφή %1$d στοιχείου;</item>
         <item quantity="other">Διαγραφή %1$d στοιχείων;</item>
     </plurals>
+    <string name="share_title">Αποθήκευση σε φάκελο</string>
+    <string name="share_choose">Επιλέξτε τον συγχρονισμένο φάκελο που θα λάβει τα αρχεία.</string>
+    <string name="share_no_folders">Δεν υπάρχουν ακόμη συγχρονισμένοι φάκελοι. Προσθέστε έναν φάκελο και μοιραστείτε ξανά.</string>
+    <string name="share_paused">Σε παύση</string>
+    <string name="share_saving">Αποθήκευση…</string>
+    <plurals name="share_items">
+        <item quantity="one">%1$d στοιχείο για αποθήκευση</item>
+        <item quantity="other">%1$d στοιχεία για αποθήκευση</item>
+    </plurals>
+    <plurals name="share_done">
+        <item quantity="one">%1$d αρχείο αποθηκεύτηκε στο «%2$s».</item>
+        <item quantity="other">%1$d αρχεία αποθηκεύτηκαν στο «%2$s».</item>
+    </plurals>
 </resources>

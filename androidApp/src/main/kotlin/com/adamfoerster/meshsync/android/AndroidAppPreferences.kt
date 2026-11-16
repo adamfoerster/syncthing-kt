@@ -20,7 +20,10 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
 
     private val _onboardingCompleted = MutableStateFlow(prefs.getBoolean(KEY_ONBOARDING, false))
 
+    private val _lastSeenReleaseNotes = MutableStateFlow(prefs.getString(KEY_RELEASE_NOTES, null))
+
     override val onboardingCompleted: StateFlow<Boolean> = _onboardingCompleted
+    override val lastSeenReleaseNotes: StateFlow<String?> = _lastSeenReleaseNotes
     override val autoAcceptKnownFolders: StateFlow<Boolean> = _autoAccept
     override val languageTag: StateFlow<String?> = _languageTag
     override val themeMode: StateFlow<ThemeMode> = _themeMode
@@ -45,12 +48,18 @@ class AndroidAppPreferences(context: Context) : AppPreferences {
         _onboardingCompleted.value = completed
     }
 
+    override fun setLastSeenReleaseNotes(version: String) {
+        prefs.edit().putString(KEY_RELEASE_NOTES, version).apply()
+        _lastSeenReleaseNotes.value = version
+    }
+
     companion object {
         private const val FILE = "app_preferences"
         private const val KEY_THEME = "theme_mode"
         private const val KEY_AUTO_ACCEPT = "auto_accept_known_folders"
         private const val KEY_ONBOARDING = "onboarding_completed"
         private const val KEY_LANGUAGE = "language_tag"
+        private const val KEY_RELEASE_NOTES = "last_seen_release_notes"
 
         /** The language the user picked in Settings, or null to follow the device. */
         fun storedLanguageTag(context: Context): String? =

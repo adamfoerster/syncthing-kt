@@ -86,6 +86,7 @@ dependencies {
     implementation(projects.app)
     implementation(projects.core.data)
     implementation(projects.core.presentation)
+    implementation(projects.feature.files.domain)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.compose.foundation)

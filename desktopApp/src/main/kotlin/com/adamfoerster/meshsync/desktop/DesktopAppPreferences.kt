@@ -28,6 +28,9 @@ class DesktopAppPreferences(dataDir: File) : AppPreferences {
     private val _themeMode = MutableStateFlow(ThemeMode.fromStored(props.getProperty(KEY_THEME)))
     private val _onboardingCompleted = MutableStateFlow(props.getProperty(KEY_ONBOARDING) == "true")
 
+    private val _lastSeenReleaseNotes = MutableStateFlow(props.getProperty(KEY_RELEASE_NOTES))
+
+    override val lastSeenReleaseNotes: StateFlow<String?> = _lastSeenReleaseNotes
     override val autoAcceptKnownFolders: StateFlow<Boolean> = _autoAccept
     override val languageTag: StateFlow<String?> = _languageTag
     override val themeMode: StateFlow<ThemeMode> = _themeMode
@@ -58,6 +61,11 @@ class DesktopAppPreferences(dataDir: File) : AppPreferences {
         _onboardingCompleted.value = completed
     }
 
+    override fun setLastSeenReleaseNotes(version: String) {
+        put(KEY_RELEASE_NOTES, version)
+        _lastSeenReleaseNotes.value = version
+    }
+
     @Synchronized
     private fun put(key: String, value: String?) {
         if (value == null) props.remove(key) else props.setProperty(key, value)
@@ -69,6 +77,7 @@ class DesktopAppPreferences(dataDir: File) : AppPreferences {
         const val KEY_AUTO_ACCEPT = "auto_accept_known_folders"
         const val KEY_ONBOARDING = "onboarding_completed"
         const val KEY_LANGUAGE = "language_tag"
+        const val KEY_RELEASE_NOTES = "last_seen_release_notes"
         const val KEY_AUTOSTART_INIT = "autostart_initialized"
     }
 }

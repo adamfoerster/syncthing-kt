@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalClipboardManager
@@ -31,6 +32,8 @@ import com.adamfoerster.meshsync.core.designsystem.theme.SyncthingTheme
 import com.adamfoerster.meshsync.core.domain.model.CoreState
 import com.adamfoerster.meshsync.core.domain.preferences.ThemeMode
 import com.adamfoerster.meshsync.core.presentation.CoreStatusCallout
+import com.adamfoerster.meshsync.core.presentation.ReleaseNotes
+import com.adamfoerster.meshsync.core.presentation.ReleaseNotesDialog
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.Res
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_auto_accept_body
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_auto_accept_off
@@ -52,6 +55,7 @@ import com.adamfoerster.meshsync.feature.settings.presentation.resources.setting
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_history_title
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_name
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_name_saved
+import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_release_notes
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_restart
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_save_name
 import com.adamfoerster.meshsync.feature.settings.presentation.resources.settings_start
@@ -112,7 +116,22 @@ fun SettingsScreen(
                 NgStatusLabel(status, stringResource(label))
             }
             if (state.appVersion.isNotEmpty()) {
-                Text(stringResource(Res.string.settings_app_version, state.appVersion), style = NgTheme.type.monoSmall, color = c.text2)
+                val notes = remember(state.appVersion) { ReleaseNotes.forVersion(state.appVersion) }
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(stringResource(Res.string.settings_app_version, state.appVersion), style = NgTheme.type.monoSmall, color = c.text2, modifier = Modifier.weight(1f))
+                    if (notes != null) {
+                        NgButton(
+                            stringResource(Res.string.settings_release_notes),
+                            { onAction(SettingsAction.OnShowReleaseNotes) },
+                            style = NgButtonStyle.Tertiary,
+                            icon = NgIcons.Info,
+                            minHeight = 36.dp,
+                        )
+                    }
+                }
+                if (notes != null && state.showReleaseNotes) {
+                    ReleaseNotesDialog(notes, onDismiss = { onAction(SettingsAction.OnDismissReleaseNotes) })
+                }
             }
             if (state.version.isNotEmpty()) {
                 Text(stringResource(Res.string.settings_version, state.version), style = NgTheme.type.monoSmall, color = c.text2)

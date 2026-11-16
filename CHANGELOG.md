@@ -8,6 +8,21 @@ recente listada aqui.
 
 ## [Unreleased]
 
+## [1.19.0] - 2026-11-16
+
+### Adicionado
+- **Receber arquivos de outros apps (Android)**: o MeshSync agora aparece no menu Compartilhar do sistema. Ao escolhê-lo, você seleciona uma das pastas sincronizadas e os arquivos (ou o texto) compartilhados são salvos nela. Nomes já existentes nunca são sobrescritos: o novo arquivo vira `nome (1).ext`.
+
+## [1.18.0] - 2026-11-16
+
+### Adicionado
+- **Novidades da versão**: depois de cada atualização, uma mensagem curta mostra o que mudou (novidades e correções), uma única vez por versão. Para revê-la, toque em **Novidades** ao lado da versão do MeshSync, em Configurações. Numa instalação nova a mensagem não aparece.
+
+## [1.17.0] - 2026-11-16
+
+### Adicionado
+- Na aba Aparelhos, o menu de cada aparelho ganhou **Arquivos pendentes**: lista, pasta por pasta, os arquivos que esse aparelho ainda não recebeu (com o tamanho de cada um e o aviso "Será apagado" para o que foi removido aqui e ainda existe nele). Mostra as 500 primeiras entradas de cada pasta.
+
 ## [1.16.0] - 2026-11-16
 
 ### Adicionado

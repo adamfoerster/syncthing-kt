@@ -11,6 +11,7 @@ import com.adamfoerster.meshsync.core.data.mapper.toFolder
 import com.adamfoerster.meshsync.core.data.mapper.toFolderStatus
 import com.adamfoerster.meshsync.core.data.mapper.toInstantOrNull
 import com.adamfoerster.meshsync.core.data.mapper.toPendingDevice
+import com.adamfoerster.meshsync.core.data.mapper.toPendingFile
 import com.adamfoerster.meshsync.core.data.mapper.toPendingFolders
 import com.adamfoerster.meshsync.core.data.network.SyncthingApi
 import com.adamfoerster.meshsync.core.domain.model.CoreState
@@ -18,6 +19,7 @@ import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.FileInfo
 import com.adamfoerster.meshsync.core.domain.model.FolderStatus
 import com.adamfoerster.meshsync.core.domain.model.FolderType
+import com.adamfoerster.meshsync.core.domain.model.PendingFile
 import com.adamfoerster.meshsync.core.domain.model.SyncOverview
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
@@ -250,6 +252,10 @@ class KtorSyncthingRepository(
 
     override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> =
         api.file(folderId, path).map { it.toFileInfo(path) }
+
+    override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<PendingFile>, DataError.Remote> =
+        api.remoteNeed(folderId, device.value, SyncthingRepository.PENDING_FILES_LIMIT)
+            .map { dto -> dto.files.orEmpty().map { it.toPendingFile() } }
 
     private suspend fun EmptyResult<DataError.Remote>.refreshOnSuccess(): EmptyResult<DataError.Remote> =
         onSuccess { refreshNow() }

@@ -27,6 +27,8 @@ import com.adamfoerster.meshsync.app.App
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
 import com.adamfoerster.meshsync.core.presentation.PlatformActions
 import com.adamfoerster.meshsync.core.presentation.documentIdToPath
+import com.adamfoerster.meshsync.feature.files.domain.IncomingShare
+import com.adamfoerster.meshsync.feature.files.domain.IncomingShareInbox
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanOptions
 import java.io.File
@@ -36,6 +38,7 @@ class MainActivity : ComponentActivity() {
 
     private val core: AndroidSyncthingCore by inject()
     private val preferences: AppPreferences by inject()
+    private val shareInbox: IncomingShareInbox by inject()
 
     /** Language this instance was built with; a different choice in Settings recreates the activity. */
     private var appliedLanguage: String? = null
@@ -114,6 +117,8 @@ class MainActivity : ComponentActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU && savedInstanceState == null) {
             notifications.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
+        // A recreated activity (rotation, language) must not re-deliver a share the user already handled.
+        if (savedInstanceState == null) handleShare(intent)
         setContent {
             LaunchedEffect(Unit) {
                 preferences.languageTag.collect { if (it != appliedLanguage) recreate() }
@@ -130,6 +135,38 @@ class MainActivity : ComponentActivity() {
             App(platformActions, darkTheme)
         }
     }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleShare(intent)
+    }
+
+    /** Queues what another app shared; the app then asks which synced folder should receive it. */
+    private fun handleShare(intent: Intent?) {
+        val share = intent?.takeIf { it.action == Intent.ACTION_SEND || it.action == Intent.ACTION_SEND_MULTIPLE }?.let { incoming ->
+            val uris = buildList {
+                if (incoming.action == Intent.ACTION_SEND) {
+                    incoming.streamUri()?.let(::add)
+                } else {
+                    incoming.streamUris().forEach(::add)
+                }
+            }
+            // Some apps put the link or text in EXTRA_TEXT and no stream; those become a text file.
+            val text = incoming.getCharSequenceExtra(Intent.EXTRA_TEXT)?.toString().takeIf { uris.isEmpty() }
+            IncomingShare(uris.map(Uri::toString), text)
+        } ?: return
+        // Read access lasts as long as this activity, so the copy must start before it is torn down.
+        shareInbox.offer(share)
+    }
+
+    @Suppress("DEPRECATION")
+    private fun Intent.streamUri(): Uri? =
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) getParcelableExtra(Intent.EXTRA_STREAM, Uri::class.java) else getParcelableExtra(Intent.EXTRA_STREAM)
+
+    @Suppress("DEPRECATION")
+    private fun Intent.streamUris(): List<Uri> =
+        (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) getParcelableArrayListExtra(Intent.EXTRA_STREAM, Uri::class.java) else getParcelableArrayListExtra<Uri>(Intent.EXTRA_STREAM)).orEmpty()
 
     override fun onResume() {
         super.onResume()

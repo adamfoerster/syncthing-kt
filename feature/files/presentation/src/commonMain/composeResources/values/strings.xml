@@ -33,4 +33,17 @@
         <item quantity="one">Delete %1$d item?</item>
         <item quantity="other">Delete %1$d items?</item>
     </plurals>
+    <string name="share_title">Save to a folder</string>
+    <string name="share_choose">Choose the synced folder that will receive the files.</string>
+    <string name="share_no_folders">No synced folders yet. Add a folder first, then share again.</string>
+    <string name="share_paused">Paused</string>
+    <string name="share_saving">Saving…</string>
+    <plurals name="share_items">
+        <item quantity="one">%1$d item to save</item>
+        <item quantity="other">%1$d items to save</item>
+    </plurals>
+    <plurals name="share_done">
+        <item quantity="one">%1$d file saved to “%2$s”.</item>
+        <item quantity="other">%1$d files saved to “%2$s”.</item>
+    </plurals>
 </resources>

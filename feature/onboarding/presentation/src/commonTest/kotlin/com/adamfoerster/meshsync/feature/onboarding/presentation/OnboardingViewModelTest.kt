@@ -101,6 +101,8 @@ class OnboardingViewModelTest {
     private class FakePreferences : AppPreferences {
         override val autoAcceptKnownFolders = MutableStateFlow(AppPreferences.DEFAULT_AUTO_ACCEPT_KNOWN_FOLDERS)
         override val languageTag = MutableStateFlow<String?>(null)
+        override val lastSeenReleaseNotes = MutableStateFlow<String?>(null)
+        override fun setLastSeenReleaseNotes(version: String) { lastSeenReleaseNotes.value = version }
         override val themeMode = MutableStateFlow(ThemeMode.System)
         override val onboardingCompleted = MutableStateFlow(false)
         override fun setAutoAcceptKnownFolders(enabled: Boolean) { autoAcceptKnownFolders.value = enabled }

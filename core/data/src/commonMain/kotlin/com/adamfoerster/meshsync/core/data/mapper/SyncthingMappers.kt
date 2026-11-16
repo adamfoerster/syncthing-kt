@@ -7,6 +7,7 @@ import com.adamfoerster.meshsync.core.data.dto.DeviceConfigDto
 import com.adamfoerster.meshsync.core.data.dto.DeviceStatsDto
 import com.adamfoerster.meshsync.core.data.dto.FolderConfigDto
 import com.adamfoerster.meshsync.core.data.dto.FolderStatusDto
+import com.adamfoerster.meshsync.core.data.dto.NeedFileDto
 import com.adamfoerster.meshsync.core.data.dto.PendingDeviceDto
 import com.adamfoerster.meshsync.core.data.dto.PendingFolderDto
 import com.adamfoerster.meshsync.core.domain.model.DeclinedFolderOffer
@@ -19,6 +20,7 @@ import com.adamfoerster.meshsync.core.domain.model.FolderState
 import com.adamfoerster.meshsync.core.domain.model.FolderStatus
 import com.adamfoerster.meshsync.core.domain.model.FolderType
 import com.adamfoerster.meshsync.core.domain.model.PendingDevice
+import com.adamfoerster.meshsync.core.domain.model.PendingFile
 import com.adamfoerster.meshsync.core.domain.model.PendingFolder
 import kotlin.time.Instant
 
@@ -121,3 +123,11 @@ fun DbFileDto.toFileInfo(path: String): FileInfo {
         modifiedBy = entry?.modifiedBy?.takeIf { it.isNotBlank() },
     )
 }
+
+/** The core reports the type as `FILE_INFO_TYPE_DIRECTORY` (older versions: `DIRECTORY`). */
+fun NeedFileDto.toPendingFile() = PendingFile(
+    path = name,
+    size = size,
+    isDirectory = type.contains("DIRECTORY", ignoreCase = true),
+    isDeletion = deleted,
+)

@@ -236,6 +236,7 @@ class FileSystemConflictRepositoryTest {
             scans += folderId to subPath
             return Result.Success(Unit)
         }
+        override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<com.adamfoerster.meshsync.core.domain.model.PendingFile>, DataError.Remote> = TODO()
         override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> =
             Result.Success(FileInfo(path, 0, null, modifiedBy))
 

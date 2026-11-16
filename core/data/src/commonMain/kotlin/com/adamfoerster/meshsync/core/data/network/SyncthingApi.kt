@@ -13,6 +13,7 @@ import com.adamfoerster.meshsync.core.data.dto.NewDeviceDto
 import com.adamfoerster.meshsync.core.data.dto.NewFolderDto
 import com.adamfoerster.meshsync.core.data.dto.PendingDeviceDto
 import com.adamfoerster.meshsync.core.data.dto.PendingFolderDto
+import com.adamfoerster.meshsync.core.data.dto.RemoteNeedDto
 import com.adamfoerster.meshsync.core.data.dto.SetIgnoresDto
 import com.adamfoerster.meshsync.core.data.dto.SystemStatusDto
 import com.adamfoerster.meshsync.core.data.dto.SystemVersionDto
@@ -112,6 +113,17 @@ class SyncthingApi(private val client: HttpClient) {
             client.get("rest/db/file") {
                 parameter("folder", folderId)
                 parameter("file", path)
+            }
+        }
+
+    /** What [deviceId] still needs from us in [folderId], first page of [perPage] entries. */
+    suspend fun remoteNeed(folderId: String, deviceId: String, perPage: Int): Result<RemoteNeedDto, DataError.Remote> =
+        safeCall {
+            client.get("rest/db/remoteneed") {
+                parameter("folder", folderId)
+                parameter("device", deviceId)
+                parameter("page", 1)
+                parameter("perpage", perPage)
             }
         }
 

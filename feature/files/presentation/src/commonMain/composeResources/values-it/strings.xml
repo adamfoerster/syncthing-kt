@@ -33,4 +33,17 @@
         <item quantity="one">Eliminare %1$d elemento?</item>
         <item quantity="other">Eliminare %1$d elementi?</item>
     </plurals>
+    <string name="share_title">Salva in una cartella</string>
+    <string name="share_choose">Scegli la cartella sincronizzata che riceverà i file.</string>
+    <string name="share_no_folders">Non ci sono ancora cartelle sincronizzate. Aggiungi una cartella e condividi di nuovo.</string>
+    <string name="share_paused">In pausa</string>
+    <string name="share_saving">Salvataggio…</string>
+    <plurals name="share_items">
+        <item quantity="one">%1$d elemento da salvare</item>
+        <item quantity="other">%1$d elementi da salvare</item>
+    </plurals>
+    <plurals name="share_done">
+        <item quantity="one">%1$d file salvato in “%2$s”.</item>
+        <item quantity="other">%1$d file salvati in “%2$s”.</item>
+    </plurals>
 </resources>

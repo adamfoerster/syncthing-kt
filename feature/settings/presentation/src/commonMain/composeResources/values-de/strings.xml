@@ -38,4 +38,6 @@
     <string name="settings_language_de">Deutsch</string>
     <string name="settings_language_fr">Français</string>
     <string name="settings_language_el">Ελληνικά</string>
+
+    <string name="settings_release_notes">Neuerungen</string>
 </resources>

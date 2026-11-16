@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">¿Quitar %1$s?</string>
     <string name="devices_remove_confirm_body">Dejará de recibir tus carpetas. Los archivos que ya tiene no se borran.</string>
     <string name="devices_remove_confirm">Quitar</string>
+    <string name="devices_menu_pending">Archivos pendientes</string>
+    <string name="devices_pending_files_title">Pendientes para %1$s</string>
+    <string name="devices_pending_files_loading">Comprobando qué falta…</string>
+    <string name="devices_pending_files_empty">%1$s lo tiene todo. No hay nada pendiente.</string>
+    <string name="devices_pending_files_removal">Se eliminará</string>
+    <string name="devices_pending_files_limit">Se muestran solo las primeras %1$d entradas de cada carpeta.</string>
     <string name="devices_open">Opciones de %1$s</string>
 
     <string name="add_title">Añadir dispositivo</string>

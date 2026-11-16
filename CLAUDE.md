@@ -6,7 +6,7 @@ A interface é traduzida para pt, en, es, it, de, fr e el (inglês é o padrão 
 
 ## Regras obrigatórias a cada alteração
 
-Toda alteração (feature, correção, refatoração com efeito visível) só está pronta quando cumpre os quatro itens:
+Toda alteração (feature, correção, refatoração com efeito visível) só está pronta quando cumpre os cinco itens:
 
 1. **Testes**: crie ou atualize testes que cubram o comportamento alterado (`commonTest` do módulo;
    regra de domínio → teste de domínio, ViewModel → teste de ViewModel, acesso a arquivos → `FakeFileSystem`).
@@ -19,6 +19,11 @@ Toda alteração (feature, correção, refatoração com efeito visível) só es
    com seções `Adicionado` / `Alterado` / `Corrigido` / `Removido`, escrita para quem usa o app.
 4. **Documentação**: atualize o README.md (e o `README.en.md`, a tradução em inglês) (e este arquivo, se mudar arquitetura, módulos, comandos ou regras)
    e os KDocs do código tocado.
+5. **Notas da versão**: toda versão nova ganha uma entrada em `ReleaseNotes.entries` (`core:presentation`), no topo, com a
+   versão igual a `app.version`. É um resumo curto para o usuário (só novidades, mudanças e correções, sem detalhes de
+   implementação, 1 a 5 itens), com strings `release_notes_<versão com _>_<tipo>_<assunto>` traduzidas nos 7 idiomas. Sem
+   entrada, o app não mostra a mensagem de novidades daquela versão. Ela abre sozinha uma vez por versão
+   (`ReleaseNotesPolicy`) e pode ser revista em Configurações, ao lado da versão.
 
 **Git**: nunca faça commit nem ofereça para comitar. Deixe tudo preparado (testes verdes, versão, CHANGELOG,
 documentação) e termine sugerindo uma mensagem de commit; a revisão e o commit são feitos manualmente pelo usuário.
@@ -65,11 +70,14 @@ e reabra o app. Use o emulador para testes manuais, não o aparelho físico do u
   ofertas de pastas já compartilhadas (`knownFolderOffers` + `FolderOfferAutoAccepter`), `ThemeMode` (sistema/claro/escuro; `SyncthingTheme(darkTheme)` escolhe `NgColors.Light` ou `NgColors.Dark`, resolvido no `MainActivity`) e idioma que sobrescreve o do
   aparelho (aplicado em `MainActivity.attachBaseContext`).
 - Versão do app: `AppInfo` (`core:domain`) é fornecida por cada host (`androidApp` via `versionName`; `desktopApp` via `-Dmeshsync.version`, ambos de `app.version`) e aparece em Configurações junto da versão do núcleo.
+- Notas da versão: `ReleaseNotes` + `ReleaseNotesDialog` em `core:presentation`; `App.kt` abre a mensagem uma vez por versão
+  (`AppPreferences.lastSeenReleaseNotes` + `ReleaseNotesPolicy` em `core:domain`; instalação nova só grava a versão) e
+  Configurações reabre pelo botão ao lado da versão.
 - Onboarding (`feature:onboarding`): `OnboardingRoute` é o destino inicial até `AppPreferences.onboardingCompleted`; ao terminar
   navega para Home e, conforme a escolha, abre `AddFolderRoute` ou `AddDeviceRoute`.
 - Gerenciador de arquivos (`feature:files:{domain,data,presentation}`): operações de arquivo (Okio) em `OkioFileManager`,
   aberto pelo botão da aba Pastas (`FilesRoute`). Pastas sincronizadas usam `NgFolderIcon(shared = true)`; **Sincronizar**
-  abre `AddFolderRoute(path)`. Compartilhar usa `PlatformActions.shareFiles` (FileProvider no `androidApp`). Colar nunca sobrescreve.
+  abre `AddFolderRoute(path)`. Compartilhar usa `PlatformActions.shareFiles` (FileProvider no `androidApp`). Colar nunca sobrescreve. Receber do menu Compartilhar do Android: `MainActivity` põe o conteúdo no `IncomingShareInbox` (`feature:files:domain`), `App` abre `ShareTargetRoute` e `ShareImporter` (`AndroidShareImporter` no `androidApp`) copia para a pasta escolhida, sem sobrescrever.
 - Desktop (`desktopApp`, JVM puro, Windows e macOS): reutiliza `:app` e fornece `AppPreferences`, `SyncthingEndpoint`, `SyncthingCore` (`DesktopSyncthingCore`:
   processo filho `syncthing(.exe)`, reinício no exit 3, limpeza de órfão por PID), `PlatformActions`, bandeja (`Tray`), instância única e
   autostart (`Autostart.forCurrentOs`: HKCU Run no Windows, LaunchAgent no macOS). O SO vem de `HostOs` (passe-o, não leia `os.name`).

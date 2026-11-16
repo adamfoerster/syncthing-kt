@@ -9,7 +9,10 @@ import com.adamfoerster.meshsync.core.domain.model.Device
 import com.adamfoerster.meshsync.core.domain.model.DeviceId
 import com.adamfoerster.meshsync.core.domain.model.DeviceStatus
 import com.adamfoerster.meshsync.core.domain.model.FileInfo
+import com.adamfoerster.meshsync.core.domain.model.Folder
+import com.adamfoerster.meshsync.core.domain.model.FolderStatus
 import com.adamfoerster.meshsync.core.domain.model.FolderType
+import com.adamfoerster.meshsync.core.domain.model.PendingFile
 import com.adamfoerster.meshsync.core.domain.model.SyncOverview
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingRepository
@@ -124,6 +127,56 @@ class DeviceListViewModelTest {
         assertThat(repository.renamed).isNull()
     }
 
+    @Test
+    fun pendingFilesAreGroupedByFolderAndShowDeletions() = runTest {
+        collect()
+        repository.pending = mapOf(
+            "docs" to listOf(
+                PendingFile("b.txt", 2_048, isDirectory = false, isDeletion = false),
+                PendingFile("old", 0, isDirectory = true, isDeletion = true),
+            ),
+            "photos" to emptyList(),
+        )
+        viewModel.onAction(DeviceListAction.OnDeviceClick(viewModel.state.value.devices.single()))
+        viewModel.onAction(DeviceListAction.OnShowPendingFiles(viewModel.state.value.devices.single()))
+
+        val pending = viewModel.state.value.pendingFiles
+        assertThat(pending?.isLoading).isEqualTo(false)
+        assertThat(pending?.folders?.map { it.label }).isEqualTo(listOf("Documentos"))
+        assertThat(pending?.folders?.single()?.files?.map { it.path }).isEqualTo(listOf("b.txt", "old"))
+        assertThat(pending?.folders?.single()?.files?.map { it.isDeletion }).isEqualTo(listOf(false, true))
+        assertThat(viewModel.state.value.menuFor).isNull()
+    }
+
+    @Test
+    fun nothingPendingShowsAnEmptyList() = runTest {
+        collect()
+        viewModel.onAction(DeviceListAction.OnShowPendingFiles(viewModel.state.value.devices.single()))
+
+        assertThat(viewModel.state.value.pendingFiles?.isEmpty).isEqualTo(true)
+    }
+
+    @Test
+    fun aFailureForEveryFolderIsReported() = runTest {
+        collect()
+        repository.pendingFails = true
+        viewModel.onAction(DeviceListAction.OnShowPendingFiles(viewModel.state.value.devices.single()))
+
+        assertThat(viewModel.state.value.pendingFiles?.error).isNotNull()
+    }
+
+    @Test
+    fun dismissingClosesThePendingFilesDialog() = runTest {
+        collect()
+        viewModel.onAction(DeviceListAction.OnShowPendingFiles(viewModel.state.value.devices.single()))
+        viewModel.onAction(DeviceListAction.OnDismissMenu)
+
+        assertThat(viewModel.state.value.pendingFiles).isNull()
+    }
+
+    private fun folder(id: String, label: String) =
+        Folder(id, label, "/$id", FolderType.SEND_RECEIVE, paused = false, deviceIds = listOf(laptop), status = FolderStatus.Unknown)
+
     private class FakeCore : SyncthingCore {
         override val state: StateFlow<CoreState> = MutableStateFlow(CoreState.Running)
         override fun start() = Unit
@@ -134,14 +187,16 @@ class DeviceListViewModelTest {
     private inner class FakeRepository : SyncthingRepository {
         var renamed: Pair<DeviceId, String>? = null
         var renameFails = false
+        var pending: Map<String, List<PendingFile>> = emptyMap()
+        var pendingFails = false
 
         override val overview = MutableStateFlow<SyncOverview?>(
             SyncOverview(
                 myId = DeviceId("BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB-BBBBBBB"),
                 myName = "Phone",
                 version = "v2",
-                devices = listOf(Device(laptop, "Notebook", false, DeviceStatus.CONNECTED, null, null, emptyList())),
-                folders = emptyList(),
+                devices = listOf(Device(laptop, "Notebook", false, DeviceStatus.CONNECTED, null, null, listOf("docs", "photos"))),
+                folders = listOf(folder("docs", "Documentos"), folder("photos", "Fotos")),
                 pendingDevices = emptyList(),
                 pendingFolders = emptyList(),
                 lastSync = null,
@@ -154,6 +209,9 @@ class DeviceListViewModelTest {
             overview.update { o -> o?.copy(devices = o.devices.map { if (it.id == id) it.copy(name = name) else it }) }
             return Result.Success(Unit)
         }
+
+        override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<PendingFile>, DataError.Remote> =
+            if (pendingFails) Result.Failure(DataError.Remote.CORE_UNAVAILABLE) else Result.Success(pending[folderId].orEmpty())
 
         override suspend fun refresh() = Unit
         override suspend fun addDevice(id: DeviceId, name: String): EmptyResult<DataError.Remote> = unused()

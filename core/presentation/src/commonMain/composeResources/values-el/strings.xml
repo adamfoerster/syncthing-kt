@@ -47,4 +47,14 @@
     <string name="error_invalid_name">Αυτό το όνομα δεν μπορεί να χρησιμοποιηθεί. Πληκτρολογήστε όνομα χωρίς κάθετες.</string>
     <string name="error_already_exists">Υπάρχει ήδη κάτι με αυτό το όνομα.</string>
     <string name="error_into_itself">Ένας φάκελος δεν μπορεί να αντιγραφεί ή να μετακινηθεί μέσα στον εαυτό του.</string>
+
+    <string name="release_notes_title">Τι νέο υπάρχει στην έκδοση %1$s</string>
+    <string name="release_notes_close">Εντάξει</string>
+    <string name="release_notes_kind_new">Νέο</string>
+    <string name="release_notes_kind_changed">Αλλαγή</string>
+    <string name="release_notes_kind_fixed">Διορθώθηκε</string>
+    <string name="release_notes_1_19_0_new_share">Μπορείτε πλέον να μοιράζεστε αρχεία από άλλες εφαρμογές με το MeshSync: επιλέξτε έναν συγχρονισμένο φάκελο και τα αρχεία αποθηκεύονται εκεί.</string>
+    <string name="release_notes_1_18_0_new_popup">Μετά από κάθε ενημέρωση εμφανίζεται πλέον μία φορά ένα μήνυμα με τα νέα. Μπορείτε να το ανοίξετε ξανά στις Ρυθμίσεις, δίπλα στην έκδοση.</string>
+    <string name="release_notes_1_18_0_new_pending">Στην καρτέλα Συσκευές, το μενού κάθε συσκευής δείχνει τώρα τα αρχεία που δεν έχει λάβει ακόμη.</string>
+    <string name="release_notes_1_18_0_fixed_progress">Η ειδοποίηση «Συγχρονισμός» στην Αρχική δεν δείχνει πλέον 0 % όταν μόνο άλλη συσκευή λαμβάνει ακόμη αρχεία.</string>
 </resources>

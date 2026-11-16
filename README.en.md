@@ -36,9 +36,9 @@ so it never needs to read `config.xml`. A foreground service (`specialUse`) keep
 | `feature:sharing` | Who shares what (devices ↔ folders graph) |
 | `feature:folders` | Folder list, folder offers, add/accept folder, ignored files |
 | `feature:files` | File manager: `domain` (`FileManager`), `data` (Okio), `presentation` |
-| `feature:devices` | Devices (pause, rename, remove), approving pending ones, 3-step flow with QR (suggests the machine name when it has already asked to connect) |
+| `feature:devices` | Devices (pause, rename, remove, list the files each one has yet to receive via `SyncthingRepository.pendingFiles` → `/rest/db/remoteneed`), approving pending ones, 3-step flow with QR (suggests the machine name when it has already asked to connect) |
 | `feature:onboarding` | First-run introduction (explains the app and asks whether to share or fetch a folder) |
-| `feature:settings` | Settings (name, ID, app and core versions, start/stop the core, folder auto-accept, light/dark theme, language) |
+| `feature:settings` | Settings (name, ID, app and core versions, release notes, start/stop the core, folder auto-accept, light/dark theme, language) |
 | `feature:conflicts` | `domain` (Myers diff, merge model), `data` (on-disk scan and resolution), `presentation` |
 | `app` | NavHost, tab bar, aggregation of the Koin modules |
 | `androidApp` | Activity, service, core process manager, QR scanner (ZXing) |
@@ -102,6 +102,8 @@ into itself. Folders MeshSync syncs (path equal to a folder in `SyncOverview.fol
 navigates to `AddFolderRoute(path = …)`, which pre-fills the path and the name. It needs all-files access; operations are
 plain file operations (Okio) in `feature:files:data`, not going through the core.
 
+**Receiving files from other apps (Android):** MeshSync shows up in the system Share sheet (`ACTION_SEND`/`ACTION_SEND_MULTIPLE`, any type). `MainActivity` hands the content to `IncomingShareInbox` (`feature:files:domain`); `App` opens `ShareTargetRoute` (`ShareTargetViewModel`), the user picks a synced folder and `AndroidShareImporter` copies the files (text becomes `shared-text.txt`) without overwriting anything.
+
 ## Known folders
 
 When a device you already added offers a folder you already share with another device (same ID, Send & Receive
@@ -126,6 +128,14 @@ this device (opens *Add folder*), get a folder from another device (opens *Add d
 tapping "Skip" stores `AppPreferences.onboardingCompleted`, so it never returns. The current page survives process
 death through `SavedStateHandle`. The *Add folder* and *Add device* forms observe `SyncthingCore.state`: until the core is
 `Running` they show the `CoreStatusCallout` and block save/confirm.
+
+## Release notes
+
+After each update the app opens a short message with that version’s new features and fixes, once
+(`AppPreferences.lastSeenReleaseNotes` stores the last version seen; `ReleaseNotesPolicy` decides when to open it). A fresh
+install does not show it. To read it again, tap **What’s new** next to the MeshSync version in Settings. The text lives in
+`core:presentation` (`ReleaseNotes`, `release_notes_*` strings in all 7 languages) and is a short summary of the CHANGELOG
+without implementation details; a version with no `ReleaseNotes` entry opens no message.
 
 ## Choosing the folder on the phone
 
@@ -240,7 +250,7 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 
 ## Versioning and contributing
 
-Current version: **1.15.1** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
+Current version: **1.18.0** (`app.version` in `gradle.properties`, SemVer). History in [CHANGELOG.md](CHANGELOG.md) (Portuguese).
 
 Every change needs tests, a version bump, a CHANGELOG entry and updated documentation;
 the full rules are in [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (which runs before every

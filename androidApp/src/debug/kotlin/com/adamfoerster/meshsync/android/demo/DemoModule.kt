@@ -203,6 +203,8 @@ private class DemoRepository(documentsPath: String) : SyncthingRepository {
         return ok
     }
     override suspend fun scan(folderId: String, subPath: String?) = ok
+    override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<com.adamfoerster.meshsync.core.domain.model.PendingFile>, DataError.Remote> =
+        Result.Success(emptyList())
     override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> =
         Result.Success(FileInfo(path, 0, null, DemoData.me.short))
 }

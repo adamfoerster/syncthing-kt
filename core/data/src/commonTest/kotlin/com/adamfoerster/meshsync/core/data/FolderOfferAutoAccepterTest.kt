@@ -67,12 +67,15 @@ class FolderOfferAutoAccepterTest {
         override suspend fun scan(folderId: String, subPath: String?): EmptyResult<DataError.Remote> = TODO()
         override suspend fun ignorePatterns(folderId: String): Result<List<String>, DataError.Remote> = TODO()
         override suspend fun setIgnorePatterns(folderId: String, lines: List<String>): EmptyResult<DataError.Remote> = TODO()
+        override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<com.adamfoerster.meshsync.core.domain.model.PendingFile>, DataError.Remote> = TODO()
         override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> = TODO()
     }
 
     private class FakePreferences(enabled: Boolean) : AppPreferences {
         override val autoAcceptKnownFolders = MutableStateFlow(enabled)
         override val languageTag = MutableStateFlow<String?>(null)
+        override val lastSeenReleaseNotes = MutableStateFlow<String?>(null)
+        override fun setLastSeenReleaseNotes(version: String) { lastSeenReleaseNotes.value = version }
         override fun setAutoAcceptKnownFolders(enabled: Boolean) { autoAcceptKnownFolders.value = enabled }
         override val themeMode = MutableStateFlow(ThemeMode.System)
         override fun setLanguageTag(tag: String?) { languageTag.value = tag }

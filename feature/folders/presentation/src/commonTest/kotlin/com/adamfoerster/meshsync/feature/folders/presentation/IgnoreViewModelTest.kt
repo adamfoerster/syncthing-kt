@@ -207,6 +207,7 @@ class IgnoreViewModelTest {
         override suspend fun setMyName(name: String) = unused()
         override suspend fun renameDevice(id: DeviceId, name: String) = unused()
         override suspend fun scan(folderId: String, subPath: String?) = unused()
+        override suspend fun pendingFiles(device: DeviceId, folderId: String): Result<List<com.adamfoerster.meshsync.core.domain.model.PendingFile>, DataError.Remote> = TODO()
         override suspend fun fileInfo(folderId: String, path: String): Result<FileInfo, DataError.Remote> = unused()
 
         private fun unused(): Nothing = error("not used by these tests")

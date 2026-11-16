@@ -33,4 +33,17 @@
         <item quantity="one">¿Eliminar %1$d elemento?</item>
         <item quantity="other">¿Eliminar %1$d elementos?</item>
     </plurals>
+    <string name="share_title">Guardar en una carpeta</string>
+    <string name="share_choose">Elige la carpeta sincronizada que recibirá los archivos.</string>
+    <string name="share_no_folders">Aún no hay carpetas sincronizadas. Añade una carpeta y vuelve a compartir.</string>
+    <string name="share_paused">En pausa</string>
+    <string name="share_saving">Guardando…</string>
+    <plurals name="share_items">
+        <item quantity="one">%1$d elemento para guardar</item>
+        <item quantity="other">%1$d elementos para guardar</item>
+    </plurals>
+    <plurals name="share_done">
+        <item quantity="one">%1$d archivo guardado en “%2$s”.</item>
+        <item quantity="other">%1$d archivos guardados en “%2$s”.</item>
+    </plurals>
 </resources>

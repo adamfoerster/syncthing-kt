@@ -36,9 +36,9 @@ nunca precisa ler o `config.xml`. Um foreground service (`specialUse`) mantém o
 | `feature:sharing` | Quem compartilha o quê (grafo aparelhos ↔ pastas) |
 | `feature:folders` | Lista de pastas, ofertas de pastas, adicionar/aceitar pasta, arquivos ignorados |
 | `feature:files` | Gerenciador de arquivos: `domain` (`FileManager`), `data` (Okio), `presentation` |
-| `feature:devices` | Aparelhos (pausar, renomear, remover), aprovação de pendentes, fluxo de 3 passos com QR (sugere o nome da máquina quando ela já pediu conexão) |
+| `feature:devices` | Aparelhos (pausar, renomear, remover, listar arquivos pendentes de cada um via `SyncthingRepository.pendingFiles` → `/rest/db/remoteneed`), aprovação de pendentes, fluxo de 3 passos com QR (sugere o nome da máquina quando ela já pediu conexão) |
 | `feature:onboarding` | Introdução da primeira abertura (explica o app e pergunta se compartilha ou pega uma pasta) |
-| `feature:settings` | Ajustes (nome, código, versões do app e do núcleo, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
+| `feature:settings` | Ajustes (nome, código, versões do app e do núcleo, novidades da versão, iniciar/parar núcleo, aceite automático de pastas, tema claro/escuro, idioma) |
 | `feature:conflicts` | `domain` (diff Myers, modelo de merge), `data` (varredura e resolução no disco), `presentation` |
 | `app` | NavHost, barra de abas, agregação dos módulos Koin |
 | `androidApp` | Activity, serviço, gerenciador do processo do núcleo, scanner QR (ZXing) |
@@ -102,6 +102,12 @@ uma pasta não vai para dentro dela mesma. Pastas que o MeshSync sincroniza (cam
 sincronizada, **Sincronizar** navega para `AddFolderRoute(path = …)`, que preenche o caminho e o nome. Precisa do acesso a
 todos os arquivos; as operações são de arquivo (Okio) em `feature:files:data`, sem passar pelo núcleo.
 
+**Receber arquivos de outros apps (Android):** o MeshSync aparece no menu Compartilhar do sistema
+(`ACTION_SEND`/`ACTION_SEND_MULTIPLE`, qualquer tipo). `MainActivity` entrega o conteúdo ao `IncomingShareInbox`
+(`feature:files:domain`); `App` abre `ShareTargetRoute` (`ShareTargetViewModel`), o usuário escolhe uma pasta sincronizada e
+`AndroidShareImporter` copia os arquivos (texto vira `shared-text.txt`) sem sobrescrever nada.
+
+
 ## Pastas conhecidas
 
 Quando um aparelho que você já adicionou oferece uma pasta que você já compartilha com outro aparelho (mesmo ID,
@@ -126,6 +132,14 @@ pasta deste aparelho (abre *Adicionar pasta*), pegar uma pasta de outro aparelho
 depois. O fim ou o "Pular" grava `AppPreferences.onboardingCompleted`, então ela não volta. A página atual sobrevive a
 morte de processo via `SavedStateHandle`. Os formulários *Adicionar pasta* e *Adicionar aparelho* observam `SyncthingCore.state`:
 enquanto o núcleo não está `Running` mostram o `CoreStatusCallout` e bloqueiam salvar/confirmar.
+
+## Novidades da versão
+
+Depois de cada atualização o app abre uma mensagem curta com as novidades e correções daquela versão, uma única vez
+(`AppPreferences.lastSeenReleaseNotes` guarda a última versão vista; `ReleaseNotesPolicy` decide quando abrir). Numa
+instalação nova ela não aparece. Para rever, toque em **Novidades** ao lado da versão do MeshSync em Configurações. O texto
+fica em `core:presentation` (`ReleaseNotes`, strings `release_notes_*` nos 7 idiomas) e é um resumo curto do CHANGELOG, sem
+detalhes de implementação; uma versão sem entrada em `ReleaseNotes` não abre mensagem.
 
 ## Escolher a pasta no celular
 
@@ -241,7 +255,7 @@ adb shell run-as com.adamfoerster.meshsync.debug touch files/demo
 
 ## Versionamento e contribuição
 
-Versão atual: **1.15.1** (`app.version` em `gradle.properties`, SemVer). Histórico em [CHANGELOG.md](CHANGELOG.md).
+Versão atual: **1.18.0** (`app.version` em `gradle.properties`, SemVer). Histórico em [CHANGELOG.md](CHANGELOG.md).
 
 Cada alteração precisa de testes, um bump de versão, uma entrada no CHANGELOG e a documentação atualizada;
 as regras completas estão em [CLAUDE.md](CLAUDE.md). `./gradlew verifyVersion` (que roda antes de todo

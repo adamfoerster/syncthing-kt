@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">Remover %1$s?</string>
     <string name="devices_remove_confirm_body">Ele deixa de receber suas pastas. Os arquivos que já estão nele não são apagados.</string>
     <string name="devices_remove_confirm">Remover</string>
+    <string name="devices_menu_pending">Arquivos pendentes</string>
+    <string name="devices_pending_files_title">Pendentes para %1$s</string>
+    <string name="devices_pending_files_loading">Verificando o que falta…</string>
+    <string name="devices_pending_files_empty">%1$s está com tudo em dia. Nada pendente.</string>
+    <string name="devices_pending_files_removal">Será apagado</string>
+    <string name="devices_pending_files_limit">Mostrando só as %1$d primeiras entradas de cada pasta.</string>
     <string name="devices_open">Opções de %1$s</string>
 
     <string name="add_title">Adicionar aparelho</string>

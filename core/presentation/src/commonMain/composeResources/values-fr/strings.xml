@@ -47,4 +47,14 @@
     <string name="error_invalid_name">Ce nom ne peut pas être utilisé. Saisissez un nom sans barre oblique.</string>
     <string name="error_already_exists">Un élément porte déjà ce nom.</string>
     <string name="error_into_itself">Un dossier ne peut pas être copié ni déplacé dans lui-même.</string>
+
+    <string name="release_notes_title">Nouveautés de la version %1$s</string>
+    <string name="release_notes_close">Compris</string>
+    <string name="release_notes_kind_new">Nouveau</string>
+    <string name="release_notes_kind_changed">Modifié</string>
+    <string name="release_notes_kind_fixed">Corrigé</string>
+    <string name="release_notes_1_19_0_new_share">Vous pouvez désormais partager des fichiers depuis d’autres applications vers MeshSync : choisissez un dossier synchronisé et les fichiers y sont enregistrés.</string>
+    <string name="release_notes_1_18_0_new_popup">Un message de nouveautés s’affiche désormais une fois après chaque mise à jour. Vous pouvez le rouvrir dans Réglages, à côté de la version.</string>
+    <string name="release_notes_1_18_0_new_pending">Dans l’onglet Appareils, le menu de chaque appareil affiche maintenant les fichiers qu’il n’a pas encore reçus.</string>
+    <string name="release_notes_1_18_0_fixed_progress">L’avis « Synchronisation » de l’accueil n’affiche plus 0 % lorsque seul un autre appareil reçoit encore des fichiers.</string>
 </resources>

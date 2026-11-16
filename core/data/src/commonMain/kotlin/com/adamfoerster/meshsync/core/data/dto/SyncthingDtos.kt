@@ -168,6 +168,19 @@ data class DbFileEntryDto(
 )
 
 @Serializable
+data class RemoteNeedDto(
+    val files: List<NeedFileDto>? = null,
+)
+
+@Serializable
+data class NeedFileDto(
+    val name: String = "",
+    val size: Long = 0,
+    val type: String = "",
+    val deleted: Boolean = false,
+)
+
+@Serializable
 data class EventDto(
     val id: Long,
     val type: String = "",

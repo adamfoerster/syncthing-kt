@@ -4,8 +4,12 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
@@ -23,6 +27,7 @@ import com.adamfoerster.meshsync.app.navigation.HomeRoute
 import com.adamfoerster.meshsync.app.navigation.IgnoreRoute
 import com.adamfoerster.meshsync.app.navigation.OnboardingRoute
 import com.adamfoerster.meshsync.app.navigation.SettingsRoute
+import com.adamfoerster.meshsync.app.navigation.ShareTargetRoute
 import com.adamfoerster.meshsync.app.navigation.SharingRoute
 import com.adamfoerster.meshsync.app.resources.Res
 import com.adamfoerster.meshsync.app.resources.tab_devices
@@ -33,15 +38,21 @@ import com.adamfoerster.meshsync.core.designsystem.components.NgTab
 import com.adamfoerster.meshsync.core.designsystem.components.NgTabBar
 import com.adamfoerster.meshsync.core.designsystem.icons.NgIcons
 import com.adamfoerster.meshsync.core.designsystem.theme.SyncthingTheme
+import com.adamfoerster.meshsync.core.domain.preferences.AppInfo
 import com.adamfoerster.meshsync.core.domain.preferences.AppPreferences
+import com.adamfoerster.meshsync.core.domain.preferences.ReleaseNotesPolicy
 import com.adamfoerster.meshsync.core.domain.repository.SyncthingCore
 import com.adamfoerster.meshsync.core.presentation.LocalPlatformActions
 import com.adamfoerster.meshsync.core.presentation.PlatformActions
+import com.adamfoerster.meshsync.core.presentation.ReleaseNotes
+import com.adamfoerster.meshsync.core.presentation.ReleaseNotesDialog
 import com.adamfoerster.meshsync.feature.conflicts.presentation.ConflictsGraph
 import com.adamfoerster.meshsync.feature.conflicts.presentation.conflictsGraph
 import com.adamfoerster.meshsync.feature.devices.presentation.add.AddDeviceRoot
 import com.adamfoerster.meshsync.feature.devices.presentation.list.DeviceListRoot
+import com.adamfoerster.meshsync.feature.files.domain.IncomingShareInbox
 import com.adamfoerster.meshsync.feature.files.presentation.FilesRoot
+import com.adamfoerster.meshsync.feature.files.presentation.ShareTargetRoot
 import com.adamfoerster.meshsync.feature.folders.presentation.add.AddFolderRoot
 import com.adamfoerster.meshsync.feature.folders.presentation.add.FolderOffer
 import com.adamfoerster.meshsync.feature.folders.presentation.ignore.IgnoreRoot
@@ -72,6 +83,16 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
     // Read once: finishing the introduction must not swap the start destination under the running NavHost.
     val startDestination: Any = remember { if (preferences.onboardingCompleted.value) HomeRoute else OnboardingRoute }
     val tabBar: @Composable () -> Unit = { MainTabBar(navController) }
+    ReleaseNotesPopup(preferences)
+
+    // Files shared from another app open the folder picker, once the introduction is out of the way.
+    val inbox = koinInject<IncomingShareInbox>()
+    val pendingShare by inbox.pending.collectAsState()
+    LaunchedEffect(pendingShare) {
+        if (pendingShare != null && preferences.onboardingCompleted.value) {
+            navController.navigate(ShareTargetRoute) { launchSingleTop = true }
+        }
+    }
 
     NavHost(
         navController = navController,
@@ -136,6 +157,7 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
                 onSyncFolder = { path -> navController.navigate(AddFolderRoute(path = path)) },
             )
         }
+        composable<ShareTargetRoute> { ShareTargetRoot(onExit = { navController.navigateUp() }) }
         composable<IgnoreRoute> { entry ->
             IgnoreRoot(folderId = entry.toRoute<IgnoreRoute>().folderId, onDone = { navController.navigateUp() })
         }
@@ -144,6 +166,28 @@ private fun AppNavHost(navController: NavHostController = rememberNavController(
             AddDeviceRoot(prefillId = route.deviceId, prefillName = route.name, onDone = { navController.navigateUp() })
         }
         conflictsGraph(navController)
+    }
+}
+
+/** Opens "What's new" once per version, after an update; Settings reopens it by hand. */
+@Composable
+private fun ReleaseNotesPopup(preferences: AppPreferences) {
+    val version = koinInject<AppInfo>().version
+    val notes = remember(version) { ReleaseNotes.forVersion(version) }
+    // Decided once at launch from what was stored, so dismissing (which stores the version) closes it.
+    var show by remember {
+        val lastSeen = preferences.lastSeenReleaseNotes.value
+        val onboarded = preferences.onboardingCompleted.value
+        if (ReleaseNotesPolicy.shouldMarkSeenSilently(version, lastSeen, onboarded)) {
+            preferences.setLastSeenReleaseNotes(version)
+        }
+        mutableStateOf(ReleaseNotesPolicy.shouldAutoShow(version, lastSeen, onboarded, notes != null))
+    }
+    if (show && notes != null) {
+        ReleaseNotesDialog(notes, onDismiss = {
+            preferences.setLastSeenReleaseNotes(version)
+            show = false
+        })
     }
 }
 

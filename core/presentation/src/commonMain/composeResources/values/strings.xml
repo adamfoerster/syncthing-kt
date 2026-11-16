@@ -47,4 +47,14 @@
     <string name="error_invalid_name">That name can’t be used. Type a name without slashes.</string>
     <string name="error_already_exists">Something with that name already exists.</string>
     <string name="error_into_itself">A folder can’t be copied or moved into itself.</string>
+
+    <string name="release_notes_title">What’s new in %1$s</string>
+    <string name="release_notes_close">Got it</string>
+    <string name="release_notes_kind_new">New</string>
+    <string name="release_notes_kind_changed">Changed</string>
+    <string name="release_notes_kind_fixed">Fixed</string>
+    <string name="release_notes_1_19_0_new_share">You can now share files from other apps to MeshSync: pick a synced folder and the files are saved there.</string>
+    <string name="release_notes_1_18_0_new_popup">A “What’s new” message now appears once after each update. You can reopen it in Settings, next to the version.</string>
+    <string name="release_notes_1_18_0_new_pending">On the Devices tab, each device’s menu now shows the files it has not received yet.</string>
+    <string name="release_notes_1_18_0_fixed_progress">The “Syncing” notice on Home no longer shows 0% when only another device is still receiving files.</string>
 </resources>

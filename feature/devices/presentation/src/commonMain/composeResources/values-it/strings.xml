@@ -27,6 +27,12 @@
     <string name="devices_remove_confirm_title">Rimuovere %1$s?</string>
     <string name="devices_remove_confirm_body">Smetterà di ricevere le tue cartelle. I file già presenti non vengono eliminati.</string>
     <string name="devices_remove_confirm">Rimuovi</string>
+    <string name="devices_menu_pending">File in sospeso</string>
+    <string name="devices_pending_files_title">In sospeso per %1$s</string>
+    <string name="devices_pending_files_loading">Verifica di cosa manca…</string>
+    <string name="devices_pending_files_empty">%1$s ha tutto. Niente in sospeso.</string>
+    <string name="devices_pending_files_removal">Verrà eliminato</string>
+    <string name="devices_pending_files_limit">Mostrate solo le prime %1$d voci di ogni cartella.</string>
     <string name="devices_open">Opzioni per %1$s</string>
 
     <string name="add_title">Aggiungi dispositivo</string>
